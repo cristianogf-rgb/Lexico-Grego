@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Léxikon — Léxico do Grego Bíblico</title>
+<meta name="description" content="Léxico do grego bíblico e clássico para consulta, busca e referência cruzada. Fontes de domínio público (LSJ e Abbott-Smith), em português do Brasil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecdc;
+    --paper-2:#efe5d0;
+    --ink:#241c14;
+    --ink-soft:#4a3d2e;
+    --ink-faint:#7a6a54;
+    --rubric:#8c2f23;       /* oxblood / rubricação */
+    --rubric-deep:#6e231a;
+    --gold:#9a7b32;
+    --line:#d8c8a8;
+    --line-soft:#e3d6bb;
+    --card:#fbf5e7;
+    --shadow:rgba(60,42,20,.16);
+    --sel:#e9d9b3;
+  }
+  html[data-theme="dark"]{
+    --paper:#1a1611;
+    --paper-2:#221d16;
+    --ink:#ece2cf;
+    --ink-soft:#cdbfa6;
+    --ink-faint:#9b8a6f;
+    --rubric:#cf6c54;
+    --rubric-deep:#b85740;
+    --gold:#cbab6e;
+    --line:#3a3025;
+    --line-soft:#2e2620;
+    --card:#241e17;
+    --shadow:rgba(0,0,0,.4);
+    --sel:#3a2f1f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  ::selection{background:var(--sel);color:var(--ink)}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'EB Garamond',Georgia,serif;
+    font-size:18px;line-height:1.6;
+    min-height:100vh;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(154,123,50,.05), transparent 40%),
+      radial-gradient(circle at 88% 92%, rgba(140,47,35,.045), transparent 42%);
+    transition:background-color .4s ease,color .4s ease;
+  }
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");}
+  html[data-theme="dark"] .grain{mix-blend-mode:screen;opacity:.25}
+
+  /* ---------- Cabeçalho ---------- */
+  header.top{position:relative;z-index:3;border-bottom:1px solid var(--line);
+    padding:26px 22px 20px;text-align:center;background:linear-gradient(180deg,var(--paper-2),transparent);}
+  .kicker{font-family:'EB Garamond';letter-spacing:.42em;text-transform:uppercase;
+    font-size:11px;color:var(--rubric);font-weight:600;margin-bottom:6px;}
+  h1.brand{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(40px,8vw,68px);
+    line-height:.95;letter-spacing:.01em;}
+  h1.brand .gk{font-family:'Gentium Book Plus';font-weight:700}
+  .tagline{font-style:italic;color:var(--ink-faint);font-size:15px;margin-top:4px}
+  .tagline b{color:var(--ink-soft);font-style:normal;font-weight:600}
+
+  .theme-toggle{position:absolute;top:18px;right:18px;background:none;border:1px solid var(--line);
+    color:var(--ink-soft);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:17px;
+    display:grid;place-items:center;transition:.25s;z-index:4}
+  .theme-toggle:hover{border-color:var(--rubric);color:var(--rubric);transform:rotate(-18deg)}
+
+  /* ---------- Layout ---------- */
+  .wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:22px 18px 80px}
+
+  /* ---------- Busca ---------- */
+  .search-shell{position:sticky;top:0;z-index:5;padding:16px 0 14px;background:linear-gradient(180deg,var(--paper) 72%,transparent)}
+  .search-box{position:relative;display:flex;align-items:center;border:1.5px solid var(--line);
+    background:var(--card);border-radius:3px;box-shadow:0 4px 18px -8px var(--shadow);
+    transition:border-color .25s,box-shadow .25s}
+  .search-box:focus-within{border-color:var(--rubric);box-shadow:0 6px 26px -8px var(--shadow)}
+  .search-box .ic{padding:0 14px;color:var(--ink-faint);font-size:20px}
+  #q{flex:1;border:none;background:none;outline:none;padding:16px 6px 16px 0;
+    font-family:'Gentium Book Plus','EB Garamond',serif;font-size:21px;color:var(--ink)}
+  #q::placeholder{color:var(--ink-faint);font-family:'EB Garamond';font-style:italic;font-size:18px}
+  .clear-btn{border:none;background:none;color:var(--ink-faint);font-size:22px;cursor:pointer;padding:0 14px;display:none}
+  .clear-btn:hover{color:var(--rubric)}
+  .search-hint{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:9px;
+    font-size:12.5px;color:var(--ink-faint);letter-spacing:.02em}
+  .search-hint kbd{font-family:'Gentium Book Plus',serif;background:var(--paper-2);
+    border:1px solid var(--line);border-radius:3px;padding:1px 7px;color:var(--ink-soft)}
+
+  /* ---------- Filtros ---------- */
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:18px 0 8px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-family:'EB Garamond';font-size:13.5px;border:1px solid var(--line);background:transparent;
+    color:var(--ink-soft);padding:5px 13px;border-radius:20px;cursor:pointer;transition:.2s;letter-spacing:.01em}
+  .chip:hover{border-color:var(--rubric);color:var(--rubric)}
+  .chip.on{background:var(--rubric);border-color:var(--rubric);color:#fff}
+  html[data-theme="dark"] .chip.on{color:#1a1611}
+  .count{font-size:13px;color:var(--ink-faint);font-style:italic;white-space:nowrap}
+
+  /* ---------- Trilho alfabético ---------- */
+  .alpha{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin:6px 0 22px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
+  .alpha button{font-family:'Gentium Book Plus',serif;font-size:19px;width:34px;height:34px;border:none;
+    background:none;color:var(--ink-soft);cursor:pointer;border-radius:3px;transition:.18s}
+  .alpha button:hover{background:var(--paper-2);color:var(--rubric)}
+  .alpha button.on{background:var(--rubric);color:#fff}
+  html[data-theme="dark"] .alpha button.on{color:#1a1611}
+
+  /* ---------- Lista de resultados ---------- */
+  #results{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:8px}
+  .entry{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:18px 18px 16px;
+    position:relative;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;
+    animation:rise .5s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .entry:hover{transform:translateY(-3px);box-shadow:0 12px 30px -14px var(--shadow);border-color:var(--gold)}
+  .entry::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rubric);
+    opacity:0;border-radius:4px 0 0 4px;transition:.2s}
+  .entry:hover::before{opacity:1}
+  .entry .lemma{font-family:'Gentium Book Plus',serif;font-size:30px;color:var(--ink);line-height:1.1}
+  .entry .translit{font-style:italic;color:var(--rubric);font-size:16px;margin-left:2px}
+  .entry .classe{font-size:12.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.12em;margin:7px 0 9px}
+  .entry .preview{font-size:15px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .entry .tags{margin-top:11px;display:flex;gap:6px;flex-wrap:wrap}
+  .entry .tags span{font-size:11px;background:var(--paper-2);border:1px solid var(--line-soft);
+    color:var(--ink-faint);padding:2px 8px;border-radius:3px}
+
+  .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-faint)}
+  .empty .big{font-family:'Gentium Book Plus',serif;font-size:46px;color:var(--line);margin-bottom:10px}
+
+  /* ---------- Modal de verbete ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(20,14,6,.55);backdrop-filter:blur(3px);z-index:50;
+    display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto}
+  .overlay.open{display:flex;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .sheet{background:var(--paper);border:1px solid var(--gold);border-radius:5px;max-width:760px;width:100%;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:pop .3s cubic-bezier(.2,.9,.3,1.2) both;position:relative}
+  @keyframes pop{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+  .sheet-head{padding:28px 30px 20px;border-bottom:2px solid var(--rubric);
+    background:linear-gradient(180deg,var(--paper-2),transparent);position:relative}
+  .close-x{position:absolute;top:14px;right:16px;border:none;background:none;font-size:28px;color:var(--ink-faint);
+    cursor:pointer;line-height:1;transition:.2s}
+  .close-x:hover{color:var(--rubric);transform:scale(1.15)}
+  .sheet-head .lemma{font-family:'Gentium Book Plus',serif;font-size:clamp(42px,9vw,60px);line-height:1;color:var(--ink)}
+  .sheet-head .translit{font-style:italic;font-size:22px;color:var(--rubric);margin-top:2px}
+  .sheet-head .meta{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--ink-soft)}
+  .sheet-head .meta b{color:var(--ink-faint);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;margin-right:5px}
+  .morf{font-family:'Gentium Book Plus',serif;font-size:18px;color:var(--ink)}
+
+  .sheet-body{padding:8px 30px 26px}
+  .sec{padding:20px 0;border-bottom:1px solid var(--line-soft)}
+  .sec:last-child{border-bottom:none}
+  .sec h3{font-family:'Cormorant Garamond';font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--rubric);margin-bottom:9px;display:flex;align-items:center;gap:9px}
+  .sec h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .sec p{font-size:17px;color:var(--ink-soft);line-height:1.62}
+  .sec .gk{font-family:'Gentium Book Plus',serif;color:var(--ink)}
+  .source-tag{font-size:11px;font-style:italic;color:var(--ink-faint);margin-left:8px}
+
+  .xref{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .xref a{font-family:'Gentium Book Plus',serif;font-size:19px;text-decoration:none;color:var(--ink);
+    border:1px solid var(--line);background:var(--card);padding:4px 12px;border-radius:3px;transition:.18s;cursor:pointer}
+  .xref a:hover{border-color:var(--rubric);color:var(--rubric);background:var(--paper-2)}
+  .xref a small{font-style:italic;color:var(--ink-faint);font-size:12px;font-family:'EB Garamond'}
+  .xref a:hover small{color:var(--rubric)}
+
+  .sheet-actions{display:flex;gap:10px;flex-wrap:wrap;padding:18px 30px 24px;border-top:1px solid var(--line)}
+  .act{font-family:'EB Garamond';font-size:14.5px;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
+    padding:9px 16px;border-radius:3px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:7px}
+  .act:hover{border-color:var(--rubric);color:var(--rubric)}
+  .act.primary{background:var(--rubric);border-color:var(--rubric);color:#fff}
+  html[data-theme="dark"] .act.primary{color:#1a1611}
+  .act.primary:hover{background:var(--rubric-deep)}
+
+  /* ---------- Rodapé ---------- */
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);margin-top:40px;padding:28px 20px 60px;
+    text-align:center;color:var(--ink-faint);font-size:13.5px;line-height:1.7;max-width:760px;margin-left:auto;margin-right:auto}
+  footer b{color:var(--ink-soft)}
+  footer .src{font-style:italic}
+
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);z-index:99;
+    background:var(--ink);color:var(--paper);padding:11px 22px;border-radius:4px;font-size:14px;
+    box-shadow:0 10px 30px -8px rgba(0,0,0,.5);opacity:0;transition:.3s}
+  .toast.show{transform:translateX(-50%);opacity:1}
+
+  @media(max-width:560px){
+    body{font-size:17px}
+    #results{grid-template-columns:1fr}
+    .sheet-head,.sheet-body,.sheet-actions{padding-left:20px;padding-right:20px}
+    .search-hint{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="top">
+  <button class="theme-toggle" id="themeBtn" title="Alternar tema" aria-label="Alternar tema">☾</button>
+  <div class="kicker">Léxico do Grego do Novo Testamento</div>
+  <h1 class="brand"><span class="gk">Λέξικον</span></h1>
+  <p class="tagline">Consulta, busca e referência cruzada · fontes de domínio público &nbsp;<b>LSJ</b>&nbsp;+&nbsp;<b>Abbott-Smith</b></p>
+</header>
+
+<div class="wrap">
+
+  <div class="search-shell">
+    <div class="search-box">
+      <span class="ic">⌕</span>
+      <input id="q" type="text" autocomplete="off" spellcheck="false"
+        placeholder="Busque em grego (ἀγάπη), transliteração (agape) ou português (graça)…" />
+      <button class="clear-btn" id="clearBtn" title="Limpar">×</button>
+    </div>
+    <div class="search-hint">
+      <span>Busca por <kbd>grego</kbd>, <kbd>transliteração</kbd> ou <kbd>significado</kbd></span>
+      <span>Acentos e diacríticos são ignorados</span>
+      <span><kbd>Esc</kbd> fecha o verbete</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="chips" id="chips"></div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div class="alpha" id="alpha"></div>
+
+  <div id="results"></div>
+
+</div>
+
+<footer>
+  <p><b>Léxikon</b> reúne dados lexicográficos de <span class="src">obras de domínio público</span> — o
+  <i>Liddell-Scott-Jones (LSJ)</i> e o <i>Manual Greek Lexicon of the New Testament</i> de G. Abbott-Smith — redigidos e
+  traduzidos para o português do Brasil.</p>
+  <p>Este núcleo é um conjunto curado e verificado, não o corpus integral. Para a cobertura completa, utilize o script de
+  ingestão que carrega os dados abertos da <b>Perseus Digital Library</b>. &nbsp;·&nbsp; Distribua livremente.</p>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Base de dados (núcleo embutido para funcionar offline e por arquivo local) -->
+<script src="dados.js"></script>
+<script>
+/* ===================== Utilidades de normalização ===================== */
+function tirarAcentos(s){
+  return (s||"").normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"").replace(/\u02BC|\u2019|'/g,"").toLowerCase();
+}
+// mapa transliteração latina -> grego (busca aproximada)
+function gregoParaLatim(s){
+  var m={ "α":"a","β":"b","γ":"g","δ":"d","ε":"e","ζ":"z","η":"e","θ":"th","ι":"i","κ":"k",
+    "λ":"l","μ":"m","ν":"n","ξ":"x","ο":"o","π":"p","ρ":"r","σ":"s","ς":"s","τ":"t","υ":"u",
+    "φ":"ph","χ":"ch","ψ":"ps","ω":"o" };
+  var out="";
+  var base=s.normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"").toLowerCase();
+  // dígrafo de aspiração: heurística simples (palavra começada por vogal com espírito áspero não é detectável aqui)
+  for(var i=0;i<base.length;i++){ out += (m[base[i]]!==undefined ? m[base[i]] : base[i]); }
+  return out;
+}
+function chaveBusca(e){
+  return [ tirarAcentos(e.lema), gregoParaLatim(e.lema), tirarAcentos(e.translit),
+           tirarAcentos(e.beta), tirarAcentos(e.lsj), tirarAcentos(e.abbott),
+           tirarAcentos(e.classe), tirarAcentos((e.cognatos||[]).join(" ")) ].join(" ");
+}
+
+/* ===================== Estado ===================== */
+var DADOS = (window.LEXICON_DATA||[]).slice().sort(function(a,b){ return a.lema.localeCompare(b.lema,"el"); });
+DADOS.forEach(function(e){ e._k = chaveBusca(e); });
+var mapaLema = {}; DADOS.forEach(function(e){ mapaLema[e.lema]=e; });
+
+var filtroClasse=null, filtroLetra=null, termo="";
+
+var CLASSES=[
+  {id:"verbo",rot:"Verbos"},
+  {id:"substantivo",rot:"Substantivos"},
+  {id:"adjetivo",rot:"Adjetivos"}
+];
+
+/* ===================== Render: chips e alfabeto ===================== */
+var chipsEl=document.getElementById("chips");
+chipsEl.innerHTML='<button class="chip on" data-c="">Todos</button>'+
+  CLASSES.map(function(c){return '<button class="chip" data-c="'+c.id+'">'+c.rot+'</button>';}).join("");
+chipsEl.addEventListener("click",function(ev){
+  var b=ev.target.closest(".chip"); if(!b)return;
+  chipsEl.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on")});
+  b.classList.add("on"); filtroClasse=b.dataset.c||null; render();
+});
+
+var ALFA="αβγδεζηθικλμνξοπρστυφχψω".split("");
+var alphaEl=document.getElementById("alpha");
+var letrasComVerbete={};
+DADOS.forEach(function(e){ var l=e.lema.normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"")[0].toLowerCase(); letrasComVerbete[l]=true; });
+alphaEl.innerHTML='<button data-l="" class="on">∗</button>'+ALFA.map(function(l){
+  var dis = letrasComVerbete[l] ? "" : ' style="opacity:.28;pointer-events:none"';
+  return '<button data-l="'+l+'"'+dis+'>'+l+'</button>';
+}).join("");
+alphaEl.addEventListener("click",function(ev){
+  var b=ev.target.closest("button"); if(!b)return;
+  alphaEl.querySelectorAll("button").forEach(function(x){x.classList.remove("on")});
+  b.classList.add("on"); filtroLetra=b.dataset.l||null; render();
+});
+
+/* ===================== Busca / filtro ===================== */
+function filtrar(){
+  var t=tirarAcentos(termo).trim();
+  return DADOS.filter(function(e){
+    if(filtroClasse && (e.classe||"").toLowerCase().indexOf(filtroClasse)===-1) return false;
+    if(filtroLetra){
+      var l=e.lema.normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"")[0].toLowerCase();
+      if(l!==filtroLetra) return false;
+    }
+    if(t){ return e._k.indexOf(t)!==-1; }
+    return true;
+  });
+}
+
+/* ===================== Render: lista ===================== */
+var resultsEl=document.getElementById("results");
+var countEl=document.getElementById("count");
+function render(){
+  var lista=filtrar();
+  countEl.textContent = lista.length + (lista.length===1?" verbete":" verbetes");
+  if(!lista.length){
+    resultsEl.innerHTML='<div class="empty"><div class="big">∅</div>'+
+      'Nenhum verbete encontrado para “'+escapeHtml(termo)+'”.<br>'+
+      'Tente outra grafia, a transliteração ou um significado em português.</div>';
+    return;
+  }
+  resultsEl.innerHTML=lista.map(function(e,i){
+    var prev = (e.abbott||e.lsj||"").replace(/<[^>]+>/g,"");
+    return '<article class="entry" data-lema="'+escapeHtml(e.lema)+'" style="animation-delay:'+Math.min(i*22,420)+'ms">'+
+      '<div class="lemma">'+e.lema+' <span class="translit">'+e.translit+'</span></div>'+
+      '<div class="classe">'+escapeHtml(curtaClasse(e.classe))+'</div>'+
+      '<div class="preview">'+escapeHtml(prev)+'</div>'+
+      (e.cognatos&&e.cognatos.length?'<div class="tags">'+e.cognatos.slice(0,4).map(function(c){return '<span>'+c+'</span>';}).join("")+'</div>':'')+
+    '</article>';
+  }).join("");
+}
+function curtaClasse(c){ return (c||"").split(",")[0]; }
+function escapeHtml(s){ return (s||"").replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
+
+resultsEl.addEventListener("click",function(ev){
+  var card=ev.target.closest(".entry"); if(!card)return;
+  abrir(card.dataset.lema);
+});
+
+/* ===================== Modal de verbete ===================== */
+var overlay=document.getElementById("overlay"), sheet=document.getElementById("sheet");
+function abrir(lema){
+  var e=mapaLema[lema]; if(!e)return;
+  location.hash = encodeURIComponent(lema);
+  var meta="";
+  if(e.morf) meta+='<span><b>Flexão</b><span class="morf">'+e.morf+'</span></span>';
+  if(e.raiz && e.raiz!=="—") meta+='<span><b>Raiz</b><span class="morf">'+e.raiz+'</span></span>';
+  if(e.nt) meta+='<span><b>NT</b>'+escapeHtml(e.nt.split(".")[0])+'</span>';
+
+  function secXref(titulo,lista,rotulo){
+    if(!lista||!lista.length) return "";
+    var html=lista.map(function(c){
+      var alvo=mapaLema[c];
+      return '<a data-goto="'+escapeHtml(c)+'"'+(alvo?'':' style="opacity:.5;cursor:default" title="Ainda não consta no núcleo"')+'>'+
+        c+(alvo?' <small>'+alvo.translit+'</small>':'')+'</a>';
+    }).join("");
+    return '<div class="sec"><h3>'+titulo+'</h3><div class="xref">'+html+'</div></div>';
+  }
+
+  sheet.innerHTML=
+    '<div class="sheet-head"><button class="close-x" id="closeX">×</button>'+
+      '<div class="lemma">'+e.lema+'</div>'+
+      '<div class="translit">'+e.translit+'</div>'+
+      '<div class="meta">'+meta+'</div>'+
+    '</div>'+
+    '<div class="sheet-body">'+
+      '<div class="sec"><h3>Classe gramatical</h3><p>'+escapeHtml(e.classe)+'</p></div>'+
+      (e.abbott?'<div class="sec"><h3>Abbott-Smith <span class="source-tag">— foco no Novo Testamento</span></h3><p>'+realce(e.abbott)+'</p></div>':'')+
+      (e.lsj?'<div class="sec"><h3>Liddell-Scott-Jones <span class="source-tag">— uso clássico e geral</span></h3><p>'+realce(e.lsj)+'</p></div>':'')+
+      (e.nt?'<div class="sec"><h3>Ocorrências no NT</h3><p>'+realce(e.nt)+'</p></div>':'')+
+      secXref("Família de palavras (cognatos)",e.cognatos)+
+      secXref("Ver também",e.verTambem)+
+    '</div>'+
+    '<div class="sheet-actions">'+
+      '<button class="act primary" id="copyEntry">⧉ Copiar verbete</button>'+
+      '<button class="act" id="copyLink">🔗 Copiar link</button>'+
+      '<button class="act" id="shareEntry">↗ Compartilhar</button>'+
+    '</div>';
+  overlay.classList.add("open");
+  document.body.style.overflow="hidden";
+
+  document.getElementById("closeX").onclick=fechar;
+  sheet.querySelectorAll("[data-goto]").forEach(function(a){
+    a.onclick=function(){ var alvo=this.dataset.goto; if(mapaLema[alvo]) abrir(alvo); };
+  });
+  document.getElementById("copyEntry").onclick=function(){ copiar(textoVerbete(e),"Verbete copiado"); };
+  document.getElementById("copyLink").onclick=function(){ copiar(location.href,"Link copiado"); };
+  document.getElementById("shareEntry").onclick=function(){
+    if(navigator.share){ navigator.share({title:"Léxikon · "+e.lema, text:textoVerbete(e), url:location.href}).catch(function(){}); }
+    else copiar(location.href,"Link copiado");
+  };
+}
+// realça grego dentro do texto
+function realce(t){
+  return escapeHtml(t).replace(/([\u0370-\u03ff\u1f00-\u1fff\u0386-\u03ce]+(?:[\u0370-\u03ff\u1f00-\u1fff\s·.,]*[\u0370-\u03ff\u1f00-\u1fff])?)/g,
+    function(m){ return /[\u0370-\u03ff\u1f00-\u1fff]/.test(m)?'<span class="gk">'+m+'</span>':m; });
+}
+function textoVerbete(e){
+  var L=[];
+  L.push(e.lema+"  ("+e.translit+")");
+  if(e.classe)L.push(e.classe);
+  if(e.morf)L.push("Flexão: "+e.morf);
+  if(e.raiz&&e.raiz!=="—")L.push("Raiz: "+e.raiz);
+  L.push("");
+  if(e.abbott)L.push("ABBOTT-SMITH (NT): "+e.abbott);
+  if(e.lsj)L.push("LSJ (clássico): "+e.lsj);
+  if(e.nt)L.push("NT: "+e.nt);
+  if(e.cognatos&&e.cognatos.length)L.push("Cognatos: "+e.cognatos.join(", "));
+  if(e.verTambem&&e.verTambem.length)L.push("Ver também: "+e.verTambem.join(", "));
+  L.push("");
+  L.push("— Léxikon · "+location.href);
+  return L.join("\n");
+}
+function fechar(){
+  overlay.classList.remove("open");
+  document.body.style.overflow="";
+  if(location.hash) history.replaceState(null,"",location.pathname+location.search);
+}
+overlay.addEventListener("click",function(ev){ if(ev.target===overlay) fechar(); });
+document.addEventListener("keydown",function(ev){ if(ev.key==="Escape") fechar(); });
+
+/* ===================== Copiar / Toast ===================== */
+var toast=document.getElementById("toast"),toastT;
+function copiar(txt,msg){
+  navigator.clipboard.writeText(txt).then(function(){mostrarToast(msg);}).catch(function(){
+    var ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");mostrarToast(msg);}catch(e){mostrarToast("Não foi possível copiar");}
+    document.body.removeChild(ta);
+  });
+}
+function mostrarToast(m){ toast.textContent=m;toast.classList.add("show");clearTimeout(toastT);
+  toastT=setTimeout(function(){toast.classList.remove("show");},1900); }
+
+/* ===================== Busca ao vivo ===================== */
+var qEl=document.getElementById("q"),clearBtn=document.getElementById("clearBtn");
+qEl.addEventListener("input",function(){
+  termo=this.value; clearBtn.style.display=termo?"block":"none";
+  if(termo){ filtroLetra=null; alphaEl.querySelectorAll("button").forEach(function(x){x.classList.remove("on")}); alphaEl.children[0].classList.add("on"); }
+  render();
+});
+clearBtn.onclick=function(){ qEl.value="";termo="";clearBtn.style.display="none";qEl.focus();render(); };
+
+/* ===================== Tema ===================== */
+var themeBtn=document.getElementById("themeBtn");
+var temaSalvo = (function(){ try{return localStorage.getItem("lexikon-tema")}catch(e){return null} })();
+if(temaSalvo==="dark"){ document.documentElement.setAttribute("data-theme","dark"); themeBtn.textContent="☀"; }
+themeBtn.onclick=function(){
+  var dark=document.documentElement.getAttribute("data-theme")==="dark";
+  if(dark){ document.documentElement.removeAttribute("data-theme"); themeBtn.textContent="☾"; salvarTema("light"); }
+  else { document.documentElement.setAttribute("data-theme","dark"); themeBtn.textContent="☀"; salvarTema("dark"); }
+};
+function salvarTema(v){ try{localStorage.setItem("lexikon-tema",v)}catch(e){} }
+
+/* ===================== Deep-link inicial ===================== */
+function abrirDoHash(){ var h=decodeURIComponent((location.hash||"").replace(/^#/,"")); if(h&&mapaLema[h]) abrir(h); }
+
+/* ===================== Início ===================== */
+render();
+abrirDoHash();
+window.addEventListener("hashchange",function(){ if(!overlay.classList.contains("open")) abrirDoHash(); });
+</script>
+</body>
+</html>
