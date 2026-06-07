@@ -111,6 +111,26 @@
   .ref-summary i{color:var(--ink-faint);font-size:13px}
   .ref-summary .err{color:var(--rubric);font-style:italic}
 
+  /* Painel de versículos (Nestle 1904 + Almeida 1911) */
+  #versePanel{margin:14px 0 4px}
+  .verse-legend{font-size:12px;color:var(--ink-faint);font-style:italic;margin:0 2px 10px;letter-spacing:.01em}
+  .verse-legend b{color:var(--ink-soft);font-style:normal;font-weight:600}
+  .verse-note{padding:12px 16px;border-left:3px solid var(--gold);background:var(--paper-2);
+    border-radius:0 3px 3px 0;font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .verse-note b{font-family:'Gentium Book Plus',serif;color:var(--rubric)}
+  .verse{margin:0 0 14px;padding:14px 18px;background:var(--card);border:1px solid var(--line);
+    border-left:3px solid var(--rubric);border-radius:0 4px 4px 0;animation:fade .3s ease}
+  .verse .vref{font-family:'EB Garamond',serif;font-size:13px;font-weight:600;color:var(--rubric);
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+  .verse .grc{font-family:'Gentium Book Plus','Cormorant Garamond',serif;font-size:21px;line-height:1.85;
+    color:var(--ink);margin:0 0 9px}
+  .verse .grc mark.vg{background:none;color:inherit;padding:0 1px;border-radius:2px}
+  .verse .grc mark.vg[data-goto]{background:rgba(154,123,50,.18);color:var(--rubric-deep);
+    cursor:pointer;box-shadow:inset 0 -2px 0 rgba(140,47,35,.35);transition:background .15s}
+  .verse .grc mark.vg[data-goto]:hover{background:var(--rubric);color:#fff;box-shadow:none}
+  .verse .vpt{font-family:'EB Garamond',serif;font-size:16.5px;line-height:1.6;color:var(--ink-soft);
+    margin:0;padding-top:8px;border-top:1px dashed var(--line)}
+
   /* ---------- Filtros ---------- */
   .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:18px 0 8px}
   .chips{display:flex;flex-wrap:wrap;gap:7px}
@@ -146,6 +166,11 @@
   .entry .tags{margin-top:11px;display:flex;gap:6px;flex-wrap:wrap}
   .entry .tags span{font-size:11px;background:var(--paper-2);border:1px solid var(--line-soft);
     color:var(--ink-faint);padding:2px 8px;border-radius:3px}
+  .gloss{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+  .gloss span{font-family:'EB Garamond',serif;font-size:14px;color:var(--rubric);
+    background:var(--paper-2);border:1px solid var(--line-soft);border-radius:3px;padding:1px 9px}
+  .gloss span.hit{background:var(--rubric);border-color:var(--rubric);color:#fff;font-weight:600}
+  .gloss.big span{font-size:17px;padding:3px 12px}
 
   .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-faint)}
   .empty .big{font-family:'Gentium Book Plus',serif;font-size:46px;color:var(--line);margin-bottom:10px}
@@ -229,7 +254,7 @@
     <div class="search-box">
       <span class="ic">⌕</span>
       <input id="q" type="text" autocomplete="off" spellcheck="false"
-        placeholder="Busque em grego (ἀγάπη), transliteração (agape) ou português (graça)…" />
+        placeholder="Busque por significado em português (graça, redenção, mansidão), grego (ἀγάπη) ou transliteração (agape)…" />
       <button class="clear-btn" id="clearBtn" title="Limpar">×</button>
     </div>
     <div class="ref-box">
@@ -255,6 +280,8 @@
 
   <div class="ref-summary" id="refSummary"></div>
 
+  <div id="versePanel"></div>
+
   <div id="results"></div>
 
 </div>
@@ -274,6 +301,7 @@
 <div class="toast" id="toast"></div>
 
 <!-- Base de dados (núcleo embutido para funcionar offline e por arquivo local) -->
+<script src="versiculos.js"></script>
 <script src="dados.js"></script>
 <script>
 /* ===================== Utilidades de normalização ===================== */
@@ -294,12 +322,18 @@ function gregoParaLatim(s){
 function chaveBusca(e){
   return [ tirarAcentos(e.lema), gregoParaLatim(e.lema), tirarAcentos(e.translit),
            tirarAcentos(e.beta), tirarAcentos(e.lsj), tirarAcentos(e.abbott),
-           tirarAcentos(e.classe), tirarAcentos((e.cognatos||[]).join(" ")) ].join(" ");
+           tirarAcentos(e.classe), tirarAcentos((e.cognatos||[]).join(" ")),
+           tirarAcentos((e.pt||[]).join(" ")) ].join(" ");
 }
 
 /* ===================== Estado ===================== */
 var DADOS = (window.LEXICON_DATA||[]).slice().sort(function(a,b){ return a.lema.localeCompare(b.lema,"el"); });
-DADOS.forEach(function(e){ e._k = chaveBusca(e); });
+DADOS.forEach(function(e){
+  e._k   = chaveBusca(e);
+  e._kpt = " " + tirarAcentos((e.pt||[]).join(" ")).replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim() + " ";
+  e._ptset = (e.pt||[]).map(function(g){ return tirarAcentos(g); });
+  e._kid = [ tirarAcentos(e.lema), gregoParaLatim(e.lema), tirarAcentos(e.translit), tirarAcentos(e.beta) ].join(" ");
+});
 var mapaLema = {}; DADOS.forEach(function(e){ mapaLema[e.lema]=e; });
 
 /* ===================== Índice de referências bíblicas ===================== */
@@ -403,9 +437,38 @@ alphaEl.addEventListener("click",function(ev){
   render();
 });
 
+/* ===================== Versículos (Nestle 1904 + Almeida 1911, domínio público) ===================== */
+var VERSOS = window.LEXICON_VERSOS || {};
+function refsDaConsulta(){
+  if(!refAlvo) return [];
+  var pre=refAlvo.livro+"|"+refAlvo.cap+"|";
+  if(refAlvo.vers===null){
+    return Object.keys(VERSOS).filter(function(r){ return r.indexOf(pre)===0; })
+      .sort(function(a,b){ return (+a.split("|")[2])-(+b.split("|")[2]); });
+  }
+  return refAlvo.vers.map(function(v){ return pre+v; });
+}
+function temTexto(refs){ return refs.some(function(r){ return VERSOS[r] && VERSOS[r].g; }); }
+function lemasPresentes(refs){
+  var s={};
+  refs.forEach(function(r){ var o=VERSOS[r]; if(o&&o.g) o.g.forEach(function(t){ if(Array.isArray(t)) s[t[1]]=1; }); });
+  return s;
+}
+
 /* ===================== Busca / filtro ===================== */
 function filtrar(){
   if(refAlvo){
+    var refs=refsDaConsulta();
+    // Para os 5 livros com texto, os "verbetes presentes" vêm da própria lematização
+    // do Nestle 1904 (coincide exatamente com as palavras destacadas no grego).
+    if(temTexto(refs)){
+      var pres=lemasPresentes(refs);
+      return DADOS.filter(function(e){
+        if(filtroClasse && (e.classe||"").toLowerCase().indexOf(filtroClasse)===-1) return false;
+        return pres[e.lema]===1;
+      });
+    }
+    // Demais livros: usa as ocorrências citadas nos próprios verbetes (campo nt).
     return DADOS.filter(function(e){
       if(filtroClasse && (e.classe||"").toLowerCase().indexOf(filtroClasse)===-1) return false;
       if(!e._refs||!e._refs.length) return false;
@@ -417,7 +480,7 @@ function filtrar(){
     });
   }
   var t=tirarAcentos(termo).trim();
-  return DADOS.filter(function(e){
+  var base = DADOS.filter(function(e){
     if(filtroClasse && (e.classe||"").toLowerCase().indexOf(filtroClasse)===-1) return false;
     if(filtroLetra){
       var l=e.lema.normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"")[0].toLowerCase();
@@ -426,12 +489,64 @@ function filtrar(){
     if(t){ return e._k.indexOf(t)!==-1; }
     return true;
   });
+  if(t){
+    // ranqueamento por qualidade do acerto:
+    //  0 glosa PT idêntica · 1 palavra inteira na glosa · 2 prefixo de glosa ou forma grega · 3 menção no corpo
+    var b0=[],b1=[],b2=[],b3=[];
+    base.forEach(function(e){
+      var r;
+      if(e._ptset.indexOf(t)!==-1) r=0;
+      else if(e._kpt.indexOf(" "+t+" ")!==-1) r=1;
+      else if(e._kpt.indexOf(" "+t)!==-1 || (" "+e._kid+" ").indexOf(" "+t)!==-1) r=2;
+      else r=3;
+      (r===0?b0:r===1?b1:r===2?b2:b3).push(e);
+    });
+    return b0.concat(b1,b2,b3);
+  }
+  return base;
 }
 
 /* ===================== Render: lista ===================== */
 var resultsEl=document.getElementById("results");
 var countEl=document.getElementById("count");
 var refSummaryEl=document.getElementById("refSummary");
+var versePanelEl=document.getElementById("versePanel");
+function montarPainel(refs){
+  return refs.map(function(r){
+    var o=VERSOS[r]; if(!o) return "";
+    var p=r.split("|"), rot=p[0]+" "+p[1]+"."+p[2];
+    var grego="";
+    if(o.g){
+      grego=o.g.map(function(tok){
+        if(Array.isArray(tok)){
+          var lema=tok[1], existe=mapaLema[lema];
+          return '<mark class="vg"'+(existe?' data-goto="'+escapeHtml(lema)+'" title="'+escapeHtml(lema)+'"':' style="cursor:default"')+'>'+escapeHtml(tok[0])+'</mark>';
+        }
+        return escapeHtml(tok);
+      }).join(" ");
+    }
+    return '<div class="verse">'+
+      '<div class="vref">'+rot+'</div>'+
+      (grego?'<p class="grc" lang="grc">'+grego+'</p>':'')+
+      (o.p?'<p class="vpt">'+escapeHtml(o.p)+'</p>':'')+
+    '</div>';
+  }).join("");
+}
+function atualizarPainel(){
+  if(!refAlvo){ versePanelEl.innerHTML=""; return; }
+  var refs=refsDaConsulta().filter(function(r){ return VERSOS[r]; });
+  if(!refs.length){ versePanelEl.innerHTML=""; return; }
+  var MAX=16;
+  if(refs.length>MAX){
+    versePanelEl.innerHTML='<div class="verse-note">Trecho extenso ('+refs.length+' versículos). Refine para um versículo ou uma faixa menor — p.ex. <b>'+escapeHtml(refAlvo.livro+" "+refAlvo.cap+".1-6")+'</b> — para ver o grego e o português.</div>';
+    return;
+  }
+  versePanelEl.innerHTML='<div class="verse-legend">Grego: <b>Nestle 1904</b> · Português: <b>Almeida 1911</b> — domínio público. As palavras destacadas têm verbete; toque para abrir.</div>'+montarPainel(refs);
+}
+versePanelEl.addEventListener("click",function(ev){
+  var m=ev.target.closest("mark[data-goto]"); if(!m)return;
+  var alvo=m.dataset.goto; if(mapaLema[alvo]) abrir(alvo);
+});
 function atualizarRefSummary(){
   var raw=(document.getElementById("ref").value||"").trim();
   if(!raw){ refSummaryEl.className="ref-summary"; refSummaryEl.innerHTML=""; return; }
@@ -442,14 +557,15 @@ function atualizarRefSummary(){
   }
   var nome=LIVRO_NOME[refAlvo.livro]||refAlvo.livro;
   var n=filtrar().length;
-  var COBERTURA_PLENA={Rm:1,Gl:1,Ef:1};
-  var nota = COBERTURA_PLENA[refAlvo.livro] ? "" : " <i>— cobertura plena de Romanos, Gálatas e Efésios; nos demais livros, mostra o que o léxico já cita.</i>";
+  var COBERTURA_PLENA={Rm:1,Gl:1,Ef:1,Fp:1,Cl:1};
+  var nota = COBERTURA_PLENA[refAlvo.livro] ? "" : " <i>— cobertura plena de Romanos, Gálatas, Efésios, Filipenses e Colossenses; nos demais livros, mostra o que o léxico já cita.</i>";
   var verbo = n===1?"verbete ocorre":"verbetes ocorrem";
   refSummaryEl.className="ref-summary on";
   refSummaryEl.innerHTML='<b>'+escapeHtml(refAlvo.rotulo)+'</b> &nbsp;·&nbsp; '+nome+' &nbsp;—&nbsp; '+n+' '+verbo+' neste trecho.'+nota;
 }
 function render(){
   atualizarRefSummary();
+  atualizarPainel();
   var lista=filtrar();
   countEl.textContent = lista.length + (lista.length===1?" verbete":" verbetes");
   if(!lista.length){
@@ -459,11 +575,17 @@ function render(){
     resultsEl.innerHTML='<div class="empty"><div class="big">∅</div>'+msg+'</div>';
     return;
   }
+  var t = (!refAlvo) ? tirarAcentos(termo).trim() : "";
   resultsEl.innerHTML=lista.map(function(e,i){
     var prev = (e.abbott||e.lsj||"").replace(/<[^>]+>/g,"");
+    var glos = (e.pt&&e.pt.length) ? '<div class="gloss">'+e.pt.slice(0,4).map(function(g){
+        var hit = t && tirarAcentos(g).indexOf(t)!==-1;
+        return '<span'+(hit?' class="hit"':'')+'>'+escapeHtml(g)+'</span>';
+      }).join("")+'</div>' : '';
     return '<article class="entry" data-lema="'+escapeHtml(e.lema)+'" style="animation-delay:'+Math.min(i*22,420)+'ms">'+
       '<div class="lemma">'+e.lema+' <span class="translit">'+e.translit+'</span></div>'+
       '<div class="classe">'+escapeHtml(curtaClasse(e.classe))+'</div>'+
+      glos+
       '<div class="preview">'+escapeHtml(prev)+'</div>'+
       (e.cognatos&&e.cognatos.length?'<div class="tags">'+e.cognatos.slice(0,4).map(function(c){return '<span>'+c+'</span>';}).join("")+'</div>':'')+
     '</article>';
@@ -504,6 +626,7 @@ function abrir(lema){
       '<div class="meta">'+meta+'</div>'+
     '</div>'+
     '<div class="sheet-body">'+
+      ((e.pt&&e.pt.length)?'<div class="sec"><h3>Significado em português</h3><div class="gloss big">'+e.pt.map(function(g){return '<span>'+escapeHtml(g)+'</span>';}).join("")+'</div></div>':'')+
       '<div class="sec"><h3>Classe gramatical</h3><p>'+escapeHtml(e.classe)+'</p></div>'+
       (e.abbott?'<div class="sec"><h3>Abbott-Smith <span class="source-tag">— foco no Novo Testamento</span></h3><p>'+realce(e.abbott)+'</p></div>':'')+
       (e.lsj?'<div class="sec"><h3>Liddell-Scott-Jones <span class="source-tag">— uso clássico e geral</span></h3><p>'+realce(e.lsj)+'</p></div>':'')+
@@ -541,6 +664,7 @@ function textoVerbete(e){
   if(e.classe)L.push(e.classe);
   if(e.morf)L.push("Flexão: "+e.morf);
   if(e.raiz&&e.raiz!=="—")L.push("Raiz: "+e.raiz);
+  if(e.pt&&e.pt.length)L.push("Português: "+e.pt.join(", "));
   L.push("");
   if(e.abbott)L.push("ABBOTT-SMITH (NT): "+e.abbott);
   if(e.lsj)L.push("LSJ (clássico): "+e.lsj);
