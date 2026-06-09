@@ -15,13 +15,19 @@ da mesma família e do mesmo campo semântico. Tema claro/escuro. Compartilháve
 
 ## O que é este pacote
 
-Três arquivos, nada mais:
+Quatro arquivos, nada mais:
 
 ```
 index.html        o aplicativo inteiro (abre direto no navegador)
-dados.js          a base de dados (núcleo curado de 60 verbetes em PT-BR)
+dados.js          a base de dados (905 verbetes curados em PT-BR)
+versiculos.js     texto bíblico de 22 livros (grego Nestle 1904 + português Almeida 1911)
 ingestao_lsj.py   script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
+
+Cobertura atual do léxico, com **cobertura plena de vocabulário**: todas as 21 Epístolas,
+Hebreus e o **Evangelho de João** completo (as 13 cartas paulinas, Hebreus, as 7 cartas gerais
+e o Evangelho de João) — **905 verbetes**. O `versiculos.js` traz o texto integral desses 22 livros.
+Faltam, do NT, os sinóticos (Mateus, Marcos, Lucas), Atos e Apocalipse.
 
 Não há servidor, banco de dados, instalação nem dependências. O `index.html` é
 autocontido: basta **dar dois cliques** nele para abrir. Funciona offline, a partir
@@ -29,18 +35,36 @@ do disco (`file://`), e pode ser hospedado em qualquer lugar sem configuração.
 
 ---
 
+## Busca e leitura
+
+- **Por significado em português** — `graça`, `redenção`, `mansidão` chegam ao verbete
+  grego certo; o resultado é ranqueado (glosa nuclear primeiro).
+- **Por grego ou transliteração** — `πνεῦμα` ou `pneuma` (acentos e diacríticos são ignorados).
+- **Por referência bíblica** — `Rm 8.15`, `Romanos 8`, `Rm 8.15-17`. Para os livros cobertos,
+  o app mostra **o versículo em grego** (Nestle 1904) com as palavras que têm verbete
+  **destacadas e clicáveis**, e logo abaixo **o versículo em português** (Almeida 1911),
+  antes da lista de verbetes. As palavras destacadas coincidem com os verbetes listados,
+  porque ambos derivam da mesma lematização do Nestle 1904.
+
+---
+
 ## Como usar agora
 
-1. Coloque `index.html` e `dados.js` na **mesma pasta**.
+1. Coloque `index.html`, `dados.js` e `versiculos.js` na **mesma pasta**.
 2. Abra `index.html` no navegador (Chrome, Firefox, Safari, Edge).
-3. Digite na busca: aceita grego, transliteração ou português.
-   - `pneuma`, `πνεῦμα` e `espírito` chegam todos a πνεῦμα.
-   - `graca` (sem cedilha, sem acento) encontra χάρις, χάρισμα, χαρίζομαι…
-4. Clique num verbete para ver Abbott-Smith, LSJ, ocorrências no NT, cognatos e
-   referências cruzadas (clicáveis). Use o trilho alfabético grego e os filtros
-   por classe gramatical para navegar.
+3. Busque por significado, grego, transliteração ou referência bíblica.
+4. Clique num verbete (ou numa palavra grega destacada) para ver Abbott-Smith, LSJ,
+   ocorrências no NT, cognatos e referências cruzadas (clicáveis).
 5. Dentro de um verbete: **Copiar verbete**, **Copiar link** ou **Compartilhar**.
    O link traz a âncora (`#lema`), abrindo direto naquele verbete.
+
+### Sobre o texto português (e a ARA)
+
+A versão exibida é a **Almeida de 1911**, em **domínio público**. A **ARA** (Almeida
+Revista e Atualizada) é protegida por direitos autorais da Sociedade Bíblica do Brasil
+e **não** pode ser redistribuída aqui. Se você tem licença para usá-la, pode substituir
+o texto: em `versiculos.js`, cada versículo tem o campo `p` (português) — basta trocar
+o valor pelo texto correspondente da ARA. O grego e os destaques continuam funcionando.
 
 ---
 
@@ -99,9 +123,9 @@ vocabulário que mais importa para a exegese.
 
 Como é tudo estático, qualquer hospedagem de arquivos serve:
 
-- **GitHub Pages** — suba `index.html` + `dados.js` num repositório, ative Pages.
+- **GitHub Pages** — suba `index.html` + `dados.js` + `versiculos.js` num repositório, ative Pages.
 - **Netlify / Cloudflare Pages / Vercel** — arraste a pasta; publica em segundos.
-- **Pendrive ou e-mail** — os dois arquivos juntos funcionam em qualquer máquina.
+- **Pendrive ou e-mail** — os três arquivos juntos funcionam em qualquer máquina.
 
 Não há chave de API, build nem servidor para manter.
 
@@ -111,6 +135,10 @@ Não há chave de API, build nem servidor para manter.
 
 - **LSJ** — texto digital: Perseus Digital Library (TEI XML, betacode), domínio público.
 - **Abbott-Smith** — *A Manual Greek Lexicon of the NT* (1922), domínio público.
+- **Texto grego do NT** (`versiculos.js`) — *Novum Testamentum Graece*, ed. Eberhard Nestle,
+  1904 (British & Foreign Bible Society), domínio público; morfologia e lematização CC0
+  (biblicalhumanities.org, Ulrik Sandborg-Petersen).
+- **Texto português** (`versiculos.js`) — João Ferreira de Almeida, edição de 1911, domínio público.
 
 As obras-fonte são de domínio público. Ao citar em trabalho acadêmico, refira
 sempre a **obra original** (LSJ, Abbott-Smith), não esta ferramenta. O código e o

@@ -1,8 +1,7 @@
 // Léxikon — base de dados de verbetes (domínio público, PT-BR)
-// 645 verbetes. Cobertura do vocabulário de conteúdo de Romanos, Gálatas, Efésios,
-// Filipenses, Colossenses, Hebreus, 1–2 Timóteo e Tito.
+// 905 verbetes. Todas as Epístolas, Hebreus e o Evangelho de João na íntegra (cobertura plena de vocabulário).
 // INTEGRIDADE ACADÊMICA: conteúdo ORIGINAL redigido em português a partir de erudição
-// de domínio público (LSJ; Abbott-Smith, 1922). NÃO reproduz nem traduz obras protegidas (p.ex. BDAG).
+// de domínio público (LSJ; Abbott-Smith, 1922). NÃO reproduz obras protegidas (p.ex. BDAG).
 // Campos: lema, translit, beta, classe, morf, raiz, lsj, abbott, nt, pt (glosas), cognatos[], verTambem[].
 
 window.LEXICON_DATA = [
@@ -27,6 +26,33 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "pai"
+    ]
+  },
+  {
+    "lema": "ἀγαθοποιέω",
+    "translit": "agathopoiéō",
+    "beta": "agathopoieo",
+    "classe": "verbo",
+    "morf": "ἀγαθοποιέω",
+    "raiz": "ἀγαθός (“bom”) + ποιέω (“fazer”)",
+    "lsj": "Fazer o bem; agir retamente; beneficiar.",
+    "abbott": "Fazer o bem, praticar o bem. A conduta reta e benéfica — tema de 1 Pedro. “Pelo bem fazer (ἀγαθοποιοῦντας) emudeçais a ignorância dos insensatos” (1Pe 2.15,20); “se, fazendo o bem (ἀγαθοποιοῦντες), sois afligidos” (3.6,17); os que sofrem “façam o bem (ἀγαθοποιΐᾳ)” entregando a alma ao Criador (4.19). “Fazei o bem (ἀγαθοποιεῖτε) aos que vos odeiam” (Lc 6.33,35); “quem faz o bem (ἀγαθοποιῶν) é de Deus” (3Jo 11). Cf. ἀγαθοποιΐα, ἀγαθοποιός, ἀγαθός.",
+    "nt": "1Pe 2.15,20; 3.6,17. Cf. Mc 3.4; Lc 6.9,33,35; 3Jo 11.",
+    "cognatos": [
+      "ἀγαθός",
+      "ποιέω",
+      "ἀγαθοποιΐα",
+      "ἀγαθοποιός"
+    ],
+    "verTambem": [
+      "ἀγαθός",
+      "καλοποιέω",
+      "πάσχω",
+      "ἀναστροφή"
+    ],
+    "pt": [
+      "fazer o bem",
+      "praticar o bem"
     ]
   },
   {
@@ -78,6 +104,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἄγαμος",
+    "translit": "ágamos",
+    "beta": "agamos",
+    "classe": "substantivo/adjetivo (2 term.)",
+    "morf": "ἄγαμος, -ου, ὁ/ἡ",
+    "raiz": "ἀ- privativo + γάμος (“casamento”)",
+    "lsj": "Não casado; solteiro, celibatário.",
+    "abbott": "Solteiro, não casado. O que não tem cônjuge. Em 1Co 7, exclusivo deste capítulo no NT: “digo aos solteiros (ἀγάμοις) e às viúvas que lhes é bom ficar como eu” (7.8); o homem “solteiro (ἄγαμος)” cuida das coisas do Senhor (7.32); a mulher que se separa “fique sem casar (ἄγαμος)” ou reconcilie-se (7.11,34). Paulo valoriza o celibato como dom para o serviço indiviso ao Senhor. Cf. γαμέω, γάμος.",
+    "nt": "1Co 7.8,11,32,34.",
+    "cognatos": [
+      "γάμος",
+      "γαμέω"
+    ],
+    "verTambem": [
+      "γαμέω",
+      "παρθένος",
+      "χωρίζω",
+      "ἐγκράτεια"
+    ],
+    "pt": [
+      "solteiro",
+      "não casado"
+    ]
+  },
+  {
     "lema": "ἀγαπάω",
     "translit": "agapáō",
     "beta": "agapao",
@@ -119,6 +170,56 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "amor"
+    ]
+  },
+  {
+    "lema": "ἀγαπητός",
+    "translit": "agapētós",
+    "beta": "agapetos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "ἀγαπητός, -ή, -όν",
+    "raiz": "ἀγαπάω (“amar”)",
+    "lsj": "Amado, querido; (de filho) único e dileto.",
+    "abbott": "Amado, dileto. O objeto do amor — de Deus e dos irmãos. Filemom é o “amado (ἀγαπητῷ)” cooperador (Fm 1); Onésimo, “irmão amado (ἀγαπητόν)” (Fm 16; Cl 4.9); os crentes, “amados (ἀγαπητοί) de Deus, chamados para serdes santos” (Rm 1.7). Sobretudo, a voz do céu sobre Jesus: “Este é o meu Filho amado (ἀγαπητός)” (Mt 3.17; 17.5). Termo afetuoso recorrente nas exortações (“amados...”). Cf. ἀγαπάω, ἀγάπη.",
+    "nt": "Fm 1,16. Muito frequente: Mt 3.17; 12.18; 17.5; Mc 1.11; 9.7; 12.6; Rm 1.7; 11.28; 12.19; 16.5; 1Co 4.14,17; 15.58; 2Co 7.1; 12.19; Ef 5.1; 6.21; Cl 1.7; 4.7,9,14; 1Ts 2.8; 1Tm 6.2; 2Tm 1.2; Tg 1.16,19; 1Pe 2.11; 2Pe 3.1,8,14,15,17; 1Jo 3.2,21; 4.1,7,11; 3Jo 1,2,5,11; Jd 3,17,20.",
+    "cognatos": [
+      "ἀγαπάω",
+      "ἀγάπη"
+    ],
+    "verTambem": [
+      "ἀγάπη",
+      "ἀγαπάω",
+      "ἀδελφός",
+      "συνεργός"
+    ],
+    "pt": [
+      "amado",
+      "dileto"
+    ]
+  },
+  {
+    "lema": "ἀγγελία",
+    "translit": "angelía",
+    "beta": "aggelia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀγγελία, -ας, ἡ",
+    "raiz": "ἄγγελος (“mensageiro”), de ἀγγέλλω",
+    "lsj": "Mensagem, anúncio; notícia; ordem recebida.",
+    "abbott": "Mensagem. O que é anunciado e transmitido. “Esta é a mensagem (ἀγγελία) que dele ouvimos: que Deus é luz” (1Jo 1.5); “esta é a mensagem (ἀγγελία) que ouvistes desde o princípio: que nos amemos uns aos outros” (1Jo 3.11). As duas grandes “mensagens” da carta — sobre a natureza de Deus e o mandamento do amor. De ἄγγελος/ἀγγέλλω; cf. o composto καταγγελία e o verbo ἀναγγέλλω (anunciar, 1Jo 1.5). Cf. ἄγγελος, εὐαγγέλιον.",
+    "nt": "1Jo 1.5; 3.11.",
+    "cognatos": [
+      "ἄγγελος",
+      "ἀγγέλλω",
+      "ἀναγγέλλω"
+    ],
+    "verTambem": [
+      "φῶς",
+      "ἀγάπη",
+      "ἐντολή",
+      "μαρτυρία"
+    ],
+    "pt": [
+      "mensagem"
     ]
   },
   {
@@ -322,6 +423,82 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀδελφότης",
+    "translit": "adelphótēs",
+    "beta": "adelphotes",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "ἀδελφότης, -ητος, ἡ",
+    "raiz": "ἀδελφός (“irmão”)",
+    "lsj": "Termo do grego bíblico: fraternidade; o conjunto dos irmãos, a irmandade.",
+    "abbott": "Irmandade, fraternidade. O corpo dos irmãos na fé, considerado como comunidade. “Amai a fraternidade (ἀδελφότητα)” — isto é, o conjunto dos irmãos (1Pe 2.17); “as mesmas aflições se cumprem na vossa irmandade (ἀδελφότητι)” espalhada pelo mundo (1Pe 5.9). A igreja vista como família unida em Cristo, que se ama e padece junta. Cf. ἀδελφός, φιλαδελφία, φιλάδελφος.",
+    "nt": "1Pe 2.17; 5.9.",
+    "cognatos": [
+      "ἀδελφός",
+      "φιλαδελφία",
+      "φιλάδελφος"
+    ],
+    "verTambem": [
+      "φιλαδελφία",
+      "φιλάδελφος",
+      "ἐκκλησία",
+      "ἀγάπη"
+    ],
+    "pt": [
+      "irmandade",
+      "fraternidade"
+    ]
+  },
+  {
+    "lema": "ἀδιάκριτος",
+    "translit": "adiákritos",
+    "beta": "adiakritos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἀδιάκριτος, -ον",
+    "raiz": "ἀ- privativo + διακρίνω (“distinguir, duvidar”)",
+    "lsj": "Sem distinção; imparcial; (também) indiviso, sem hesitação.",
+    "abbott": "Imparcial, sem dúvidas. Hapax do NT (Tg 3.17): a sabedoria do alto é “pura, pacífica, moderada, tratável, cheia de misericórdia e de bons frutos, imparcial (ἀδιάκριτος) e sem hipocrisia”. Provável sentido: sem parcialidade (não faz acepção) ou sem ambiguidade/vacilação. Contrasta com a sabedoria terrena, que gera “parcialidade” e contendas. Cf. διακρίνω, ἀνυπόκριτος (companheira na lista).",
+    "nt": "1 ocorrência (hapax): Tg 3.17.",
+    "cognatos": [
+      "διακρίνω",
+      "κρίνω"
+    ],
+    "verTambem": [
+      "σοφία",
+      "ἀνυπόκριτος",
+      "ἐπιεικής",
+      "εἰρηνικός"
+    ],
+    "pt": [
+      "imparcial",
+      "sem dúvidas"
+    ]
+  },
+  {
+    "lema": "ἀδιαλείπτως",
+    "translit": "adialeíptōs",
+    "beta": "adialeiptos",
+    "classe": "advérbio",
+    "morf": "ἀδιαλείπτως",
+    "raiz": "ἀ- privativo + διαλείπω (“cessar, interromper”)",
+    "lsj": "Sem cessar, ininterruptamente, constantemente.",
+    "abbott": "Sem cessar, incessantemente. Sem interrupção. “Lembrando-nos sem cessar (ἀδιαλείπτως) da vossa obra de fé” (1Ts 1.3); “damos graças a Deus sem cessar (ἀδιαλείπτως)” (2.13); “orai sem cessar (ἀδιαλείπτως)” (5.17); “sem cessar (ἀδιαλείπτως) faço menção de ti” (Rm 1.9). A continuidade constante da gratidão, da oração e da memória. Cf. ἀδιάλειπτος (Rm 9.2; 2Tm 1.3), διαλείπω.",
+    "nt": "1Ts 1.3; 2.13; 5.17. Cf. Rm 1.9.",
+    "cognatos": [
+      "διαλείπω",
+      "ἀδιάλειπτος"
+    ],
+    "verTambem": [
+      "προσεύχομαι",
+      "μνεία",
+      "εὐχαριστέω",
+      "πάντοτε"
+    ],
+    "pt": [
+      "sem cessar",
+      "incessantemente"
+    ]
+  },
+  {
     "lema": "ἀδικία",
     "translit": "adikía",
     "beta": "adikia",
@@ -393,6 +570,30 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "impossível"
+    ]
+  },
+  {
+    "lema": "ἀθανασία",
+    "translit": "athanasía",
+    "beta": "athanasia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀθανασία, -ας, ἡ",
+    "raiz": "ἀ- privativo + θάνατος (“morte”)",
+    "lsj": "Imortalidade; isenção da morte.",
+    "abbott": "Imortalidade. A isenção da morte, dom da ressurreição. “É necessário que este corpo mortal se revista da imortalidade (ἀθανασίαν); e, quando... este mortal se revestir da imortalidade (ἀθανασίαν), cumprir-se-á: Tragada foi a morte na vitória” (1Co 15.53,54). Deus, “o único que possui a imortalidade (ἀθανασίαν), habitando em luz inacessível” (1Tm 6.16). Distinta de ἀφθαρσία (incorrupção), com a qual anda emparelhada. Cf. θάνατος, ἀθάνατος.",
+    "nt": "1Co 15.53,54. Cf. 1Tm 6.16.",
+    "cognatos": [
+      "θάνατος",
+      "ἀθάνατος"
+    ],
+    "verTambem": [
+      "ἀφθαρσία",
+      "ἀνάστασις",
+      "θάνατος",
+      "ζωή"
+    ],
+    "pt": [
+      "imortalidade"
     ]
   },
   {
@@ -693,6 +894,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "αἰφνίδιος",
+    "translit": "aiphnídios",
+    "beta": "aiphnidios",
+    "classe": "adjetivo (2 term.)",
+    "morf": "αἰφνίδιος, -ον",
+    "raiz": "αἴφνης (“de repente”)",
+    "lsj": "Súbito, repentino, inesperado.",
+    "abbott": "Repentino, súbito. O que sobrevém de improviso. Quando disserem “paz e segurança”, então lhes sobrevirá “repentina (αἰφνίδιος) destruição”, como as dores à grávida, e de modo nenhum escaparão (1Ts 5.3); guardai-vos para que aquele dia não venha sobre vós “de improviso (αἰφνίδιος)”, como um laço (Lc 21.34). A subitaneidade do dia do Senhor para os que não vigiam. Cf. ἐξαίφνης.",
+    "nt": "1Ts 5.3. Cf. Lc 21.34.",
+    "cognatos": [
+      "ἐξαίφνης",
+      "ἄφνω"
+    ],
+    "verTambem": [
+      "ὄλεθρος",
+      "ἡμέρα",
+      "καθεύδω",
+      "νήφω"
+    ],
+    "pt": [
+      "repentino",
+      "súbito"
+    ]
+  },
+  {
     "lema": "αἰχμαλωτίζω",
     "translit": "aichmalōtízō",
     "beta": "aichmalotizo",
@@ -791,6 +1017,80 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀκάνθινος",
+    "translit": "akánthinos",
+    "beta": "akanthinos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "ἀκάνθινος, -η, -ον",
+    "raiz": "ἄκανθα (“espinho”)",
+    "lsj": "De espinhos, espinhoso; feito de espinhos.",
+    "abbott": "De espinhos. Feito de ramos espinhosos. “Os soldados, tecendo uma coroa de espinhos (ἀκάνθινον στέφανον), puseram-lha na cabeça, e o vestiram de púrpura” (Jo 19.5; Mc 15.17) — a coroa de escárnio que se torna sinal do Rei sofredor. De ἄκανθα (espinho), os mesmos “espinhos” que sufocam a semente (Mt 13.7) e que a terra amaldiçoada produz (Gn 3.18). Cf. ἄκανθα, στέφανος.",
+    "nt": "Jo 19.5. Cf. Mc 15.17.",
+    "cognatos": [
+      "ἄκανθα"
+    ],
+    "verTambem": [
+      "στέφανος",
+      "μαστιγόω",
+      "σταυρόω",
+      "βασιλεύς"
+    ],
+    "pt": [
+      "de espinhos"
+    ]
+  },
+  {
+    "lema": "ἄκαρπος",
+    "translit": "ákarpos",
+    "beta": "akarpos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄκαρπος, -ον",
+    "raiz": "ἀ- privativo + καρπός (“fruto”)",
+    "lsj": "Sem fruto, estéril; (fig.) infrutífero, inútil.",
+    "abbott": "Infrutífero, estéril. O que não dá fruto — moral e espiritualmente. Os falsos mestres são “árvores... infrutíferas (ἄκαρπα), duas vezes mortas, desarraigadas” (Jd 12); o conhecimento de Cristo guarda de ser “estéreis (ἀκάρπους)” (2Pe 1.8); a palavra sufocada pelos cuidados “fica infrutífera (ἄκαρπος)” (Mt 13.22; Mc 4.19); não tomar parte nas “obras infrutíferas (ἀκάρποις) das trevas” (Ef 5.11). O oposto da vida que dá fruto pelo Espírito. Cf. καρπός, καρποφορέω.",
+    "nt": "2Pe 1.8; Jd 12. Cf. Mt 13.22; Mc 4.19; 1Co 14.14; Ef 5.11; Tt 3.14.",
+    "cognatos": [
+      "καρπός",
+      "καρποφορέω",
+      "ἄκαρπος"
+    ],
+    "verTambem": [
+      "καρπός",
+      "πλανήτης",
+      "ἐπίγνωσις",
+      "ἀσεβής"
+    ],
+    "pt": [
+      "infrutífero",
+      "estéril"
+    ]
+  },
+  {
+    "lema": "ἀκατάστατος",
+    "translit": "akatástatos",
+    "beta": "akatastatos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἀκατάστατος, -ον",
+    "raiz": "ἀ- privativo + καθίστημι (“estabelecer, firmar”)",
+    "lsj": "Instável, inconstante; desassossegado, agitado.",
+    "abbott": "Inquieto, instável. O que não se firma nem se aquieta. O homem de ânimo dobre é “inconstante (ἀκατάστατος) em todos os seus caminhos” (Tg 1.8, em alguns textos); a língua é “um mal incontível (ἀκατάστατον), cheia de peçonha mortífera” (Tg 3.8). Ligado a ἀκαταστασία (desordem, tumulto, 1Co 14.33; 2Co 6.5; Tg 3.16). A agitação que se opõe à paz e à firmeza. Cf. καθίστημι, ἀκαταστασία.",
+    "nt": "Tg 1.8; 3.8.",
+    "cognatos": [
+      "καθίστημι",
+      "ἀκαταστασία"
+    ],
+    "verTambem": [
+      "δίψυχος",
+      "γλῶσσα",
+      "εἰρήνη",
+      "ἀκαταστασία"
+    ],
+    "pt": [
+      "inquieto",
+      "instável"
+    ]
+  },
+  {
     "lema": "ἀκέραιος",
     "translit": "akéraios",
     "beta": "akeraios",
@@ -862,6 +1162,30 @@ window.LEXICON_DATA = [
     "pt": [
       "intemperante",
       "descontrolado"
+    ]
+  },
+  {
+    "lema": "ἀκροατής",
+    "translit": "akroatḗs",
+    "beta": "akroates",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "ἀκροατής, -οῦ, ὁ",
+    "raiz": "ἀκροάομαι (“ouvir, escutar”)",
+    "lsj": "Ouvinte; aquele que escuta (sem necessariamente obedecer).",
+    "abbott": "Ouvinte. O que escuta — em contraste com o que pratica. “Sede cumpridores (ποιηταί) da palavra, e não somente ouvintes (ἀκροαταί), enganando-vos a vós mesmos” (Tg 1.22,23,25); “não são os ouvintes (ἀκροαταί) da lei que são justos, mas os que a praticam” (Rm 2.13). O ouvir que não se traduz em obras é autoengano. Cf. ποιητής, ἀκούω.",
+    "nt": "Tg 1.22,23,25. Cf. Rm 2.13.",
+    "cognatos": [
+      "ἀκροάομαι",
+      "ἀκούω"
+    ],
+    "verTambem": [
+      "ποιητής",
+      "λόγος",
+      "ἔμφυτος",
+      "ἔσοπτρον"
+    ],
+    "pt": [
+      "ouvinte"
     ]
   },
   {
@@ -958,6 +1282,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀλείφω",
+    "translit": "aleíphō",
+    "beta": "aleipho",
+    "classe": "verbo",
+    "morf": "ἀλείφω",
+    "raiz": "raiz grega de “untar, ungir”",
+    "lsj": "Untar, ungir (com óleo ou bálsamo).",
+    "abbott": "Ungir, untar. Aplicar óleo ou bálsamo — para honra, cuidado ou cura. Maria “ungiu (ἤλειψεν) os pés de Jesus e os enxugou com os cabelos” (Jo 11.2; 12.3); a pecadora “ungia (ἤλειφεν)” os pés de Jesus (Lc 7.38,46); “tu não me ungiste (ἤλειψας) a cabeça com óleo”. Ungir a cabeça ao jejuar (Mt 6.17); os discípulos “ungiam (ἤλειφον) muitos enfermos” (Mc 6.13); “unjam-no (ἀλείψαντες) com azeite em nome do Senhor” (Tg 5.14). Distinto de χρίω (a unção sagrada/messiânica). Cf. χρίω, μύρον, ἔλαιον.",
+    "nt": "Jo 11.2; 12.3. Cf. Mt 6.17; Mc 6.13; 16.1; Lc 7.38,46; Tg 5.14.",
+    "cognatos": [
+      "χρίω",
+      "ἐξαλείφω"
+    ],
+    "verTambem": [
+      "μύρον",
+      "νάρδος",
+      "ἐκμάσσω",
+      "χρίω"
+    ],
+    "pt": [
+      "ungir",
+      "untar"
+    ]
+  },
+  {
     "lema": "ἀλήθεια",
     "translit": "alḗtheia",
     "beta": "aletheia",
@@ -1007,6 +1356,58 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀληθινός",
+    "translit": "alēthinós",
+    "beta": "alethinos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "ἀληθινός, -ή, -όν",
+    "raiz": "ἀλήθεια (“verdade”), de ἀ- + λήθω (“ocultar”)",
+    "lsj": "Verdadeiro, genuíno, real; conforme à realidade (não falso nem aparente).",
+    "abbott": "Verdadeiro, genuíno. O real e autêntico, em oposição ao falso ou ao mero símbolo. “Sabemos que o Filho de Deus veio... para que conheçamos o Verdadeiro (ἀληθινόν); e estamos no Verdadeiro (ἀληθινῷ)... Este é o verdadeiro (ἀληθινός) Deus e a vida eterna” (1Jo 5.20). Cristo é “a luz verdadeira (ἀληθινόν)” (Jo 1.9), “o pão verdadeiro (ἀληθινόν)” (6.32), “a videira verdadeira (ἀληθινή)” (15.1); adorar “em espírito e verdade”, os “verdadeiros (ἀληθινοί) adoradores” (Jo 4.23). Distinto de ἀληθής (que diz a verdade): ἀληθινός = o que corresponde plenamente à realidade. Cf. ἀλήθεια, ἀληθής.",
+    "nt": "1Jo 2.8; 5.20. Cf. Lc 16.11; Jo 1.9; 4.23,37; 6.32; 7.28; 15.1; 17.3; 19.35; 1Ts 1.9; Hb 8.2; 9.24; 10.22; Ap 3.7,14; 6.10; 15.3; 16.7; 19.2,9,11; 21.5; 22.6.",
+    "cognatos": [
+      "ἀλήθεια",
+      "ἀληθής",
+      "ἀληθεύω"
+    ],
+    "verTambem": [
+      "ἀλήθεια",
+      "ψεύστης",
+      "φῶς",
+      "ζωή"
+    ],
+    "pt": [
+      "verdadeiro",
+      "genuíno"
+    ]
+  },
+  {
+    "lema": "ἀληθῶς",
+    "translit": "alēthôs",
+    "beta": "alethos",
+    "classe": "advérbio",
+    "morf": "ἀληθῶς",
+    "raiz": "ἀληθής (“verdadeiro”), de ἀλήθεια",
+    "lsj": "Verdadeiramente, na verdade; realmente, de fato.",
+    "abbott": "Verdadeiramente, de fato. Confirmação da realidade de algo. Em João, reconhecimentos da identidade de Jesus: “este é verdadeiramente (ἀληθῶς) o profeta... o Cristo” (Jo 7.40); os samaritanos: “este é verdadeiramente (ἀληθῶς) o Salvador do mundo” (Jo 4.42); “se vós permanecerdes na minha palavra, verdadeiramente (ἀληθῶς) sois meus discípulos” (Jo 8.31); “eis um verdadeiro (ἀληθῶς) israelita” (Jo 1.47). “Verdadeiramente (ἀληθῶς) este era o Filho de Deus”, diz o centurião (Mt 27.54; Mc 15.39). Cf. ἀληθής, ἀλήθεια, ἀληθινός.",
+    "nt": "Jo 1.47; 4.42; 6.14,55; 7.26,40; 8.31; 17.8. Cf. Mt 14.33; 26.73; 27.54; Mc 14.70; 15.39; Lc 9.27; 12.44; 21.3; At 12.11; 1Ts 2.13; 1Jo 2.5.",
+    "cognatos": [
+      "ἀληθής",
+      "ἀλήθεια",
+      "ἀληθινός"
+    ],
+    "verTambem": [
+      "ἀληθινός",
+      "ἀμήν",
+      "ἀλήθεια",
+      "ὁμολογέω"
+    ],
+    "pt": [
+      "verdadeiramente",
+      "de fato"
+    ]
+  },
+  {
     "lema": "ἀλληγορέω",
     "translit": "allēgoréō",
     "beta": "allegoreo",
@@ -1051,6 +1452,31 @@ window.LEXICON_DATA = [
     "pt": [
       "cadeia",
       "corrente"
+    ]
+  },
+  {
+    "lema": "ἀμάραντος",
+    "translit": "amárantos",
+    "beta": "amarantos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἀμάραντος, -ον",
+    "raiz": "ἀ- privativo + μαραίνω (“murchar, definhar”)",
+    "lsj": "Que não murcha; imarcescível, perene.",
+    "abbott": "Imarcescível, que não murcha. O que não desbota nem se desvanece, como flor perene. A herança “reservada nos céus” é “imarcescível (ἀμάραντον)” (1Pe 1.4); os presbíteros fiéis receberão “a imarcescível (ἀμαράντινον) coroa de glória” quando aparecer o Sumo Pastor (1Pe 5.4, forma ἀμαράντινος). Em contraste com a flor da erva que murcha (1.24): a herança e a glória celestes nunca perdem o frescor. De μαραίνω (murchar). Cf. ἄφθαρτος.",
+    "nt": "1Pe 1.4. Cf. 1Pe 5.4 (ἀμαράντινος).",
+    "cognatos": [
+      "μαραίνω",
+      "ἀμαράντινος"
+    ],
+    "verTambem": [
+      "ἄφθαρτος",
+      "κληρονομία",
+      "στέφανος",
+      "ἄνθος"
+    ],
+    "pt": [
+      "imarcescível",
+      "que não murcha"
     ]
   },
   {
@@ -1102,6 +1528,75 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀμήν",
+    "translit": "amḗn",
+    "beta": "amen",
+    "classe": "partícula/advérbio (indeclinável)",
+    "morf": "ἀμήν",
+    "raiz": "do hebraico אָמֵן (“firme, verdadeiro”), de אמן (“confirmar”)",
+    "lsj": "Verdadeiramente, certamente; assim seja (transliteração do hebraico).",
+    "abbott": "Amém; em verdade. Termo de afirmação e confirmação. (1) Ao fim da oração ou doxologia: “Amém (ἀμήν)” — assim seja (Rm 1.25; 11.36; 1Co 14.16). (2) Em João, sempre duplicado na boca de Jesus: “Em verdade, em verdade (ἀμὴν ἀμήν) vos digo” — fórmula solene que antecede uma declaração de peso (Jo 1.51; 3.3,5,11; 5.19,24,25; etc.). Cristo é ele mesmo “o Amém (ὁ Ἀμήν), a testemunha fiel” (Ap 3.14). A garantia da verdade e fidelidade da palavra. Cf. ἀληθῶς, ἀληθινός.",
+    "nt": "Frequente em João (sempre duplo): Jo 1.51; 3.3,5,11; 5.19,24,25; 6.26,32,47,53; 8.34,51,58; 10.1,7; 12.24; 13.16,20,21,38; 14.12; 16.20,23; 21.18. Em todo o NT como “amém” final.",
+    "cognatos": [],
+    "verTambem": [
+      "ἀληθῶς",
+      "ἀληθινός",
+      "ναί",
+      "ἀλήθεια"
+    ],
+    "pt": [
+      "amém"
+    ]
+  },
+  {
+    "lema": "ἀμνός",
+    "translit": "amnós",
+    "beta": "amnos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ἀμνός, -οῦ, ὁ",
+    "raiz": "raiz grega de “cordeiro”",
+    "lsj": "Cordeiro.",
+    "abbott": "Cordeiro. O animal do sacrifício — título de Cristo no testemunho do Batista. “Eis o Cordeiro (ἀμνός) de Deus, que tira o pecado do mundo” (Jo 1.29,36) — Cristo como a vítima pascal e o cordeiro expiatório. Citando Isaías 53, “como cordeiro (ἀμνός) foi levado ao matadouro” (At 8.32); fostes resgatados “pelo precioso sangue de Cristo, como de cordeiro (ἀμνοῦ) sem defeito” (1Pe 1.19). No Apocalipse, usa-se antes ἀρνίον (o Cordeiro), mas ἀμνός é o termo dos Evangelhos e cartas. Cf. ἀρνίον, ἄσπιλος, θυσία.",
+    "nt": "Jo 1.29,36. Cf. At 8.32; 1Pe 1.19.",
+    "cognatos": [
+      "ἀρνίον",
+      "ἀρήν"
+    ],
+    "verTambem": [
+      "ἀρνίον",
+      "ἄσπιλος",
+      "θυσία",
+      "αἷμα"
+    ],
+    "pt": [
+      "cordeiro"
+    ]
+  },
+  {
+    "lema": "ἄμπελος",
+    "translit": "ámpelos",
+    "beta": "ampelos",
+    "classe": "substantivo, fem. (2ª decl.)",
+    "morf": "ἄμπελος, -ου, ἡ",
+    "raiz": "raiz grega de “videira, vinha”",
+    "lsj": "Videira, parreira; vinha.",
+    "abbott": "Videira. A planta da vinha — alegoria central de João 15. “Eu sou a videira (ἄμπελος) verdadeira, e meu Pai é o lavrador... eu sou a videira (ἄμπελος), vós as varas” (Jo 15.1,4,5) — a união vital entre Cristo e os seus, fonte de todo fruto. “Não beberei deste fruto da videira (ἀμπέλου)” até o reino (Mt 26.29; Mc 14.25; Lc 22.18); a “videira (ἄμπελον) da terra”, imagem de juízo (Ap 14.18,19). Distinta de ἀμπελών (vinhedo). Cf. κλῆμα, ἀμπελών, γεωργός.",
+    "nt": "Jo 15.1,4,5. Cf. Mt 26.29; Mc 14.25; Lc 22.18; Tg 3.12; Ap 14.18,19.",
+    "cognatos": [
+      "ἀμπελών",
+      "ἀμπελουργός"
+    ],
+    "verTambem": [
+      "κλῆμα",
+      "γεωργός",
+      "καθαίρω",
+      "καρπός"
+    ],
+    "pt": [
+      "videira"
+    ]
+  },
+  {
     "lema": "ἄμωμος",
     "translit": "ámōmos",
     "beta": "amomos",
@@ -1124,6 +1619,82 @@ window.LEXICON_DATA = [
     "pt": [
       "irrepreensível",
       "sem mácula"
+    ]
+  },
+  {
+    "lema": "ἀναβαίνω",
+    "translit": "anabaínō",
+    "beta": "anabaino",
+    "classe": "verbo",
+    "morf": "ἀναβαίνω",
+    "raiz": "ἀνά (“para cima”) + βαίνω (“ir, andar”)",
+    "lsj": "Subir, ascender; vir à tona; crescer (plantas).",
+    "abbott": "Subir, ascender. Mover-se para cima. “Ninguém subiu (ἀναβέβηκεν) ao céu, senão o que desceu (καταβάς) do céu, o Filho do Homem” (Jo 3.13); “que será, pois, se virdes o Filho do Homem subir (ἀναβαίνοντα) para onde primeiro estava?” (Jo 6.62); “subo (ἀναβαίνω) para meu Pai e vosso Pai” (Jo 20.17). “Subir (ἀναβαίνειν) a Jerusalém” (Mt 20.18; Lc 18.31; Jo 7.8,10); a semente que “cresceu (ἀνέβη)” (Mc 4.7,8,32); a oração que “subiu (ἀνέβησαν)” diante de Deus (At 10.4). Par com καταβαίνω (descer). Cf. βαίνω, καταβαίνω, ἀνάβασις.",
+    "nt": "Jo 1.51; 3.13; 5.1; 6.62; 7.8,10,14; 10.1; 20.17; 21.11. Muito frequente nos Evangelhos e Atos.",
+    "cognatos": [
+      "βαίνω",
+      "καταβαίνω",
+      "ἐπιβαίνω"
+    ],
+    "verTambem": [
+      "καταβαίνω",
+      "οὐρανός",
+      "ὑψόω",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "subir",
+      "ascender"
+    ]
+  },
+  {
+    "lema": "ἀναγεννάω",
+    "translit": "anagennáō",
+    "beta": "anagennao",
+    "classe": "verbo",
+    "morf": "ἀναγεννάω",
+    "raiz": "ἀνά (“de novo”) + γεννάω (“gerar, dar à luz”)",
+    "lsj": "Termo do grego cristão: gerar de novo, regenerar.",
+    "abbott": "Regenerar, fazer nascer de novo. Gerar para uma nova vida — ação de Deus. “Bendito o Deus... que, segundo a sua grande misericórdia, nos regenerou (ἀναγεννήσας) para uma viva esperança, pela ressurreição de Jesus Cristo” (1Pe 1.3); fostes “regenerados (ἀναγεγεννημένοι) não de semente corruptível, mas incorruptível, pela palavra de Deus, viva e permanente” (1Pe 1.23). O novo nascimento operado por Deus, fonte da esperança e da vida nova. Cf. γεννάω, παλιγγενεσία, ἄνωθεν γεννηθῆναι (Jo 3.3).",
+    "nt": "1Pe 1.3,23.",
+    "cognatos": [
+      "γεννάω",
+      "γέννησις",
+      "παλιγγενεσία"
+    ],
+    "verTambem": [
+      "παλιγγενεσία",
+      "σπορά",
+      "ἄφθαρτος",
+      "ἐλπίς"
+    ],
+    "pt": [
+      "regenerar",
+      "fazer nascer de novo"
+    ]
+  },
+  {
+    "lema": "ἀνάγκη",
+    "translit": "anánkē",
+    "beta": "anagke",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀνάγκη, -ης, ἡ",
+    "raiz": "raiz grega de “necessidade, constrangimento”",
+    "lsj": "Necessidade, força das circunstâncias; constrangimento; aflição, angústia.",
+    "abbott": "Necessidade; aflição. O que se impõe — obrigação interior ou pressão externa. “Necessidade (ἀνάγκη) me é imposta; ai de mim se não evangelizar” (1Co 9.16); a esmola não seja “por força (ἀνάγκης), mas com alegria” (2Co 9.7); “bom é, por causa da presente necessidade/aflição (ἀνάγκην)”, permanecer assim (1Co 7.26); Paulo, “em angústias (ἀνάγκαις)” pela causa de Cristo (2Co 6.4; 12.10). Aquilo a que não se pode fugir. Cf. ἀναγκάζω, ἀναγκαῖος.",
+    "nt": "1Co 7.26,37; 9.16. Cf. Mt 18.7; Lc 14.18; 21.23; Rm 13.5; 2Co 6.4; 9.7; 12.10; 1Ts 3.7; Fm 14; Hb 7.12,27; 9.16,23; Jd 3.",
+    "cognatos": [
+      "ἀναγκάζω",
+      "ἀναγκαῖος"
+    ],
+    "verTambem": [
+      "θλῖψις",
+      "κίνδυνος",
+      "εὐαγγελίζω",
+      "ἑκούσιος"
+    ],
+    "pt": [
+      "necessidade"
     ]
   },
   {
@@ -1250,6 +1821,33 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀνακρίνω",
+    "translit": "anakrínō",
+    "beta": "anakrino",
+    "classe": "verbo",
+    "morf": "ἀνακρίνω",
+    "raiz": "ἀνά (intensivo) + κρίνω (“julgar, separar”)",
+    "lsj": "Examinar minuciosamente, investigar; interrogar (juridicamente); avaliar, julgar.",
+    "abbott": "Examinar, julgar, discernir. Submeter a exame para avaliar. O homem espiritual “discerne (ἀνακρίνει) todas as coisas, mas de ninguém é discernido” (1Co 2.15); “quem me julga (ἀνακρίνων) é o Senhor; portanto, nada julgueis (ἀνακρίνετε) antes do tempo” (4.3,4); comei o que se vende, “sem nada perguntardes (ἀνακρίνοντες) por causa da consciência” (10.25,27). Jurídico em Lucas/Atos: Pilatos “interrogou (ἀνακρίνας)” Jesus (Lc 23.14); os bereanos “examinavam (ἀνακρίνοντες)” as Escrituras (At 17.11). Cf. κρίνω, διακρίνω.",
+    "nt": "1Co 2.14,15; 4.3,4; 9.3; 10.25,27; 14.24. Cf. Lc 23.14; At 4.9; 12.19; 17.11; 24.8; 28.18.",
+    "cognatos": [
+      "κρίνω",
+      "διακρίνω",
+      "ἀνάκρισις"
+    ],
+    "verTambem": [
+      "κρίνω",
+      "διακρίνω",
+      "δοκιμάζω",
+      "πνευματικός"
+    ],
+    "pt": [
+      "examinar",
+      "julgar",
+      "discernir"
+    ]
+  },
+  {
     "lema": "ἀνάμνησις",
     "translit": "anámnēsis",
     "beta": "anamnesis",
@@ -1296,6 +1894,29 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "renovar"
+    ]
+  },
+  {
+    "lema": "ἀναπέμπω",
+    "translit": "anapémpō",
+    "beta": "anapempo",
+    "classe": "verbo",
+    "morf": "ἀναπέμπω",
+    "raiz": "ἀνά (“de volta, para cima”) + πέμπω (“enviar”)",
+    "lsj": "Enviar de volta; remeter (a uma autoridade superior); reenviar.",
+    "abbott": "Enviar de volta; remeter. Devolver ou encaminhar a outra instância. Paulo devolve Onésimo a Filemom: “torno a enviar-to (ἀνέπεμψα); tu, porém, recebe-o como às minhas entranhas” (Fm 12). No julgamento de Jesus, Pilatos o “remeteu (ἀνέπεμψεν)” a Herodes, e Herodes o “tornou a enviar (ἀνέπεμψεν)” a Pilatos (Lc 23.7,11,15). O ἀνά indica devolução ou remessa para cima. Cf. πέμπω.",
+    "nt": "Fm 12. Cf. Lc 23.7,11,15.",
+    "cognatos": [
+      "πέμπω"
+    ],
+    "verTambem": [
+      "ἄχρηστος",
+      "εὔχρηστος",
+      "δοῦλος",
+      "δέχομαι"
+    ],
+    "pt": [
+      "enviar de volta"
     ]
   },
   {
@@ -1470,6 +2091,104 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἄνθος",
+    "translit": "ánthos",
+    "beta": "anthos",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "ἄνθος, -ους, τό",
+    "raiz": "raiz grega de “flor”",
+    "lsj": "Flor; o que floresce; (fig.) o auge fugaz.",
+    "abbott": "Flor. Símbolo do que é belo, mas efêmero. O rico “passará como a flor (ἄνθος) da erva; nasce o sol... e a sua flor (ἄνθος) cai” (Tg 1.10,11); “toda a carne é como a erva, e toda a sua glória como a flor (ἄνθος) da erva; secou-se a erva, e caiu a sua flor (ἄνθος)” (1Pe 1.24, citando Is 40). A fugacidade da glória humana ante a palavra de Deus que permanece. Cf. ἐξανθέω.",
+    "nt": "Tg 1.10,11; 1Pe 1.24.",
+    "cognatos": [
+      "ἐξανθέω"
+    ],
+    "verTambem": [
+      "χόρτος",
+      "πλούσιος",
+      "ματαιότης",
+      "λόγος"
+    ],
+    "pt": [
+      "flor"
+    ]
+  },
+  {
+    "lema": "ἀνθρακιά",
+    "translit": "anthrakiá",
+    "beta": "anthrakia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀνθρακιά, -ᾶς, ἡ",
+    "raiz": "ἄνθραξ (“carvão, brasa”)",
+    "lsj": "Braseiro; monte de brasas, fogo de carvão.",
+    "abbott": "Braseiro, fogo de brasas. O monte de brasas acesas. No pátio do sumo sacerdote, “os servos e guardas estavam em pé junto a um braseiro de brasas (ἀνθρακιάν)... aquentando-se”, e ali Pedro nega Jesus (Jo 18.18). Após a ressurreição, à beira-mar, os discípulos veem “um braseiro de brasas (ἀνθρακιάν), e um peixe em cima, e pão” (Jo 21.9) — junto a outro braseiro, Pedro é restaurado, num eco deliberado da negação. Só em João no NT. De ἄνθραξ (brasa; cf. Rm 12.20). Cf. ἄνθραξ, πῦρ.",
+    "nt": "Jo 18.18; 21.9.",
+    "cognatos": [
+      "ἄνθραξ"
+    ],
+    "verTambem": [
+      "ὀψάριον",
+      "ἀρνέομαι",
+      "βόσκω",
+      "πῦρ"
+    ],
+    "pt": [
+      "braseiro",
+      "fogo de brasas"
+    ]
+  },
+  {
+    "lema": "ἀνίστημι",
+    "translit": "anístēmi",
+    "beta": "anistemi",
+    "classe": "verbo",
+    "morf": "ἀνίστημι",
+    "raiz": "ἀνά (“para cima”) + ἵστημι (“pôr de pé”)",
+    "lsj": "Levantar, erguer; fazer levantar-se; (intr.) levantar-se, ressuscitar; surgir.",
+    "abbott": "Levantar(-se), ressuscitar. Pôr de pé ou erguer-se — em especial dos mortos. “Eu o ressuscitarei (ἀναστήσω) no último dia” (Jo 6.39,40,44,54); “eu sou a ressurreição e a vida” relaciona-se a este verbo. “Importa que o Filho do Homem... ressuscite (ἀναστῆναι)” (Mc 8.31; 9.9,31; 10.34); “Davi, sendo profeta... falou da ressurreição de Cristo” (At 2.24-32). Também levantar-se para agir: Pedro “se levantou (ἀναστάς)” (At 1.15; 5.34); Deus “suscitará (ἀναστήσει)” um profeta (At 3.22; 7.37). Cf. ἀνάστασις, ἐξανίστημι, ἐγείρω.",
+    "nt": "Jo 6.39,40,44,54; 11.23,24,31; 20.9. Muito frequente: Mt 9.9; 12.41; 17.9; 26.62; Mc 1.35; 2.14; 3.26; 5.42; 8.31; 9.9,10,27,31; 10.34; 12.23,25; 14.57,60; Lc 4.16,29,38,39; 6.8; 11.7,8,32; 15.18,20; 16.31; 17.19; 18.33; 22.45,46; 24.7,12,33,46; At 1.15; 2.24,30,32; 3.22,26; 5.6,17,34,36,37; 7.18,37; 9.6,11,18,34,39,40,41; 10.13,20,23,26,41; 11.7,28; 13.16,33,34; 14.10,20; 17.3,31; 20.30; 22.10,16; 23.9; 26.16,30; Rm 15.12; Ef 5.14; 1Ts 4.16.",
+    "cognatos": [
+      "ἵστημι",
+      "ἀνάστασις",
+      "ἐξανίστημι",
+      "ἀναστατόω"
+    ],
+    "verTambem": [
+      "ἀνάστασις",
+      "ἐγείρω",
+      "νεκρός",
+      "ζωή"
+    ],
+    "pt": [
+      "levantar",
+      "ressuscitar"
+    ]
+  },
+  {
+    "lema": "ἀνοίγω",
+    "translit": "anoígō",
+    "beta": "anoigo",
+    "classe": "verbo",
+    "morf": "ἀνοίγω",
+    "raiz": "ἀνά (“de volta”) + οἴγω (“abrir”)",
+    "lsj": "Abrir (porta, olhos, boca, livro); destrancar.",
+    "abbott": "Abrir. Franquear o que estava fechado — central na cura do cego. “Como te foram abertos (ἠνεῴχθησαν) os olhos?... abriu (ἤνοιξεν) os meus olhos” (Jo 9.10,14,17,21,26,30,32; 10.21; 11.37); “batei, e abrir-se-vos-á (ἀνοιγήσεται)” (Mt 7.7,8; Lc 11.9,10); os céus “se abriram (ἠνεῴχθησαν)” no batismo (Mt 3.16); abrir “a boca (στόμα)” para ensinar (Mt 5.2; At 8.35); o Cordeiro abre “o livro e os seus selos” (Ap 5–6); “eis que tenho posto diante de ti uma porta aberta (ἠνεῳγμένην)” (Ap 3.8). Cf. διανοίγω, ἄνοιξις.",
+    "nt": "Jo 1.51; 9.10,14,17,21,26,30,32; 10.3,21; 11.37. Muito frequente: Mt 2.11; 3.16; 5.2; 7.7,8; 13.35; 17.27; 25.11; 27.52; Lc 1.64; 3.21; 11.9,10; 12.36; 13.25; At 5.19; 7.56; 8.32,35; 9.8,40; 10.11,34; 12.10,14,16; 14.27; 16.26,27; 18.14; 26.18; Rm 3.13; 1Co 16.9; 2Co 6.11; Cl 4.3; Ap 3.7,8,20; 4.1; 5.2-9; 6.1-12; 8.1; 9.2; 10.2,8; 11.19; 12.16; 13.6; 15.5; 19.11; 20.12.",
+    "cognatos": [
+      "διανοίγω",
+      "ἄνοιξις"
+    ],
+    "verTambem": [
+      "τυφλός",
+      "πηλός",
+      "ὀφθαλμός",
+      "θύρα"
+    ],
+    "pt": [
+      "abrir"
+    ]
+  },
+  {
     "lema": "ἀνομία",
     "translit": "anomía",
     "beta": "anomia",
@@ -1491,6 +2210,32 @@ window.LEXICON_DATA = [
     "pt": [
       "iniquidade",
       "transgressão da lei"
+    ]
+  },
+  {
+    "lema": "ἄνομος",
+    "translit": "ánomos",
+    "beta": "anomos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄνομος, -ον",
+    "raiz": "ἀ- privativo + νόμος (“lei”)",
+    "lsj": "Sem lei; que despreza a lei; ímpio, transgressor; (subst.) o sem-lei.",
+    "abbott": "Iníquo, sem lei. O que vive à margem e contra a lei de Deus. Em 2Ts 2.8, “o iníquo (ἄνομος)” por excelência — o homem da iniquidade que o Senhor destruirá; Cristo foi contado “com os transgressores (ἀνόμων)” (Mc 15.28; Lc 22.37); Paulo se fez “como sem lei (ἄνομος)” para ganhar os que estão sem lei (1Co 9.21); Ló se afligia com a vida “dissoluta (ἀνόμων)” de Sodoma (2Pe 2.8). Cf. ἀνομία (iniquidade), νόμος.",
+    "nt": "2Ts 2.8. Cf. Mc 15.28; Lc 22.37; At 2.23; 1Co 9.21; 1Tm 1.9; 2Pe 2.8.",
+    "cognatos": [
+      "νόμος",
+      "ἀνομία",
+      "ἀνόμως"
+    ],
+    "verTambem": [
+      "ἀνομία",
+      "ἀποστασία",
+      "ἀντίκειμαι",
+      "ἀπώλεια"
+    ],
+    "pt": [
+      "iníquo",
+      "sem lei"
     ]
   },
   {
@@ -1569,6 +2314,56 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀντίκειμαι",
+    "translit": "antíkeimai",
+    "beta": "antikeimai",
+    "classe": "verbo (depoente)",
+    "morf": "ἀντίκειμαι",
+    "raiz": "ἀντί (“contra”) + κεῖμαι (“jazer, estar posto”)",
+    "lsj": "Estar posto em frente; opor-se, ser adversário, resistir.",
+    "abbott": "Opor-se, ser adversário. Colocar-se contra. O homem da iniquidade, “o que se opõe (ἀντικείμενος) e se levanta contra tudo o que se chama Deus” (2Ts 2.4); abriu-se uma porta, “e há muitos adversários (ἀντικείμενοι)” (1Co 16.9); a sã doutrina enfrenta o que “se opõe (ἀντίκειται)” (1Tm 1.10); os adversários de Jesus eram envergonhados (Lc 13.17). O particípio designa o “adversário” por excelência. Cf. κεῖμαι.",
+    "nt": "2Ts 2.4. Cf. Lc 13.17; 21.15; 1Co 16.9; Gl 5.17; Fp 1.28; 1Tm 1.10; 5.14.",
+    "cognatos": [
+      "κεῖμαι",
+      "ἀντίδικος"
+    ],
+    "verTambem": [
+      "ἄνομος",
+      "ἀποστασία",
+      "ὑπεραίρομαι",
+      "διάβολος"
+    ],
+    "pt": [
+      "opor-se",
+      "ser adversário"
+    ]
+  },
+  {
+    "lema": "ἀντιλαμβάνομαι",
+    "translit": "antilambánomai",
+    "beta": "antilambanomai",
+    "classe": "verbo (médio)",
+    "morf": "ἀντιλαμβάνομαι",
+    "raiz": "ἀντί (“em troca, a favor”) + λαμβάνω (“tomar”)",
+    "lsj": "Tomar a seu cargo; amparar, socorrer; participar de; dedicar-se a.",
+    "abbott": "Amparar, socorrer; dedicar-se. Tomar a parte de alguém para ajudá-lo. Deus “amparou (ἀντελάβετο) a Israel, seu servo, lembrado da misericórdia” (Lc 1.54); “é necessário... socorrer (ἀντιλαμβάνεσθαι) os fracos” (At 20.35); os que “participam (ἀντιλαμβανόμενοι)” do benefício, ou que se dedicam ao bem-fazer (1Tm 6.2). Liga-se a ἀντίλημψις (socorro, auxílio — dom de “ajudar/amparar”, 1Co 12.28). O segurar-se ao outro para sustentá-lo. Cf. λαμβάνω, ἀντίλημψις.",
+    "nt": "Lc 1.54; At 20.35; 1Tm 6.2. Cf. 1Co 12.28 (ἀντίλημψις).",
+    "cognatos": [
+      "λαμβάνω",
+      "ἀντίλημψις"
+    ],
+    "verTambem": [
+      "ἀσθενέω",
+      "βαστάζω",
+      "βοηθέω",
+      "χάρισμα"
+    ],
+    "pt": [
+      "amparar",
+      "socorrer"
+    ]
+  },
+  {
     "lema": "ἀντίλυτρον",
     "translit": "antílytron",
     "beta": "antilytron",
@@ -1619,6 +2414,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀντίχριστος",
+    "translit": "antíchristos",
+    "beta": "antichristos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ἀντίχριστος, -ου, ὁ",
+    "raiz": "ἀντί (“contra, em lugar de”) + Χριστός (“Cristo”)",
+    "lsj": "Termo do grego cristão: o adversário de Cristo; falso Cristo.",
+    "abbott": "Anticristo. O adversário de Cristo — que se opõe a ele e se faz passar por ele. Exclusivo das cartas de João: “ouvistes que vem o anticristo (ἀντίχριστος); pois já muitos anticristos (ἀντίχριστοι) têm surgido” (1Jo 2.18); “este é o anticristo (ἀντίχριστος): o que nega o Pai e o Filho” (2.22); “todo espírito que não confessa Jesus... é o espírito do anticristo (ἀντιχρίστου)” (4.3); o enganador e “o anticristo (ἀντίχριστος)” que nega Cristo vindo em carne (2Jo 7). O ἀντί une as ideias de oposição e de substituição. Cf. Χριστός, ψευδόχριστος.",
+    "nt": "1Jo 2.18,22; 4.3; 2Jo 7.",
+    "cognatos": [
+      "Χριστός",
+      "ψευδόχριστος"
+    ],
+    "verTambem": [
+      "ψεύστης",
+      "πλάνος",
+      "χρῖσμα",
+      "ὁμολογέω"
+    ],
+    "pt": [
+      "anticristo"
+    ]
+  },
+  {
     "lema": "ἀνυπόκριτος",
     "translit": "anypókritos",
     "beta": "anupokritos",
@@ -1641,6 +2460,29 @@ window.LEXICON_DATA = [
     "pt": [
       "sincero",
       "sem hipocrisia"
+    ]
+  },
+  {
+    "lema": "ἄνωθεν",
+    "translit": "ánōthen",
+    "beta": "anothen",
+    "classe": "advérbio",
+    "morf": "ἄνωθεν",
+    "raiz": "ἄνω (“acima”) + sufixo -θεν (“de”)",
+    "lsj": "De cima, do alto; de novo, novamente; desde o início.",
+    "abbott": "Do alto; de novo. Duplo sentido explorado em João 3: “quem não nascer de novo / do alto (ἄνωθεν) não pode ver o reino de Deus” (Jo 3.3,7) — Nicodemos entende “de novo” (segundo nascimento), mas Jesus aponta o nascimento “do alto”, de Deus. O poder de Pilatos lhe é dado “de cima (ἄνωθεν)” (Jo 19.11); a túnica “tecida de alto (ἄνωθεν) a baixo” (Jo 19.23); a sabedoria “lá do alto (ἄνωθεν)” (Tg 1.17; 3.15,17); “desde o princípio (ἄνωθεν)” (Lc 1.3; At 26.5). Cf. ἄνω, γεννάω.",
+    "nt": "Jo 3.3,7; 19.11,23. Cf. Mt 27.51; Mc 15.38; Lc 1.3; At 26.5; Gl 4.9; Tg 1.17; 3.15,17.",
+    "cognatos": [
+      "ἄνω"
+    ],
+    "verTambem": [
+      "γεννάω",
+      "παλιγγενεσία",
+      "πνεῦμα",
+      "οὐρανός"
+    ],
+    "pt": [
+      "do alto"
     ]
   },
   {
@@ -1690,6 +2532,30 @@ window.LEXICON_DATA = [
     "pt": [
       "alienar",
       "estranhar"
+    ]
+  },
+  {
+    "lema": "ἀπάντησις",
+    "translit": "apántēsis",
+    "beta": "apantesis",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "ἀπάντησις, -εως, ἡ",
+    "raiz": "ἀπαντάω (“ir ao encontro”), de ἀπό + ἀντάω",
+    "lsj": "Encontro; ação de sair ao encontro de alguém que chega.",
+    "abbott": "Encontro. O ato de sair para receber quem chega. Os vivos serão arrebatados nas nuvens “para o encontro (ἀπάντησιν) do Senhor nos ares” (1Ts 4.17). O termo evocava o costume de uma cidade enviar uma delegação para fora dos muros, a fim de receber o soberano que vinha em visita oficial (παρουσία) e escoltá-lo na entrada — como os que saíram “ao encontro (ἀπάντησιν)” do noivo (Mt 25.6) e os irmãos que vieram “ao encontro” de Paulo (At 28.15).",
+    "nt": "1Ts 4.17. Cf. Mt 25.6; At 28.15.",
+    "cognatos": [
+      "ἀπαντάω",
+      "ὑπάντησις"
+    ],
+    "verTambem": [
+      "παρουσία",
+      "ἁρπάζω",
+      "νεφέλη",
+      "ἀήρ"
+    ],
+    "pt": [
+      "encontro"
     ]
   },
   {
@@ -1918,6 +2784,58 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀπιστία",
+    "translit": "apistía",
+    "beta": "apistia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀπιστία, -ας, ἡ",
+    "raiz": "ἀ- privativo + πίστις (“fé”)",
+    "lsj": "Falta de fé, incredulidade; infidelidade; descrença.",
+    "abbott": "Incredulidade. A ausência de fé. Abraão “não duvidou da promessa de Deus por incredulidade (ἀπιστίᾳ)” (Rm 4.20); os ramos “foram quebrados por causa da incredulidade (ἀπιστίᾳ)”; e Israel, “se não permanecer na incredulidade (ἀπιστίᾳ)”, será enxertado (Rm 11.20,23); “a incredulidade (ἀπιστία) deles aniquilará a fidelidade de Deus? De modo nenhum” (Rm 3.3). “Por causa da incredulidade (ἀπιστίαν) deles” não fez ali muitos milagres (Mt 13.58; Mc 6.6; 9.24); “fui tratado com misericórdia porque o fiz na incredulidade (ἀπιστίᾳ)” (1Tm 1.13). Cf. πίστις, ἄπιστος, ἀπιστέω.",
+    "nt": "Rm 3.3; 4.20; 11.20,23. Cf. Mt 13.58; Mc 6.6; 9.24; 16.14; 1Tm 1.13; Hb 3.12,19.",
+    "cognatos": [
+      "πίστις",
+      "ἄπιστος",
+      "ἀπιστέω"
+    ],
+    "verTambem": [
+      "πίστις",
+      "ἄπιστος",
+      "κλάδος",
+      "σκληρύνω"
+    ],
+    "pt": [
+      "incredulidade"
+    ]
+  },
+  {
+    "lema": "ἄπιστος",
+    "translit": "ápistos",
+    "beta": "apistos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄπιστος, -ον",
+    "raiz": "ἀ- privativo + πιστός (“fiel, crente”)",
+    "lsj": "Incrédulo, descrente; (de coisas) incrível; infiel.",
+    "abbott": "Incrédulo, descrente. O que não tem fé — sobretudo o não-cristão. O cônjuge “incrédulo (ἄπιστος)” é santificado pelo crente (1Co 7.12-15); não vos prendais “a jugo desigual com os incrédulos (ἀπίστοις)” (2Co 6.14,15); o deus deste século cegou “o entendimento dos incrédulos (ἀπίστων)” (2Co 4.4); pior que o incrédulo é quem não cuida dos seus (1Tm 5.8). A Tomé: “não sejas incrédulo (ἄπιστος), mas crente” (Jo 20.27). Cf. πιστός, ἀπιστία, ἀπιστέω.",
+    "nt": "1Co 6.6; 7.12,13,14,15; 10.27; 14.22,23,24. Cf. Mt 17.17; Lc 12.46; Jo 20.27; At 26.8; 2Co 4.4; 6.14,15; 1Tm 5.8; Tt 1.15; Ap 21.8.",
+    "cognatos": [
+      "πιστός",
+      "ἀπιστία",
+      "ἀπιστέω",
+      "πίστις"
+    ],
+    "verTambem": [
+      "πιστός",
+      "ἀπιστία",
+      "κόσμος",
+      "εἴδωλον"
+    ],
+    "pt": [
+      "incrédulo",
+      "descrente"
+    ]
+  },
+  {
     "lema": "ἁπλότης",
     "translit": "haplótēs",
     "beta": "haplotes",
@@ -2114,6 +3032,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀποκτείνω",
+    "translit": "apokteínō",
+    "beta": "apokteino",
+    "classe": "verbo",
+    "morf": "ἀποκτείνω",
+    "raiz": "ἀπό (intensivo) + κτείνω (“matar”)",
+    "lsj": "Matar, dar morte; destruir.",
+    "abbott": "Matar, dar morte. Tirar a vida. Os judeus “procuravam matá-lo (ἀποκτεῖναι)”, por chamar Deus seu Pai e por curar no sábado (Jo 5.18; 7.1,19,20,25; 8.22,37,40; 11.53); “o ladrão vem para matar (ἀποκτείνῃ)” (Jo 10.10). “Não temais os que matam (ἀποκτεννόντων) o corpo, mas não podem matar a alma” (Mt 10.28; Lc 12.4,5); “Jerusalém, que matas (ἀποκτείνουσα) os profetas” (Mt 23.37; Lc 13.34); “a letra mata (ἀποκτείνει), mas o Espírito vivifica” (2Co 3.6). Cf. κτείνω, θανατόω, ἀναιρέω.",
+    "nt": "Jo 5.18; 7.1,19,20,25; 8.22,37,40; 11.53; 12.10; 16.2; 18.31. Muito frequente: Mt 10.28; 16.21; 17.23; 21.35-39; 22.6; 23.34,37; 24.9; Mc 3.4; 6.19; 8.31; 9.31; 10.34; 12.5-8; Lc 9.22; 11.47,48,49; 12.4,5; 13.4,31,34; 18.33; 20.14,15; At 3.15; 23.12,14; 27.42; Rm 7.11; 2Co 3.6; Ef 2.16; Ap 2.13,23; 6.8,11; 9.5,15,18; 11.5,7,13; 13.10,15; 19.21.",
+    "cognatos": [
+      "κτείνω",
+      "θανατόω",
+      "ἀναιρέω"
+    ],
+    "verTambem": [
+      "θάνατος",
+      "σταυρόω",
+      "διώκω",
+      "ζωή"
+    ],
+    "pt": [
+      "matar",
+      "dar morte"
+    ]
+  },
+  {
     "lema": "ἀπολύτρωσις",
     "translit": "apolýtrōsis",
     "beta": "apolutrosis",
@@ -2137,6 +3081,31 @@ window.LEXICON_DATA = [
     "pt": [
       "redenção",
       "libertação por resgate"
+    ]
+  },
+  {
+    "lema": "ἀποστασία",
+    "translit": "apostasía",
+    "beta": "apostasia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀποστασία, -ας, ἡ",
+    "raiz": "ἀφίστημι (“apartar-se, revoltar-se”), de ἀπό + ἵστημι",
+    "lsj": "Defecção, revolta, rebelião; abandono, deserção (esp. da fé).",
+    "abbott": "Apostasia, defecção. O abandono deliberado da fé ou a grande revolta final. O dia do Senhor não virá “sem que primeiro venha a apostasia (ἀποστασία) e se manifeste o homem da iniquidade” (2Ts 2.3) — a rebelião escatológica contra Deus. Em At 21.21, acusam Paulo de ensinar “a abandonar (ἀποστασίαν) Moisés”. Raiz da palavra “apostasia”. Cf. ἀφίστημι (apartar-se, 1Tm 4.1).",
+    "nt": "2Ts 2.3. Cf. At 21.21.",
+    "cognatos": [
+      "ἀφίστημι",
+      "ἀποστάσιον"
+    ],
+    "verTambem": [
+      "ἄνομος",
+      "ἀντίκειμαι",
+      "παρουσία",
+      "πλάνη"
+    ],
+    "pt": [
+      "apostasia",
+      "defecção"
     ]
   },
   {
@@ -2190,6 +3159,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀποτίνω",
+    "translit": "apotínō",
+    "beta": "apotino",
+    "classe": "verbo",
+    "morf": "ἀποτίνω",
+    "raiz": "ἀπό (“de volta”) + τίνω (“pagar”)",
+    "lsj": "Pagar de volta, restituir; ressarcir; pagar a pena.",
+    "abbott": "Pagar, restituir. Saldar uma dívida ou compensar um dano. Hapax do NT (Fm 19): Paulo se oferece como fiador de Onésimo — “se te causou algum dano... eu o pagarei (ἀποτίσω); eu, Paulo, o escrevo de próprio punho”. O termo é jurídico, próprio dos contratos: assumir formalmente o pagamento. A imagem da substituição: Paulo paga o que o outro deve. Cf. τίνω, ἐκτίνω.",
+    "nt": "1 ocorrência (hapax): Fm 19.",
+    "cognatos": [
+      "τίνω"
+    ],
+    "verTambem": [
+      "προσοφείλω",
+      "ἐλλογέω",
+      "ὀφείλω",
+      "λύτρον"
+    ],
+    "pt": [
+      "pagar",
+      "restituir"
+    ]
+  },
+  {
     "lema": "ἀποτομία",
     "translit": "apotomía",
     "beta": "apotomia",
@@ -2212,6 +3205,31 @@ window.LEXICON_DATA = [
     "pt": [
       "severidade",
       "rigor"
+    ]
+  },
+  {
+    "lema": "ἀπώλεια",
+    "translit": "apṓleia",
+    "beta": "apoleia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἀπώλεια, -ας, ἡ",
+    "raiz": "ἀπόλλυμι (“destruir, perder”), de ἀπό + ὄλλυμι",
+    "lsj": "Destruição, ruína; perda; perdição.",
+    "abbott": "Perdição, destruição. A ruína final, oposta à salvação. O iníquo é “o filho da perdição (ἀπωλείας)” (2Ts 2.3); a porta larga conduz “à perdição (ἀπώλειαν)” (Mt 7.13); vasos “de ira, preparados para a perdição” (Rm 9.22); para os adversários é “indício de perdição, mas para vós de salvação” (Fp 1.28); os falsos mestres trazem sobre si “repentina destruição” (2Pe 2.1,3; 3.16). O destino dos que se perdem. Cf. ἀπόλλυμι, ὄλεθρος.",
+    "nt": "2Ts 2.3. Cf. Mt 7.13; 26.8; Jo 17.12; At 8.20; Rm 9.22; Fp 1.28; 3.19; 1Tm 6.9; Hb 10.39; 2Pe 2.1,3; 3.7,16; Ap 17.8,11.",
+    "cognatos": [
+      "ἀπόλλυμι",
+      "ὄλεθρος"
+    ],
+    "verTambem": [
+      "ὄλεθρος",
+      "ἄνομος",
+      "σωτηρία",
+      "κρίσις"
+    ],
+    "pt": [
+      "perdição",
+      "destruição"
     ]
   },
   {
@@ -2287,6 +3305,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἁρπάζω",
+    "translit": "harpázō",
+    "beta": "harpazo",
+    "classe": "verbo",
+    "morf": "ἁρπάζω",
+    "raiz": "raiz grega de “agarrar, arrebatar”",
+    "lsj": "Arrebatar, agarrar com força; arrancar; tomar à força; levar de súbito.",
+    "abbott": "Arrebatar, arrancar. Tomar de repente e com poder. Os vivos “seremos arrebatados (ἁρπαγησόμεθα) juntamente com eles entre nuvens, para o encontro do Senhor” (1Ts 4.17) — o termo do qual deriva a noção do “arrebatamento”. O lobo “arrebata (ἁρπάζει)” as ovelhas (Jo 10.12); ninguém as “arrebatará” da mão de Cristo (Jo 10.28,29); Paulo foi “arrebatado (ἡρπάγη)” ao paraíso (2Co 12.2,4); o Espírito “arrebatou (ἥρπασεν)” Filipe (At 8.39). Cf. ἁρπαγή, ἅρπαξ.",
+    "nt": "1Ts 4.17. Cf. Mt 11.12; 13.19; Jo 6.15; 10.12,28,29; At 8.39; 23.10; 2Co 12.2,4; Jd 23; Ap 12.5.",
+    "cognatos": [
+      "ἁρπαγή",
+      "ἅρπαξ",
+      "ἁρπαγμός"
+    ],
+    "verTambem": [
+      "ἀπάντησις",
+      "παρουσία",
+      "νεφέλη",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "arrebatar",
+      "arrancar"
+    ]
+  },
+  {
     "lema": "ἀρραβών",
     "translit": "arrabṓn",
     "beta": "arrabon",
@@ -2336,6 +3380,29 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἄρτος",
+    "translit": "ártos",
+    "beta": "artos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ἄρτος, -ου, ὁ",
+    "raiz": "raiz grega de “pão”",
+    "lsj": "Pão; alimento; sustento.",
+    "abbott": "Pão; alimento. O pão literal e o que ele significa. Na ceia: “o pão (ἄρτον) que partimos não é a comunhão do corpo de Cristo? ...nós, embora muitos, somos um só pão (ἄρτος)” (1Co 10.16,17); Jesus “tomou o pão (ἄρτον)... isto é o meu corpo” (1Co 11.23,26-28; Lc 22.19). Eu sou “o pão (ἄρτος) da vida” (Jo 6.35,48,51); “o pão (ἄρτον) nosso de cada dia” (Mt 6.11); “nem só de pão (ἄρτῳ) viverá o homem” (Mt 4.4). Sustento e comunhão. Cf. ἄζυμος.",
+    "nt": "1Co 10.16,17; 11.23,26,27,28. Muito frequente: Mt 4.3,4; 6.11; 14.17,19; 15.26,33,34; 26.26; Mc 14.22; Lc 4.3,4; 9.13; 11.3; 22.19; 24.30,35; Jo 6.5-58; At 2.42,46; 20.7,11; 2Ts 3.8,12.",
+    "cognatos": [
+      "ἄζυμος"
+    ],
+    "verTambem": [
+      "ποτήριον",
+      "δεῖπνον",
+      "σῶμα",
+      "κοινωνία"
+    ],
+    "pt": [
+      "pão"
+    ]
+  },
+  {
     "lema": "ἀρτύω",
     "translit": "artýō",
     "beta": "artyo",
@@ -2358,6 +3425,30 @@ window.LEXICON_DATA = [
     "pt": [
       "temperar",
       "condimentar"
+    ]
+  },
+  {
+    "lema": "ἀρχάγγελος",
+    "translit": "archángelos",
+    "beta": "archaggelos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ἀρχάγγελος, -ου, ὁ",
+    "raiz": "ἀρχι- (“chefe”) + ἄγγελος (“mensageiro, anjo”)",
+    "lsj": "Termo do grego judaico-cristão: anjo principal, arcanjo.",
+    "abbott": "Arcanjo. Anjo de posição superior, chefe entre os anjos. O Senhor descerá “com voz de arcanjo (ἀρχαγγέλου)” (1Ts 4.16); Miguel, “o arcanjo (ἀρχάγγελος)”, em disputa com o diabo (Jd 9). A tradição judaica nomeava arcanjos (Miguel, Gabriel); o NT usa o termo com sobriedade, sem especular. Cf. ἄγγελος.",
+    "nt": "1Ts 4.16. Cf. Jd 9.",
+    "cognatos": [
+      "ἄγγελος",
+      "ἀρχή"
+    ],
+    "verTambem": [
+      "ἄγγελος",
+      "κέλευσμα",
+      "σάλπιγξ",
+      "παρουσία"
+    ],
+    "pt": [
+      "arcanjo"
     ]
   },
   {
@@ -2410,6 +3501,54 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "sumo sacerdote"
+    ]
+  },
+  {
+    "lema": "ἀρχιποίμην",
+    "translit": "archipoímēn",
+    "beta": "archipoimen",
+    "classe": "substantivo, masc. (3ª decl.)",
+    "morf": "ἀρχιποίμην, -ένος, ὁ",
+    "raiz": "ἀρχι- (“chefe”) + ποιμήν (“pastor”)",
+    "lsj": "Termo raro: pastor-chefe, supremo pastor.",
+    "abbott": "Sumo Pastor, Pastor-chefe. Hapax do NT (1Pe 5.4): “quando aparecer o Sumo Pastor (ἀρχιποίμενος), recebereis a imarcescível coroa de glória”. Cristo é o Pastor supremo sobre os presbíteros, que são pastores subordinados do rebanho (5.2). Complementa as imagens de Cristo como “o bom Pastor” (Jo 10.11) e “o grande Pastor das ovelhas” (Hb 13.20), e “o Pastor e Bispo das vossas almas” (1Pe 2.25). Cf. ποιμήν, ποίμνιον.",
+    "nt": "1 ocorrência (hapax): 1Pe 5.4.",
+    "cognatos": [
+      "ποιμήν",
+      "ποίμνιον",
+      "ἀρχή"
+    ],
+    "verTambem": [
+      "ποιμήν",
+      "ποίμνιον",
+      "ἐπίσκοπος",
+      "στέφανος"
+    ],
+    "pt": [
+      "sumo pastor",
+      "pastor-chefe"
+    ]
+  },
+  {
+    "lema": "ἀρχιτρίκλινος",
+    "translit": "architríklinos",
+    "beta": "architriklinos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ἀρχιτρίκλινος, -ου, ὁ",
+    "raiz": "ἀρχι- (“chefe”) + τρίκλινος (“sala de três leitos, sala de banquete”)",
+    "lsj": "Termo tardio: mestre do banquete; o que dirige a mesa e prova os vinhos.",
+    "abbott": "Mestre-sala, mestre do banquete. O encarregado de organizar o festim e provar o que se serve. Nas bodas de Caná, “levaram-no ao mestre-sala (ἀρχιτρικλίνῳ)... quando o mestre-sala (ἀρχιτρίκλινος) provou a água feita vinho... chama o esposo” e estranha o bom vinho guardado para o fim (Jo 2.8,9). O τρίκλινον era a sala com três leitos ao redor da mesa; o ἀρχιτρίκλινος presidia o banquete. Termo só joanino. Cf. δεῖπνον, γάμος.",
+    "nt": "Jo 2.8,9.",
+    "cognatos": [],
+    "verTambem": [
+      "ὑδρία",
+      "γάμος",
+      "δεῖπνον",
+      "σημεῖον"
+    ],
+    "pt": [
+      "mestre-sala",
+      "mestre do banquete"
     ]
   },
   {
@@ -2510,6 +3649,57 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἀσθενέω",
+    "translit": "asthenéō",
+    "beta": "astheneo",
+    "classe": "verbo",
+    "morf": "ἀσθενέω",
+    "raiz": "ἀσθενής (“fraco”), de ἀ- + σθένος (“força”)",
+    "lsj": "Estar fraco, ser débil; estar doente; (fig.) ser fraco na fé.",
+    "abbott": "Ser fraco; estar enfermo. A falta de força — física, ou na fé. “Quanto ao que é fraco (ἀσθενοῦντα) na fé, acolhei-o” — o que come só legumes por escrúpulo (Rm 14.1,2; 4.19). “Quem enfraquece (ἀσθενεῖ), que eu também não enfraqueça (ἀσθενῶ)?” (2Co 11.29); “quando sou fraco (ἀσθενῶ), então sou forte” (2Co 12.10; 13.4,9). Enfermo: “curai os enfermos (ἀσθενοῦντας)” (Mt 10.8); “está enfermo (ἀσθενεῖ) aquele que amas”, de Lázaro (Jo 11.1,2,3,6). Cf. ἀσθένεια, ἀσθενής.",
+    "nt": "Rm 4.19; 8.3; 14.1,2,21. Frequente: Mt 10.8; 25.36,39; Lc 4.40; Jo 4.46; 5.3,7; 6.2; 11.1,2,3,6; At 9.37; 19.12; 20.35; 1Co 8.11,12; 2Co 11.21,29; 12.10; 13.3,4,9; Fp 2.26,27; 2Tm 4.20; Tg 5.14.",
+    "cognatos": [
+      "ἀσθενής",
+      "ἀσθένεια",
+      "ἀσθένημα"
+    ],
+    "verTambem": [
+      "ἀσθενής",
+      "ἀσθένεια",
+      "δυνατός",
+      "σκανδαλίζω"
+    ],
+    "pt": [
+      "ser fraco"
+    ]
+  },
+  {
+    "lema": "ἀσθενής",
+    "translit": "asthenḗs",
+    "beta": "asthenes",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἀσθενής, -ές",
+    "raiz": "ἀ- privativo + σθένος (“força, vigor”)",
+    "lsj": "Sem força, débil, fraco; doente; (moral) frágil.",
+    "abbott": "Fraco, débil; enfermo. A falta de força — física, social ou espiritual. Deus escolheu “as coisas fracas (ἀσθενῆ) do mundo para confundir as fortes” (1Co 1.27); “o que é fraco (ἀσθενές) de Deus é mais forte que os homens” (1.25); cuidado para que a liberdade não faça tropeçar “o fraco (ἀσθενής)” na fé (8.7-12; 9.22); o corpo semeado “em fraqueza (ἀσθενείᾳ)” (15.43). Cristo “foi crucificado em fraqueza (ἀσθενείας)” (2Co 13.4). Os “enfermos (ἀσθενεῖς)” curados (Mt 25.39; At 4.9). Cf. ἀσθένεια, ἀσθενέω.",
+    "nt": "1Co 1.25,27; 4.10; 8.7,9,10; 9.22; 11.30; 12.22. Cf. Mt 25.39,43,44; 26.41; Mc 14.38; At 4.9; 5.15,16; Rm 5.6; 2Co 10.10; Gl 4.9; 1Ts 5.14; 1Pe 3.7.",
+    "cognatos": [
+      "σθένος",
+      "ἀσθένεια",
+      "ἀσθενέω"
+    ],
+    "verTambem": [
+      "ἀσθένεια",
+      "δυνατός",
+      "σκάνδαλον",
+      "ἀγάπη"
+    ],
+    "pt": [
+      "fraco",
+      "débil"
+    ]
+  },
+  {
     "lema": "ἀσπάζομαι",
     "translit": "aspázomai",
     "beta": "aspazomai",
@@ -2531,6 +3721,56 @@ window.LEXICON_DATA = [
     "pt": [
       "saudar",
       "cumprimentar"
+    ]
+  },
+  {
+    "lema": "ἄσπιλος",
+    "translit": "áspilos",
+    "beta": "aspilos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄσπιλος, -ον",
+    "raiz": "ἀ- privativo + σπίλος (“mancha, mácula”)",
+    "lsj": "Sem mancha, imaculado; puro.",
+    "abbott": "Imaculado, sem mácula. Livre de toda mancha — moral e ritual. Fostes resgatados pelo sangue de Cristo, “como de cordeiro sem defeito e imaculado (ἀσπίλου)” (1Pe 1.19); guardar-se “imaculado (ἄσπιλον) do mundo” (Tg 1.27); esforçai-vos para ser achados por ele “imaculados (ἄσπιλοι) e irrepreensíveis” (2Pe 3.14); guardar o mandamento “imaculado (ἄσπιλον)” (1Tm 6.14). A pureza sem mancha do Cordeiro e do crente. Cf. σπίλος, ἀμώμητος, σπιλόω.",
+    "nt": "1Pe 1.19. Cf. 1Tm 6.14; Tg 1.27; 2Pe 3.14.",
+    "cognatos": [
+      "σπίλος",
+      "σπιλόω"
+    ],
+    "verTambem": [
+      "ἀμώμητος",
+      "ἁγνός",
+      "ἄμωμος",
+      "ἀρνίον"
+    ],
+    "pt": [
+      "imaculado",
+      "sem mácula"
+    ]
+  },
+  {
+    "lema": "ἀστήρικτος",
+    "translit": "astḗriktos",
+    "beta": "asteriktos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἀστήρικτος, -ον",
+    "raiz": "ἀ- privativo + στηρίζω (“firmar, estabelecer”)",
+    "lsj": "Não firmado; instável, vacilante.",
+    "abbott": "Instável, não firmado. O que não tem firmeza e facilmente se desvia. Os falsos mestres “engodam as almas inconstantes (ἀστηρίκτους)” (2Pe 2.14); nas cartas de Paulo há coisas que “os indoutos e inconstantes (ἀστήρικτοι) torcem, para sua própria perdição” (2Pe 3.16). O oposto do que é firmado (στηρίζω) na verdade; por isso o apelo a “crescer na graça” e a ser firmados. Cf. στηρίζω, στηριγμός (2Pe 3.17).",
+    "nt": "2Pe 2.14; 3.16.",
+    "cognatos": [
+      "στηρίζω",
+      "στηριγμός"
+    ],
+    "verTambem": [
+      "στηρίζω",
+      "πλανάω",
+      "βέβαιος",
+      "δίψυχος"
+    ],
+    "pt": [
+      "instável",
+      "não firmado"
     ]
   },
   {
@@ -2604,6 +3844,32 @@ window.LEXICON_DATA = [
     "pt": [
       "dissolução",
       "devassidão"
+    ]
+  },
+  {
+    "lema": "ἄτακτος",
+    "translit": "átaktos",
+    "beta": "ataktos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄτακτος, -ον",
+    "raiz": "ἀ- privativo + τάσσω (“ordenar, dispor”)",
+    "lsj": "Fora de ordem; indisciplinado; (de soldados) sem formação; ocioso, desregrado.",
+    "abbott": "Desordenado, indisciplinado. Termo militar — o soldado fora de forma — aplicado aos que vivem sem disciplina, em ociosidade. “Admoestai os desordeiros/ociosos (ἀτάκτους)” (1Ts 5.14); apartai-vos do irmão “que anda desordenadamente (ἀτάκτως)” e não segundo a tradição recebida (2Ts 3.6,11, em advérbio e verbo ἀτακτέω). Em Tessalônica, alguns deixaram de trabalhar (talvez à espera da parusia), tornando-se um problema de ordem. Cf. τάσσω, τάξις.",
+    "nt": "1Ts 5.14. Cf. 2Ts 3.6,7,11 (verbo/advérbio).",
+    "cognatos": [
+      "τάσσω",
+      "τάξις",
+      "ἀτακτέω"
+    ],
+    "verTambem": [
+      "περιεργάζομαι",
+      "ἐργάζομαι",
+      "ἡσυχία",
+      "παραγγέλλω"
+    ],
+    "pt": [
+      "desordenado",
+      "indisciplinado"
     ]
   },
   {
@@ -2756,6 +4022,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἄφθαρτος",
+    "translit": "áphthartos",
+    "beta": "aphthartos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄφθαρτος, -ον",
+    "raiz": "ἀ- privativo + φθείρω (“corromper, destruir”)",
+    "lsj": "Incorruptível, imperecível; imortal.",
+    "abbott": "Incorruptível, imperecível. O que não se deteriora nem perece. Herança “incorruptível (ἄφθαρτον), incontaminada e imarcescível, reservada nos céus” (1Pe 1.4); regenerados “de semente incorruptível (ἀφθάρτου)” (1.23); o adorno do coração, “o que é incorruptível (ἀφθάρτῳ)” (3.4); ressuscitam “incorruptíveis (ἄφθαρτοι)” (1Co 15.52); coroa “incorruptível (ἄφθαρτον)” (1Co 9.25); ao Deus “incorruptível (ἀφθάρτῳ)” (Rm 1.23; 1Tm 1.17). Cf. ἀφθαρσία, φθείρω, φθορά.",
+    "nt": "1Pe 1.4,23; 3.4. Cf. Rm 1.23; 1Co 9.25; 15.52; 1Tm 1.17.",
+    "cognatos": [
+      "φθείρω",
+      "ἀφθαρσία",
+      "φθορά"
+    ],
+    "verTambem": [
+      "ἀφθαρσία",
+      "ἀμάραντος",
+      "κληρονομία",
+      "ἀναγεννάω"
+    ],
+    "pt": [
+      "incorruptível",
+      "imperecível"
+    ]
+  },
+  {
     "lema": "ἀφιλάργυρος",
     "translit": "aphilárgyros",
     "beta": "aphilargyros",
@@ -2856,6 +4148,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἄχρηστος",
+    "translit": "áchrēstos",
+    "beta": "achrestos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἄχρηστος, -ον",
+    "raiz": "ἀ- privativo + χρηστός (“útil, bom”), de χράομαι",
+    "lsj": "Inútil, imprestável; sem serventia.",
+    "abbott": "Inútil, imprestável. Hapax do NT (Fm 11), num trocadilho com o nome Onésimo (“proveitoso”): “o qual noutro tempo te foi inútil (ἄχρηστον), mas agora muito útil (εὔχρηστον), a ti e a mim”. O escravo fugitivo que era “sem serventia” tornou-se valioso pela conversão. Jogo entre ἄχρηστος e εὔχρηστος, e talvez com Χριστός (Cristo) e χρηστός (bom). Cf. χρηστός, εὔχρηστος.",
+    "nt": "1 ocorrência (hapax): Fm 11.",
+    "cognatos": [
+      "χρηστός",
+      "εὔχρηστος",
+      "χράομαι"
+    ],
+    "verTambem": [
+      "εὔχρηστος",
+      "δοῦλος",
+      "ἀναπέμπω",
+      "ὀνίνημι"
+    ],
+    "pt": [
+      "inútil",
+      "imprestável"
+    ]
+  },
+  {
     "lema": "βάθος",
     "translit": "báthos",
     "beta": "bathos",
@@ -2877,6 +4195,27 @@ window.LEXICON_DATA = [
     "pt": [
       "profundidade",
       "abismo"
+    ]
+  },
+  {
+    "lema": "βαΐον",
+    "translit": "baḯon",
+    "beta": "baion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "βαΐον, -ου, τό",
+    "raiz": "do egípcio/copta, via grego (“ramo de palmeira”)",
+    "lsj": "Ramo de palmeira.",
+    "abbott": "Ramo de palmeira. Hapax do NT (Jo 12.13): na entrada triunfal, a multidão “tomou ramos de palmeiras (βαΐα τῶν φοινίκων), e saiu ao seu encontro, e clamava: Hosana! Bendito o que vem em nome do Senhor, o Rei de Israel!”. A palma era símbolo de vitória e de aclamação real. Termo só joanino, de origem egípcia. Cf. φοῖνιξ, στιβάς.",
+    "nt": "1 ocorrência (hapax): Jo 12.13.",
+    "cognatos": [],
+    "verTambem": [
+      "φοῖνιξ",
+      "βασιλεύς",
+      "ὡσαννά",
+      "δοξάζω"
+    ],
+    "pt": [
+      "ramo de palmeira"
     ]
   },
   {
@@ -2949,6 +4288,32 @@ window.LEXICON_DATA = [
     "pt": [
       "reino",
       "reinado"
+    ]
+  },
+  {
+    "lema": "βασίλειος",
+    "translit": "basíleios",
+    "beta": "basileios",
+    "classe": "adjetivo (2 term.)",
+    "morf": "βασίλειος, -ον",
+    "raiz": "βασιλεύς (“rei”)",
+    "lsj": "Real, régio; pertencente ao rei; (subst. pl.) palácio real.",
+    "abbott": "Real, régio. O que pertence ao rei ou à realeza. “Vós sois... o sacerdócio real (βασίλειον ἱεράτευμα)” (1Pe 2.9, citando Êx 19.6) — o povo de Deus participa da realeza, sendo ao mesmo tempo rei e sacerdote. No plural substantivado, “os que se vestem com luxo... estão nos palácios (βασιλείοις) reais” (Lc 7.25). Distinto de βασιλεία (reino) e βασιλικός (régio, do rei). Cf. βασιλεύς, βασιλεία.",
+    "nt": "1Pe 2.9. Cf. Lc 7.25.",
+    "cognatos": [
+      "βασιλεύς",
+      "βασιλεία",
+      "βασιλικός"
+    ],
+    "verTambem": [
+      "ἱεράτευμα",
+      "λαός",
+      "ἐκλεκτός",
+      "βασιλεύς"
+    ],
+    "pt": [
+      "real",
+      "régio"
     ]
   },
   {
@@ -3128,6 +4493,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "βλασφημέω",
+    "translit": "blasphēméō",
+    "beta": "blasphemeo",
+    "classe": "verbo",
+    "morf": "βλασφημέω",
+    "raiz": "βλάσφημος (“difamador”), de βλάπτω + φήμη (“fala que fere”)",
+    "lsj": "Falar profana ou injuriosamente; blasfemar; difamar, ultrajar.",
+    "abbott": "Blasfemar; difamar. Falar com ultraje — contra Deus ou contra os homens. Os falsos mestres “blasfemam (βλασφημοῦντες) do que não entendem” e “do caminho da verdade” (2Pe 2.2,10,12; Jd 8,10); por causa deles “será blasfemado (βλασφημηθήσεται) o caminho da verdade” (2Pe 2.2). Contra Deus: “blasfema (βλασφημεῖ)”, disseram de Jesus (Mt 9.3; 26.65); a blasfêmia contra o Espírito (Mt 12.31; Mc 3.29). Contra homens: ser “difamados (βλασφημούμεθα)” (1Co 4.13; Rm 3.8). Raiz de “blasfemar”. Cf. βλασφημία, βλάσφημος.",
+    "nt": "2Pe 2.2,10,12; Jd 8,10. Frequente: Mt 9.3; 26.65; 27.39; Mc 3.28,29; 15.29; Lc 12.10; 22.65; 23.39; Jo 10.36; At 13.45; 18.6; 19.37; 26.11; Rm 2.24; 3.8; 14.16; 1Co 4.13; 10.30; 1Tm 1.20; 6.1; Tt 2.5; 3.2; Tg 2.7; Ap 13.6; 16.9,11,21.",
+    "cognatos": [
+      "βλασφημία",
+      "βλάσφημος"
+    ],
+    "verTambem": [
+      "βλασφημία",
+      "καταλαλέω",
+      "ἀσεβής",
+      "ἐμπαίκτης"
+    ],
+    "pt": [
+      "blasfemar"
+    ]
+  },
+  {
     "lema": "βλασφημία",
     "translit": "blasphēmía",
     "beta": "blasphemia",
@@ -3150,6 +4539,30 @@ window.LEXICON_DATA = [
     "pt": [
       "maledicência",
       "blasfêmia"
+    ]
+  },
+  {
+    "lema": "βόσκω",
+    "translit": "bóskō",
+    "beta": "bosko",
+    "classe": "verbo",
+    "morf": "βόσκω",
+    "raiz": "raiz grega de “alimentar, apascentar”",
+    "lsj": "Apascentar, levar a pastar; (passiva) pastar, alimentar-se.",
+    "abbott": "Apascentar. Levar o gado a pasto e alimentá-lo. Na restauração de Pedro, Jesus por três vezes lhe confia o rebanho: “apascenta (βόσκε) os meus cordeiros... apascenta (βόσκε) as minhas ovelhas” (Jo 21.15,17), alternando com ποίμαινε (pastoreia, 21.16) — nutrir e governar a grei. Os que apascentavam (βόσκοντες) os porcos fugiram (Mt 8.30,33; Mc 5.11,14; Lc 8.32,34); o pródigo foi enviado “a apascentar (βόσκειν) porcos” (Lc 15.15). Cf. ποιμαίνω, νομή, βόσκημα.",
+    "nt": "Jo 21.15,17. Cf. Mt 8.30,33; Mc 5.11,14; Lc 8.32,34; 15.15.",
+    "cognatos": [
+      "ποιμαίνω",
+      "νομή"
+    ],
+    "verTambem": [
+      "ποιμαίνω",
+      "πρόβατον",
+      "ποιμήν",
+      "ἀρνίον"
+    ],
+    "pt": [
+      "apascentar"
     ]
   },
   {
@@ -3204,6 +4617,52 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "γάλα",
+    "translit": "gála",
+    "beta": "gala",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "γάλα, -ακτος, τό",
+    "raiz": "raiz grega de “leite”",
+    "lsj": "Leite.",
+    "abbott": "Leite. Alimento dos recém-nascidos — figura do ensino elementar. “Dei-vos leite (γάλα) a beber, e não alimento sólido, porque ainda não podíeis” (1Co 3.2); “todo o que se alimenta de leite (γάλακτος) é inábil na palavra da justiça, porque é criança” (Hb 5.12,13); desejai “o leite (γάλα) racional e puro” como crianças recém-nascidas (1Pe 2.2). O básico da doutrina, contraposto ao “alimento sólido” da maturidade (cf. τελειότης). Cf. νήπιος.",
+    "nt": "1Co 3.2; 9.7. Cf. Hb 5.12,13; 1Pe 2.2.",
+    "cognatos": [],
+    "verTambem": [
+      "νήπιος",
+      "τελειότης",
+      "βρῶμα",
+      "διδασκαλία"
+    ],
+    "pt": [
+      "leite"
+    ]
+  },
+  {
+    "lema": "γαμέω",
+    "translit": "gaméō",
+    "beta": "gameo",
+    "classe": "verbo",
+    "morf": "γαμέω",
+    "raiz": "γάμος (“casamento, núpcias”)",
+    "lsj": "Casar-se, tomar em casamento.",
+    "abbott": "Casar-se. Contrair matrimônio. Tema de 1Co 7: “se não podem conter-se, casem-se (γαμησάτωσαν); melhor é casar (γαμῆσαι) do que abrasar-se” (7.9); a virgem que casa “não peca” (7.28,36); a mulher é livre para “casar-se (γαμηθῆναι), mas só no Senhor” (7.39). Jesus: “casam (γαμοῦσιν) e dão-se em casamento” até o dilúvio (Mt 24.38; Lc 17.27); na ressurreição “não se casam” (Mt 22.30). Proibir o casar é doutrina de demônios (1Tm 4.3). Cf. γάμος, γαμίζω.",
+    "nt": "1Co 7.9,10,28,33,34,36,39. Frequente: Mt 5.32; 19.9,10; 22.25,30; Mc 6.17; 10.11,12; 12.25; Lc 14.20; 16.18; 17.27; 1Tm 4.3; 5.11,14.",
+    "cognatos": [
+      "γάμος",
+      "γαμίζω",
+      "ἄγαμος"
+    ],
+    "verTambem": [
+      "γάμος",
+      "ἄγαμος",
+      "παρθένος",
+      "χωρίζω"
+    ],
+    "pt": [
+      "casar-se"
+    ]
+  },
+  {
     "lema": "γενεαλογία",
     "translit": "genealogía",
     "beta": "genealogia",
@@ -3226,6 +4685,32 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "genealogia"
+    ]
+  },
+  {
+    "lema": "γεωργός",
+    "translit": "geōrgós",
+    "beta": "georgos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "γεωργός, -οῦ, ὁ",
+    "raiz": "γῆ (“terra”) + ἔργον (“trabalho”): “o que trabalha a terra”",
+    "lsj": "Lavrador, agricultor; vinhateiro, cultivador.",
+    "abbott": "Lavrador, vinhateiro. O que cultiva a terra ou a vinha. “Eu sou a videira verdadeira, e meu Pai é o lavrador (γεωργός)” (Jo 15.1) — Deus que cuida, poda e busca fruto. Na parábola da vinha, os “lavradores (γεωργοί)” maus que matam o filho (Mt 21.33-41; Mc 12.1-9; Lc 20.9-16); “o lavrador (γεωργόν) que trabalha deve ser o primeiro a participar dos frutos” (2Tm 2.6); o lavrador “espera o precioso fruto da terra” com paciência (Tg 5.7). Cf. γεωργέω, γεώργιον, ἀμπελουργός.",
+    "nt": "Jo 15.1. Cf. Mt 21.33-41; Mc 12.1,2,7,9; Lc 20.9,10,14,16; 2Tm 2.6; Tg 5.7.",
+    "cognatos": [
+      "γεωργέω",
+      "γεώργιον",
+      "γῆ"
+    ],
+    "verTambem": [
+      "ἄμπελος",
+      "κλῆμα",
+      "καθαίρω",
+      "καρπός"
+    ],
+    "pt": [
+      "lavrador",
+      "vinhateiro"
     ]
   },
   {
@@ -3254,6 +4739,82 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "γλῶσσα",
+    "translit": "glôssa",
+    "beta": "glossa",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "γλῶσσα, -ης, ἡ",
+    "raiz": "raiz grega de “língua”",
+    "lsj": "Língua (órgão); linguagem, idioma; modo de falar.",
+    "abbott": "Língua; idioma; o dom de línguas. O órgão, o idioma e o dom carismático. Central em 1Co 12–14: o dom de “variedade de línguas (γλωσσῶν)” e sua interpretação (12.10,28,30); “se eu falasse as línguas (γλώσσαις) dos homens e dos anjos” (13.1); quem “fala em língua (γλώσσῃ)” edifica a si mesmo, mas a profecia edifica a igreja (14.2-27). No Pentecostes, “línguas (γλῶσσαι) como de fogo” e o falar “noutras línguas (γλώσσαις)” (At 2.3,4,11). Toda “língua (γλῶσσα)” confessará a Cristo (Fp 2.11). Tg 3 adverte sobre o domínio da língua. Raiz de “glossário”.",
+    "nt": "1Co 12.10,28,30; 13.1,8; 14.2,4,5,6,9,13,14,18,19,22,23,26,27,39. Frequente: Mc 7.33,35; 16.17; Lc 1.64; 16.24; At 2.3,4,11; 10.46; 19.6; Rm 3.13; 14.11; Fp 2.11; Tg 1.26; 3.5,6,8; 1Pe 3.10; 1Jo 3.18; Ap 5.9; 7.9.",
+    "cognatos": [
+      "γλωσσόκομον",
+      "ἑτερόγλωσσος"
+    ],
+    "verTambem": [
+      "προφητεία",
+      "ἑρμηνεία",
+      "διερμηνεύω",
+      "πνευματικός"
+    ],
+    "pt": [
+      "língua"
+    ]
+  },
+  {
+    "lema": "γνῶσις",
+    "translit": "gnôsis",
+    "beta": "gnosis",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "γνῶσις, -εως, ἡ",
+    "raiz": "γινώσκω (“conhecer”)",
+    "lsj": "Conhecimento; ciência; reconhecimento.",
+    "abbott": "Conhecimento. O saber — dom precioso, mas perigoso sem amor. “O conhecimento (γνῶσις) incha, mas o amor edifica” (1Co 8.1); “se tivesse... todo o conhecimento (γνῶσιν), e não tivesse amor, nada seria” (13.2); o conhecimento “será aniquilado” (13.8); a palavra “de conhecimento (γνώσεως)” entre os dons (12.8). Tesouros “de sabedoria e conhecimento” em Cristo (Cl 2.3); crescei “na graça e no conhecimento (γνώσει)” de Cristo (2Pe 3.18). Distinto da pretensa “gnose” (1Tm 6.20). Cf. γινώσκω, ἐπίγνωσις.",
+    "nt": "1Co 8.1,7,10,11; 12.8; 13.2,8; 14.6. Frequente: Lc 1.77; 11.52; Rm 2.20; 11.33; 15.14; 2Co 2.14; 4.6; 6.6; 8.7; 10.5; 11.6; Ef 3.19; Fp 3.8; Cl 2.3; 1Tm 6.20; 2Pe 1.5,6; 3.18.",
+    "cognatos": [
+      "γινώσκω",
+      "ἐπίγνωσις",
+      "γνωστός",
+      "προγινώσκω"
+    ],
+    "verTambem": [
+      "ἐπίγνωσις",
+      "σοφία",
+      "φυσιόω",
+      "ἀγάπη"
+    ],
+    "pt": [
+      "conhecimento"
+    ]
+  },
+  {
+    "lema": "γογγύζω",
+    "translit": "gongýzō",
+    "beta": "gogguzo",
+    "classe": "verbo",
+    "morf": "γογγύζω",
+    "raiz": "voz onomatopaica de “murmurar, resmungar”",
+    "lsj": "Murmurar, resmungar; queixar-se em voz baixa.",
+    "abbott": "Murmurar, resmungar. A queixa surda do descontentamento ou da incredulidade. Os judeus “murmuravam (ἐγόγγυζον)” de Jesus por dizer-se o pão descido do céu (Jo 6.41,43,61); os fariseus “murmuravam (ἐγόγγυζον)” porque recebia pecadores (Lc 5.30, διεγόγγυζον); os trabalhadores da vinha “murmuravam (ἐγόγγυζον)” contra o dono (Mt 20.11); advertência a não murmurar como Israel no deserto, que “murmurou (ἐγόγγυσαν)” e pereceu (1Co 10.10). O murmurar que revela falta de fé e gratidão. Cf. γογγυσμός, γογγυστής, διαγογγύζω.",
+    "nt": "Jo 6.41,43,61; 7.32. Cf. Mt 20.11; Lc 5.30; 1Co 10.10.",
+    "cognatos": [
+      "γογγυσμός",
+      "γογγυστής",
+      "διαγογγύζω"
+    ],
+    "verTambem": [
+      "γογγυστής",
+      "ἄρτος",
+      "ἀπιστία",
+      "καταλαλέω"
+    ],
+    "pt": [
+      "murmurar",
+      "resmungar"
+    ]
+  },
+  {
     "lema": "γογγυσμός",
     "translit": "gongysmós",
     "beta": "goggysmos",
@@ -3274,6 +4835,56 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "murmuração"
+    ]
+  },
+  {
+    "lema": "γογγυστής",
+    "translit": "gongystḗs",
+    "beta": "goggystes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "γογγυστής, -οῦ, ὁ",
+    "raiz": "γογγύζω (“murmurar, resmungar”)",
+    "lsj": "Termo do grego bíblico: murmurador, resmungão.",
+    "abbott": "Murmurador, resmungão. O que se queixa e murmura descontente. Hapax do NT (Jd 16): os ímpios são “murmuradores (γογγυσταί), queixosos, que andam segundo as suas concupiscências; e a sua boca profere palavras arrogantes”. Evoca os israelitas que “murmuraram (ἐγόγγυσαν)” no deserto (1Co 10.10). A murmuração como sintoma de coração rebelde e ingrato. Cf. γογγύζω, γογγυσμός (Fp 2.14; 1Pe 4.9).",
+    "nt": "1 ocorrência (hapax): Jd 16.",
+    "cognatos": [
+      "γογγύζω",
+      "γογγυσμός"
+    ],
+    "verTambem": [
+      "ἐμπαίκτης",
+      "καταλαλέω",
+      "ἐπιθυμία",
+      "ἀσεβής"
+    ],
+    "pt": [
+      "murmurador",
+      "resmungão"
+    ]
+  },
+  {
+    "lema": "γράμμα",
+    "translit": "grámma",
+    "beta": "gramma",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "γράμμα, -ατος, τό",
+    "raiz": "γράφω (“escrever”)",
+    "lsj": "Letra (do alfabeto); escrito, documento, carta; (pl.) escritos, erudição.",
+    "abbott": "Letra; escrito. O caractere escrito e, em Paulo, a lei como código externo. “A letra (γράμμα) mata, mas o Espírito vivifica”; ministros “não da letra (γράμματος), mas do Espírito” (2Co 3.6,7); servir “em novidade de espírito, e não na velhice da letra (γράμματος)” (Rm 2.27,29; 7.6). Também documento: “toma a tua conta/escrito (γράμματα)” (Lc 16.6,7); “estas letras (γράμματα)” do título da cruz (Lc 23.38); Paulo escreve “com que grandes letras (γράμμασιν)” (Gl 6.11); “as sagradas letras (γράμματα)”, as Escrituras (2Tm 3.15). Cf. γράφω, γραφή.",
+    "nt": "2Co 3.6,7. Cf. Lc 16.6,7; 23.38; Jo 5.47; 7.15; At 26.24; 28.21; Rm 2.27,29; 7.6; Gl 6.11; 2Tm 3.15.",
+    "cognatos": [
+      "γράφω",
+      "γραφή",
+      "γραμματεύς"
+    ],
+    "verTambem": [
+      "πνεῦμα",
+      "νόμος",
+      "διαθήκη",
+      "κάλυμμα"
+    ],
+    "pt": [
+      "letra"
     ]
   },
   {
@@ -3423,6 +5034,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "δεῖπνον",
+    "translit": "deîpnon",
+    "beta": "deipnon",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "δεῖπνον, -ου, τό",
+    "raiz": "raiz grega de “refeição principal”",
+    "lsj": "Refeição principal do dia; jantar, ceia; banquete.",
+    "abbott": "Ceia, banquete. A refeição principal e festiva. “Quando vos ajuntais, não é para comer a ceia (δεῖπνον) do Senhor” — pois cada um se adianta com a própria ceia (1Co 11.20,21); a parábola do homem que deu “grande ceia (δεῖπνον)” (Lc 14.16,17,24); Jesus, “durante a ceia (δείπνου)”, lava os pés (Jo 13.2,4; 21.20); as “bodas (δεῖπνον) do Cordeiro” (Ap 19.9,17). O banquete como imagem de comunhão e do reino. Cf. δειπνέω.",
+    "nt": "1Co 11.20,21. Cf. Mt 23.6; Mc 6.21; 12.39; Lc 14.12,16,17,24; 20.46; Jo 12.2; 13.2,4; 21.20; Ap 19.9,17.",
+    "cognatos": [
+      "δειπνέω"
+    ],
+    "verTambem": [
+      "ἄρτος",
+      "ποτήριον",
+      "τράπεζα",
+      "γάμος"
+    ],
+    "pt": [
+      "ceia",
+      "banquete"
+    ]
+  },
+  {
     "lema": "δεκάτη",
     "translit": "dekátē",
     "beta": "dekate",
@@ -3471,6 +5106,33 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "prisioneiro"
+    ]
+  },
+  {
+    "lema": "δέω",
+    "translit": "déō",
+    "beta": "deo",
+    "classe": "verbo",
+    "morf": "δέω",
+    "raiz": "raiz grega de “atar, ligar”",
+    "lsj": "Atar, amarrar, prender; ligar (com vínculo ou obrigação).",
+    "abbott": "Atar, prender. Ligar com cordas, cadeias ou vínculo. Prenderam Jesus: “prenderam (ἔδησαν) Jesus e o ataram (ἔδησαν)” (Jo 18.12,24); envolveram o corpo “com lençóis”, e Lázaro saiu “ligado (δεδεμένος) de pés e mãos” (Jo 11.44; 19.40). “O que ligares (δήσῃς) na terra será ligado (δεδεμένον) nos céus” (Mt 16.19; 18.18); Paulo, “ligado (δεδεμένος) pelo Espírito”, vai a Jerusalém (At 20.22; 21.11,13); “a palavra de Deus não está presa (δέδεται)” (2Tm 2.9); a mulher que Satanás “trazia presa (ἔδησεν)” (Lc 13.16). Cf. δεσμός, δέσμιος, καταδέω.",
+    "nt": "Jo 11.44; 18.12,24; 19.40. Frequente: Mt 12.29; 13.30; 14.3; 16.19; 18.18; 21.2; 22.13; 27.2; Mc 3.27; 5.3,4; 6.17; 11.2,4; 15.1,7; Lc 13.16; 19.30; At 9.2,14,21; 12.6; 20.22; 21.11,13,33; 22.5,29; 24.27; Rm 7.2; 1Co 7.27,39; Cl 4.3; 2Tm 2.9; Ap 9.14; 20.2.",
+    "cognatos": [
+      "δεσμός",
+      "δέσμιος",
+      "καταδέω",
+      "συνδέω"
+    ],
+    "verTambem": [
+      "σταυρόω",
+      "ὑπηρέτης",
+      "δεσμός",
+      "παραδίδωμι"
+    ],
+    "pt": [
+      "atar",
+      "prender"
     ]
   },
   {
@@ -3775,6 +5437,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "διερμηνεύω",
+    "translit": "diermēneúō",
+    "beta": "diermeneuo",
+    "classe": "verbo",
+    "morf": "διερμηνεύω",
+    "raiz": "διά (intensivo) + ἑρμηνεύω (“interpretar”)",
+    "lsj": "Interpretar plenamente, traduzir; explicar.",
+    "abbott": "Interpretar, traduzir. Verter e explicar de modo claro. Quem fala em língua “ore para que possa interpretar (διερμηνεύῃ)” (1Co 14.13); se não houver “intérprete (διερμηνευτής)”, cale-se (14.28); “porventura interpretam (διερμηνεύουσιν) todos?” (12.30; 14.5,27). Jesus, no caminho de Emaús, “explicava (διερμήνευσεν)” as Escrituras (Lc 24.27); “Tabita”, que “traduzido (διερμηνευόμενον)” quer dizer Dorcas (At 9.36). Cf. ἑρμηνεία, ἑρμηνεύω.",
+    "nt": "1Co 12.30; 14.5,13,27. Cf. Lc 24.27; At 9.36.",
+    "cognatos": [
+      "ἑρμηνεύω",
+      "ἑρμηνεία",
+      "διερμηνευτής"
+    ],
+    "verTambem": [
+      "ἑρμηνεία",
+      "γλῶσσα",
+      "προφητεύω",
+      "οἰκοδομέω"
+    ],
+    "pt": [
+      "interpretar",
+      "traduzir"
+    ]
+  },
+  {
     "lema": "δικαιοκρισία",
     "translit": "dikaiokrisía",
     "beta": "dikaiokrisia",
@@ -3924,6 +5612,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "δίκτυον",
+    "translit": "díktyon",
+    "beta": "diktyon",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "δίκτυον, -ου, τό",
+    "raiz": "δικεῖν (“lançar”): o que se lança",
+    "lsj": "Rede (de pesca).",
+    "abbott": "Rede. A rede de pesca. Na pesca após a ressurreição: “lançai a rede (δίκτυον) ao lado direito do barco... já não a podiam puxar, por causa da multidão de peixes... a rede (δίκτυον) cheia de cento e cinquenta e três grandes peixes; e, sendo tantos, a rede (δίκτυον) não se rompeu” (Jo 21.6,8,11) — sinal da missão frutífera. Na vocação dos primeiros discípulos, deixaram “as redes (δίκτυα)” e o seguiram (Mt 4.20,21; Mc 1.18,19; Lc 5.2-6). Cf. ἀμφίβληστρον, σαγήνη.",
+    "nt": "Jo 21.6,8,11. Cf. Mt 4.20,21; Mc 1.18,19; Lc 5.2,4,5,6.",
+    "cognatos": [
+      "ἀμφίβληστρον",
+      "σαγήνη"
+    ],
+    "verTambem": [
+      "ἰχθύς",
+      "ὀψάριον",
+      "ἕλκω",
+      "ἁλιεύς"
+    ],
+    "pt": [
+      "rede"
+    ]
+  },
+  {
     "lema": "διχοστασία",
     "translit": "dichostasía",
     "beta": "dichostasia",
@@ -3947,6 +5659,30 @@ window.LEXICON_DATA = [
     "pt": [
       "dissensão",
       "divisão"
+    ]
+  },
+  {
+    "lema": "δίψυχος",
+    "translit": "dípsychos",
+    "beta": "dipsychos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "δίψυχος, -ον",
+    "raiz": "δίς (“duas vezes”) + ψυχή (“alma”): “de duas almas”",
+    "lsj": "Termo do grego cristão: de ânimo dividido; inconstante, vacilante.",
+    "abbott": "De ânimo dobre, inconstante. Literalmente “de duas almas” — o que oscila entre Deus e o mundo. Quem duvida “é semelhante à onda do mar, levada pelo vento”; tal homem, “inconstante (δίψυχος) em todos os seus caminhos”, não receba o que pede (Tg 1.8); “purificai o coração, homens de ânimo dobre (δίψυχοι)” (Tg 4.8). A indecisão que impede a fé firme e a oração eficaz. Próprio de Tiago no NT. Cf. ψυχή, ἁπλότης (oposto: a simplicidade indivisa).",
+    "nt": "Tg 1.8; 4.8.",
+    "cognatos": [
+      "ψυχή"
+    ],
+    "verTambem": [
+      "ἁπλότης",
+      "διακρίνω",
+      "πίστις",
+      "ἀκατάστατος"
+    ],
+    "pt": [
+      "de ânimo dobre",
+      "inconstante"
     ]
   },
   {
@@ -4074,6 +5810,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "δοξάζω",
+    "translit": "doxázō",
+    "beta": "doxazo",
+    "classe": "verbo",
+    "morf": "δοξάζω",
+    "raiz": "δόξα (“glória, honra”)",
+    "lsj": "Glorificar, honrar, exaltar; revestir de glória.",
+    "abbott": "Glorificar. Atribuir ou conferir glória. Tema central de João: “Pai, glorifica (δόξασόν) o teu Filho, para que o Filho te glorifique (δοξάσῃ)” (Jo 17.1,4,5); “a hora é chegada em que o Filho do Homem há de ser glorificado (δοξασθῇ)” (12.23,28; 13.31,32); o Espírito “me glorificará (δοξάσει)” (16.14). Em geral: “para que glorifiquem (δοξάσωσιν) a vosso Pai” (Mt 5.16); “glorificavam (ἐδόξαζον) a Deus” (Lc 5.25,26; 7.16); “glorificai (δοξάσατε), pois, a Deus no vosso corpo” (1Co 6.20). Cf. δόξα, ἐνδοξάζομαι, συνδοξάζω.",
+    "nt": "Jo 7.39; 8.54; 11.4; 12.16,23,28; 13.31,32; 14.13; 15.8; 16.14; 17.1,4,5,10. Muito frequente: Mt 5.16; 6.2; 9.8; 15.31; Lc 2.20; 4.15; 5.25,26; 7.16; 13.13; 17.15; 18.43; 23.47; At 4.21; 11.18; 13.48; 21.20; Rm 1.21; 8.30; 11.13; 15.6,9; 1Co 6.20; 12.26; 2Co 9.13; Gl 1.24; 2Ts 3.1; 1Pe 1.8; 2.12; 4.11,16; Ap 15.4; 18.7.",
+    "cognatos": [
+      "δόξα",
+      "ἔνδοξος",
+      "συνδοξάζω",
+      "ἐνδοξάζομαι"
+    ],
+    "verTambem": [
+      "δόξα",
+      "ὑψόω",
+      "τιμάω",
+      "φανερόω"
+    ],
+    "pt": [
+      "glorificar"
+    ]
+  },
+  {
     "lema": "δόσις",
     "translit": "dósis",
     "beta": "dosis",
@@ -4124,6 +5886,33 @@ window.LEXICON_DATA = [
     "pt": [
       "escravidão",
       "servidão"
+    ]
+  },
+  {
+    "lema": "δουλεύω",
+    "translit": "douleúō",
+    "beta": "douleuo",
+    "classe": "verbo",
+    "morf": "δουλεύω",
+    "raiz": "δοῦλος (“escravo, servo”)",
+    "lsj": "Ser escravo; servir; estar sujeito a; trabalhar para.",
+    "abbott": "Servir, ser escravo. Prestar serviço como servo — a Deus, ao pecado ou aos homens. “Servir (δουλεύειν) em novidade de espírito, e não na velhice da letra” (Rm 7.6); “com a mente sirvo (δουλεύω) à lei de Deus, mas com a carne à lei do pecado” (Rm 7.25); “não fostes feitos servos (δουλεύειν) do pecado” (Rm 6.6); “servindo (δουλεύοντες) ao Senhor” (Rm 12.11; 14.18; 16.18). “Ninguém pode servir (δουλεύειν) a dois senhores” (Mt 6.24; Lc 16.13); “pela caridade servi (δουλεύετε) uns aos outros” (Gl 5.13). Cf. δοῦλος, δουλόω, δουλεία.",
+    "nt": "Rm 6.6; 7.6,25; 9.12; 12.11; 14.18; 16.18. Frequente: Mt 6.24; Lc 15.29; 16.13; Jo 8.33; At 7.7; 20.19; Gl 4.8,9,25; 5.13; Ef 6.7; Fp 2.22; Cl 3.24; 1Ts 1.9; 1Tm 6.2; Tt 3.3.",
+    "cognatos": [
+      "δοῦλος",
+      "δουλόω",
+      "δουλεία",
+      "σύνδουλος"
+    ],
+    "verTambem": [
+      "δοῦλος",
+      "δουλόω",
+      "ὑπακούω",
+      "λατρεύω"
+    ],
+    "pt": [
+      "servir",
+      "ser escravo"
     ]
   },
   {
@@ -4204,6 +5993,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "δυνατός",
+    "translit": "dynatós",
+    "beta": "dynatos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "δυνατός, -ή, -όν",
+    "raiz": "δύναμαι (“poder”)",
+    "lsj": "Poderoso, capaz, forte; possível.",
+    "abbott": "Poderoso; possível; forte. O que tem poder, ou o que pode ser. (1) De Deus: “poderoso (δυνατός) para cumprir o que prometera” (Rm 4.21); Deus “é poderoso (δυνατός) para os enxertar de novo” (Rm 11.23; 14.4); “poderoso (δυνατόν) para vos confirmar” (Rm 16.25). (2) De pessoas: “nós, que somos fortes (δυνατοί), devemos suportar as fraquezas dos fracos” (Rm 15.1); “não muitos poderosos (δυνατοί)” foram chamados (1Co 1.26). (3) Possível: “se possível (δυνατόν), tende paz com todos” (Rm 12.18; Mt 19.26; 24.24; Mc 14.35; Gl 4.15). Cf. δύναμαι, δύναμις, ἀδύνατος.",
+    "nt": "Rm 4.21; 9.22; 11.23; 12.18; 14.4; 15.1. Frequente: Mt 19.26; 24.24; 26.39; Mc 9.23; 10.27; 14.35,36; Lc 1.49; 14.31; 18.27; 24.19; At 2.24; 7.22; 11.17; 18.24; 20.16; 25.5; 2Co 9.8; 12.10; 13.9; Gl 4.15; 2Tm 1.12; Tt 1.9; Hb 11.19; Tg 3.2.",
+    "cognatos": [
+      "δύναμαι",
+      "δύναμις",
+      "ἀδύνατος",
+      "δυναμόω"
+    ],
+    "verTambem": [
+      "δύναμις",
+      "ἀδύνατος",
+      "ἀσθενής",
+      "ἰσχυρός"
+    ],
+    "pt": [
+      "poderoso"
+    ]
+  },
+  {
     "lema": "δωρεά",
     "translit": "dōreá",
     "beta": "dorea",
@@ -4229,6 +6044,29 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "Ἑβραϊστί",
+    "translit": "Hebraïstí",
+    "beta": "hebraisti",
+    "classe": "advérbio",
+    "morf": "Ἑβραϊστί",
+    "raiz": "Ἑβραῖος (“hebreu”)",
+    "lsj": "Em hebraico (ou aramaico); na língua dos hebreus.",
+    "abbott": "Em hebraico. Na língua dos judeus (hebraico ou aramaico). João frequentemente traduz os nomes: “um lugar chamado Pavimento, e em hebraico (Ἑβραϊστί) Gabatá” (Jo 19.13); “o lugar da Caveira, que em hebraico (Ἑβραϊστί) se chama Gólgota” (Jo 19.17,20); o título da cruz foi escrito “em hebraico (Ἑβραϊστί), em grego e em latim”; Maria diz “Rabôni (Ἑβραϊστί)” (Jo 20.16). O Apocalipse usa o termo para “Armagedom” e “Abadom” (Ap 9.11; 16.16). Mostra o cuidado de João com o leitor de fala grega. Cf. Ἑβραῖος, Ἑλληνιστί.",
+    "nt": "Jo 5.2; 19.13,17,20; 20.16. Cf. Ap 9.11; 16.16.",
+    "cognatos": [
+      "Ἑβραῖος",
+      "Ἑβραΐς"
+    ],
+    "verTambem": [
+      "γλῶσσα",
+      "σταυρόω",
+      "βασιλεύς"
+    ],
+    "pt": [
+      "em hebraico"
+    ]
+  },
+  {
     "lema": "ἔγγυος",
     "translit": "énguos",
     "beta": "egguos",
@@ -4250,6 +6088,33 @@ window.LEXICON_DATA = [
     "pt": [
       "fiador",
       "garante"
+    ]
+  },
+  {
+    "lema": "ἐγείρω",
+    "translit": "egeírō",
+    "beta": "egeiro",
+    "classe": "verbo",
+    "morf": "ἐγείρω",
+    "raiz": "raiz grega de “despertar, levantar”",
+    "lsj": "Despertar, acordar; levantar, erguer; (passiva) ser ressuscitado, levantar-se.",
+    "abbott": "Despertar, levantar; ressuscitar. Erguer do sono, do leito — e dos mortos. Verbo central da ressurreição em 1Co 15: “Cristo ressuscitou (ἐγήγερται) dentre os mortos” (15.4,12-20); “se os mortos não ressuscitam (ἐγείρονται)...” (15.15,16,29,32); “semeia-se em corrupção, ressuscita (ἐγείρεται) em incorrupção” (15.42-44). Deus “ressuscitou (ἤγειρεν) o Senhor” (6.14). Também: “levanta-te (ἔγειρε) e anda” (Mt 9.5,6,7); despertar quem dorme (Mt 8.25); erguer-se contra (“nação contra nação”, Mt 24.7). Cf. ἔγερσις, ἐξεγείρω, διεγείρω.",
+    "nt": "1Co 6.14; 15.4,12-17,20,29,32,35,42,43,44,52. Muito frequente em todo o NT: Mt 8.25; 9.5-7; 10.8; 11.5; 27.52,63,64; 28.6,7; Mc 16.6; Lc 7.14,22; Jo 2.19,20,22; 5.21; 12.1,9,17; At 3.6,7,15; 4.10; 5.30; 10.40; 13.30,37; Rm 4.24,25; 6.4,9; 7.4; 8.11,34; 10.9; 2Co 1.9; 4.14; 5.15; Ef 1.20; Cl 2.12; 1Ts 1.10; 2Tm 2.8; 1Pe 1.21.",
+    "cognatos": [
+      "ἔγερσις",
+      "ἐξεγείρω",
+      "διεγείρω",
+      "γρηγορέω"
+    ],
+    "verTambem": [
+      "ἀνάστασις",
+      "νεκρός",
+      "ζῳοποιέω",
+      "κοιμάομαι"
+    ],
+    "pt": [
+      "despertar",
+      "levantar"
     ]
   },
   {
@@ -4404,6 +6269,57 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἔθνος",
+    "translit": "éthnos",
+    "beta": "ethnos",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "ἔθνος, -ους, τό",
+    "raiz": "ἔθος (“costume”): grupo unido por costumes",
+    "lsj": "Nação, povo; (pl.) as nações; (no grego bíblico) os gentios (não-judeus), os pagãos.",
+    "abbott": "Nação; gentios. Um povo — e, no plural, sobretudo as nações não-judaicas. Tema central de Romanos: o evangelho “para todas as nações (ἔθνη)” (Rm 1.5; 16.26); Paulo, “apóstolo dos gentios (ἐθνῶν)” (Rm 11.13; 15.16); “também dos gentios (ἐθνῶν)?... sim, também dos gentios” (Rm 3.29; 9.24,30; 10.19; 11.11-25; 15.9-12). “Ide, fazei discípulos de todas as nações (ἔθνη)” (Mt 28.19); “luz para revelação aos gentios (ἐθνῶν)” (Lc 2.32); “os gentios (ἔθνη), que não têm lei” (Rm 2.14). A inclusão das nações no povo de Deus. Cf. ἐθνικός, λαός, Ἕλλην.",
+    "nt": "Rm 1.5,13; 2.14,24; 3.29; 4.17,18; 9.24,30; 10.19; 11.11,12,13,25; 15.9-12,16,18,27; 16.4,26. Muito frequente em todo o NT.",
+    "cognatos": [
+      "ἐθνικός",
+      "ἔθος"
+    ],
+    "verTambem": [
+      "λαός",
+      "Ἕλλην",
+      "Ἰουδαῖος",
+      "κόσμος"
+    ],
+    "pt": [
+      "nação",
+      "gentios",
+      "nações"
+    ]
+  },
+  {
+    "lema": "εἰδωλόθυτον",
+    "translit": "eidōlóthyton",
+    "beta": "eidolothyton",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "εἰδωλόθυτον, -ου, τό",
+    "raiz": "εἴδωλον (“ídolo”) + θύω (“sacrificar”): “sacrificado a ídolo”",
+    "lsj": "Termo do grego judaico-cristão: carne sacrificada a um ídolo.",
+    "abbott": "Carne sacrificada a ídolos. O alimento oferecido a um ídolo e depois vendido ou comido. Questão central de 1Co 8–10: “quanto às coisas sacrificadas aos ídolos (εἰδωλοθύτων)...” (8.1,4,7,10; 10.19,28); o decreto de Jerusalém manda abster-se “das coisas sacrificadas aos ídolos (εἰδωλοθύτων)” (At 15.29; 21.25); censura a quem come do “sacrificado aos ídolos” em Pérgamo e Tiatira (Ap 2.14,20). O conflito entre liberdade, consciência e amor ao irmão fraco. Cf. εἴδωλον, θύω.",
+    "nt": "1Co 8.1,4,7,10; 10.19,28. Cf. At 15.29; 21.25; Ap 2.14,20.",
+    "cognatos": [
+      "εἴδωλον",
+      "θύω",
+      "θυσία"
+    ],
+    "verTambem": [
+      "εἴδωλον",
+      "συνείδησις",
+      "ἐλευθερία",
+      "ἀσθενής"
+    ],
+    "pt": [
+      "carne sacrificada a ídolos"
+    ]
+  },
+  {
     "lema": "εἰδωλολατρία",
     "translit": "eidōlolatría",
     "beta": "eidololatria",
@@ -4428,6 +6344,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "εἴδωλον",
+    "translit": "eídōlon",
+    "beta": "eidolon",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "εἴδωλον, -ου, τό",
+    "raiz": "εἶδος (“forma, aparência”), de εἴδω (“ver”)",
+    "lsj": "Imagem, fantasma, aparência; (no grego bíblico) imagem de culto, ídolo; o falso deus.",
+    "abbott": "Ídolo. A imagem de culto e o falso deus que representa. “Sabemos que o ídolo (εἴδωλον) nada é no mundo” (1Co 8.4,7; 10.19); guardai-vos “dos ídolos (εἰδώλων)” (1Jo 5.21); os tessalonicenses se converteram “dos ídolos (εἰδώλων) para servir ao Deus vivo” (1Ts 1.9); que acordo há entre “o santuário de Deus e os ídolos (εἰδώλων)?” (2Co 6.16). A avareza é chamada “idolatria” (Cl 3.5). Raiz da palavra “ídolo”. Cf. εἰδωλόθυτον, εἰδωλολατρία.",
+    "nt": "1Co 8.4,7; 10.19; 12.2. Cf. At 7.41; 15.20; Rm 2.22; 2Co 6.16; 1Ts 1.9; 1Jo 5.21; Ap 9.20.",
+    "cognatos": [
+      "εἶδος",
+      "εἰδωλόθυτον",
+      "εἰδωλολατρία",
+      "εἰδωλολάτρης"
+    ],
+    "verTambem": [
+      "εἰδωλόθυτον",
+      "ναός",
+      "θεός",
+      "πορνεία"
+    ],
+    "pt": [
+      "ídolo"
+    ]
+  },
+  {
     "lema": "εἰκών",
     "translit": "eikṓn",
     "beta": "eikon",
@@ -4448,6 +6390,31 @@ window.LEXICON_DATA = [
     "pt": [
       "imagem",
       "semelhança"
+    ]
+  },
+  {
+    "lema": "εἰλικρίνεια",
+    "translit": "eilikríneia",
+    "beta": "eilikrineia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "εἰλικρίνεια, -ας, ἡ",
+    "raiz": "εἵλη (“luz/calor do sol”) + κρίνω (“julgar”): “provado à luz do sol”",
+    "lsj": "Pureza, transparência; sinceridade, integridade de motivos.",
+    "abbott": "Sinceridade, pureza. A transparência sem mistura nem dissimulação — o que resiste ao exame à luz. Paulo conduziu-se “com sinceridade (εἰλικρινείᾳ) de Deus”, não com sabedoria carnal (2Co 1.12); falam “como de sinceridade (εἰλικρινείας)”, não adulterando a palavra de Deus (2.17); celebrar a festa “com os pães asmos da sinceridade (εἰλικρινείας) e da verdade” (1Co 5.8). A integridade límpida dos motivos. Cf. εἰλικρινής (Fp 1.10; 2Pe 3.1).",
+    "nt": "1Co 5.8; 2Co 1.12; 2.17.",
+    "cognatos": [
+      "εἰλικρινής",
+      "κρίνω"
+    ],
+    "verTambem": [
+      "ἀλήθεια",
+      "ἁπλότης",
+      "ἁγνός",
+      "δόλος"
+    ],
+    "pt": [
+      "sinceridade",
+      "pureza"
     ]
   },
   {
@@ -4522,6 +6489,32 @@ window.LEXICON_DATA = [
     "pt": [
       "fazer a paz",
       "pacificar"
+    ]
+  },
+  {
+    "lema": "ἐκδίκησις",
+    "translit": "ekdíkēsis",
+    "beta": "ekdikesis",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "ἐκδίκησις, -εως, ἡ",
+    "raiz": "ἐκδικέω (“fazer justiça, vingar”), de ἐκ + δίκη",
+    "lsj": "Reparação por meio de justiça; punição do delito; vingança, retribuição.",
+    "abbott": "Justa retribuição, vingança. A justiça que repara o mal punindo-o — prerrogativa de Deus, não vingança pessoal. O Senhor Jesus se revelará “tomando vingança (ἐκδίκησιν) dos que não conhecem a Deus” (2Ts 1.8); “minha é a vingança (ἐκδίκησις), eu retribuirei, diz o Senhor” (Rm 12.19; Hb 10.30); Deus fará justiça (ἐκδίκησιν) aos seus eleitos (Lc 18.7,8). A retribuição justa reservada a Deus. Cf. ἐκδικέω, ἔκδικος, δίκη.",
+    "nt": "2Ts 1.8. Cf. Lc 18.7,8; 21.22; At 7.24; Rm 12.19; 2Co 7.11; Hb 10.30; 1Pe 2.14.",
+    "cognatos": [
+      "ἐκδικέω",
+      "ἔκδικος",
+      "δίκη"
+    ],
+    "verTambem": [
+      "ὄλεθρος",
+      "κρίσις",
+      "ὀργή",
+      "ἀπώλεια"
+    ],
+    "pt": [
+      "justa retribuição",
+      "vingança"
     ]
   },
   {
@@ -4645,6 +6638,29 @@ window.LEXICON_DATA = [
     "pt": [
       "desfalecer",
       "desanimar"
+    ]
+  },
+  {
+    "lema": "ἐκμάσσω",
+    "translit": "ekmássō",
+    "beta": "ekmasso",
+    "classe": "verbo",
+    "morf": "ἐκμάσσω",
+    "raiz": "ἐκ + μάσσω (“apertar, esfregar”)",
+    "lsj": "Enxugar, limpar esfregando; secar.",
+    "abbott": "Enxugar. Secar esfregando. Maria “ungiu os pés de Jesus e os enxugou (ἐξέμαξεν) com os seus cabelos” (Jo 11.2; 12.3); a pecadora “com os cabelos da cabeça os enxugava (ἐξέμασσεν)” (Lc 7.38,44). No lava-pés, Jesus “começou a enxugar (ἐκμάσσειν)” os pés dos discípulos com a toalha (Jo 13.5). O gesto humilde e terno do serviço e da devoção. Cf. μάσσω, ἀλείφω.",
+    "nt": "Jo 11.2; 12.3; 13.5. Cf. Lc 7.38,44.",
+    "cognatos": [
+      "μάσσω"
+    ],
+    "verTambem": [
+      "ἀλείφω",
+      "μύρον",
+      "νίπτω",
+      "ταπεινόω"
+    ],
+    "pt": [
+      "enxugar"
     ]
   },
   {
@@ -4867,6 +6883,56 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἕλκω",
+    "translit": "hélkō",
+    "beta": "helko",
+    "classe": "verbo",
+    "morf": "ἕλκω",
+    "raiz": "raiz grega de “puxar, arrastar, atrair”",
+    "lsj": "Puxar, arrastar; tirar (espada); atrair.",
+    "abbott": "Atrair; arrastar. Puxar com força — física ou interior. “Ninguém pode vir a mim, se o Pai... não o trouxer (ἑλκύσῃ)” (Jo 6.44); “eu, quando for levantado da terra, atrairei (ἑλκύσω) todos a mim” (Jo 12.32) — a atração do Cristo crucificado. Pedro “tirou (εἵλκυσεν)” a espada (Jo 18.10); arrastaram a rede “cheia de peixes (εἵλκυσαν)” (Jo 21.6,11); arrastaram Paulo e Silas “à praça (εἵλκυσαν)” (At 16.19; 21.30); os ricos vos “arrastam (ἕλκουσιν)” aos tribunais (Tg 2.6). Cf. ἑλκύω, σύρω.",
+    "nt": "Jo 6.44; 12.32; 18.10; 21.6,11. Cf. At 16.19; 21.30; Tg 2.6.",
+    "cognatos": [
+      "ἑλκύω",
+      "ἐξέλκω"
+    ],
+    "verTambem": [
+      "σταυρόω",
+      "ὑψόω",
+      "δίκτυον",
+      "πατήρ"
+    ],
+    "pt": [
+      "atrair"
+    ]
+  },
+  {
+    "lema": "Ἕλλην",
+    "translit": "Héllēn",
+    "beta": "hellen",
+    "classe": "substantivo próprio/comum, masc. (3ª decl.)",
+    "morf": "Ἕλλην, -ηνος, ὁ",
+    "raiz": "de Ἑλλάς (“Hélade, Grécia”)",
+    "lsj": "Grego, heleno; (no NT) gentio de cultura grega, não-judeu.",
+    "abbott": "Grego; gentio. O de língua e cultura grega — e, mais amplamente, o não-judeu, em par com “judeu”. “Primeiro do judeu e também do grego (Ἕλληνι)” (Rm 1.16; 2.9,10); “não há distinção entre judeu e grego (Ἕλληνος)” (Rm 10.12); “sou devedor... a gregos (Ἕλλησί) e a bárbaros” (Rm 1.14). “Os judeus pedem sinal, e os gregos (Ἕλληνες) buscam sabedoria” (1Co 1.22,24); “nem judeu nem grego (Ἕλλην)” em Cristo (Gl 3.28; Cl 3.11). Distinto de Ἑλληνιστής (judeu helenista, At 6.1). Cf. Ἰουδαῖος, ἔθνος.",
+    "nt": "Rm 1.14,16; 2.9,10; 3.9; 10.12. Frequente: Jo 7.35; 12.20; At 14.1; 16.1,3; 17.4; 18.4; 19.10,17; 20.21; 21.28; 1Co 1.22,24; 10.32; 12.13; Gl 2.3; 3.28; Cl 3.11.",
+    "cognatos": [
+      "Ἑλληνικός",
+      "Ἑλληνιστής",
+      "Ἑλληνίς"
+    ],
+    "verTambem": [
+      "Ἰουδαῖος",
+      "ἔθνος",
+      "βάρβαρος",
+      "κόσμος"
+    ],
+    "pt": [
+      "grego",
+      "gentio"
+    ]
+  },
+  {
     "lema": "ἐλλογέω",
     "translit": "ellogéō",
     "beta": "ellogeo",
@@ -4936,6 +7002,58 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "esperança"
+    ]
+  },
+  {
+    "lema": "ἐμπαίκτης",
+    "translit": "empaíktēs",
+    "beta": "empaiktes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "ἐμπαίκτης, -ου, ὁ",
+    "raiz": "ἐμπαίζω (“escarnecer, zombar”), de ἐν + παίζω",
+    "lsj": "Termo do grego cristão: escarnecedor, zombador.",
+    "abbott": "Escarnecedor, zombador. O que zomba — em especial das promessas de Deus. “Nos últimos dias virão escarnecedores (ἐμπαῖκται), andando segundo as suas próprias concupiscências, e dizendo: Onde está a promessa da sua vinda?” (2Pe 3.3,4); “haverá escarnecedores (ἐμπαῖκται) que andarão segundo as suas ímpias concupiscências” (Jd 18). Os que ridicularizam a esperança da parusia. De ἐμπαίζω (zombar, como os soldados de Jesus, Mt 27.29). Cf. ἐμπαίζω, ἐμπαιγμός.",
+    "nt": "2Pe 3.3; Jd 18.",
+    "cognatos": [
+      "ἐμπαίζω",
+      "ἐμπαιγμός",
+      "παίζω"
+    ],
+    "verTambem": [
+      "παρουσία",
+      "ἀσέλγεια",
+      "γογγυστής",
+      "ἐπιθυμία"
+    ],
+    "pt": [
+      "escarnecedor",
+      "zombador"
+    ]
+  },
+  {
+    "lema": "ἔμφυτος",
+    "translit": "émphytos",
+    "beta": "emphytos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ἔμφυτος, -ον",
+    "raiz": "ἐν + φύω (“plantar, fazer brotar”)",
+    "lsj": "Inato, congênito; implantado, enxertado.",
+    "abbott": "Implantada, enxertada. Hapax do NT (Tg 1.21): “recebei com mansidão a palavra em vós implantada (ἔμφυτον), que é poderosa para salvar as vossas almas”. A palavra do evangelho não como algo externo, mas semeada e enraizada no interior — a ser recebida e deixada frutificar. Pode-se entender “inata” (própria da nova natureza) ou “enxertada” (introduzida de fora e fixada). Cf. φύω, φυτεία.",
+    "nt": "1 ocorrência (hapax): Tg 1.21.",
+    "cognatos": [
+      "φύω",
+      "φυτεία",
+      "νεόφυτος"
+    ],
+    "verTambem": [
+      "λόγος",
+      "σπείρω",
+      "ποιητής",
+      "σῴζω"
+    ],
+    "pt": [
+      "implantada",
+      "enxertada"
     ]
   },
   {
@@ -5241,6 +7359,29 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἐξέραμα",
+    "translit": "exérama",
+    "beta": "exerama",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "ἐξέραμα, -ατος, τό",
+    "raiz": "ἐξεράω (“vomitar”), de ἐκ + ἐράω",
+    "lsj": "Termo raro: vômito.",
+    "abbott": "Vômito. Hapax do NT (2Pe 2.22), num provérbio cru sobre a recaída: “O cão voltou ao seu próprio vômito (ἐξέραμα); e a porca lavada, ao espojadouro de lama” — citando Pv 26.11. Imagem repulsiva da apostasia dos que, tendo conhecido o caminho da justiça, a ele dão as costas e regressam à imundície. O retorno deliberado ao que se deixara. Cf. ἐμέω (Ap 3.16).",
+    "nt": "1 ocorrência (hapax): 2Pe 2.22.",
+    "cognatos": [
+      "ἐξεράω"
+    ],
+    "verTambem": [
+      "ἀσέλγεια",
+      "πλανάω",
+      "ἐπίγνωσις",
+      "ἀσεβής"
+    ],
+    "pt": [
+      "vômito"
+    ]
+  },
+  {
     "lema": "ἐξομολογέω",
     "translit": "exomologéō",
     "beta": "exomologeo",
@@ -5315,6 +7456,29 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἑορτή",
+    "translit": "heortḗ",
+    "beta": "heorte",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἑορτή, -ῆς, ἡ",
+    "raiz": "raiz grega de “festa, festival”",
+    "lsj": "Festa, festividade religiosa; dia de festa.",
+    "abbott": "Festa. A celebração religiosa — em João, marcam a estrutura do Evangelho. Jesus sobe às festas judaicas: “a Páscoa, a festa (ἑορτή) dos judeus” (Jo 2.23; 6.4); “a festa (ἑορτή) dos tabernáculos” (Jo 7.2,8,10,11,14,37); “a festa (ἑορτή) da dedicação” (Jo 10.22); “antes da festa (ἑορτῆς) da Páscoa” (Jo 13.1; 11.56; 12.12). Era costume soltar um preso “pela festa (ἑορτήν)” (Mt 27.15; Jo 18.39). As festas como ocasião em que Cristo se revela e cumpre o seu sentido. Cf. πάσχα, σκηνοπηγία.",
+    "nt": "Jo 2.23; 4.45; 5.1; 6.4; 7.2,8,10,11,14,37; 11.56; 12.12,20; 13.1,29. Cf. Mt 26.5; 27.15; Mc 14.2; 15.6; Lc 2.41,42; 22.1; 23.17; At 18.21; Cl 2.16.",
+    "cognatos": [
+      "ἑορτάζω"
+    ],
+    "verTambem": [
+      "πάσχα",
+      "σάββατον",
+      "συναγωγή",
+      "Ἱεροσόλυμα"
+    ],
+    "pt": [
+      "festa"
+    ]
+  },
+  {
     "lema": "ἐπαγγελία",
     "translit": "epangelía",
     "beta": "epaggelia",
@@ -5336,6 +7500,32 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "promessa"
+    ]
+  },
+  {
+    "lema": "ἐπαγωνίζομαι",
+    "translit": "epagōnízomai",
+    "beta": "epagonizomai",
+    "classe": "verbo (depoente)",
+    "morf": "ἐπαγωνίζομαι",
+    "raiz": "ἐπί (“por, sobre”) + ἀγωνίζομαι (“lutar, combater”)",
+    "lsj": "Termo raro: combater por; lutar em defesa de algo.",
+    "abbott": "Batalhar por, contender por. Hapax do NT (Jd 3): “senti a necessidade de vos escrever, exortando-vos a batalhardes (ἐπαγωνίζεσθαι) pela fé que uma vez por todas foi entregue aos santos”. A imagem atlética/militar do ἀγών (combate): defender ativamente, com esforço, a fé recebida, contra os que a corrompem. De ἀγωνίζομαι (lutar, 1Co 9.25; 1Tm 6.12). Cf. ἀγών, ἀγωνίζομαι.",
+    "nt": "1 ocorrência (hapax): Jd 3.",
+    "cognatos": [
+      "ἀγωνίζομαι",
+      "ἀγών",
+      "ἀγωνία"
+    ],
+    "verTambem": [
+      "ἀγών",
+      "πίστις",
+      "ἅγιος",
+      "παραδίδωμι"
+    ],
+    "pt": [
+      "batalhar por",
+      "contender por"
     ]
   },
   {
@@ -5562,6 +7752,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἐπιστολή",
+    "translit": "epistolḗ",
+    "beta": "epistole",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἐπιστολή, -ῆς, ἡ",
+    "raiz": "ἐπιστέλλω (“enviar, escrever”), de ἐπί + στέλλω",
+    "lsj": "Mensagem enviada; carta, epístola.",
+    "abbott": "Carta, epístola. A comunicação escrita enviada. “Lede esta carta (ἐπιστολήν) a todos os irmãos” (1Ts 5.27); não vos abaleis “por alguma carta (ἐπιστολῆς) como se fosse nossa” (2Ts 2.2); a saudação “de próprio punho... é o sinal em cada carta (ἐπιστολῇ)” (2Ts 3.17); os crentes são “a nossa carta (ἐπιστολὴ ἡμῶν), conhecida e lida por todos” (2Co 3.1,2,3). O meio pelo qual o ensino apostólico se transmitia e ganhava autoridade. Cf. ἐπιστέλλω. Raiz de “epístola”.",
+    "nt": "1Ts 5.27; 2Ts 2.2,15; 3.14,17. Cf. At 9.2; 15.30; 23.25,33; Rm 16.22; 1Co 5.9; 16.3; 2Co 3.1,2,3; 7.8; 10.9,10,11; Cl 4.16; 2Pe 3.1,16.",
+    "cognatos": [
+      "ἐπιστέλλω",
+      "στέλλω"
+    ],
+    "verTambem": [
+      "λόγος",
+      "παράδοσις",
+      "γραφή",
+      "ἀναγινώσκω"
+    ],
+    "pt": [
+      "carta",
+      "epístola"
+    ]
+  },
+  {
     "lema": "ἐπισυναγωγή",
     "translit": "episynagōgḗ",
     "beta": "episynagoge",
@@ -5713,6 +7928,34 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἐργάζομαι",
+    "translit": "ergázomai",
+    "beta": "ergazomai",
+    "classe": "verbo (depoente)",
+    "morf": "ἐργάζομαι",
+    "raiz": "ἔργον (“obra, trabalho”)",
+    "lsj": "Trabalhar, laborar; fazer, realizar; operar, produzir; negociar.",
+    "abbott": "Trabalhar, operar, praticar. Exercer atividade ou produzir efeito. No tema tessalonicense do trabalho: “trabalhar (ἐργάζεσθαι) com as próprias mãos” (1Ts 4.11); “se alguém não quer trabalhar (ἐργάζεσθαι), também não coma” (2Ts 3.10,11,12). Mais amplamente: “operai (ἐργάζεσθε) a comida que permanece” (Jo 6.27); “façamos o bem (ἐργαζώμεθα τὸ ἀγαθόν) a todos” (Gl 6.10); os que “praticam (ἐργαζόμενοι) a iniquidade” (Mt 7.23). Cf. ἔργον, ἐργάτης, κατεργάζομαι.",
+    "nt": "1Ts 2.9; 4.11; 2Ts 3.8,10,11,12. Frequente: Mt 7.23; 21.28; 25.16; Jo 3.21; 5.17; 6.27,28,30; 9.4; At 18.3; Rm 4.4,5; 1Co 4.12; 9.6,13; 16.10; Gl 6.10; Ef 4.28; Cl 3.23; 2Jo 8; 3Jo 5.",
+    "cognatos": [
+      "ἔργον",
+      "ἐργάτης",
+      "κατεργάζομαι",
+      "ἐνεργέω"
+    ],
+    "verTambem": [
+      "ἔργον",
+      "κόπος",
+      "ἄτακτος",
+      "ἐργάτης"
+    ],
+    "pt": [
+      "trabalhar",
+      "operar",
+      "praticar"
+    ]
+  },
+  {
     "lema": "ἔργον",
     "translit": "érgon",
     "beta": "ergon",
@@ -5783,6 +8026,55 @@ window.LEXICON_DATA = [
     "pt": [
       "ambição egoísta",
       "facciosismo"
+    ]
+  },
+  {
+    "lema": "ἑρμηνεία",
+    "translit": "hermēneía",
+    "beta": "hermeneia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἑρμηνεία, -ας, ἡ",
+    "raiz": "ἑρμηνεύω (“interpretar, traduzir”)",
+    "lsj": "Interpretação, tradução; explicação.",
+    "abbott": "Interpretação. O dom de tornar inteligível o que foi dito em língua. Entre os dons do Espírito: “a outro, a interpretação (ἑρμηνεία) das línguas” (1Co 12.10); na reunião, “cada um... tem interpretação (ἑρμηνείαν); faça-se tudo para edificação” (14.26). Complementa o dom de línguas, para que a igreja seja edificada. Cf. ἑρμηνεύω, διερμηνεύω, διερμηνευτής. Liga-se ao nome do deus mensageiro Hermes (cf. At 14.12).",
+    "nt": "1Co 12.10; 14.26.",
+    "cognatos": [
+      "ἑρμηνεύω",
+      "διερμηνεύω",
+      "διερμηνευτής"
+    ],
+    "verTambem": [
+      "διερμηνεύω",
+      "γλῶσσα",
+      "προφητεία",
+      "οἰκοδομέω"
+    ],
+    "pt": [
+      "interpretação"
+    ]
+  },
+  {
+    "lema": "ἔσοπτρον",
+    "translit": "ésoptron",
+    "beta": "esoptron",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ἔσοπτρον, -ου, τό",
+    "raiz": "εἰς + ὄπτομαι (“ver, olhar”)",
+    "lsj": "Espelho (de metal polido).",
+    "abbott": "Espelho. O espelho antigo, de metal polido, que refletia imperfeitamente. “Agora vemos como por espelho (ἐσόπτρου), obscuramente (ἐν αἰνίγματι); mas então veremos face a face” (1Co 13.12) — o conhecimento parcial desta era ante a visão plena por vir. Quem ouve a palavra e não a pratica é como o que “contempla ao espelho (ἐσόπτρῳ) o seu rosto natural” e logo se esquece (Tg 1.23). Cf. κατοπτρίζομαι (2Co 3.18).",
+    "nt": "1Co 13.12. Cf. Tg 1.23.",
+    "cognatos": [
+      "ὄπτομαι",
+      "κατοπτρίζομαι"
+    ],
+    "verTambem": [
+      "γνῶσις",
+      "ἀγάπη",
+      "τέλειος",
+      "πρόσωπον"
+    ],
+    "pt": [
+      "espelho"
     ]
   },
   {
@@ -6109,6 +8401,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "εὐχαριστέω",
+    "translit": "eucharistéō",
+    "beta": "eucharisteo",
+    "classe": "verbo",
+    "morf": "εὐχαριστέω",
+    "raiz": "εὖ (“bem”) + χάρις (“graça”): “mostrar-se grato”",
+    "lsj": "Ser grato, dar graças; agradecer.",
+    "abbott": "Dar graças, agradecer. Render gratidão — sobretudo a Deus. “Damos sempre graças (εὐχαριστοῦμεν) a Deus por todos vós” (1Ts 1.2; 2.13); “em tudo dai graças (εὐχαριστεῖτε), porque esta é a vontade de Deus” (5.18); “devemos sempre dar graças (εὐχαριστεῖν) a Deus por vós” (2Ts 1.3; 2.13); Jesus “deu graças (εὐχαρίστησεν)” ao partir o pão (Mt 26.27; Lc 22.17,19; 1Co 11.24). A gratidão como marca constante da vida cristã. Cf. εὐχαριστία, χάρις.",
+    "nt": "1Ts 1.2; 2.13; 5.18; 2Ts 1.3; 2.13. Frequente: Mt 15.36; 26.27; Lc 17.16; 18.11; 22.17,19; Jo 6.11,23; 11.41; At 27.35; 28.15; Rm 1.8,21; 14.6; 1Co 1.4,14; 10.30; 11.24; 14.17,18; Ef 1.16; 5.20; Fp 1.3; Cl 1.3,12; 3.17; Fm 4; Ap 11.17.",
+    "cognatos": [
+      "χάρις",
+      "εὐχαριστία",
+      "εὐχάριστος"
+    ],
+    "verTambem": [
+      "εὐχαριστία",
+      "χάρις",
+      "δοξάζω",
+      "ἀδιαλείπτως"
+    ],
+    "pt": [
+      "dar graças",
+      "agradecer"
+    ]
+  },
+  {
     "lema": "εὐχαριστία",
     "translit": "eucharistía",
     "beta": "eucharistia",
@@ -6158,6 +8476,32 @@ window.LEXICON_DATA = [
     "pt": [
       "agradecido",
       "grato"
+    ]
+  },
+  {
+    "lema": "εὔχρηστος",
+    "translit": "eúchrēstos",
+    "beta": "euchrestos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "εὔχρηστος, -ον",
+    "raiz": "εὖ (“bem”) + χρηστός (“útil”), de χράομαι",
+    "lsj": "Muito útil, proveitoso; serviçal, de bom uso.",
+    "abbott": "Útil, proveitoso. O que presta bom serviço. Onésimo, antes inútil, “agora é útil (εὔχρηστον) a ti e a mim” (Fm 11); Marcos é “útil (εὔχρηστος) para o ministério” (2Tm 4.11); o vaso purificado torna-se “útil (εὔχρηστον) ao Senhor, preparado para toda boa obra” (2Tm 2.21). A serventia restaurada pela graça. Antônimo de ἄχρηστος. Cf. χρηστός.",
+    "nt": "Fm 11; 2Tm 2.21; 4.11.",
+    "cognatos": [
+      "χρηστός",
+      "ἄχρηστος",
+      "χράομαι"
+    ],
+    "verTambem": [
+      "ἄχρηστος",
+      "δοῦλος",
+      "διακονία",
+      "ἔργον"
+    ],
+    "pt": [
+      "útil",
+      "proveitoso"
     ]
   },
   {
@@ -6258,6 +8602,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ζηλόω",
+    "translit": "zēlóō",
+    "beta": "zeloo",
+    "classe": "verbo",
+    "morf": "ζηλόω",
+    "raiz": "ζῆλος (“zelo, ardor; ciúme”)",
+    "lsj": "Ter ardor por; desejar com zelo; invejar, ter ciúme de.",
+    "abbott": "Ter zelo; invejar. O ardor intenso — para o bem ou para o mal. Bom: “procurai com zelo (ζηλοῦτε) os melhores dons” e “o dom de profetizar” (1Co 12.31; 14.1,39); “bom é serdes zelosos (ζηλοῦσθαι) no bem” (Gl 4.18). Mau: o amor “não arde em ciúmes (οὐ ζηλοῖ)” (1Co 13.4); “onde há ciúme (ζῆλος) e contenda” (Tg 3.14,16); os patriarcas, “movidos de inveja (ζηλώσαντες)”, venderam José (At 7.9). “Tenho ciúmes (ζηλῶ) de vós com zelo de Deus” (2Co 11.2). Cf. ζῆλος, ζηλωτής.",
+    "nt": "1Co 12.31; 13.4; 14.1,39. Cf. At 7.9; 17.5; 1Co 13.4; 2Co 11.2; Gl 4.17,18; Tg 4.2; Ap 3.19.",
+    "cognatos": [
+      "ζῆλος",
+      "ζηλωτής",
+      "παραζηλόω"
+    ],
+    "verTambem": [
+      "ζῆλος",
+      "ἀγάπη",
+      "προφητεύω",
+      "χάρισμα"
+    ],
+    "pt": [
+      "ter zelo"
+    ]
+  },
+  {
     "lema": "ζηλωτής",
     "translit": "zēlōtḗs",
     "beta": "zelotes",
@@ -6303,6 +8672,28 @@ window.LEXICON_DATA = [
     "pt": [
       "perda",
       "prejuízo"
+    ]
+  },
+  {
+    "lema": "ζόφος",
+    "translit": "zóphos",
+    "beta": "zophos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ζόφος, -ου, ὁ",
+    "raiz": "raiz grega de “escuridão, trevas”",
+    "lsj": "Escuridão, treva densa; a treva do mundo inferior.",
+    "abbott": "Escuridão, treva. As trevas densas reservadas ao juízo. Os anjos que pecaram foram entregues “às cadeias da escuridão (ζόφου)” (2Pe 2.4); aos falsos mestres “está reservada a negridão das trevas (ζόφος τοῦ σκότους)” (2Pe 2.17; Jd 13); os anjos que deixaram o seu domínio estão guardados “debaixo de trevas (ζόφον)” para o juízo (Jd 6). A treva como imagem do castigo e da exclusão da luz de Deus. Cf. σκότος, σκοτία.",
+    "nt": "2Pe 2.4,17; Jd 6,13.",
+    "cognatos": [],
+    "verTambem": [
+      "ταρταρόω",
+      "σκότος",
+      "σκοτία",
+      "κρίσις"
+    ],
+    "pt": [
+      "escuridão",
+      "treva"
     ]
   },
   {
@@ -6428,6 +8819,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἡσυχία",
+    "translit": "hēsychía",
+    "beta": "hesychia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ἡσυχία, -ας, ἡ",
+    "raiz": "ἥσυχος (“quieto, tranquilo”)",
+    "lsj": "Quietude, sossego; silêncio; vida tranquila e retirada.",
+    "abbott": "Quietude, sossego. A tranquilidade serena e o silêncio atento. Os ociosos devem “trabalhar tranquilamente (μετὰ ἡσυχίας) e comer o seu próprio pão” (2Ts 3.12); a mulher aprenda “em silêncio (ἡσυχίᾳ), com toda submissão” (1Tm 2.11,12); a multidão “se aquietou (ἡσυχίαν)” para ouvir Paulo (At 22.2). A quietude laboriosa e a disposição mansa de aprender. Cf. ἥσυχος (1Tm 2.2; 1Pe 3.4), ἡσυχάζω.",
+    "nt": "2Ts 3.12. Cf. At 22.2; 1Tm 2.11,12.",
+    "cognatos": [
+      "ἥσυχος",
+      "ἡσυχάζω",
+      "ἡσύχιος"
+    ],
+    "verTambem": [
+      "ἄτακτος",
+      "περιεργάζομαι",
+      "ἐργάζομαι",
+      "πραΰτης"
+    ],
+    "pt": [
+      "quietude",
+      "sossego"
+    ]
+  },
+  {
     "lema": "ἥττημα",
     "translit": "héttēma",
     "beta": "hettema",
@@ -6475,6 +8892,31 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "morte"
+    ]
+  },
+  {
+    "lema": "θεῖος",
+    "translit": "theîos",
+    "beta": "theios",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "θεῖος, -α, -ον",
+    "raiz": "θεός (“Deus”)",
+    "lsj": "Divino, de Deus; (subst. neut.) a divindade.",
+    "abbott": "Divino. O que pertence ou procede de Deus. O divino poder “nos deu tudo o que diz respeito à vida e à piedade” (2Pe 1.3); por meio das promessas vos tornastes “participantes da natureza divina (θείας φύσεως)” (2Pe 1.4); não se deve pensar que “a divindade (τὸ θεῖον)” seja semelhante a ouro ou prata (At 17.29). A palavra eleva a linguagem para falar do que é propriamente de Deus. Cf. θεός, θεότης, θειότης.",
+    "nt": "2Pe 1.3,4. Cf. At 17.29.",
+    "cognatos": [
+      "θεός",
+      "θειότης",
+      "θεότης"
+    ],
+    "verTambem": [
+      "κοινωνός",
+      "φύσις",
+      "δύναμις",
+      "εὐσέβεια"
+    ],
+    "pt": [
+      "divino"
     ]
   },
   {
@@ -6653,6 +9095,55 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "θερισμός",
+    "translit": "therismós",
+    "beta": "therismos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "θερισμός, -οῦ, ὁ",
+    "raiz": "θερίζω (“ceifar, colher”), de θέρος (“verão, colheita”)",
+    "lsj": "Ceifa, colheita; o tempo ou o produto da colheita.",
+    "abbott": "Seara, colheita. O ceifar e a messe — figura da missão. “Levantai os olhos e vede os campos, que já branquejam para a ceifa (θερισμόν)... e o que ceifa recebe salário” (Jo 4.35); “a seara (θερισμός) é grande, mas os trabalhadores são poucos; rogai ao Senhor da seara (θερισμοῦ)” (Mt 9.37,38; Lc 10.2); a parábola: “a ceifa (θερισμός) é o fim do mundo, e os ceifeiros são os anjos” (Mt 13.30,39); “é chegada a hora de ceifar, porque já a seara (θερισμός) está madura” (Ap 14.15). Cf. θερίζω, θέρος.",
+    "nt": "Jo 4.35. Cf. Mt 9.37,38; 13.30,39; Mc 4.29; Lc 10.2; Ap 14.15.",
+    "cognatos": [
+      "θερίζω",
+      "θέρος"
+    ],
+    "verTambem": [
+      "καρπός",
+      "ἐργάτης",
+      "σπείρω",
+      "μισθός"
+    ],
+    "pt": [
+      "seara",
+      "colheita"
+    ]
+  },
+  {
+    "lema": "θησαυρός",
+    "translit": "thēsaurós",
+    "beta": "thesauros",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "θησαυρός, -οῦ, ὁ",
+    "raiz": "τίθημι (“pôr, depositar”)",
+    "lsj": "Tesouro; reserva guardada; lugar onde se guarda (cofre, depósito).",
+    "abbott": "Tesouro. O bem precioso guardado — e o lugar onde se guarda. “Temos este tesouro (θησαυρόν) em vasos de barro, para que a excelência do poder seja de Deus” (2Co 4.7) — o evangelho na fragilidade humana. “Ajuntai tesouros (θησαυρούς) no céu... porque onde está o teu tesouro (θησαυρός), aí estará o teu coração” (Mt 6.19,20,21); “o homem bom tira boas coisas do bom tesouro (θησαυροῦ)” do coração (Mt 12.35); em Cristo estão “os tesouros (θησαυροί) da sabedoria” (Cl 2.3). Cf. θησαυρίζω. Raiz de “tesouro/tesauro”.",
+    "nt": "2Co 4.7. Frequente: Mt 2.11; 6.19,20,21; 12.35; 13.44,52; 19.21; Mc 10.21; Lc 6.45; 12.33,34; 18.22; Cl 2.3; Hb 11.26.",
+    "cognatos": [
+      "τίθημι",
+      "θησαυρίζω"
+    ],
+    "verTambem": [
+      "ὀστράκινος",
+      "σκεῦος",
+      "δύναμις",
+      "δόξα"
+    ],
+    "pt": [
+      "tesouro"
+    ]
+  },
+  {
     "lema": "θλῖψις",
     "translit": "thlîpsis",
     "beta": "thlipsis",
@@ -6673,6 +9164,54 @@ window.LEXICON_DATA = [
     "pt": [
       "tribulação",
       "aflição"
+    ]
+  },
+  {
+    "lema": "θρησκεία",
+    "translit": "thrēskeía",
+    "beta": "threskeia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "θρησκεία, -ας, ἡ",
+    "raiz": "θρῆσκος (“religioso, devoto”)",
+    "lsj": "Culto religioso; observância externa do culto; religião, devoção.",
+    "abbott": "Religião, culto. A prática externa e o serviço religioso. “Se alguém cuida ser religioso (θρῆσκος)... a sua religião (θρησκεία) é vã; a religião (θρησκεία) pura e imaculada... é visitar os órfãos e as viúvas... e guardar-se incontaminado do mundo” (Tg 1.26,27) — a verdadeira devoção, comprovada na compaixão e na santidade. “A religião (θρησκείᾳ) dos judeus”, a observância farisaica (At 26.5); o “culto (θρησκείᾳ) dos anjos” reprovado (Cl 2.18). Cf. θρῆσκος.",
+    "nt": "Tg 1.26,27. Cf. At 26.5; Cl 2.18.",
+    "cognatos": [
+      "θρῆσκος"
+    ],
+    "verTambem": [
+      "θρῆσκος",
+      "λατρεία",
+      "εὐσέβεια",
+      "ὀρφανός"
+    ],
+    "pt": [
+      "religião",
+      "culto"
+    ]
+  },
+  {
+    "lema": "θρῆσκος",
+    "translit": "thrêskos",
+    "beta": "threskos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "θρῆσκος, -ον",
+    "raiz": "raiz grega de “religioso, devoto”",
+    "lsj": "Religioso, devoto; escrupuloso no culto.",
+    "abbott": "Religioso, devoto. O que se julga e mostra cumpridor do culto. Hapax do NT (Tg 1.26): “se alguém entre vós cuida ser religioso (θρῆσκος) e não refreia a sua língua... a sua religião é vã”. Tiago questiona a devoção meramente externa que não governa a conduta, em especial a língua. Liga-se a θρησκεία (religião, culto). Cf. θρησκεία.",
+    "nt": "1 ocorrência (hapax): Tg 1.26.",
+    "cognatos": [
+      "θρησκεία"
+    ],
+    "verTambem": [
+      "θρησκεία",
+      "γλῶσσα",
+      "χαλιναγωγέω",
+      "εὐσέβεια"
+    ],
+    "pt": [
+      "religioso",
+      "devoto"
     ]
   },
   {
@@ -6717,6 +9256,30 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "trono"
+    ]
+  },
+  {
+    "lema": "θύρα",
+    "translit": "thýra",
+    "beta": "thyra",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "θύρα, -ας, ἡ",
+    "raiz": "raiz grega de “porta” (cf. lat. fores)",
+    "lsj": "Porta, entrada; (fig.) acesso, oportunidade.",
+    "abbott": "Porta; (fig.) acesso. A entrada — literal e figurada. Cristo: “Eu sou a porta (θύρα) das ovelhas... eu sou a porta (θύρα); se alguém entrar por mim, será salvo” (Jo 10.1,2,7,9). “Bati à porta (θύραν)” (Mt 25.10); “estou à porta (θύραν) e bato” (Ap 3.20); o anjo removeu “a pedra da porta (θύρας)” do sepulcro (Mt 27.60; Mc 16.3). Figurado: “uma porta (θύρα) grande e eficaz se me abriu” para o evangelho (1Co 16.9; 2Co 2.12; Cl 4.3; Ap 3.8). Cristo é o único acesso legítimo ao Pai e à salvação. Cf. πυλών, εἴσοδος.",
+    "nt": "Jo 10.1,2,7,9; 18.16; 20.19,26. Frequente: Mt 6.6; 24.33; 25.10; 27.60; Mc 1.33; 2.2; 11.4; 13.29; 15.46; 16.3; Lc 13.25; At 3.2; 5.9,19,23; 12.6,13; 14.27; 16.26,27; 1Co 16.9; 2Co 2.12; Cl 4.3; Tg 5.9; Ap 3.8,20; 4.1.",
+    "cognatos": [
+      "θυρωρός",
+      "θυρίς"
+    ],
+    "verTambem": [
+      "πρόβατον",
+      "ποιμήν",
+      "ὁδός",
+      "εἴσοδος"
+    ],
+    "pt": [
+      "porta"
     ]
   },
   {
@@ -6786,6 +9349,31 @@ window.LEXICON_DATA = [
     "pt": [
       "couraça",
       "peitoral"
+    ]
+  },
+  {
+    "lema": "ἱεράτευμα",
+    "translit": "hieráteuma",
+    "beta": "hierateuma",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "ἱεράτευμα, -ατος, τό",
+    "raiz": "ἱερατεύω (“exercer o sacerdócio”), de ἱερεύς",
+    "lsj": "Termo do grego bíblico: sacerdócio (o corpo dos sacerdotes); função sacerdotal.",
+    "abbott": "Sacerdócio (o corpo sacerdotal). O conjunto do povo constituído sacerdotes. “Vós... sois sacerdócio santo (ἱεράτευμα ἅγιον), para oferecerdes sacrifícios espirituais” (1Pe 2.5); “vós sois... o sacerdócio real (βασίλειον ἱεράτευμα), a nação santa, o povo adquirido” (1Pe 2.9, citando Êx 19.6). O sacerdócio universal dos crentes: todo o povo de Deus, e não uma casta, tem acesso direto a ele e lhe oferece culto. Cf. ἱερεύς, ἱερατεία, ἱερωσύνη.",
+    "nt": "1Pe 2.5,9.",
+    "cognatos": [
+      "ἱερεύς",
+      "ἱερατεύω",
+      "ἱερατεία"
+    ],
+    "verTambem": [
+      "βασίλειος",
+      "ἱερεύς",
+      "θυσία",
+      "λαός"
+    ],
+    "pt": [
+      "sacerdócio"
     ]
   },
   {
@@ -6891,6 +9479,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἱλαρός",
+    "translit": "hilarós",
+    "beta": "hilaros",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "ἱλαρός, -ά, -όν",
+    "raiz": "raiz grega de “alegre, propício”",
+    "lsj": "Alegre, jovial; bem-disposto, gracioso.",
+    "abbott": "Alegre, contente. A disposição risonha e de bom grado. Hapax do NT (2Co 9.7): “cada um contribua segundo propôs no coração, não com tristeza nem por necessidade, porque Deus ama a quem dá com alegria (ἱλαρόν)” — o doador alegre, não relutante. Da mesma raiz, o advérbio ἱλαρότης (“com alegria”, Rm 12.8) para quem exerce a misericórdia. Raiz da palavra “hilaridade”. Cf. ἱλαρότης.",
+    "nt": "1 ocorrência (hapax): 2Co 9.7.",
+    "cognatos": [
+      "ἱλαρότης"
+    ],
+    "verTambem": [
+      "εὐλογία",
+      "ἁπλότης",
+      "χάρις",
+      "περισσεύω"
+    ],
+    "pt": [
+      "alegre",
+      "contente"
+    ]
+  },
+  {
     "lema": "ἱλάσκομαι",
     "translit": "hiláskomai",
     "beta": "hilaskomai",
@@ -6917,6 +9529,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἱλασμός",
+    "translit": "hilasmós",
+    "beta": "hilasmos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ἱλασμός, -οῦ, ὁ",
+    "raiz": "ἱλάσκομαι (“propiciar, expiar”), de ἵλαος",
+    "lsj": "Propiciação, expiação; meio de aplacar e obter perdão.",
+    "abbott": "Propiciação, expiação. O meio pelo qual o pecado é coberto e a relação com Deus, restaurada — em Cristo. “Ele é a propiciação (ἱλασμός) pelos nossos pecados, e não somente pelos nossos, mas também pelos de todo o mundo” (1Jo 2.2); “nisto está o amor: não em que nós tenhamos amado a Deus, mas em que ele nos amou e enviou seu Filho para propiciação (ἱλασμόν) pelos nossos pecados” (1Jo 4.10). A iniciativa é de Deus, que provê em Cristo a própria expiação. Cf. ἱλάσκομαι, ἱλαστήριον.",
+    "nt": "1Jo 2.2; 4.10.",
+    "cognatos": [
+      "ἱλάσκομαι",
+      "ἱλαστήριον",
+      "ἵλεως"
+    ],
+    "verTambem": [
+      "ἱλάσκομαι",
+      "ἀγάπη",
+      "ἁμαρτία",
+      "παράκλητος"
+    ],
+    "pt": [
+      "propiciação",
+      "expiação"
+    ]
+  },
+  {
     "lema": "ἱλαστήριον",
     "translit": "hilastḗrion",
     "beta": "hilasterion",
@@ -6938,6 +9576,31 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "propiciação"
+    ]
+  },
+  {
+    "lema": "ἱμάτιον",
+    "translit": "himátion",
+    "beta": "himation",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ἱμάτιον, -ου, τό",
+    "raiz": "ἕννυμι (“vestir”), via diminutivo de εἷμα",
+    "lsj": "Veste, manto (a capa exterior); (pl.) roupas, vestes.",
+    "abbott": "Manto, veste. A capa exterior — e, no plural, as roupas em geral. Os soldados, ao crucificá-lo, “tomaram as suas vestes (ἱμάτια)... e a túnica” e lançaram sortes (Jo 19.2,5,23,24, cumprindo o Salmo 22). A mulher tocou “a orla do seu manto (ἱματίου)” (Mt 9.20,21); lançaram “os seus mantos (ἱμάτια)” no caminho (Mt 21.7,8); o pródigo recebe “a melhor veste (στολήν)”. “As vossas vestes (ἱμάτια) estão comidas pela traça” (Tg 5.2). Distinto de χιτών (túnica interior). Cf. χιτών, ἱματισμός, ἐσθής.",
+    "nt": "Jo 13.4,12; 19.2,5,23,24. Muito frequente nos Evangelhos; Mt 5.40; 9.16,20,21; 21.7,8; 24.18; 26.65; 27.31,35; Mc 5.27-30; 10.50; 15.20,24; Lc 6.29; 8.27,44; 19.35,36; 23.34; At 9.39; 12.8; 14.14; 22.20,23; Hb 1.11,12; Tg 5.2; Ap 3.4,5,18; 4.4; 16.15; 19.13,16.",
+    "cognatos": [
+      "ἱματισμός",
+      "ἀμφιέννυμι"
+    ],
+    "verTambem": [
+      "χιτών",
+      "στρατιώτης",
+      "σταυρόω",
+      "ἐσθής"
+    ],
+    "pt": [
+      "manto",
+      "veste"
     ]
   },
   {
@@ -7015,6 +9678,56 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ἰχθύς",
+    "translit": "ichthýs",
+    "beta": "ichthys",
+    "classe": "substantivo, masc. (3ª decl.)",
+    "morf": "ἰχθύς, -ύος, ὁ",
+    "raiz": "raiz grega de “peixe”",
+    "lsj": "Peixe.",
+    "abbott": "Peixe. O animal da pesca e do alimento. Na pesca milagrosa após a ressurreição, “a multidão dos peixes (ἰχθύων)... a rede cheia de grandes peixes (ἰχθύων), cento e cinquenta e três” (Jo 21.6,8,11). Os cinco pães e “dois peixes (ἰχθύας)” da multiplicação (Mt 14.17,19; Jo 6 usa ὀψάριον); “qual de vós, se o filho lhe pedir um peixe (ἰχθύν), lhe dará uma serpente?” (Mt 7.10; Lc 11.11); a moeda na boca do peixe (ἰχθύν) (Mt 17.27). O acróstico ΙΧΘΥΣ tornou-se símbolo cristão antigo. Cf. ὀψάριον, ἰχθύδιον.",
+    "nt": "Jo 21.6,8,11. Cf. Mt 7.10; 14.17,19; 15.36; 17.27; Mc 6.38,41,43; Lc 5.6,9; 9.13,16; 11.11; 24.42; 1Co 15.39.",
+    "cognatos": [
+      "ἰχθύδιον",
+      "ὀψάριον"
+    ],
+    "verTambem": [
+      "ὀψάριον",
+      "δίκτυον",
+      "ἄρτος",
+      "ἁλιεύς"
+    ],
+    "pt": [
+      "peixe"
+    ]
+  },
+  {
+    "lema": "καθαίρω",
+    "translit": "kathaírō",
+    "beta": "kathairo",
+    "classe": "verbo",
+    "morf": "καθαίρω",
+    "raiz": "καθαρός (“limpo, puro”)",
+    "lsj": "Limpar, purificar; (de plantas) podar, mondar.",
+    "abbott": "Limpar; podar. Purificar — e, da videira, podar para dar mais fruto. “Toda vara que dá fruto, limpa-a (καθαίρει), para que dê mais fruto; já vós estais limpos (καθαροί) pela palavra” (Jo 15.2,3) — duplo sentido entre podar e purificar. O lavrador remove o que estorva, para a maior fecundidade. Em Hb 10.2, os sacrifícios não podiam deixar os adoradores “purificados (κεκαθαρισμένους)” (var.). Liga-se a καθαρός (puro), καθαρίζω (purificar). Cf. καθαρός, καθαρίζω, ἐκκαθαίρω.",
+    "nt": "Jo 15.2,3. Cf. Hb 10.2 (var.).",
+    "cognatos": [
+      "καθαρός",
+      "καθαρίζω",
+      "ἐκκαθαίρω",
+      "καθαρισμός"
+    ],
+    "verTambem": [
+      "ἄμπελος",
+      "κλῆμα",
+      "καθαρός",
+      "καρπός"
+    ],
+    "pt": [
+      "limpar"
+    ]
+  },
+  {
     "lema": "καθαρίζω",
     "translit": "katharízō",
     "beta": "katharizo",
@@ -7038,6 +9751,29 @@ window.LEXICON_DATA = [
     "pt": [
       "purificar",
       "limpar"
+    ]
+  },
+  {
+    "lema": "καθεύδω",
+    "translit": "katheúdō",
+    "beta": "katheudo",
+    "classe": "verbo",
+    "morf": "καθεύδω",
+    "raiz": "κατά + εὕδω (“dormir”)",
+    "lsj": "Dormir; estar adormecido; (fig.) ser negligente, espiritualmente apático.",
+    "abbott": "Dormir; (fig.) estar entorpecido. O sono literal e a apatia espiritual. “Não durmamos (καθεύδωμεν) como os demais, mas vigiemos”; os que dormem, “dormem (καθεύδουσιν) de noite” (1Ts 5.6,7); “desperta, tu que dormes (καθεύδων)” (Ef 5.14); a menina “não morreu, mas dorme (καθεύδει)” (Mt 9.24; Mc 5.39); os discípulos “dormindo (καθεύδοντας)” no Getsêmani (Mt 26.40,43,45). A inércia da qual o crente deve despertar à luz do dia que vem. Cf. ὑπνόω, κοιμάομαι.",
+    "nt": "1Ts 5.6,7,10. Cf. Mt 8.24; 9.24; 13.25; 25.5; 26.40,43,45; Mc 4.27,38; 5.39; 13.36; 14.37,40,41; Lc 8.52; 22.46; Ef 5.14.",
+    "cognatos": [
+      "εὕδω"
+    ],
+    "verTambem": [
+      "νήφω",
+      "γρηγορέω",
+      "κοιμάομαι",
+      "ἡμέρα"
+    ],
+    "pt": [
+      "dormir"
     ]
   },
   {
@@ -7087,6 +9823,32 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "chamar"
+    ]
+  },
+  {
+    "lema": "κάλυμμα",
+    "translit": "kálymma",
+    "beta": "kalymma",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "κάλυμμα, -ατος, τό",
+    "raiz": "καλύπτω (“cobrir, ocultar”)",
+    "lsj": "Cobertura, véu.",
+    "abbott": "Véu, cobertura. O que oculta — literal e figurado, em 2Co 3. Moisés punha “um véu (κάλυμμα) sobre o rosto” para que não vissem o esvanecer da glória (3.13); até hoje, na leitura da antiga aliança, “permanece o mesmo véu (κάλυμμα)”, não removido senão em Cristo; “quando se converterem ao Senhor, tira-se o véu (κάλυμμα)” (3.14,15,16). A imagem do entendimento embaçado, que só Cristo desvela. De καλύπτω (cobrir); cf. ἀνακαλύπτω (desvelar), ἀποκάλυψις (revelação).",
+    "nt": "2Co 3.13,14,15,16.",
+    "cognatos": [
+      "καλύπτω",
+      "ἀνακαλύπτω",
+      "ἀποκαλύπτω"
+    ],
+    "verTambem": [
+      "γράμμα",
+      "δόξα",
+      "ἀποκάλυψις",
+      "διαθήκη"
+    ],
+    "pt": [
+      "véu",
+      "cobertura"
     ]
   },
   {
@@ -7160,6 +9922,32 @@ window.LEXICON_DATA = [
     "pt": [
       "frutificar",
       "produzir fruto"
+    ]
+  },
+  {
+    "lema": "καταβαίνω",
+    "translit": "katabaínō",
+    "beta": "katabaino",
+    "classe": "verbo",
+    "morf": "καταβαίνω",
+    "raiz": "κατά (“para baixo”) + βαίνω (“ir, andar”)",
+    "lsj": "Descer, baixar; cair (chuva).",
+    "abbott": "Descer, baixar. Mover-se para baixo — em João, sobretudo a descida do céu. “Eu sou o pão vivo que desceu (καταβάς) do céu” (Jo 6.33,38,41,42,50,51,58); “o Espírito que descia (καταβαῖνον) como pomba” (Jo 1.32,33; Mt 3.16); o anjo “que descia (καταβαίνων)” (Jo 5.4 var.). “Desceu (κατέβη) a chuva” sobre as duas casas (Mt 7.25,27); o homem que “descia (κατέβαινεν) de Jerusalém a Jericó” (Lc 10.31); a “nova Jerusalém, que desce (καταβαίνουσαν) do céu” (Ap 3.12; 21.2,10). Par com ἀναβαίνω. Cf. βαίνω, ἀναβαίνω, κατάβασις.",
+    "nt": "Jo 1.32,33,51; 2.12; 3.13; 4.47,49,51; 5.4,7; 6.16,33,38,41,42,50,51,58. Muito frequente nos Evangelhos, Atos e Apocalipse.",
+    "cognatos": [
+      "βαίνω",
+      "ἀναβαίνω",
+      "ἐμβαίνω"
+    ],
+    "verTambem": [
+      "ἀναβαίνω",
+      "οὐρανός",
+      "ἄρτος",
+      "πνεῦμα"
+    ],
+    "pt": [
+      "descer",
+      "baixar"
     ]
   },
   {
@@ -7237,6 +10025,32 @@ window.LEXICON_DATA = [
     "pt": [
       "condenar",
       "sentenciar"
+    ]
+  },
+  {
+    "lema": "καταλαλέω",
+    "translit": "katalaléō",
+    "beta": "katalaleo",
+    "classe": "verbo",
+    "morf": "καταλαλέω",
+    "raiz": "κατά (“contra”) + λαλέω (“falar”)",
+    "lsj": "Falar contra; difamar, caluniar; murmurar de alguém.",
+    "abbott": "Maldizer, falar mal. Falar contra outrem na sua ausência. “Não faleis mal (μὴ καταλαλεῖτε) uns dos outros, irmãos; quem fala mal (καταλαλῶν) do irmão... fala mal da lei” (Tg 4.11); tende “bom procedimento... para que, naquilo em que falam mal (καταλαλοῦσιν) de vós como malfeitores, glorifiquem a Deus” (1Pe 2.12; 3.16). A difamação que destrói a comunhão. Cf. καταλαλιά (2Co 12.20; 1Pe 2.1), κατάλαλος (Rm 1.30).",
+    "nt": "Tg 4.11. Cf. 1Pe 2.12; 3.16.",
+    "cognatos": [
+      "λαλέω",
+      "καταλαλιά",
+      "κατάλαλος"
+    ],
+    "verTambem": [
+      "γλῶσσα",
+      "βλασφημέω",
+      "γογγυστής",
+      "ἀγάπη"
+    ],
+    "pt": [
+      "maldizer",
+      "falar mal"
     ]
   },
   {
@@ -7540,6 +10354,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "κατέχω",
+    "translit": "katéchō",
+    "beta": "katecho",
+    "classe": "verbo",
+    "morf": "κατέχω",
+    "raiz": "κατά (intensivo) + ἔχω (“ter, segurar”)",
+    "lsj": "Reter, segurar firme; deter, refrear; possuir; ocupar.",
+    "abbott": "Reter, deter; conservar firme. Segurar com força — em vários sentidos. Escatológico: “sabeis o que o detém (κατέχον)... aquele que agora o detém (κατέχων)” o iníquo, até ser afastado (2Ts 2.6,7) — o poder que ainda refreia o mal. Positivo: “retende (κατέχετε) o que é bom” (1Ts 5.21); reter “firme a confissão da esperança” (Hb 10.23); a palavra recebida (1Co 15.2). Negativo: os que “detêm (κατεχόντων) a verdade pela injustiça” (Rm 1.18). Cf. ἔχω, ἐπέχω.",
+    "nt": "2Ts 2.6,7; 1Ts 5.21. Cf. Lc 4.42; 8.15; 14.9; Jo 5.4; Rm 1.18; 7.6; 1Co 7.30; 11.2; 15.2; 2Co 6.10; Fm 13; Hb 3.6,14; 10.23.",
+    "cognatos": [
+      "ἔχω",
+      "ἐπέχω",
+      "συνέχω"
+    ],
+    "verTambem": [
+      "ἄνομος",
+      "ἀποστασία",
+      "παρουσία",
+      "μυστήριον"
+    ],
+    "pt": [
+      "reter",
+      "deter"
+    ]
+  },
+  {
     "lema": "κατηχέω",
     "translit": "katēchéō",
     "beta": "katecheo",
@@ -7635,6 +10475,56 @@ window.LEXICON_DATA = [
     "pt": [
       "jactância",
       "o ato de gloriar-se"
+    ]
+  },
+  {
+    "lema": "κεῖμαι",
+    "translit": "keîmai",
+    "beta": "keimai",
+    "classe": "verbo (depoente)",
+    "morf": "κεῖμαι",
+    "raiz": "raiz grega de “jazer, estar posto”",
+    "lsj": "Jazer, estar deitado; estar posto, colocado; estar estabelecido, destinado.",
+    "abbott": "Jazer, estar posto. Estar deitado ou colocado. No túmulo, os panos “postos (κείμενα)” e o sudário enrolado (Jo 20.5,6,7,12) — os anjos sentados “onde jazera (ἔκειτο) o corpo de Jesus”. “Vede o lugar onde jazia (ἔκειτο)” (Mt 28.6; Lc 2.12,16); “um vaso cheio de vinagre estava ali posto (ἔκειτο)” (Jo 2.6; 19.29). Figurado: “está posto (κεῖται) para queda e para levantamento de muitos” (Lc 2.34); “estamos destinados (κείμεθα)” às tribulações (1Ts 3.3); “a lei não é feita (κεῖται) para o justo” (1Tm 1.9). Cf. ἀνάκειμαι, κατάκειμαι, πρόκειμαι.",
+    "nt": "Jo 2.6; 11.41 (var.); 19.29; 20.5,6,7,12; 21.9. Frequente: Mt 3.10; 5.14; 28.6; Lc 2.12,16,34; 3.9; 12.19; 23.53; 1Co 3.11; 2Co 3.15; Fp 1.16; 1Ts 3.3; 1Tm 1.9; 1Jo 5.19; Ap 4.2; 21.16.",
+    "cognatos": [
+      "ἀνάκειμαι",
+      "κατάκειμαι",
+      "πρόκειμαι",
+      "ἀντίκειμαι"
+    ],
+    "verTambem": [
+      "ὀθόνιον",
+      "σουδάριον",
+      "μνημεῖον",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "jazer",
+      "estar posto"
+    ]
+  },
+  {
+    "lema": "κέλευσμα",
+    "translit": "kéleusma",
+    "beta": "keleusma",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "κέλευσμα, -ατος, τό",
+    "raiz": "κελεύω (“ordenar, comandar”)",
+    "lsj": "Ordem dada em voz alta; brado de comando; grito que reúne ou incita.",
+    "abbott": "Brado de comando. Hapax do NT (1Ts 4.16): “o próprio Senhor descerá do céu com brado de comando (κελεύσματι), com voz de arcanjo e com a trombeta de Deus”. O κέλευσμα era o grito de ordem — do comandante às tropas, do timoneiro aos remadores, do caçador aos cães. A voz imperiosa que convoca os mortos e inaugura a ressurreição. Cf. κελεύω.",
+    "nt": "1 ocorrência (hapax): 1Ts 4.16.",
+    "cognatos": [
+      "κελεύω"
+    ],
+    "verTambem": [
+      "ἀρχάγγελος",
+      "σάλπιγξ",
+      "παρουσία",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "brado de comando"
     ]
   },
   {
@@ -7738,6 +10628,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "κέντρον",
+    "translit": "kéntron",
+    "beta": "kentron",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "κέντρον, -ου, τό",
+    "raiz": "κεντέω (“picar, aguilhoar”)",
+    "lsj": "Aguilhão; ferrão (de inseto); ponta aguçada; estímulo.",
+    "abbott": "Aguilhão, ferrão. A ponta que fere — do animal, do inseto, ou figurada. “Onde está, ó morte, o teu aguilhão (κέντρον)? ...O aguilhão (κέντρον) da morte é o pecado, e a força do pecado é a lei” (1Co 15.55,56) — a morte perdeu sua arma para os que estão em Cristo. A Saulo: “dura coisa é recalcitrar contra os aguilhões (κέντρα)” (At 26.14); o ferrão (κέντρον) dos gafanhotos-escorpiões (Ap 9.10). Cf. κεντέω.",
+    "nt": "1Co 15.55,56. Cf. At 26.14; Ap 9.10.",
+    "cognatos": [
+      "κεντέω"
+    ],
+    "verTambem": [
+      "θάνατος",
+      "νῖκος",
+      "ἁμαρτία",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "aguilhão",
+      "ferrão"
+    ]
+  },
+  {
     "lema": "κερδαίνω",
     "translit": "kerdaínō",
     "beta": "kerdaino",
@@ -7759,6 +10673,55 @@ window.LEXICON_DATA = [
     "pt": [
       "ganhar",
       "lucrar"
+    ]
+  },
+  {
+    "lema": "κεφαλή",
+    "translit": "kephalḗ",
+    "beta": "kephale",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "κεφαλή, -ῆς, ἡ",
+    "raiz": "raiz grega de “cabeça”",
+    "lsj": "Cabeça; (fig.) o que é principal, fonte ou chefe; ponta, extremidade.",
+    "abbott": "Cabeça; (fig.) chefe, fonte. O literal e o figurado da supremacia ou origem. “A cabeça (κεφαλή) de todo varão é Cristo, e a cabeça da mulher é o varão, e a cabeça de Cristo é Deus” (1Co 11.3-5); Cristo é “a cabeça (κεφαλή) da igreja” (Ef 1.22; 4.15; 5.23; Cl 1.18; 2.19), e “cabeça de todo principado” (Cl 2.10). A pedra rejeitada tornou-se “cabeça (κεφαλήν) da esquina” (Mt 21.42; 1Pe 2.7). Literal: ungir “a cabeça” (Mt 6.17); não ter “onde reclinar a cabeça” (Mt 8.20). Cf. κεφάλαιον, ἀνακεφαλαιόω.",
+    "nt": "1Co 11.3,4,5,7,10; 12.21. Frequente: Mt 5.36; 8.20; 21.42; 27.29,30,37,39; Mc 12.10; Lc 7.46; 21.18; Jo 19.2,30; At 18.6; Rm 12.20; Ef 1.22; 4.15; 5.23; Cl 1.18; 2.10,19; 1Pe 2.7; Ap 1.14; 12.1; 13.1.",
+    "cognatos": [
+      "κεφάλαιον",
+      "ἀνακεφαλαιόω",
+      "ἀποκεφαλίζω"
+    ],
+    "verTambem": [
+      "σῶμα",
+      "ἐκκλησία",
+      "ἀρχή",
+      "πλήρωμα"
+    ],
+    "pt": [
+      "cabeça"
+    ]
+  },
+  {
+    "lema": "κῆπος",
+    "translit": "kêpos",
+    "beta": "kepos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κῆπος, -ου, ὁ",
+    "raiz": "raiz grega de “jardim, horto”",
+    "lsj": "Jardim, horto, pomar.",
+    "abbott": "Horto, jardim. O lugar cultivado e cercado. Em João, emoldura a paixão: “havia um horto (κῆπος), no qual entrou” na prisão (Jo 18.1,26); e “no lugar onde fora crucificado havia um horto (κῆπος), e no horto (κήπῳ) um sepulcro novo” (Jo 19.41); Maria o supôs “o jardineiro (κηπουρόν)” (Jo 20.15). A redenção começa e a ressurreição se manifesta num jardim — eco do Éden. Cf. κηπουρός, παράδεισος.",
+    "nt": "Jo 18.1,26; 19.41. Cf. Lc 13.19.",
+    "cognatos": [
+      "κηπουρός"
+    ],
+    "verTambem": [
+      "μνημεῖον",
+      "σταυρόω",
+      "παράδεισος",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "horto",
+      "jardim"
     ]
   },
   {
@@ -7828,6 +10791,129 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "arca"
+    ]
+  },
+  {
+    "lema": "κίνδυνος",
+    "translit": "kíndynos",
+    "beta": "kindynos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κίνδυνος, -ου, ὁ",
+    "raiz": "raiz grega de “perigo, risco”",
+    "lsj": "Perigo, risco, ameaça.",
+    "abbott": "Perigo. A ameaça à vida ou ao bem-estar. No catálogo dos sofrimentos apostólicos, Paulo enumera oito vezes a palavra: “perigos (κινδύνοις) de rios, perigos de salteadores, perigos dos da minha nação, perigos dos gentios, perigos na cidade, perigos no deserto, perigos no mar, perigos entre falsos irmãos” (2Co 11.26). “Quem nos separará...? a tribulação, a angústia... o perigo (κίνδυνος)?” (Rm 8.35). Os riscos enfrentados por amor de Cristo. Cf. κινδυνεύω (correr perigo).",
+    "nt": "2Co 11.26 (8x). Cf. Rm 8.35.",
+    "cognatos": [
+      "κινδυνεύω"
+    ],
+    "verTambem": [
+      "θλῖψις",
+      "ἀνάγκη",
+      "διωγμός",
+      "ὑπομονή"
+    ],
+    "pt": [
+      "perigo"
+    ]
+  },
+  {
+    "lema": "κλάδος",
+    "translit": "kládos",
+    "beta": "klados",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κλάδος, -ου, ὁ",
+    "raiz": "κλάω (“quebrar, partir”): ramo que se parte",
+    "lsj": "Ramo, galho (de árvore).",
+    "abbott": "Ramo, galho. O galho da árvore — central na alegoria da oliveira. “Se alguns dos ramos (κλάδων) foram quebrados, e tu, sendo zambujeiro, foste enxertado... não te glories contra os ramos (κλάδων)” (Rm 11.16-21); os ramos naturais (Israel) quebrados pela incredulidade, e o gentio enxertado pela fé — advertência contra a soberba. “A menor das sementes... faz ramos (κλάδους)”, e as aves se aninham (Mt 13.32; Mc 4.32; Lc 13.19); cortavam “ramos (κλάδους)” na entrada triunfal (Mt 21.8; Mc 11.8). Cf. κλάω, κλῆμα.",
+    "nt": "Rm 11.16,17,18,19,21. Cf. Mt 13.32; 21.8; 24.32; Mc 4.32; 13.28; Lc 13.19.",
+    "cognatos": [
+      "κλάω",
+      "κλῆμα",
+      "ἐκκλάω"
+    ],
+    "verTambem": [
+      "ἐλαία",
+      "ῥίζα",
+      "ἀπιστία",
+      "ἐγκεντρίζω"
+    ],
+    "pt": [
+      "ramo",
+      "galho"
+    ]
+  },
+  {
+    "lema": "κλαίω",
+    "translit": "klaíō",
+    "beta": "klaio",
+    "classe": "verbo",
+    "morf": "κλαίω",
+    "raiz": "raiz grega de “chorar, lamentar”",
+    "lsj": "Chorar, prantear; lamentar em voz alta.",
+    "abbott": "Chorar, prantear. O choro audível da dor e do luto. Junto ao túmulo de Lázaro, “quando Jesus a viu chorar (κλαίουσαν), e também chorarem (κλαίοντας) os judeus... comoveu-se” (Jo 11.31,33); Maria Madalena, “chorando (κλαίουσα)” junto ao sepulcro: “mulher, por que choras (κλαίεις)?” (Jo 20.11,13,15). “Bem-aventurados os que agora chorais (κλαίοντες)” (Lc 6.21); Jesus “chorou (ἔκλαυσεν)” sobre Jerusalém (Lc 19.41); “chorai (κλαίειν) com os que choram” (Rm 12.15). Cf. δακρύω, κλαυθμός, πενθέω.",
+    "nt": "Jo 11.31,33; 16.20; 20.11,13,15. Frequente: Mt 2.18; 26.75; Mc 5.38,39; 14.72; 16.10; Lc 6.21,25; 7.13,32,38; 8.52; 19.41; 22.62; 23.28; At 9.39; 21.13; 1Co 7.30; Fp 3.18; Tg 4.9; 5.1; Ap 5.4,5; 18.9,11,15,19.",
+    "cognatos": [
+      "κλαυθμός",
+      "δακρύω"
+    ],
+    "verTambem": [
+      "δακρύω",
+      "πενθέω",
+      "λύπη",
+      "μνημεῖον"
+    ],
+    "pt": [
+      "chorar",
+      "prantear"
+    ]
+  },
+  {
+    "lema": "κλέπτης",
+    "translit": "kléptēs",
+    "beta": "kleptes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "κλέπτης, -ου, ὁ",
+    "raiz": "κλέπτω (“roubar, furtar”)",
+    "lsj": "Ladrão, gatuno (que furta às escondidas).",
+    "abbott": "Ladrão. O que furta ocultamente — em contraste com o pastor legítimo. “Quem não entra pela porta no aprisco... é ladrão (κλέπτης) e salteador”; “o ladrão (κλέπτης) não vem senão a roubar, matar e destruir” (Jo 10.1,8,10); cavar tesouros onde “os ladrões (κλέπται) não minam” (Mt 6.19,20); “o dia do Senhor virá como ladrão (κλέπτης) de noite” (1Ts 5.2,4; 2Pe 3.10; Ap 3.3; 16.15); Judas era ladrão (Jo 12.6). Distinto de λῃστής (o salteador violento). Cf. κλέπτω, κλοπή.",
+    "nt": "Jo 10.1,8,10; 12.6. Cf. Mt 6.19,20; 24.43; Lc 12.33,39; 1Co 6.10; 1Ts 5.2,4; 1Pe 4.15; 2Pe 3.10; Ap 3.3; 16.15.",
+    "cognatos": [
+      "κλέπτω",
+      "κλοπή"
+    ],
+    "verTambem": [
+      "λῃστής",
+      "θύρα",
+      "ποιμήν",
+      "ἀπώλεια"
+    ],
+    "pt": [
+      "ladrão"
+    ]
+  },
+  {
+    "lema": "κλῆμα",
+    "translit": "klêma",
+    "beta": "klema",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "κλῆμα, -ατος, τό",
+    "raiz": "κλάω (“quebrar, partir”): rebento que se corta",
+    "lsj": "Vara, rebento (esp. da videira); sarmento.",
+    "abbott": "Vara, sarmento. O ramo da videira que dá uvas. Em João 15, “vós sois as varas (κλήματα); quem permanece em mim... esse dá muito fruto”; a vara “não pode dar fruto de si mesma, se não permanecer na videira”; a vara que não permanece “é lançada fora... e secou-se (κλῆμα)” (Jo 15.2,4,5,6) — a permanência em Cristo como condição da vida e do fruto. Distinto de κλάδος (ramo de árvore em geral, como a oliveira de Rm 11). Cf. ἄμπελος, κλάδος, καθαίρω.",
+    "nt": "Jo 15.2,4,5,6.",
+    "cognatos": [
+      "κλάω",
+      "κλάδος"
+    ],
+    "verTambem": [
+      "ἄμπελος",
+      "γεωργός",
+      "καθαίρω",
+      "μένω"
+    ],
+    "pt": [
+      "vara",
+      "sarmento"
     ]
   },
   {
@@ -8007,6 +11093,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "κοιμάομαι",
+    "translit": "koimáomai",
+    "beta": "koimaomai",
+    "classe": "verbo (médio/passivo)",
+    "morf": "κοιμάομαι",
+    "raiz": "κεῖμαι (“jazer, deitar-se”)",
+    "lsj": "Adormecer, dormir; (eufemismo) morrer, repousar na morte.",
+    "abbott": "Dormir; (fig.) morrer. Eufemismo cristão para a morte, que pressupõe o despertar. “Não quero que ignoreis acerca dos que dormem (κοιμωμένων), para que não vos entristeçais como os que não têm esperança” (1Ts 4.13,14,15); “nem todos dormiremos (κοιμηθησόμεθα), mas todos seremos transformados” (1Co 15.51); Estêvão, ao ser apedrejado, “adormeceu (ἐκοιμήθη)” (At 7.60); Lázaro “dorme (κεκοίμηται)”, diz Jesus da morte (Jo 11.11,12). A morte do crente como sono do qual Cristo o despertará. Cf. κοίμησις.",
+    "nt": "1Ts 4.13,14,15. Cf. Mt 27.52; Jo 11.11,12; At 7.60; 13.36; 1Co 7.39; 11.30; 15.6,18,20,51; 2Pe 3.4.",
+    "cognatos": [
+      "κεῖμαι",
+      "κοίμησις"
+    ],
+    "verTambem": [
+      "ἀνάστασις",
+      "νεκρός",
+      "παρουσία",
+      "ἐλπίς"
+    ],
+    "pt": [
+      "dormir"
+    ]
+  },
+  {
     "lema": "κοινωνία",
     "translit": "koinōnía",
     "beta": "koinonia",
@@ -8031,6 +11141,102 @@ window.LEXICON_DATA = [
     "pt": [
       "comunhão",
       "participação"
+    ]
+  },
+  {
+    "lema": "κοινωνός",
+    "translit": "koinōnós",
+    "beta": "koinonos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κοινωνός, -οῦ, ὁ",
+    "raiz": "κοινός (“comum”)",
+    "lsj": "Companheiro, sócio, parceiro; participante.",
+    "abbott": "Participante, parceiro. O que tem parte em algo com outrem. Vos tornastes “participantes (κοινωνοί) da natureza divina” (2Pe 1.4); “participante (κοινωνός) da glória que se há de revelar” (1Pe 5.1); “participantes (κοινωνοί) dos sofrimentos” e da consolação (2Co 1.7); Tiago e João eram “sócios (κοινωνοί)” de Simão na pesca (Lc 5.10); recebe Onésimo “como a mim, se me tens por companheiro (κοινωνόν)” (Fm 17). A comunhão que partilha bens, sofrimentos e a própria natureza divina. Cf. κοινωνία, κοινωνέω, κοινός.",
+    "nt": "2Pe 1.4. Cf. Mt 23.30; Lc 5.10; 1Co 10.18,20; 2Co 1.7; 8.23; Fm 17; Hb 10.33; 1Pe 5.1.",
+    "cognatos": [
+      "κοινός",
+      "κοινωνία",
+      "κοινωνέω",
+      "συγκοινωνός"
+    ],
+    "verTambem": [
+      "κοινωνία",
+      "θεῖος",
+      "μέτοχος",
+      "φύσις"
+    ],
+    "pt": [
+      "participante",
+      "parceiro"
+    ]
+  },
+  {
+    "lema": "κόκκος",
+    "translit": "kókkos",
+    "beta": "kokkos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κόκκος, -ου, ὁ",
+    "raiz": "raiz grega de “grão, semente”",
+    "lsj": "Grão, semente; bago.",
+    "abbott": "Grão. A semente — figura da morte que gera vida e do mínimo que se multiplica. “Se o grão (κόκκος) de trigo, caindo na terra, não morrer, fica ele só; mas, se morrer, dá muito fruto” (Jo 12.24) — a lei da cruz e da fecundidade. “Se tiverdes fé como um grão (κόκκον) de mostarda” (Mt 17.20; Lc 17.6); o reino é “como um grão (κόκκῳ) de mostarda” (Mt 13.31; Mc 4.31; Lc 13.19); o corpo ressurreto e a semente que se semeia (1Co 15.37). Cf. σπέρμα, σπόρος, καρπός.",
+    "nt": "Jo 12.24. Cf. Mt 13.31; 17.20; Mc 4.31; Lc 13.19; 17.6; 1Co 15.37.",
+    "cognatos": [],
+    "verTambem": [
+      "σπέρμα",
+      "καρπός",
+      "ἀποθνῄσκω",
+      "δοξάζω"
+    ],
+    "pt": [
+      "grão"
+    ]
+  },
+  {
+    "lema": "κολαφίζω",
+    "translit": "kolaphízō",
+    "beta": "kolaphizo",
+    "classe": "verbo",
+    "morf": "κολαφίζω",
+    "raiz": "κόλαφος (“bofetada, soco”)",
+    "lsj": "Esbofetear, dar socos; maltratar, golpear com o punho.",
+    "abbott": "Esbofetear, golpear. Bater com o punho — humilhação e maus-tratos. O “espinho na carne, mensageiro de Satanás”, é dado “para me esbofetear (κολαφίζῃ)” (2Co 12.7); a Jesus, no julgamento, “deram-lhe punhadas (ἐκολάφισαν)” (Mt 26.67; Mc 14.65); somos “esbofeteados (κολαφιζόμεθα)” e maltratados (1Co 4.11); que glória há em sofrer pacientemente quando “esbofeteados (κολαφιζόμενοι)” por culpa? (1Pe 2.20). O golpe humilhante suportado por amor. Cf. κόλαφος, ῥαπίζω.",
+    "nt": "2Co 12.7. Cf. Mt 26.67; Mc 14.65; 1Co 4.11; 1Pe 2.20.",
+    "cognatos": [
+      "κόλαφος"
+    ],
+    "verTambem": [
+      "σκόλοψ",
+      "ἀσθένεια",
+      "ὕβρις",
+      "ὑπομονή"
+    ],
+    "pt": [
+      "esbofetear",
+      "golpear"
+    ]
+  },
+  {
+    "lema": "κολυμβήθρα",
+    "translit": "kolymbḗthra",
+    "beta": "kolymbethra",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "κολυμβήθρα, -ας, ἡ",
+    "raiz": "κολυμβάω (“nadar, mergulhar”)",
+    "lsj": "Lugar de mergulhar; tanque, piscina, reservatório.",
+    "abbott": "Tanque, piscina. O reservatório de água. Em João, dois milagres junto a tanques: “o tanque (κολυμβήθρα) chamado em hebraico Betesda”, onde Jesus cura o paralítico (Jo 5.2,4,7); e “o tanque (κολυμβήθραν) de Siloé”, onde o cego se lava e volta vendo (Jo 9.7,11). Lugares de água ligados à cura e, simbolicamente, à purificação. De κολυμβάω (nadar). Cf. βαπτίζω, νίπτω.",
+    "nt": "Jo 5.2,4,7; 9.7,11.",
+    "cognatos": [
+      "κολυμβάω"
+    ],
+    "verTambem": [
+      "νίπτω",
+      "κράβαττος",
+      "ὑγιής",
+      "ὕδωρ"
+    ],
+    "pt": [
+      "tanque",
+      "piscina"
     ]
   },
   {
@@ -8083,6 +11289,33 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "κόπος",
+    "translit": "kópos",
+    "beta": "kopos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κόπος, -ου, ὁ",
+    "raiz": "κόπτω (“golpear, fatigar”)",
+    "lsj": "Golpe; fadiga, cansaço; trabalho árduo, labuta; incômodo.",
+    "abbott": "Trabalho, labuta, fadiga. O esforço que cansa. Paulo recorda “o vosso trabalho (κόπου) de amor” e a sua própria “labuta (κόπον) e fadiga (μόχθον), trabalhando noite e dia para não vos sobrecarregar” (1Ts 1.3; 2.9; 2Ts 3.8); “o meu trabalho (κόπος) não foi vão no Senhor” (1Co 15.58); cada um receberá segundo o seu “trabalho (κόπον)” (1Co 3.8). O labor árduo, em especial no ministério. “Por que molestais (κόπους παρέχετε)?” = dar trabalho (Mt 26.10). Cf. κοπιάω.",
+    "nt": "1Ts 1.3; 2.9; 3.5; 2Ts 3.8. Cf. Mt 26.10; Jo 4.38; 1Co 3.8; 15.58; 2Co 6.5; 10.15; 11.23,27; Gl 6.17; Ap 2.2; 14.13.",
+    "cognatos": [
+      "κόπτω",
+      "κοπιάω",
+      "εὔκοπος"
+    ],
+    "verTambem": [
+      "μόχθος",
+      "ἐργάζομαι",
+      "ἀγών",
+      "ὑπομονή"
+    ],
+    "pt": [
+      "trabalho",
+      "labuta",
+      "fadiga"
+    ]
+  },
+  {
     "lema": "κοσμοκράτωρ",
     "translit": "kosmokrátōr",
     "beta": "kosmokrator",
@@ -8129,6 +11362,28 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "mundo"
+    ]
+  },
+  {
+    "lema": "κράβαττος",
+    "translit": "krábattos",
+    "beta": "krabattos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "κράβαττος, -ου, ὁ",
+    "raiz": "do latim grabatus (“catre, leito pobre”)",
+    "lsj": "Catre, leito pobre; maca, esteira de doente.",
+    "abbott": "Leito, maca. A esteira ou catre do enfermo. Ao paralítico de Betesda: “levanta-te, toma o teu leito (κράβαττον) e anda... tomou o seu leito (κράβαττον) e andava” (Jo 5.8-11); ao paralítico baixado pelo telhado: “toma o teu leito (κράβαττον)” (Mc 2.4,9,11,12); levavam os enfermos “em leitos (κραβάττοις)” para a sombra de Pedro (At 5.15; 9.33). O carregar o próprio leito é sinal visível da cura plena. Empréstimo latino popular. Cf. κλίνη.",
+    "nt": "Jo 5.8,9,10,11. Cf. Mc 2.4,9,11,12; 6.55; At 5.15; 9.33.",
+    "cognatos": [],
+    "verTambem": [
+      "ὑγιής",
+      "κολυμβήθρα",
+      "ἐγείρω",
+      "κλίνη"
+    ],
+    "pt": [
+      "leito",
+      "maca"
     ]
   },
   {
@@ -8205,6 +11460,31 @@ window.LEXICON_DATA = [
     "pt": [
       "força",
       "poder soberano"
+    ]
+  },
+  {
+    "lema": "κραυγάζω",
+    "translit": "kraugázō",
+    "beta": "kraugazo",
+    "classe": "verbo",
+    "morf": "κραυγάζω",
+    "raiz": "κραυγή (“clamor, grito”)",
+    "lsj": "Gritar, clamar em alta voz; bradar.",
+    "abbott": "Clamar, bradar. Gritar com força — de tumulto ou paixão. No julgamento, a turba “tornou a clamar (ἐκραύγασαν): Não este, mas Barrabás!”; “clamavam (ἐκραύγαζον): Crucifica-o!” (Jo 18.40; 19.6,12,15). Profetizado de Cristo, o Servo manso: “não contenderá nem clamará (κραυγάσει)” (Mt 12.19); junto ao túmulo de Lázaro, “clamou (ἐκραύγασεν) em alta voz: Lázaro, vem para fora!” (Jo 11.43); a multidão “clamava (ἐκραύγαζον): Hosana!” (Jo 12.13). Cf. κραυγή, κράζω.",
+    "nt": "Jo 11.43; 12.13; 18.40; 19.6,12,15. Cf. Mt 12.19; 15.22; At 22.23.",
+    "cognatos": [
+      "κραυγή",
+      "κράζω"
+    ],
+    "verTambem": [
+      "κράζω",
+      "φωνή",
+      "σταυρόω",
+      "ὄχλος"
+    ],
+    "pt": [
+      "clamar",
+      "bradar"
     ]
   },
   {
@@ -8456,6 +11736,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "λαός",
+    "translit": "laós",
+    "beta": "laos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "λαός, -οῦ, ὁ",
+    "raiz": "raiz grega de “povo, gente”",
+    "lsj": "Povo; multidão; (no grego bíblico) o povo de Deus, Israel.",
+    "abbott": "Povo. A gente reunida — em especial o povo eleito de Deus. Citando os profetas: “chamarei meu povo (λαόν) ao que não era meu povo (λαός)” (Rm 9.25,26); “todo o dia estendi as mãos a um povo (λαόν) rebelde” (Rm 10.21); “rejeitou Deus o seu povo (λαόν)? De modo nenhum” (Rm 11.1,2); “alegrai-vos, ó gentios, com o seu povo (λαοῦ)” (Rm 15.10,11). “Salvará o seu povo (λαόν) dos pecados” (Mt 1.21; Lc 1.68,77; 2.10,32); “povo (λαόν) adquirido” (Tt 2.14; 1Pe 2.9,10). A passagem do povo único à inclusão das nações. Cf. ἔθνος, δῆμος, ὄχλος.",
+    "nt": "Rm 9.25,26; 10.21; 11.1,2; 15.10,11. Muito frequente: Mt 1.21; 2.4,6; 4.23; 26.5; 27.25; Lc 1.10,17,68,77; 2.10,31,32; At 2.47; 3.23; 4.10; 5.34; 13.17; 15.14; 28.27; 2Co 6.16; Tt 2.14; Hb 2.17; 4.9; 8.10; 13.12; 1Pe 2.9,10; Ap 5.9; 7.9; 18.4; 21.3.",
+    "cognatos": [
+      "λειτουργός",
+      "λαϊκός"
+    ],
+    "verTambem": [
+      "ἔθνος",
+      "Ἰσραήλ",
+      "ἐκλεκτός",
+      "περιποίησις"
+    ],
+    "pt": [
+      "povo"
+    ]
+  },
+  {
     "lema": "λατρεία",
     "translit": "latreía",
     "beta": "latreia",
@@ -8582,6 +11886,51 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "λῃστής",
+    "translit": "lēistḗs",
+    "beta": "lestes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "λῃστής, -οῦ, ὁ",
+    "raiz": "λεία (“despojo, presa”)",
+    "lsj": "Salteador, bandido; assaltante violento; (também) insurgente, bandoleiro.",
+    "abbott": "Salteador, bandido. O que rouba com violência (distinto do κλέπτης, o ladrão furtivo). “Todos quantos vieram antes de mim são ladrões e salteadores (λῃσταί)” (Jo 10.1,8); “fizestes da casa de oração covil de salteadores (λῃστῶν)” (Mt 21.13; Mc 11.17); o homem que “caiu em mãos de salteadores (λῃστάς)” (Lc 10.30,36); crucificaram com ele “dois salteadores (λῃσταί)” (Mt 27.38,44; Mc 15.27); Barrabás era “salteador (λῃστής)” (Jo 18.40). Cf. κλέπτης, λεία.",
+    "nt": "Jo 10.1,8; 18.40. Cf. Mt 21.13; 26.55; 27.38,44; Mc 11.17; 14.48; 15.27; Lc 10.30,36; 19.46; 22.52; 2Co 11.26.",
+    "cognatos": [
+      "λεία"
+    ],
+    "verTambem": [
+      "κλέπτης",
+      "θύρα",
+      "ποιμήν",
+      "βία"
+    ],
+    "pt": [
+      "salteador",
+      "bandido"
+    ]
+  },
+  {
+    "lema": "λίτρα",
+    "translit": "lítra",
+    "beta": "litra",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "λίτρα, -ας, ἡ",
+    "raiz": "do latim libra (“libra, medida de peso”)",
+    "lsj": "Libra (medida de peso, cerca de 327 g).",
+    "abbott": "Libra. Medida romana de peso (≈ 327 g). Maria tomou “uma libra (λίτραν) de bálsamo de nardo puro” para ungir Jesus (Jo 12.3) — quantidade generosa e custosa. Nicodemos trouxe “mistura de mirra e aloés, cerca de cem libras (λίτρας)” para o sepultamento de Jesus (Jo 19.39) — profusão digna de um rei. Termo só joanino no NT, empréstimo do latim. Cf. μύρον, ἄρωμα.",
+    "nt": "Jo 12.3; 19.39.",
+    "cognatos": [],
+    "verTambem": [
+      "μύρον",
+      "νάρδος",
+      "σμύρνα",
+      "ἐνταφιασμός"
+    ],
+    "pt": [
+      "libra"
+    ]
+  },
+  {
     "lema": "λογίζομαι",
     "translit": "logízomai",
     "beta": "logizomai",
@@ -8656,6 +12005,27 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "λόγχη",
+    "translit": "lónchē",
+    "beta": "logche",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "λόγχη, -ης, ἡ",
+    "raiz": "raiz grega de “ponta de lança, lança”",
+    "lsj": "Ponta de lança; lança.",
+    "abbott": "Lança. A arma de haste com ponta de ferro. Hapax do NT (Jo 19.34): “um dos soldados lhe furou o lado com uma lança (λόγχῃ), e logo saiu sangue e água” — sinal da morte real de Jesus e, para João, de profundo significado (cf. 1Jo 5.6, “água e sangue”). O evangelista sublinha o cumprimento da Escritura: “nenhum dos seus ossos será quebrado” e “verão aquele que traspassaram” (Jo 19.36,37). Cf. πλευρά, νύσσω.",
+    "nt": "1 ocorrência (hapax): Jo 19.34.",
+    "cognatos": [],
+    "verTambem": [
+      "πλευρά",
+      "σταυρόω",
+      "αἷμα",
+      "ὕδωρ"
+    ],
+    "pt": [
+      "lança"
+    ]
+  },
+  {
     "lema": "λουτρόν",
     "translit": "loutrón",
     "beta": "loutron",
@@ -8678,6 +12048,80 @@ window.LEXICON_DATA = [
     "pt": [
       "lavagem",
       "banho"
+    ]
+  },
+  {
+    "lema": "λύκος",
+    "translit": "lýkos",
+    "beta": "lykos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "λύκος, -ου, ὁ",
+    "raiz": "raiz grega de “lobo”",
+    "lsj": "Lobo.",
+    "abbott": "Lobo. O predador do rebanho — imagem do inimigo dos fiéis. “O lobo (λύκος) arrebata as ovelhas e as dispersa”, e o mercenário foge (Jo 10.12); “eu vos envio como ovelhas para o meio dos lobos (λύκων)” (Mt 10.16; Lc 10.3); cuidado com os falsos profetas, “lobos (λύκοι) devoradores” em pele de ovelha (Mt 7.15); após a partida de Paulo, “entre vós entrarão lobos (λύκοι) cruéis, que não pouparão o rebanho” (At 20.29). O perigo que ameaça a grei. Cf. πρόβατον, ποιμήν.",
+    "nt": "Jo 10.12. Cf. Mt 7.15; 10.16; Lc 10.3; At 20.29.",
+    "cognatos": [],
+    "verTambem": [
+      "πρόβατον",
+      "μισθωτός",
+      "ποιμήν",
+      "ψευδοπροφήτης"
+    ],
+    "pt": [
+      "lobo"
+    ]
+  },
+  {
+    "lema": "λυπέω",
+    "translit": "lypéō",
+    "beta": "lypeo",
+    "classe": "verbo",
+    "morf": "λυπέω",
+    "raiz": "λύπη (“tristeza, dor”)",
+    "lsj": "Causar dor, entristecer, afligir; (passiva) entristecer-se, sofrer.",
+    "abbott": "Entristecer, afligir. Causar ou sentir tristeza. “Se eu vos entristeço (λυπῶ), quem é que me alegra senão aquele que por mim é entristecido (λυπούμενος)?” (2Co 2.2,4,5); “a tristeza (ἡ κατὰ θεὸν λύπη) segundo Deus produz arrependimento... mas a tristeza do mundo produz a morte” (2Co 7.8,9,11 — verbo λυπέω); “não entristeçais (μὴ λυπεῖσθε) como os demais que não têm esperança” (1Ts 4.13); “não entristeçais (μὴ λυπεῖτε) o Espírito Santo de Deus” (Ef 4.30). Cf. λύπη, περίλυπος, συλλυπέομαι.",
+    "nt": "2Co 2.2,4,5; 6.10; 7.8,9,11. Cf. Mt 14.9; 17.23; 18.31; 19.22; 26.22,37; Mc 10.22; 14.19; Jo 16.20; 21.17; Rm 14.15; Ef 4.30; 1Ts 4.13; 1Pe 1.6.",
+    "cognatos": [
+      "λύπη",
+      "περίλυπος",
+      "συλλυπέομαι",
+      "ἄλυπος"
+    ],
+    "verTambem": [
+      "λύπη",
+      "μετάνοια",
+      "χαίρω",
+      "παράκλησις"
+    ],
+    "pt": [
+      "entristecer",
+      "afligir"
+    ]
+  },
+  {
+    "lema": "λύπη",
+    "translit": "lýpē",
+    "beta": "lype",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "λύπη, -ης, ἡ",
+    "raiz": "raiz grega de “dor, pesar”",
+    "lsj": "Dor, pesar, tristeza, aflição.",
+    "abbott": "Tristeza, pesar. A dor da alma — que pode ser segundo Deus ou segundo o mundo. “A tristeza (λύπη) segundo Deus produz arrependimento para a salvação... mas a tristeza (λύπη) do mundo produz morte” (2Co 7.10); não dar a esmola “com tristeza (λύπης)” (2Co 9.7); “tenho grande tristeza (λύπη)” pela incredulidade de Israel (Rm 9.2); “a vossa tristeza (λύπη) se converterá em alegria” (Jo 16.20,21,22); suportar “tristezas (λύπας), sofrendo injustamente” (1Pe 2.19). Cf. λυπέω, περίλυπος.",
+    "nt": "2Co 2.1,3,7; 7.10; 9.7. Cf. Lc 22.45; Jo 16.6,20,21,22; Rm 9.2; Fp 2.27; Hb 12.11; 1Pe 2.19.",
+    "cognatos": [
+      "λυπέω",
+      "περίλυπος",
+      "ἄλυπος"
+    ],
+    "verTambem": [
+      "λυπέω",
+      "μετάνοια",
+      "χαρά",
+      "παράκλησις"
+    ],
+    "pt": [
+      "tristeza",
+      "pesar"
     ]
   },
   {
@@ -8780,6 +12224,56 @@ window.LEXICON_DATA = [
     "pt": [
       "longanimidade",
       "paciência"
+    ]
+  },
+  {
+    "lema": "μαρτυρία",
+    "translit": "martyría",
+    "beta": "martyria",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "μαρτυρία, -ας, ἡ",
+    "raiz": "μάρτυς (“testemunha”)",
+    "lsj": "Testemunho, depoimento; atestação.",
+    "abbott": "Testemunho. A declaração que atesta a verdade — central em João. “Se aceitamos o testemunho (μαρτυρίαν) dos homens, o testemunho (μαρτυρία) de Deus é maior... este é o testemunho (μαρτυρία): que Deus nos deu a vida eterna” (1Jo 5.9,10,11); “o nosso testemunho (μαρτυρία) é verdadeiro” (3Jo 12; Jo 21.24). De Jesus: “a minha testemunho (μαρτυρία) não é verdadeiro” se sozinho (Jo 5.31,32,34,36); João Batista veio “para dar testemunho (μαρτυρίαν)” (Jo 1.7,19). “O testemunho (μαρτυρία) de Jesus é o espírito da profecia” (Ap 19.10). Cf. μάρτυς, μαρτυρέω, μαρτύριον.",
+    "nt": "1Jo 5.9,10,11; 3Jo 12. Frequente: Mc 14.55,56,59; Lc 22.71; Jo 1.7,19; 3.11,32,33; 5.31,32,34,36; 8.13,14,17; 19.35; 21.24; At 22.18; 1Tm 3.7; Tt 1.13; Ap 1.2,9; 6.9; 11.7; 12.11,17; 19.10; 20.4.",
+    "cognatos": [
+      "μάρτυς",
+      "μαρτυρέω",
+      "μαρτύριον"
+    ],
+    "verTambem": [
+      "μαρτυρέω",
+      "ἀλήθεια",
+      "ζωή",
+      "ἀληθινός"
+    ],
+    "pt": [
+      "testemunho"
+    ]
+  },
+  {
+    "lema": "μαστιγόω",
+    "translit": "mastigóō",
+    "beta": "mastigoo",
+    "classe": "verbo",
+    "morf": "μαστιγόω",
+    "raiz": "μάστιξ (“açoite, chicote”)",
+    "lsj": "Açoitar, flagelar; (fig.) castigar.",
+    "abbott": "Açoitar, flagelar. Castigar com o açoite. “Pilatos tomou a Jesus e o açoitou (ἐμαστίγωσεν)” (Jo 19.1) — a flagelação que precede a crucificação. Jesus prediz que o entregarão aos gentios “para o açoitarem (μαστιγῶσαι)” (Mt 20.19; Mc 10.34; Lc 18.33); “açoitar-vos-ão (μαστιγώσουσιν) nas suas sinagogas” (Mt 10.17; 23.34). Em sentido figurado, Deus “açoita (μαστιγοῖ) a todo filho a quem recebe” (Hb 12.6, citando Pv 3.12). Cf. μάστιξ, φραγελλόω.",
+    "nt": "Jo 19.1. Cf. Mt 10.17; 20.19; 23.34; Mc 10.34; Lc 18.33; Hb 12.6.",
+    "cognatos": [
+      "μάστιξ",
+      "φραγελλόω"
+    ],
+    "verTambem": [
+      "σταυρόω",
+      "ἀκάνθινος",
+      "πάσχω",
+      "παιδεία"
+    ],
+    "pt": [
+      "açoitar",
+      "flagelar"
     ]
   },
   {
@@ -9091,6 +12585,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "μεταμέλομαι",
+    "translit": "metamélomai",
+    "beta": "metamelomai",
+    "classe": "verbo (depoente)",
+    "morf": "μεταμέλομαι",
+    "raiz": "μετά (“mudança”) + μέλω (“importar, preocupar”)",
+    "lsj": "Mudar de sentir; arrepender-se, lamentar; pesar-se.",
+    "abbott": "Arrepender-se, pesar-se. A mudança de sentimento, o remorso — distinta da μετάνοια (mudança de mente que leva à conversão). “Ainda que vos contristei com a carta, não me arrependo (μεταμέλομαι)... porque vejo que aquela carta vos contristou” (2Co 7.8, duas vezes); Deus jurou “e não se arrependerá (μεταμεληθήσεται)” (Hb 7.21); Judas, “arrependido (μεταμεληθείς)”, devolveu as moedas (Mt 27.3) — remorso sem salvação; o filho que disse não, “depois, arrependido (μεταμεληθείς)”, foi (Mt 21.29,32). Cf. μετάνοια, μετανοέω, ἀμεταμέλητος.",
+    "nt": "2Co 7.8. Cf. Mt 21.29,32; 27.3; Hb 7.21.",
+    "cognatos": [
+      "μέλω",
+      "ἀμεταμέλητος",
+      "μετάνοια"
+    ],
+    "verTambem": [
+      "μετάνοια",
+      "λύπη",
+      "μετανοέω",
+      "λυπέω"
+    ],
+    "pt": [
+      "arrepender-se",
+      "pesar-se"
+    ]
+  },
+  {
     "lema": "μεταμορφόω",
     "translit": "metamorphóō",
     "beta": "metamorphoo",
@@ -9188,6 +12708,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "μικρός",
+    "translit": "mikrós",
+    "beta": "mikros",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "μικρός, -ά, -όν",
+    "raiz": "raiz grega de “pequeno”",
+    "lsj": "Pequeno; pouco; de pouca idade ou importância; breve (de tempo).",
+    "abbott": "Pequeno; pouco (tempo). O reduzido em tamanho, importância ou duração. No discurso de despedida, o enigma temporal: “um pouco (μικρόν), e não me vereis; e outra vez um pouco (μικρόν), e ver-me-eis” (Jo 14.19; 16.16-19) — a brevidade entre a paixão e a ressurreição/vinda do Espírito. “Quem der a beber... a um destes pequeninos (μικρῶν)” (Mt 10.42; 18.6,10,14); “não temas, ó pequeno (μικρόν) rebanho” (Lc 12.32); “um pouco (μικρόν) de fermento leveda toda a massa” (1Co 5.6; Gl 5.9). Cf. ἐλάχιστος, ὀλίγος, μέγας (antônimo).",
+    "nt": "Jo 7.33; 12.35; 13.33; 14.19; 16.16,17,18,19. Frequente: Mt 10.42; 11.11; 13.32; 18.6,10,14; Mc 9.42; 14.70; 15.40; Lc 7.28; 9.48; 12.32; 17.2; 19.3; At 8.10; 26.22; 1Co 5.6; Gl 5.9; Hb 8.11; Tg 3.5; Ap 6.11; 11.18; 13.16; 19.5,18; 20.12.",
+    "cognatos": [
+      "ἐλάχιστος",
+      "μικρόν"
+    ],
+    "verTambem": [
+      "ὀλίγος",
+      "ἐλάχιστος",
+      "μέγας",
+      "ὥρα"
+    ],
+    "pt": [
+      "pequeno"
+    ]
+  },
+  {
     "lema": "μιμητής",
     "translit": "mimētḗs",
     "beta": "mimetes",
@@ -9210,6 +12754,30 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "imitador"
+    ]
+  },
+  {
+    "lema": "μισέω",
+    "translit": "miséō",
+    "beta": "miseo",
+    "classe": "verbo",
+    "morf": "μισέω",
+    "raiz": "μῖσος (“ódio”)",
+    "lsj": "Odiar, detestar; aborrecer; (relativo) preterir, amar menos.",
+    "abbott": "Odiar, aborrecer. O contrário do amor — marca das trevas em João. “Quem diz que está na luz e odeia (μισῶν) o seu irmão, está nas trevas” (1Jo 2.9,11); “todo o que odeia (μισῶν) o seu irmão é homicida” (3.15); “se alguém diz: Eu amo a Deus, e odeia (μισῇ) o seu irmão, é mentiroso” (4.20); “não vos admireis se o mundo vos odeia (μισεῖ)” (3.13; Jo 15.18,19). Sentido relativo (amar menos): “se alguém... não aborrece (μισεῖ) seu pai e mãe” (Lc 14.26). Cf. μῖσος, στυγνητός.",
+    "nt": "1Jo 2.9,11; 3.13,15; 4.20. Frequente: Mt 5.43,44; 6.24; 24.10; Lc 1.71; 6.22,27; 14.26; 16.13; 19.14; Jo 3.20; 7.7; 12.25; 15.18,19,23,24,25; 17.14; Rm 7.15; 9.13; Ef 5.29; Tt 3.3; Hb 1.9; Jd 23; Ap 2.6; 17.16; 18.2.",
+    "cognatos": [
+      "μῖσος"
+    ],
+    "verTambem": [
+      "ἀγαπάω",
+      "σκοτία",
+      "ἀδελφός",
+      "κόσμος"
+    ],
+    "pt": [
+      "odiar",
+      "aborrecer"
     ]
   },
   {
@@ -9287,6 +12855,110 @@ window.LEXICON_DATA = [
     "pt": [
       "salário",
       "recompensa"
+    ]
+  },
+  {
+    "lema": "μισθωτός",
+    "translit": "misthōtós",
+    "beta": "misthotos",
+    "classe": "substantivo/adjetivo (2-1-2)",
+    "morf": "μισθωτός, -ή, -όν",
+    "raiz": "μισθόω (“assalariar”), de μισθός (“salário”)",
+    "lsj": "Assalariado, mercenário; jornaleiro.",
+    "abbott": "Mercenário, assalariado. O que trabalha só pelo salário, sem amor ao rebanho. “O mercenário (μισθωτός), que não é pastor... vê vir o lobo, e deixa as ovelhas, e foge... porque é mercenário (μισθωτός) e não tem cuidado das ovelhas” (Jo 10.12,13) — contraste com o bom Pastor, que dá a vida. Os “jornaleiros (μισθίων)” do pai do pródigo (Lc 15.17,19). O coração mercenário, que serve por interesse e abandona na hora do perigo. Cf. μισθός, μισθόω.",
+    "nt": "Jo 10.12,13. Cf. Mc 1.20; Lc 15.17,19 (μίσθιος).",
+    "cognatos": [
+      "μισθός",
+      "μισθόω",
+      "μίσθιος"
+    ],
+    "verTambem": [
+      "ποιμήν",
+      "λύκος",
+      "πρόβατον",
+      "μισθός"
+    ],
+    "pt": [
+      "mercenário",
+      "assalariado"
+    ]
+  },
+  {
+    "lema": "μνεία",
+    "translit": "mneía",
+    "beta": "mneia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "μνεία, -ας, ἡ",
+    "raiz": "μνάομαι / μιμνῄσκω (“lembrar”)",
+    "lsj": "Lembrança, recordação; menção.",
+    "abbott": "Menção, lembrança. O ato de trazer alguém à memória — sobretudo na oração. “Damos sempre graças... fazendo menção (μνείαν) de vós nas nossas orações” (1Ts 1.2; Rm 1.9; Ef 1.16; Fm 4); “tendes sempre boa lembrança (μνείαν) de nós” (1Ts 3.6); “a cada lembrança (μνείᾳ) vossa” (Fp 1.3). A recordação afetuosa que se transforma em intercessão. Cf. μνημονεύω, μνῆμα.",
+    "nt": "1Ts 1.2; 3.6. Cf. Rm 1.9; Ef 1.16; Fp 1.3; 2Tm 1.3; Fm 4.",
+    "cognatos": [
+      "μιμνῄσκω",
+      "μνημονεύω",
+      "ἀνάμνησις"
+    ],
+    "verTambem": [
+      "μνημονεύω",
+      "προσευχή",
+      "εὐχαριστέω",
+      "ἀδιαλείπτως"
+    ],
+    "pt": [
+      "menção",
+      "lembrança"
+    ]
+  },
+  {
+    "lema": "μνημεῖον",
+    "translit": "mnēmeîon",
+    "beta": "mnemeion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "μνημεῖον, -ου, τό",
+    "raiz": "μνάομαι / μιμνῄσκω (“lembrar”): monumento memorial",
+    "lsj": "Memorial, monumento; túmulo, sepulcro.",
+    "abbott": "Sepulcro, túmulo. O lugar de sepultamento — monumento de memória. Na ressurreição de Lázaro: “onde o puseste?... Jesus... veio ao sepulcro (μνημεῖον); era uma gruta” (Jo 11.17,31,38); Lázaro “sai do sepulcro (μνημείου)” (11.44; 12.17). E na ressurreição de Jesus: Maria “correu ao sepulcro (μνημεῖον)... a pedra tirada”; Pedro e João “correram ao sepulcro (μνημεῖον)” (Jo 19.41,42; 20.1-11). “Os sepulcros (μνημεῖα) se abriram” (Mt 27.52,53); “sepulcros (μνημεῖα) caiados” (Mt 23.29). Cf. μνῆμα, μνημόσυνον, τάφος.",
+    "nt": "Jo 11.17,31,38; 12.17; 19.41,42; 20.1-11. Frequente: Mt 8.28; 23.29; 27.52,53,60; 28.8; Mc 5.2; 6.29; 15.46; 16.2-8; Lc 11.44,47; 23.55; 24.2,9,12,22,24; At 13.29.",
+    "cognatos": [
+      "μνῆμα",
+      "μνημόσυνον",
+      "μιμνῄσκω"
+    ],
+    "verTambem": [
+      "τάφος",
+      "ἀνάστασις",
+      "ἐγείρω",
+      "ὀθόνιον"
+    ],
+    "pt": [
+      "sepulcro",
+      "túmulo"
+    ]
+  },
+  {
+    "lema": "μονογενής",
+    "translit": "monogenḗs",
+    "beta": "monogenes",
+    "classe": "adjetivo (2 term.)",
+    "morf": "μονογενής, -ές",
+    "raiz": "μόνος (“único”) + γένος (“espécie, linhagem”)",
+    "lsj": "Único de sua espécie; único gerado; sem igual.",
+    "abbott": "Unigênito, único. O único da sua espécie — em João, o Filho único de Deus. “O Verbo se fez carne... e vimos a sua glória, como a glória do Unigênito (μονογενοῦς) do Pai” (Jo 1.14,18); “Deus amou o mundo de tal maneira que deu o seu Filho unigênito (μονογενῆ)” (Jo 3.16,18); “Deus enviou seu Filho unigênito (μονογενῆ) ao mundo” (1Jo 4.9). Também o filho “único (μονογενής)” de pais (Lc 7.12; 8.42; 9.38); Isaque, o “unigênito (μονογενῆ)” de Abraão (Hb 11.17). Não “um entre vários”, mas o Filho único e singular. Cf. μόνος, γένος, πρωτότοκος.",
+    "nt": "Jo 1.14,18; 3.16,18. Cf. Lc 7.12; 8.42; 9.38; Hb 11.17; 1Jo 4.9.",
+    "cognatos": [
+      "μόνος",
+      "γένος",
+      "γεννάω"
+    ],
+    "verTambem": [
+      "υἱός",
+      "πρωτότοκος",
+      "δόξα",
+      "ἀγαπητός"
+    ],
+    "pt": [
+      "unigênito",
+      "único"
     ]
   },
   {
@@ -9411,6 +13083,28 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "μύρον",
+    "translit": "mýron",
+    "beta": "myron",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "μύρον, -ου, τό",
+    "raiz": "raiz grega de “unguento perfumado, mirra”",
+    "lsj": "Unguento perfumado, bálsamo; perfume.",
+    "abbott": "Bálsamo, perfume. O óleo aromático precioso. Maria “tomou uma libra de bálsamo (μύρου) de nardo puro, de muito preço, e ungiu os pés de Jesus”, e a casa “se encheu do odor do bálsamo (μύρου)” (Jo 12.3,5); “por que não se vendeu este bálsamo (μύρον)?” (12.5). A mulher que derramou “o bálsamo (μύρον)” sobre Jesus (Mt 26.7-12; Mc 14.3-5; Lc 7.37,38,46); as mulheres prepararam “especiarias e bálsamos (μύρα)” para o corpo (Lc 23.56; 24.1). Símbolo da devoção que “desperdiça” o melhor por amor. Cf. ἀλείφω, νάρδος, ἄρωμα.",
+    "nt": "Jo 11.2; 12.3,5. Cf. Mt 26.7,9,12; Mc 14.3,4,5; Lc 7.37,38,46; 23.56; Ap 18.13.",
+    "cognatos": [],
+    "verTambem": [
+      "νάρδος",
+      "ἀλείφω",
+      "ὀσμή",
+      "λίτρα"
+    ],
+    "pt": [
+      "bálsamo",
+      "perfume"
+    ]
+  },
+  {
     "lema": "μυστήριον",
     "translit": "mystḗrion",
     "beta": "musterion",
@@ -9431,6 +13125,150 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "mistério"
+    ]
+  },
+  {
+    "lema": "μυωπάζω",
+    "translit": "myōpázō",
+    "beta": "myopazo",
+    "classe": "verbo",
+    "morf": "μυωπάζω",
+    "raiz": "μύωψ (“míope”), de μύω (“fechar os olhos”) + ὤψ (“olho”)",
+    "lsj": "Ser míope; ter vista curta; semicerrar os olhos.",
+    "abbott": "Ser míope, ter vista curta. Hapax do NT (2Pe 1.9): “aquele em quem não há estas coisas é cego, vendo só de perto (μυωπάζων), e se esqueceu da purificação dos seus antigos pecados”. A imagem da miopia espiritual: o que perde de vista as grandes realidades e a própria limpeza recebida, fixando-se só no imediato. De μύωψ (míope). Cf. τυφλός.",
+    "nt": "1 ocorrência (hapax): 2Pe 1.9.",
+    "cognatos": [
+      "μύωψ"
+    ],
+    "verTambem": [
+      "τυφλός",
+      "ἄκαρπος",
+      "ἐπίγνωσις",
+      "καθαρισμός"
+    ],
+    "pt": [
+      "ser míope",
+      "ter vista curta"
+    ]
+  },
+  {
+    "lema": "μωρία",
+    "translit": "mōría",
+    "beta": "moria",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "μωρία, -ας, ἡ",
+    "raiz": "μωρός (“tolo, néscio”)",
+    "lsj": "Tolice, loucura, insensatez.",
+    "abbott": "Loucura, insensatez. A tolice aos olhos humanos — termo que Paulo reivindica para o evangelho. “A palavra da cruz é loucura (μωρία) para os que perecem”, mas poder de Deus para os que se salvam (1Co 1.18); “aprouve a Deus salvar os crentes pela loucura (μωρίας) da pregação” (1.21); “a loucura (μωρόν) de Deus é mais sábia que os homens” (1.25); as coisas do Espírito são “loucura (μωρία)” para o homem natural (2.14). O escândalo da cruz, que inverte a sabedoria do mundo. Cf. μωρός, μωραίνω.",
+    "nt": "1Co 1.18,21,23; 2.14; 3.19.",
+    "cognatos": [
+      "μωρός",
+      "μωραίνω"
+    ],
+    "verTambem": [
+      "μωρός",
+      "σοφία",
+      "σκάνδαλον",
+      "σταυρός"
+    ],
+    "pt": [
+      "loucura",
+      "insensatez"
+    ]
+  },
+  {
+    "lema": "μωρός",
+    "translit": "mōrós",
+    "beta": "moros",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "μωρός, -ά, -όν",
+    "raiz": "raiz grega de “embotado, néscio”",
+    "lsj": "Tolo, néscio, insensato; (de coisas) sem sentido.",
+    "abbott": "Tolo, néscio. O insensato — e, no paradoxo do evangelho, o aparentemente tolo que confunde o sábio. Deus escolheu “as coisas loucas (μωρά) do mundo para confundir as sábias” (1Co 1.27); “se alguém se tem por sábio, faça-se louco (μωρός) para ser sábio” (3.18); “nós somos loucos (μωροί) por amor de Cristo” (4.10). Também as virgens “néscias (μωραί)” (Mt 25.2,3,8) e as “questões loucas (μωράς)” a evitar (2Tm 2.23; Tt 3.9). Cf. μωρία, μωραίνω. Raiz de “moronia”.",
+    "nt": "1Co 1.25,27; 3.18; 4.10. Cf. Mt 5.22; 7.26; 23.17; 25.2,3,8; 2Tm 2.23; Tt 3.9.",
+    "cognatos": [
+      "μωρία",
+      "μωραίνω"
+    ],
+    "verTambem": [
+      "μωρία",
+      "σοφός",
+      "σοφία",
+      "ἄφρων"
+    ],
+    "pt": [
+      "tolo",
+      "néscio"
+    ]
+  },
+  {
+    "lema": "ναός",
+    "translit": "naós",
+    "beta": "naos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ναός, -οῦ, ὁ",
+    "raiz": "ναίω (“habitar”)",
+    "lsj": "Santuário, templo (esp. o edifício interior, a morada da divindade).",
+    "abbott": "Santuário, templo. A morada de Deus — propriamente o edifício interior (distinto de ἱερόν, o complexo do templo). Aplicado pelo NT à comunidade e ao crente: “vós sois santuário (ναός) de Deus, e o Espírito habita em vós” (1Co 3.16,17); “o vosso corpo é santuário (ναός) do Espírito Santo” (6.19); a igreja, “santuário santo no Senhor” (Ef 2.21). Jesus falava “do santuário (ναοῦ) do seu corpo” (Jo 2.19,21). O véu “do santuário (ναοῦ)” rasgou-se (Mt 27.51). Cf. ἱερόν.",
+    "nt": "1Co 3.16,17; 6.19. Frequente: Mt 23.16,17,21,35; 27.5,40,51; Jo 2.19,20,21; At 7.48; 2Co 6.16; Ef 2.21; 2Ts 2.4; Ap 3.12; 7.15; 11.19; 21.22.",
+    "cognatos": [
+      "ναίω"
+    ],
+    "verTambem": [
+      "ἱερόν",
+      "οἰκοδομή",
+      "πνεῦμα",
+      "ἅγιος"
+    ],
+    "pt": [
+      "santuário",
+      "templo"
+    ]
+  },
+  {
+    "lema": "νάρδος",
+    "translit": "nárdos",
+    "beta": "nardos",
+    "classe": "substantivo, fem. (2ª decl.)",
+    "morf": "νάρδος, -ου, ἡ",
+    "raiz": "do sânscrito, via semítico/grego (“nardo”)",
+    "lsj": "Nardo (planta aromática); o óleo perfumado extraído dela.",
+    "abbott": "Nardo. Planta aromática da Índia, da qual se extraía um perfume caríssimo. “Maria, tomando uma libra de bálsamo de nardo (νάρδου) puro, de muito preço, ungiu os pés de Jesus” (Jo 12.3); a mulher de Betânia quebrou o vaso “de bálsamo de nardo (νάρδου) puro, de grande preço” (Mc 14.3). O qualificativo “puro/líquido” (πιστικῆς) realça o valor — equivalente a quase um ano de salário. A extravagância da adoração. Cf. μύρον, ἄρωμα.",
+    "nt": "Jo 12.3. Cf. Mc 14.3.",
+    "cognatos": [],
+    "verTambem": [
+      "μύρον",
+      "ἀλείφω",
+      "λίτρα",
+      "ὀσμή"
+    ],
+    "pt": [
+      "nardo"
+    ]
+  },
+  {
+    "lema": "νεκρός",
+    "translit": "nekrós",
+    "beta": "nekros",
+    "classe": "adjetivo/substantivo (2-1-2)",
+    "morf": "νεκρός, -ά, -όν",
+    "raiz": "raiz grega de “morto, cadáver”",
+    "lsj": "Morto; cadáver; (fig.) inerte, sem vida.",
+    "abbott": "Morto; (fig.) sem vida. O literal e o espiritual. Em 1Co 15, “a ressurreição dos mortos (νεκρῶν)”, repetida insistentemente (15.12-52); “se de todo não ressuscitam os mortos” (15.29,32). Figurado: “estáveis mortos (νεκρούς) nos vossos delitos e pecados” (Ef 2.1,5; Cl 2.13); a fé “sem obras é morta (νεκρά)” (Tg 2.17,26); o filho pródigo “estava morto (νεκρός) e reviveu” (Lc 15.24,32). “Deixa aos mortos (νεκρούς) sepultar os seus mortos” (Mt 8.22). Cf. νεκρόω, θάνατος, ἐγείρω.",
+    "nt": "1Co 15.12,13,15,16,20,21,29,32,35,42,52. Muito frequente: Mt 8.22; 10.8; 11.5; 22.31,32; 28.7; Lc 7.22; 15.24,32; 16.30,31; 24.5,46; Jo 5.21,25; At 10.42; 17.31,32; 24.15,21; 26.23; Rm 1.4; 4.17; 6.13; 8.10,11; 10.7,9; 11.15; 14.9; Ef 2.1,5; 5.14; Cl 1.18; 2.13; 1Ts 1.10; 4.16; Hb 6.1; 9.14,17; 11.19,35; 13.20; Tg 2.17,26; 1Pe 1.21; 4.5,6; Ap 1.5,17,18; 20.5,12,13.",
+    "cognatos": [
+      "νεκρόω",
+      "νέκρωσις",
+      "θάνατος"
+    ],
+    "verTambem": [
+      "ἐγείρω",
+      "ἀνάστασις",
+      "θάνατος",
+      "ζῳοποιέω"
+    ],
+    "pt": [
+      "morto"
     ]
   },
   {
@@ -9556,6 +13394,108 @@ window.LEXICON_DATA = [
     "pt": [
       "sóbrio",
       "vigilante"
+    ]
+  },
+  {
+    "lema": "νήφω",
+    "translit": "nḗphō",
+    "beta": "nepho",
+    "classe": "verbo",
+    "morf": "νήφω",
+    "raiz": "raiz grega de “estar sóbrio”",
+    "lsj": "Estar sóbrio, abster-se de vinho; (fig.) ser ponderado, vigilante, lúcido.",
+    "abbott": "Ser sóbrio, vigiar. A lucidez vigilante de quem não está embriagado nem entorpecido. “Não durmamos como os demais, mas vigiemos e sejamos sóbrios (νήφωμεν)”; os que se embriagam o fazem de noite, mas nós, “sendo do dia, sejamos sóbrios (νήφωμεν)” (1Ts 5.6,8); “sê sóbrio (νῆφε) em tudo” (2Tm 4.5); “sede sóbrios (νήψατε) e vigiai, porque o diabo anda em derredor” (1Pe 5.8; cf. 1.13; 4.7). A prontidão atenta diante da vinda do Senhor. Cf. νηφάλιος, ἐκνήφω.",
+    "nt": "1Ts 5.6,8. Cf. 2Tm 4.5; 1Pe 1.13; 4.7; 5.8.",
+    "cognatos": [
+      "νηφάλιος",
+      "ἐκνήφω",
+      "ἀνανήφω"
+    ],
+    "verTambem": [
+      "γρηγορέω",
+      "καθεύδω",
+      "νηφάλιος",
+      "αἰφνίδιος"
+    ],
+    "pt": [
+      "ser sóbrio",
+      "vigiar"
+    ]
+  },
+  {
+    "lema": "νικάω",
+    "translit": "nikáō",
+    "beta": "nikao",
+    "classe": "verbo",
+    "morf": "νικάω",
+    "raiz": "νίκη (“vitória”)",
+    "lsj": "Vencer, ser vitorioso; superar, prevalecer; conquistar.",
+    "abbott": "Vencer, triunfar. Sair vitorioso — tema forte de João e do Apocalipse. “Tudo o que é nascido de Deus vence (νικᾷ) o mundo; e esta é a vitória que vence (νικήσασα) o mundo: a nossa fé” (1Jo 5.4,5); “já vencestes (νενικήκατε) o maligno” (1Jo 2.13,14); “maior é o que está em vós do que o que está no mundo... vós os tendes vencido (νενικήκατε)” (4.4). Jesus: “tende bom ânimo, eu venci (νενίκηκα) o mundo” (Jo 16.33). No Apocalipse, a promessa “ao que vencer (νικῶντι)” (Ap 2–3; 21.7). Cf. νίκη, νῖκος, ὑπερνικάω.",
+    "nt": "1Jo 2.13,14; 4.4; 5.4,5. Cf. Lc 11.22; Jo 16.33; Rm 3.4; 12.21; Ap 2.7,11,17,26; 3.5,12,21; 5.5; 6.2; 12.11; 15.2; 17.14; 21.7.",
+    "cognatos": [
+      "νίκη",
+      "νῖκος",
+      "ὑπερνικάω"
+    ],
+    "verTambem": [
+      "νῖκος",
+      "πίστις",
+      "κόσμος",
+      "πονηρός"
+    ],
+    "pt": [
+      "vencer",
+      "triunfar"
+    ]
+  },
+  {
+    "lema": "νῖκος",
+    "translit": "nîkos",
+    "beta": "nikos",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "νῖκος, -ους, τό",
+    "raiz": "νίκη (“vitória”), de νικάω",
+    "lsj": "Vitória.",
+    "abbott": "Vitória. O triunfo — aqui, sobre a morte. “Tragada foi a morte na vitória (νῖκος). Onde está, ó morte, a tua vitória (νῖκος)?... Graças a Deus, que nos dá a vitória (νῖκος) por nosso Senhor Jesus Cristo” (1Co 15.54,55,57); o servo do Senhor não apagará o pavio que fumega, “até que faça triunfar (εἰς νῖκος) o juízo” (Mt 12.20). Forma tardia de νίκη. Cf. νικάω, νίκη, ὑπερνικάω.",
+    "nt": "1Co 15.54,55,57. Cf. Mt 12.20.",
+    "cognatos": [
+      "νίκη",
+      "νικάω",
+      "ὑπερνικάω"
+    ],
+    "verTambem": [
+      "κέντρον",
+      "θάνατος",
+      "ἀνάστασις",
+      "νικάω"
+    ],
+    "pt": [
+      "vitória"
+    ]
+  },
+  {
+    "lema": "νίπτω",
+    "translit": "níptō",
+    "beta": "nipto",
+    "classe": "verbo",
+    "morf": "νίπτω",
+    "raiz": "raiz grega de “lavar” (partes do corpo)",
+    "lsj": "Lavar (mãos, pés, rosto); (médio) lavar-se.",
+    "abbott": "Lavar. Lavar uma parte do corpo (distinto de λούω, lavar o corpo todo). Jesus manda o cego: “vai, lava-te (νίψαι) no tanque de Siloé... foi, lavou-se (ἐνίψατο) e voltou vendo” (Jo 9.7,11,15). No lava-pés: “se eu, o Senhor, vos lavei (ἔνιψα) os pés, também vós deveis lavar (νίπτειν) os pés uns aos outros” (Jo 13.5-14); “se eu não te lavar (νίψω), não tens parte comigo” (13.8). “Quando jejuares... lava (νίψαι) o teu rosto” (Mt 6.17). Cf. λούω, ἀπονίπτω, νιπτήρ.",
+    "nt": "Jo 9.7,11,15; 13.5,6,8,10,12,14. Cf. Mt 6.17; 15.2; Mc 7.3; 1Tm 5.10.",
+    "cognatos": [
+      "λούω",
+      "ἀπονίπτω",
+      "νιπτήρ"
+    ],
+    "verTambem": [
+      "πηλός",
+      "τυφλός",
+      "λούω",
+      "κολυμβήθρα"
+    ],
+    "pt": [
+      "lavar"
     ]
   },
   {
@@ -9732,6 +13672,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ξενία",
+    "translit": "xenía",
+    "beta": "xenia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ξενία, -ας, ἡ",
+    "raiz": "ξένος (“hóspede, estrangeiro”)",
+    "lsj": "Hospitalidade; relação de hospedagem; aposento de hóspedes, alojamento.",
+    "abbott": "Hospedagem, aposento. O lugar onde se acolhe o hóspede. Paulo pede a Filemom: “prepara-me também pousada (ξενίαν), pois espero que... vos hei de ser concedido” (Fm 22); em Roma, os judeus vieram ter com Paulo “à sua morada/hospedaria (ξενίαν)” (At 28.23). Ligado a ξένος (hóspede) e à virtude da φιλοξενία. O concreto acolhimento do viajante. Cf. ξένος, φιλοξενία, ξενίζω.",
+    "nt": "Fm 22. Cf. At 28.23.",
+    "cognatos": [
+      "ξένος",
+      "ξενίζω",
+      "φιλοξενία"
+    ],
+    "verTambem": [
+      "ξένος",
+      "φιλοξενία",
+      "ἀγαπητός",
+      "κοινωνία"
+    ],
+    "pt": [
+      "hospedagem",
+      "aposento"
+    ]
+  },
+  {
     "lema": "ξένος",
     "translit": "xénos",
     "beta": "xenos",
@@ -9778,6 +13744,56 @@ window.LEXICON_DATA = [
     "pt": [
       "madeiro",
       "lenho"
+    ]
+  },
+  {
+    "lema": "ὀθόνιον",
+    "translit": "othónion",
+    "beta": "othonion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ὀθόνιον, -ου, τό",
+    "raiz": "ὀθόνη (“pano de linho fino”)",
+    "lsj": "Pano de linho; faixa, atadura de linho.",
+    "abbott": "Lençol, faixa de linho. Os panos de linho do sepultamento. José e Nicodemos “envolveram o corpo de Jesus em lençóis de linho (ὀθονίοις) com as especiarias” (Jo 19.40); no túmulo vazio, Pedro e João “viram os lençóis de linho (ὀθόνια)” ali postos, e o sudário à parte (Jo 20.5,6,7); Pedro “viu os panos de linho (ὀθόνια) sós” (Lc 24.12). Os panos deixados em ordem são sinal silencioso da ressurreição. Cf. ὀθόνη, σινδών, σουδάριον.",
+    "nt": "Jo 19.40; 20.5,6,7. Cf. Lc 24.12.",
+    "cognatos": [
+      "ὀθόνη"
+    ],
+    "verTambem": [
+      "σουδάριον",
+      "κεῖμαι",
+      "μνημεῖον",
+      "ἐνταφιασμός"
+    ],
+    "pt": [
+      "lençol",
+      "faixa de linho"
+    ]
+  },
+  {
+    "lema": "οἰκοδομέω",
+    "translit": "oikodoméō",
+    "beta": "oikodomeo",
+    "classe": "verbo",
+    "morf": "οἰκοδομέω",
+    "raiz": "οἶκος (“casa”) + δέμω (“construir”)",
+    "lsj": "Construir, edificar (uma casa); (fig.) edificar, fortalecer; estimular.",
+    "abbott": "Edificar; (fig.) edificar a igreja. Construir — e, figuradamente, promover o crescimento espiritual. “O conhecimento incha, mas o amor edifica (οἰκοδομεῖ)” (1Co 8.1); quem profetiza “edifica (οἰκοδομεῖ) a igreja” (14.4,17); “tudo seja feito para edificação” (cf. οἰκοδομή). Cristo: “edificarei (οἰκοδομήσω) a minha igreja” (Mt 16.18); o que ouve e pratica é como o que “edificou (ᾠκοδόμησεν) a casa sobre a rocha” (Mt 7.24). Literal: “edificar (οἰκοδομῆσαι) uma torre” (Lc 14.28). Cf. οἰκοδομή, οἶκος.",
+    "nt": "1Co 8.1,10; 10.23; 14.4,17. Frequente: Mt 7.24,26; 16.18; 21.33,42; 23.29; 26.61; 27.40; Mc 12.1,10; 14.58; Lc 6.48,49; 7.5; 14.28,30; 17.28; Jo 2.20; At 7.47,49; Gl 2.18; 1Ts 5.11; 1Pe 2.5,7.",
+    "cognatos": [
+      "οἶκος",
+      "οἰκοδομή",
+      "οἰκοδόμος",
+      "ἐποικοδομέω"
+    ],
+    "verTambem": [
+      "οἰκοδομή",
+      "προφητεύω",
+      "ἀγάπη",
+      "θεμέλιος"
+    ],
+    "pt": [
+      "edificar"
     ]
   },
   {
@@ -9905,6 +13921,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ὄλεθρος",
+    "translit": "ólethros",
+    "beta": "olethros",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ὄλεθρος, -ου, ὁ",
+    "raiz": "ὄλλυμι (“destruir, perecer”)",
+    "lsj": "Destruição, ruína, morte.",
+    "abbott": "Destruição, ruína. O perecimento, sobretudo o juízo final. Os ímpios “sofrerão a pena de eterna perdição (ὄλεθρον αἰώνιον)”, banidos da face do Senhor (2Ts 1.9); quando disserem “paz e segurança”, virá “repentina destruição (ὄλεθρος)”, como as dores de parto (1Ts 5.3); entregar o incestuoso a Satanás “para destruição da carne” (1Co 5.5); os que amam o dinheiro caem “em ruína (ὄλεθρον) e perdição” (1Tm 6.9). Cf. ἀπώλεια, ὀλοθρευτής.",
+    "nt": "1Ts 5.3; 2Ts 1.9. Cf. 1Co 5.5; 1Tm 6.9.",
+    "cognatos": [
+      "ὄλλυμι",
+      "ὀλοθρευτής",
+      "ἐξολεθρεύω"
+    ],
+    "verTambem": [
+      "ἀπώλεια",
+      "αἰφνίδιος",
+      "κρίσις",
+      "ἡμέρα"
+    ],
+    "pt": [
+      "destruição",
+      "ruína"
+    ]
+  },
+  {
     "lema": "ὁλοκαύτωμα",
     "translit": "holokaútōma",
     "beta": "holokautoma",
@@ -9927,6 +13969,58 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "holocausto"
+    ]
+  },
+  {
+    "lema": "ὁλόκληρος",
+    "translit": "holóklēros",
+    "beta": "holokleros",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ὁλόκληρος, -ον",
+    "raiz": "ὅλος (“todo”) + κλῆρος (“parte, sorte”): “completo em todas as partes”",
+    "lsj": "Inteiro, completo; íntegro, sem defeito em parte alguma.",
+    "abbott": "Íntegro, completo. O que está inteiro, sem faltar nenhuma parte. “O vosso espírito, alma e corpo sejam conservados íntegros (ὁλόκληρον) e irrepreensíveis na vinda de nosso Senhor” (1Ts 5.23) — a santificação que abrange a pessoa toda; a paciência produza obra perfeita, para que sejais “íntegros (ὁλόκληροι), em nada deficientes” (Tg 1.4). Distinto de τέλειος (maduro) pela nuance de completude em cada parte. Cf. ὁλοτελής, ὅλος.",
+    "nt": "1Ts 5.23. Cf. Tg 1.4.",
+    "cognatos": [
+      "ὅλος",
+      "κλῆρος",
+      "ὁλοκληρία"
+    ],
+    "verTambem": [
+      "ὁλοτελής",
+      "τέλειος",
+      "ἄμεμπτος",
+      "ἁγιάζω"
+    ],
+    "pt": [
+      "íntegro",
+      "completo"
+    ]
+  },
+  {
+    "lema": "ὁλοτελής",
+    "translit": "holotelḗs",
+    "beta": "holoteles",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ὁλοτελής, -ές",
+    "raiz": "ὅλος (“todo”) + τέλος (“fim, plenitude”)",
+    "lsj": "Termo raro: completo até o fim; inteiramente, por inteiro.",
+    "abbott": "Por inteiro, completamente. Hapax do NT (1Ts 5.23): “o mesmo Deus de paz vos santifique completamente (ὁλοτελεῖς)” — a santificação que alcança a pessoa inteira e a leva ao seu fim (τέλος). Combina ὅλος (todo) e τέλος (acabamento): não em parte, mas integral e consumadamente. Reforçado em seguida por ὁλόκληρον (íntegro). Cf. ὁλόκληρος, τέλειος.",
+    "nt": "1 ocorrência (hapax): 1Ts 5.23.",
+    "cognatos": [
+      "ὅλος",
+      "τέλος",
+      "ὁλόκληρος"
+    ],
+    "verTambem": [
+      "ὁλόκληρος",
+      "ἁγιάζω",
+      "τέλειος",
+      "ἄμεμπτος"
+    ],
+    "pt": [
+      "por inteiro",
+      "completamente"
     ]
   },
   {
@@ -10003,6 +14097,28 @@ window.LEXICON_DATA = [
     "pt": [
       "confissão",
       "profissão"
+    ]
+  },
+  {
+    "lema": "ὀνίνημι",
+    "translit": "onínēmi",
+    "beta": "oninemi",
+    "classe": "verbo (médio)",
+    "morf": "ὀνίνημι (méd. ὀνίναμαι)",
+    "raiz": "raiz grega de “beneficiar, dar proveito”",
+    "lsj": "Ser útil, beneficiar; (médio) ter proveito, gozar de algo.",
+    "abbott": "Ter proveito, alegrar-se. Hapax do NT (Fm 20), em novo trocadilho com Onésimo (ὀνήσιμος, “proveitoso”): “Sim, irmão, que eu receba de ti este proveito (ὀναίμην) no Senhor; reconforta o meu coração em Cristo”. Paulo deseja “colher benefício” do irmão, como o nome do escravo sugere. A linguagem afetuosa do apóstolo, que pede em amor o que poderia mandar. Cf. ὀνήσιμος (nome próprio).",
+    "nt": "1 ocorrência (hapax): Fm 20.",
+    "cognatos": [],
+    "verTambem": [
+      "εὔχρηστος",
+      "ἀγαπητός",
+      "κοινωνία",
+      "ἀναψύχω"
+    ],
+    "pt": [
+      "ter proveito",
+      "alegrar-se"
     ]
   },
   {
@@ -10175,6 +14291,75 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ὀρφανός",
+    "translit": "orphanós",
+    "beta": "orphanos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "ὀρφανός, -ή, -όν",
+    "raiz": "raiz grega de “privado de, órfão”",
+    "lsj": "Órfão; privado dos pais; (fig.) desamparado.",
+    "abbott": "Órfão; desamparado. O que ficou sem pais ou sem amparo. Jesus promete aos discípulos: “não vos deixarei órfãos (ὀρφανούς); voltarei para vós” (Jo 14.18) — no envio do Paráclito, não ficam desamparados. A religião pura é “visitar os órfãos (ὀρφανούς) e as viúvas nas suas tribulações” (Tg 1.27). O cuidado de Deus pelos sem amparo, e a presença de Cristo que supre toda orfandade. Cf. χήρα, παράκλητος.",
+    "nt": "Jo 14.18. Cf. Tg 1.27.",
+    "cognatos": [],
+    "verTambem": [
+      "παράκλητος",
+      "χήρα",
+      "πνεῦμα",
+      "παρακαλέω"
+    ],
+    "pt": [
+      "órfão"
+    ]
+  },
+  {
+    "lema": "ὀσμή",
+    "translit": "osmḗ",
+    "beta": "osme",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ὀσμή, -ῆς, ἡ",
+    "raiz": "ὄζω (“cheirar, exalar odor”)",
+    "lsj": "Cheiro, odor, aroma; fragrância.",
+    "abbott": "Cheiro, aroma. O odor exalado — figura do que se difunde e agrada (ou repugna). “A casa encheu-se do odor (ὀσμῆς) do bálsamo” (Jo 12.3). Paulo: “a fragrância (ὀσμήν) do seu conhecimento... para uns, cheiro (ὀσμή) de morte para morte; para outros, cheiro (ὀσμή) de vida para vida” (2Co 2.14,16); a oferta de Cristo, “em cheiro (ὀσμήν) suave” a Deus (Ef 5.2; Fp 4.18). O aroma que se espalha como testemunho. Cf. εὐωδία, ὄζω.",
+    "nt": "Jo 12.3. Cf. 2Co 2.14,16; Ef 5.2; Fp 4.18.",
+    "cognatos": [
+      "ὄζω",
+      "εὐωδία"
+    ],
+    "verTambem": [
+      "μύρον",
+      "νάρδος",
+      "εὐωδία",
+      "θυσία"
+    ],
+    "pt": [
+      "cheiro",
+      "aroma"
+    ]
+  },
+  {
+    "lema": "ὀστράκινος",
+    "translit": "ostrákinos",
+    "beta": "ostrakinos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "ὀστράκινος, -η, -ον",
+    "raiz": "ὄστρακον (“barro cozido, caco de cerâmica”)",
+    "lsj": "De barro, de cerâmica; feito de argila cozida.",
+    "abbott": "De barro. Feito de argila — frágil e sem valor em si. “Temos este tesouro em vasos de barro (ὀστρακίνοις), para que a excelência do poder seja de Deus, e não de nós” (2Co 4.7) — a imagem do apóstolo frágil que contém a glória do evangelho. Numa grande casa há utensílios “de ouro... e de barro (ὀστράκινα)” (2Tm 2.20). O contraste entre a fragilidade do continente e o valor do conteúdo. Cf. ὄστρακον.",
+    "nt": "2Co 4.7. Cf. 2Tm 2.20.",
+    "cognatos": [
+      "ὄστρακον"
+    ],
+    "verTambem": [
+      "θησαυρός",
+      "σκεῦος",
+      "ἀσθένεια",
+      "δύναμις"
+    ],
+    "pt": [
+      "de barro"
+    ]
+  },
+  {
     "lema": "ὀφειλή",
     "translit": "opheilḗ",
     "beta": "opheile",
@@ -10198,6 +14383,54 @@ window.LEXICON_DATA = [
     "pt": [
       "dívida",
       "obrigação devida"
+    ]
+  },
+  {
+    "lema": "ὀψάριον",
+    "translit": "opsárion",
+    "beta": "opsarion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ὀψάριον, -ου, τό",
+    "raiz": "ὄψον (“iguaria, acompanhamento do pão”), no diminutivo",
+    "lsj": "Peixinho; peixe (como acompanhamento do pão).",
+    "abbott": "Peixe (assado). O peixe como alimento que acompanha o pão — termo predileto de João. O menino tinha “cinco pães de cevada e dois peixinhos (ὀψάρια)” na multiplicação (Jo 6.9,11). Após a ressurreição, à beira-mar, viram “brasas postas, e um peixe (ὀψάριον) em cima, e pão... Jesus toma o pão e lho dá, e o peixe (ὀψάριον) igualmente” (Jo 21.9,10,13) — a refeição preparada pelo Senhor ressurreto. Diminutivo de ὄψον; distinto de ἰχθύς (peixe em geral). Cf. ἰχθύς, ἄρτος.",
+    "nt": "Jo 6.9,11; 21.9,10,13.",
+    "cognatos": [
+      "ὄψον",
+      "ἰχθύς"
+    ],
+    "verTambem": [
+      "ἰχθύς",
+      "ἄρτος",
+      "ἀνθρακιά",
+      "δίκτυον"
+    ],
+    "pt": [
+      "peixe"
+    ]
+  },
+  {
+    "lema": "ὄψιμος",
+    "translit": "ópsimos",
+    "beta": "opsimos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ὄψιμος, -ον",
+    "raiz": "ὀψέ (“tarde”)",
+    "lsj": "Tardio; (da chuva) serôdia, a que cai no fim da estação.",
+    "abbott": "Serôdia, tardia (chuva). Hapax do NT (Tg 5.7): “o lavrador aguarda o precioso fruto da terra, esperando com paciência, até receber a chuva temporã e a serôdia (ὄψιμον)”. Na Palestina, a “chuva serôdia” (de primavera) amadurecia a colheita; imagem da paciência (μακροθυμία) que aguarda a vinda do Senhor, como o lavrador aguarda o fruto. Cf. ὀψέ; o par “temporã e serôdia” (πρόϊμον καὶ ὄψιμον).",
+    "nt": "1 ocorrência (hapax): Tg 5.7.",
+    "cognatos": [
+      "ὀψέ"
+    ],
+    "verTambem": [
+      "μακροθυμία",
+      "ὑπομονή",
+      "καρπός",
+      "παρουσία"
+    ],
+    "pt": [
+      "serôdia",
+      "tardia"
     ]
   },
   {
@@ -10575,6 +14808,54 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "παραγγέλλω",
+    "translit": "parangéllō",
+    "beta": "paraggello",
+    "classe": "verbo",
+    "morf": "παραγγέλλω",
+    "raiz": "παρά + ἀγγέλλω (“anunciar”): transmitir uma ordem",
+    "lsj": "Transmitir uma ordem; ordenar, mandar; instruir, intimar.",
+    "abbott": "Ordenar, mandar, intimar. Dar uma ordem com autoridade. “Estas coisas vos ordenamos (παρηγγείλαμεν)... que, se alguém não quer trabalhar, também não coma” (2Ts 3.10,12; cf. 1Ts 4.11); Paulo “ordena (παραγγέλλω)” em nome do Senhor (2Ts 3.6; 1Tm 1.3; 6.13,17); Jesus “ordenou (παρήγγειλεν)” à multidão que se assentasse (Mt 15.35; Mc 6.8). O termo tem peso militar e jurídico: a ordem que se espera ver cumprida. Cf. παραγγελία.",
+    "nt": "1Ts 4.11; 2Ts 3.4,6,10,12. Frequente: Mt 10.5; 15.35; Mc 6.8; 8.6; Lc 8.29; At 1.4; 4.18; 5.28,40; 16.18,23; 1Co 7.10; 11.17; 1Tm 1.3; 4.11; 5.7; 6.13,17.",
+    "cognatos": [
+      "ἀγγέλλω",
+      "παραγγελία",
+      "ἄγγελος"
+    ],
+    "verTambem": [
+      "παραγγελία",
+      "νουθετέω",
+      "ἄτακτος",
+      "ἐργάζομαι"
+    ],
+    "pt": [
+      "ordenar",
+      "mandar",
+      "intimar"
+    ]
+  },
+  {
+    "lema": "παράδεισος",
+    "translit": "parádeisos",
+    "beta": "paradeisos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "παράδεισος, -ου, ὁ",
+    "raiz": "do persa antigo (“jardim murado, parque”), via grego",
+    "lsj": "Parque, jardim cercado; (no grego bíblico) o Paraíso, jardim de Deus.",
+    "abbott": "Paraíso. O jardim de Deus, lugar de bem-aventurança. Paulo “foi arrebatado ao paraíso (παράδεισον) e ouviu palavras inefáveis” (2Co 12.4); Jesus ao ladrão: “hoje estarás comigo no paraíso (παραδείσῳ)” (Lc 23.43); ao vencedor será dado comer “da árvore da vida, que está no paraíso (παραδείσῳ) de Deus” (Ap 2.7). Termo de origem persa (“jardim murado”), usado na Septuaginta para o Éden. A comunhão restaurada com Deus, presente e futura. Raiz da palavra “paraíso”.",
+    "nt": "2Co 12.4. Cf. Lc 23.43; Ap 2.7.",
+    "cognatos": [],
+    "verTambem": [
+      "οὐρανός",
+      "ζωή",
+      "ἁρπάζω",
+      "δόξα"
+    ],
+    "pt": [
+      "paraíso"
+    ]
+  },
+  {
     "lema": "παραζηλόω",
     "translit": "parazēlóō",
     "beta": "parazeloo",
@@ -10669,6 +14950,32 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "exortação"
+    ]
+  },
+  {
+    "lema": "παράκλητος",
+    "translit": "paráklētos",
+    "beta": "parakletos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "παράκλητος, -ου, ὁ",
+    "raiz": "παρακαλέω (“chamar para junto”), de παρά + καλέω",
+    "lsj": "Chamado para junto (para ajudar); advogado, intercessor; consolador, auxiliador.",
+    "abbott": "Advogado, Consolador, Auxiliador. Aquele que é chamado para estar ao lado e ajudar — no tribunal, como defensor; na aflição, como amparo. “Se alguém pecar, temos um Advogado (παράκλητον) para com o Pai, Jesus Cristo, o justo” (1Jo 2.1) — Cristo, o intercessor dos seus. Nos discursos de João, o Espírito Santo é “outro Consolador/Auxiliador (παράκλητον)”, enviado pelo Pai (Jo 14.16,26; 15.26; 16.7). Termo de difícil tradução única: defensor, intercessor, consolador. Cf. παρακαλέω, παράκλησις.",
+    "nt": "1Jo 2.1. Cf. Jo 14.16,26; 15.26; 16.7.",
+    "cognatos": [
+      "παρακαλέω",
+      "παράκλησις"
+    ],
+    "verTambem": [
+      "ἱλασμός",
+      "πνεῦμα",
+      "ἐντυγχάνω",
+      "δίκαιος"
+    ],
+    "pt": [
+      "advogado",
+      "consolador",
+      "auxiliador"
     ]
   },
   {
@@ -10822,6 +15129,55 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "παρθένος",
+    "translit": "parthénos",
+    "beta": "parthenos",
+    "classe": "substantivo, fem./masc. (2ª decl.)",
+    "morf": "παρθένος, -ου, ἡ/ὁ",
+    "raiz": "raiz grega de “virgem, donzela”",
+    "lsj": "Virgem, donzela; (masc.) homem casto.",
+    "abbott": "Virgem. Pessoa em estado de castidade. Tema de 1Co 7: “quanto às virgens (παρθένων), não tenho mandamento do Senhor, mas dou parecer” (7.25,28,34,36-38). Maria, “uma virgem (παρθένον) desposada com José”, conceberá (Mt 1.23, citando Is 7.14; Lc 1.27). As dez “virgens (παρθένοι)” da parábola (Mt 25.1,7,11); os 144 mil que “são virgens (παρθένοι)” (Ap 14.4); a igreja apresentada “como virgem pura” a Cristo (2Co 11.2). Cf. ἄγαμος, παρθενία.",
+    "nt": "1Co 7.25,28,34,36,37,38. Cf. Mt 1.23; 25.1,7,11; Lc 1.27; At 21.9; 2Co 11.2; Ap 14.4.",
+    "cognatos": [
+      "παρθενία"
+    ],
+    "verTambem": [
+      "ἄγαμος",
+      "γαμέω",
+      "ἁγνός",
+      "ἐγκράτεια"
+    ],
+    "pt": [
+      "virgem"
+    ]
+  },
+  {
+    "lema": "παρίστημι",
+    "translit": "parístēmi",
+    "beta": "paristemi",
+    "classe": "verbo",
+    "morf": "παρίστημι",
+    "raiz": "παρά (“ao lado”) + ἵστημι (“pôr de pé”)",
+    "lsj": "Pôr ao lado, apresentar, oferecer; colocar à disposição; (intr.) estar presente, assistir.",
+    "abbott": "Apresentar, oferecer; estar presente. Pôr à disposição ou comparecer. Apelo central de Romanos: “apresentai (παραστήσατε) os vossos membros... a Deus, como instrumentos de justiça” (Rm 6.13,16,19); “apresenteis (παραστῆσαι) os vossos corpos em sacrifício vivo” (Rm 12.1); “todos havemos de comparecer (παραστησόμεθα) ante o tribunal de Deus” (Rm 14.10). Apresentar a igreja “a si mesmo gloriosa” (Ef 5.27; Cl 1.22,28); o anjo “que me assiste (παρίστημι)” (At 27.23). Cf. ἵστημι, συνίστημι, παράστασις.",
+    "nt": "Rm 6.13,16,19; 12.1; 14.10; 16.2. Frequente: Mt 26.53; Mc 14.47,69,70; 15.35,39; Lc 1.19; 2.22; 19.24; At 1.3,10; 4.26; 9.39,41; 23.2,4,24,33; 24.13; 27.23,24; 1Co 8.8; 2Co 4.14; 11.2; Ef 5.27; Cl 1.22,28; 2Tm 2.15; 4.17.",
+    "cognatos": [
+      "ἵστημι",
+      "συνίστημι",
+      "παράστασις"
+    ],
+    "verTambem": [
+      "θυσία",
+      "ἀνίστημι",
+      "προσφέρω",
+      "σῶμα"
+    ],
+    "pt": [
+      "apresentar",
+      "oferecer"
+    ]
+  },
+  {
     "lema": "παροικέω",
     "translit": "paroikéō",
     "beta": "paroikeo",
@@ -10925,6 +15281,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "παρουσία",
+    "translit": "parousía",
+    "beta": "parousia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "παρουσία, -ας, ἡ",
+    "raiz": "πάρειμι (“estar presente, chegar”), de παρά + εἰμί",
+    "lsj": "Presença; chegada, advento; visita oficial de um soberano.",
+    "abbott": "Vinda, advento. Termo técnico para a vinda gloriosa de Cristo — palavra-chave das Tessalonicenses. Os crentes serão a alegria do apóstolo “na vinda (παρουσίᾳ) de nosso Senhor Jesus” (1Ts 2.19); ser irrepreensíveis “na vinda” dele (3.13; 5.23); os vivos que ficarem “até à vinda (παρουσίαν)” não precederão os que dormem (4.15); o iníquo se manifestará, mas o Senhor o destruirá “pela manifestação da sua vinda (παρουσίας)” (2Ts 2.8). No mundo greco-romano, a παρουσία era a visita solene do imperador a uma cidade. Cf. ἐπιφάνεια, ἀποκάλυψις.",
+    "nt": "1Ts 2.19; 3.13; 4.15; 5.23; 2Ts 2.1,8,9. Cf. Mt 24.3,27,37,39; 1Co 15.23; Tg 5.7,8; 2Pe 1.16; 3.4,12; 1Jo 2.28.",
+    "cognatos": [
+      "πάρειμι"
+    ],
+    "verTambem": [
+      "ἐπιφάνεια",
+      "ἀποκάλυψις",
+      "ἀπάντησις",
+      "ἡμέρα"
+    ],
+    "pt": [
+      "vinda",
+      "advento"
+    ]
+  },
+  {
     "lema": "παρρησία",
     "translit": "parrēsía",
     "beta": "parresia",
@@ -11021,6 +15401,112 @@ window.LEXICON_DATA = [
     "pt": [
       "pátria",
       "terra natal"
+    ]
+  },
+  {
+    "lema": "πείθω",
+    "translit": "peíthō",
+    "beta": "peitho",
+    "classe": "verbo",
+    "morf": "πείθω",
+    "raiz": "raiz grega de “persuadir, confiar” (cf. lat. fido)",
+    "lsj": "Persuadir, convencer; (perf./médio) confiar, estar persuadido; obedecer.",
+    "abbott": "Persuadir; confiar; estar convicto. Levar à convicção — e, no perfeito, repousar confiante. “Estou convencido (πέπεισμαι) de que nem a morte, nem a vida... nos poderá separar do amor de Deus” (Rm 8.38; 14.14; 15.14); “confias (πέποιθας) ser guia de cegos” (Rm 2.19); “persuadido (πεποιθώς) disto” (Fp 1.6,25); “sabemos em quem temos crido/confiado (πέπεισμαι)” (2Tm 1.12). Persuadir homens: “persuadimos (πείθομεν) os homens” (2Co 5.11); “quase me persuades (πείθεις) a fazer-me cristão” (At 26.28). Também obedecer: “a verdade não obedecerdes (πείθεσθαι)” (Gl 5.7; Hb 13.17). Cf. πειθώ, πεποίθησις, πιστός.",
+    "nt": "Rm 2.8,19; 8.38; 14.14; 15.14. Frequente: Mt 27.20,43; 28.14; Lc 11.22; 16.31; 18.9; 20.6; At 5.36,37,40; 12.20; 13.43; 14.19; 17.4; 18.4; 19.8,26; 21.14; 23.21; 26.26,28; 27.11; 28.23,24; 2Co 1.9; 2.3; 5.11; 10.7; Gl 1.10; 5.7,10; Fp 1.6,14,25; 2.24; 3.3,4; 2Ts 3.4; 2Tm 1.5,12; Fm 21; Hb 2.13; 6.9; 13.17,18; Tg 3.3; 1Jo 3.19.",
+    "cognatos": [
+      "πειθώ",
+      "πεποίθησις",
+      "πιστός",
+      "πειθαρχέω"
+    ],
+    "verTambem": [
+      "πίστις",
+      "πιστεύω",
+      "πληροφορέω",
+      "ἐλπίς"
+    ],
+    "pt": [
+      "persuadir"
+    ]
+  },
+  {
+    "lema": "πειράζω",
+    "translit": "peirázō",
+    "beta": "peirazo",
+    "classe": "verbo",
+    "morf": "πειράζω",
+    "raiz": "πεῖρα (“tentativa, prova”)",
+    "lsj": "Tentar, experimentar; pôr à prova; tentar ao mal, seduzir.",
+    "abbott": "Provar, tentar. Submeter à prova — para fortalecer, ou para induzir ao mal. “Ninguém, sendo tentado (πειραζόμενος), diga: De Deus sou tentado (πειράζομαι); porque Deus não pode ser tentado (ἀπείραστός) pelo mal, e ele a ninguém tenta (πειράζει)” (Tg 1.13,14) — Deus prova, mas não seduz. Satanás é “o tentador (ὁ πειράζων)” (Mt 4.1,3; 1Ts 3.5); Jesus foi “tentado (πειραζόμενος)” em tudo, sem pecado (Hb 4.15). Também “pôr à prova” a Deus, indevidamente (At 5.9; 15.10; 1Co 10.9). Cf. πειρασμός, ἐκπειράζω.",
+    "nt": "Tg 1.13,14. Frequente: Mt 4.1,3; 16.1; 19.3; 22.18,35; Mc 1.13; 8.11; 10.2; 12.15; Lc 4.2; Jo 6.6; 8.6; At 5.9; 15.10; 16.7; 1Co 7.5; 10.9,13; 2Co 13.5; Gl 6.1; 1Ts 3.5; Hb 2.18; 3.9; 4.15; 11.17,37; Ap 2.2,10; 3.10.",
+    "cognatos": [
+      "πεῖρα",
+      "πειρασμός",
+      "ἐκπειράζω",
+      "ἀπείραστος"
+    ],
+    "verTambem": [
+      "πειρασμός",
+      "ἐπιθυμία",
+      "δοκιμάζω",
+      "σατανᾶς"
+    ],
+    "pt": [
+      "provar",
+      "tentar"
+    ]
+  },
+  {
+    "lema": "πειρασμός",
+    "translit": "peirasmós",
+    "beta": "peirasmos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "πειρασμός, -οῦ, ὁ",
+    "raiz": "πειράζω (“provar, tentar”)",
+    "lsj": "Prova, teste; tentação; situação que põe à prova.",
+    "abbott": "Provação, tentação. O que põe a fé à prova — vinda de fora (provação) ou como sedução ao mal. “Tende por motivo de gozo o passardes por várias provações (πειρασμοῖς)” (Tg 1.2); “bem-aventurado o que suporta a provação (πειρασμόν)” (1.12); regozijai-vos, “embora por um pouco contristados com várias provações (πειρασμοῖς)” (1Pe 1.6; 4.12); “não nos deixes cair em tentação (πειρασμόν)” (Mt 6.13; 26.41); o Senhor sabe livrar os piedosos “da tentação (πειρασμοῦ)” (2Pe 2.9). Cf. πειράζω, πεῖρα.",
+    "nt": "Tg 1.2,12. Frequente: Mt 6.13; 26.41; Mc 14.38; Lc 4.13; 8.13; 11.4; 22.28,40,46; At 20.19; 1Co 10.13; Gl 4.14; 1Tm 6.9; 1Pe 1.6; 4.12; 2Pe 2.9; Ap 3.10.",
+    "cognatos": [
+      "πειράζω",
+      "πεῖρα",
+      "ἀπείραστος",
+      "ἐκπειράζω"
+    ],
+    "verTambem": [
+      "πειράζω",
+      "ὑπομονή",
+      "δοκίμιον",
+      "θλῖψις"
+    ],
+    "pt": [
+      "provação",
+      "tentação"
+    ]
+  },
+  {
+    "lema": "περιεργάζομαι",
+    "translit": "periergázomai",
+    "beta": "periergazomai",
+    "classe": "verbo (depoente)",
+    "morf": "περιεργάζομαι",
+    "raiz": "περί (“em volta”) + ἐργάζομαι (“trabalhar”)",
+    "lsj": "Ocupar-se com o que não é da sua conta; ser intrometido, meter-se em tudo.",
+    "abbott": "Intrometer-se, ser abelhudo. Hapax do NT (2Ts 3.11): há entre vós alguns que “andam desordenadamente, não trabalhando (μηδὲν ἐργαζομένους), antes intrometendo-se na vida alheia (περιεργαζομένους)”. Trocadilho intraduzível: não fazem o próprio trabalho (ἐργάζομαι), mas trabalham “ao redor” do alheio. A ociosidade que se converte em mexerico. Cf. ἐργάζομαι, περίεργος (curioso, At 19.19; 1Tm 5.13).",
+    "nt": "1 ocorrência (hapax): 2Ts 3.11.",
+    "cognatos": [
+      "ἐργάζομαι",
+      "περίεργος",
+      "ἔργον"
+    ],
+    "verTambem": [
+      "ἄτακτος",
+      "ἐργάζομαι",
+      "ἡσυχία",
+      "παραγγέλλω"
+    ],
+    "pt": [
+      "intrometer-se",
+      "ser abelhudo"
     ]
   },
   {
@@ -11172,6 +15658,50 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "πηγή",
+    "translit": "pēgḗ",
+    "beta": "pege",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "πηγή, -ῆς, ἡ",
+    "raiz": "raiz grega de “fonte, manancial”",
+    "lsj": "Fonte, manancial, nascente; (fig.) origem.",
+    "abbott": "Fonte, manancial. A nascente de água — figura da vida que Cristo dá. “A água que eu lhe der se fará nele uma fonte (πηγή) de água a jorrar para a vida eterna” (Jo 4.14); junto à “fonte (πηγῇ) de Jacó” (Jo 4.6). A mulher curada do “fluxo (πηγή) de sangue” (Mc 5.29); “porventura deita a fonte (πηγή) água doce e amargosa?” (Tg 3.11,12); falsos mestres são “fontes (πηγαί) sem água” (2Pe 2.17); o Cordeiro os guiará “para as fontes (πηγάς) das águas da vida” (Ap 7.17; 21.6). Cf. φρέαρ, ὕδωρ, βρύω.",
+    "nt": "Jo 4.6,14. Cf. Mc 5.29; Tg 3.11,12; 2Pe 2.17; Ap 7.17; 8.10; 14.7; 16.4; 21.6.",
+    "cognatos": [],
+    "verTambem": [
+      "φρέαρ",
+      "ὕδωρ",
+      "ζωή",
+      "ὑδρία"
+    ],
+    "pt": [
+      "fonte",
+      "manancial"
+    ]
+  },
+  {
+    "lema": "πηλός",
+    "translit": "pēlós",
+    "beta": "pelos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "πηλός, -οῦ, ὁ",
+    "raiz": "raiz grega de “barro, lodo”",
+    "lsj": "Barro, lodo, argila.",
+    "abbott": "Barro, lodo. A argila molhada. Jesus “cuspiu na terra e fez lodo (πηλόν) com a saliva, e untou com o lodo (πηλόν) os olhos do cego”, mandando-o lavar-se em Siloé (Jo 9.6,11,14,15) — ato evocativo da criação do homem do pó. Paulo, citando Isaías, pergunta se o vaso pode contestar o oleiro: não tem este poder “sobre o barro (πηλοῦ)”, para fazer dele vasos diversos? (Rm 9.21). O barro nas mãos do Criador e do Redentor. Cf. κεραμεύς (oleiro).",
+    "nt": "Jo 9.6,11,14,15. Cf. Rm 9.21.",
+    "cognatos": [],
+    "verTambem": [
+      "τυφλός",
+      "ἀνοίγω",
+      "νίπτω",
+      "κεραμεύς"
+    ],
+    "pt": [
+      "barro",
+      "lodo"
+    ]
+  },
+  {
     "lema": "πικρία",
     "translit": "pikría",
     "beta": "pikria",
@@ -11242,6 +15772,83 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "πλάνη",
+    "translit": "plánē",
+    "beta": "plane",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "πλάνη, -ης, ἡ",
+    "raiz": "πλανάω (“fazer errar, desviar”)",
+    "lsj": "Vagueação, desvio do caminho; erro, engano; ilusão.",
+    "abbott": "Engano, erro. O desvio da verdade — passivo (ser enganado) ou ativo (enganar). Deus envia aos que rejeitam a verdade “a operação do erro (πλάνης), para que creiam na mentira” (2Ts 2.11); a pregação apostólica não procede “de engano (πλάνης)” (1Ts 2.3); quem converte o pecador o salva “do erro (πλάνης) do seu caminho” (Tg 5.20); “o espírito da verdade e o espírito do erro (πλάνης)” (1Jo 4.6). Cf. πλανάω, πλάνος.",
+    "nt": "1Ts 2.3; 2Ts 2.11. Cf. Mt 27.64; Rm 1.27; Ef 4.14; Tg 5.20; 2Pe 2.18; 3.17; 1Jo 4.6; Jd 11.",
+    "cognatos": [
+      "πλανάω",
+      "πλάνος",
+      "ἀποπλανάω"
+    ],
+    "verTambem": [
+      "ἀλήθεια",
+      "ψεῦδος",
+      "ἄνομος",
+      "ἀπάτη"
+    ],
+    "pt": [
+      "engano",
+      "erro"
+    ]
+  },
+  {
+    "lema": "πλανήτης",
+    "translit": "planḗtēs",
+    "beta": "planetes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "πλανήτης, -ου, ὁ",
+    "raiz": "πλανάω (“fazer errar, vaguear”)",
+    "lsj": "Errante, vagabundo; (de astros) planeta, estrela errante.",
+    "abbott": "Errante. O que vagueia sem rumo fixo. Hapax do NT (Jd 13): os ímpios são “estrelas errantes (ἀστέρες πλανῆται), para as quais está reservada a escuridão das trevas para sempre” — astros que não seguem curso fixo, imagem dos falsos que enganam e se perdem. Liga-se a πλανάω (desviar), πλάνη (engano) e πλάνος (enganador). A instabilidade dos que abandonam o caminho reto. Cf. πλανάω, πλάνη, πλάνος.",
+    "nt": "1 ocorrência (hapax): Jd 13.",
+    "cognatos": [
+      "πλανάω",
+      "πλάνη",
+      "πλάνος"
+    ],
+    "verTambem": [
+      "πλάνη",
+      "ζόφος",
+      "ἀστήρικτος",
+      "ἄκαρπος"
+    ],
+    "pt": [
+      "errante"
+    ]
+  },
+  {
+    "lema": "πλάνος",
+    "translit": "plános",
+    "beta": "planos",
+    "classe": "adjetivo/substantivo (2 term.)",
+    "morf": "πλάνος, -ον",
+    "raiz": "πλανάω (“fazer errar, desviar”)",
+    "lsj": "Que faz errar; enganador, sedutor; vagabundo, errante.",
+    "abbott": "Enganador, sedutor. O que desencaminha os outros da verdade. “Muitos enganadores (πλάνοι) têm saído pelo mundo, os quais não confessam Jesus Cristo vindo em carne; tal é o enganador (πλάνος) e o anticristo” (2Jo 7); a Jesus chamaram “enganador (πλάνος)” (Mt 27.63); os apóstolos eram tidos “como enganadores (πλάνοι), embora verazes” (2Co 6.8); espíritos “enganadores (πλάνοις)” e doutrinas de demônios (1Tm 4.1). Liga-se a πλανάω (desviar), πλάνη (engano). Cf. πλάνη, πλανάω, ἀντίχριστος.",
+    "nt": "2Jo 7. Cf. Mt 27.63; 2Co 6.8; 1Tm 4.1.",
+    "cognatos": [
+      "πλανάω",
+      "πλάνη",
+      "πλανήτης"
+    ],
+    "verTambem": [
+      "ἀντίχριστος",
+      "ψεύστης",
+      "πλάνη",
+      "ὁμολογέω"
+    ],
+    "pt": [
+      "enganador",
+      "sedutor"
+    ]
+  },
+  {
     "lema": "πλεονάζω",
     "translit": "pleonázō",
     "beta": "pleonazo",
@@ -11290,6 +15897,28 @@ window.LEXICON_DATA = [
     "pt": [
       "cobiça",
       "ganância"
+    ]
+  },
+  {
+    "lema": "πλευρά",
+    "translit": "pleurá",
+    "beta": "pleura",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "πλευρά, -ᾶς, ἡ",
+    "raiz": "raiz grega de “costela, lado, flanco”",
+    "lsj": "Costela; lado, flanco (do corpo).",
+    "abbott": "Lado, costado. O flanco do corpo. “Um dos soldados lhe furou o lado (πλευράν) com uma lança” (Jo 19.34); Jesus ressurreto mostra aos discípulos “as mãos e o lado (πλευράν)”, e convida Tomé: “põe a tua mão no meu lado (πλευράν)” (Jo 20.20,25,27) — as marcas da paixão que comprovam a identidade do Crucificado-Ressurreto. O anjo tocou “o lado (πλευράν)” de Pedro para despertá-lo (At 12.7). Cf. λόγχη, νύσσω.",
+    "nt": "Jo 19.34; 20.20,25,27. Cf. At 12.7.",
+    "cognatos": [],
+    "verTambem": [
+      "λόγχη",
+      "σταυρόω",
+      "ἀνάστασις",
+      "χείρ"
+    ],
+    "pt": [
+      "lado",
+      "costado"
     ]
   },
   {
@@ -11369,6 +15998,57 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "πλούσιος",
+    "translit": "ploúsios",
+    "beta": "plousios",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "πλούσιος, -α, -ον",
+    "raiz": "πλοῦτος (“riqueza”)",
+    "lsj": "Rico, abastado; (fig.) abundante, farto.",
+    "abbott": "Rico; (fig.) abundante. Quem tem muitos bens — e, em sentido espiritual, a riqueza de Deus. Tiago adverte os ricos: “chorai e pranteai pelas misérias que vos sobrevêm” (Tg 5.1; 1.10,11; 2.5,6). Jesus: “quão dificilmente entrará um rico (πλούσιος) no reino” (Mt 19.23,24; Lc 18.23,25); o rico e Lázaro (Lc 16.19,21,22); o “rico (πλούσιος) insensato” (Lc 12.16). Figurado: Deus, “rico (πλούσιος) em misericórdia” (Ef 2.4); Cristo, “sendo rico (πλούσιος), se fez pobre” (2Co 8.9). Cf. πλοῦτος, πλουτέω.",
+    "nt": "Tg 1.10,11; 2.5,6; 5.1. Frequente: Mt 19.23,24; 27.57; Mc 10.25; 12.41; Lc 6.24; 12.16; 14.12; 16.1,19,21,22; 18.23,25; 19.2; 21.1; 2Co 8.9; Ef 2.4; 1Tm 6.17; Ap 2.9; 3.17; 6.15; 13.16.",
+    "cognatos": [
+      "πλοῦτος",
+      "πλουτέω",
+      "πλουτίζω"
+    ],
+    "verTambem": [
+      "πτωχός",
+      "πλεονεξία",
+      "φιλαργυρία",
+      "ταπεινόω"
+    ],
+    "pt": [
+      "rico"
+    ]
+  },
+  {
+    "lema": "πλοῦτος",
+    "translit": "ploûtos",
+    "beta": "ploutos",
+    "classe": "substantivo, masc./neut. (2ª decl.)",
+    "morf": "πλοῦτος, -ου, ὁ",
+    "raiz": "raiz grega de “riqueza, abundância”",
+    "lsj": "Riqueza, abundância; opulência; (fig.) plenitude.",
+    "abbott": "Riqueza, abundância. A profusão de bens — sobretudo as riquezas de Deus. “Ó profundidade das riquezas (πλούτου) da sabedoria e da ciência de Deus!” (Rm 11.33); a “riqueza (πλοῦτος)” da bondade divina (Rm 2.4); “as riquezas (πλοῦτος) da sua glória sobre os vasos de misericórdia” (Rm 9.23); a queda de Israel é “riqueza (πλοῦτος) do mundo” (Rm 11.12). “As riquezas (πλοῦτος) insondáveis de Cristo” (Ef 3.8; 1.7,18; 2.7; Cl 1.27; 2.2). Em sentido material, a sedução das “riquezas (πλούτου)” (Mt 13.22; 1Tm 6.17). Cf. πλούσιος, πλουτέω, πλουτίζω.",
+    "nt": "Rm 2.4; 9.23; 11.12,33. Cf. Mt 13.22; Mc 4.19; Lc 8.14; 2Co 8.2; Ef 1.7,18; 2.7; 3.8,16; Fp 4.19; Cl 1.27; 2.2; 1Tm 6.17; Hb 11.26; Tg 5.2; Ap 5.12; 18.17.",
+    "cognatos": [
+      "πλούσιος",
+      "πλουτέω",
+      "πλουτίζω"
+    ],
+    "verTambem": [
+      "πλούσιος",
+      "δόξα",
+      "σοφία",
+      "χάρις"
+    ],
+    "pt": [
+      "riqueza",
+      "abundância"
+    ]
+  },
+  {
     "lema": "πνεῦμα",
     "translit": "pneûma",
     "beta": "pneuma",
@@ -11390,6 +16070,30 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "espírito"
+    ]
+  },
+  {
+    "lema": "πνευματικός",
+    "translit": "pneumatikós",
+    "beta": "pneumatikos",
+    "classe": "adjetivo (2-1-2)",
+    "morf": "πνευματικός, -ή, -όν",
+    "raiz": "πνεῦμα (“espírito”)",
+    "lsj": "Do espírito, espiritual; relativo ao Espírito (de Deus).",
+    "abbott": "Espiritual. O que pertence ou procede do Espírito de Deus, oposto ao “natural/carnal”. “Quanto aos dons espirituais (πνευματικῶν)” (1Co 12.1; 14.1); o homem “natural” não percebe as coisas “do Espírito”, que se discernem “espiritualmente (πνευματικῶς)” (2.13,14,15); semeia-se “corpo natural (ψυχικόν)”, ressuscita “corpo espiritual (πνευματικόν)” (15.44,46); a Rocha que os seguia “era espiritual (πνευματικῆς)” (10.3,4); cantar com “cânticos espirituais (πνευματικαῖς)” (Ef 5.19; Cl 3.16). Cf. πνεῦμα, ψυχικός, σαρκικός.",
+    "nt": "1Co 2.13,15; 3.1; 9.11; 10.3,4; 12.1; 14.1,37; 15.44,46. Cf. Rm 1.11; 7.14; 15.27; Ef 1.3; 5.19; 6.12; Cl 1.9; 3.16; 1Pe 2.5.",
+    "cognatos": [
+      "πνεῦμα",
+      "πνευματικῶς"
+    ],
+    "verTambem": [
+      "πνεῦμα",
+      "ψυχικός",
+      "σαρκικός",
+      "χάρισμα"
+    ],
+    "pt": [
+      "espiritual"
     ]
   },
   {
@@ -11419,6 +16123,57 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ποιητής",
+    "translit": "poiētḗs",
+    "beta": "poietes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "ποιητής, -οῦ, ὁ",
+    "raiz": "ποιέω (“fazer”)",
+    "lsj": "Fazedor, autor, executor; (também) poeta.",
+    "abbott": "Cumpridor, fazedor. O que põe em prática — não apenas ouve. “Sede cumpridores (ποιηταί) da palavra” (Tg 1.22,23); “o cumpridor (ποιητής) da obra, esse será bem-aventurado no seu agir” (1.25); “cumpridores (ποιηταί) da lei serão justificados” (Rm 2.13); ser “cumpridor (ποιητής) da lei” e não juiz dela (Tg 4.11). No sentido de “poeta”, citando os poetas gregos: “como disseram alguns dos vossos poetas (ποιητῶν)” (At 17.28). Cf. ἀκροατής, ποιέω.",
+    "nt": "Tg 1.22,23,25; 4.11. Cf. Rm 2.13; At 17.28.",
+    "cognatos": [
+      "ποιέω",
+      "ποίημα"
+    ],
+    "verTambem": [
+      "ἀκροατής",
+      "λόγος",
+      "ἔργον",
+      "νόμος"
+    ],
+    "pt": [
+      "cumpridor",
+      "fazedor"
+    ]
+  },
+  {
+    "lema": "ποιμαίνω",
+    "translit": "poimaínō",
+    "beta": "poimaino",
+    "classe": "verbo",
+    "morf": "ποιμαίνω",
+    "raiz": "ποιμήν (“pastor”)",
+    "lsj": "Apascentar, pastorear; (fig.) governar, dirigir, cuidar.",
+    "abbott": "Pastorear, apascentar; governar. Cuidar do rebanho — alimentar, guiar e proteger. A Pedro: “pastoreia (ποίμαινε) as minhas ovelhas” (Jo 21.16), entre os dois “apascenta” (βόσκε); aos presbíteros: “apascentai (ποιμάνατε) o rebanho de Deus” (1Pe 5.2; At 20.28). Tem também a nuance de governar: o Messias “apascentará (ποιμανεῖ)” / regerá Israel (Mt 2.6); o Cordeiro “os apascentará (ποιμανεῖ)” (Ap 7.17); regerá as nações “com cetro de ferro (ποιμανεῖ)” (Ap 2.27; 12.5; 19.15). Cf. ποιμήν, βόσκω, ποίμνη.",
+    "nt": "Jo 21.16. Cf. Mt 2.6; Lc 17.7; At 20.28; 1Co 9.7; 1Pe 5.2; Jd 12; Ap 2.27; 7.17; 12.5; 19.15.",
+    "cognatos": [
+      "ποιμήν",
+      "ποίμνη",
+      "ποίμνιον"
+    ],
+    "verTambem": [
+      "βόσκω",
+      "ποιμήν",
+      "πρόβατον",
+      "πρεσβύτερος"
+    ],
+    "pt": [
+      "pastorear",
+      "apascentar"
+    ]
+  },
+  {
     "lema": "ποιμήν",
     "translit": "poimḗn",
     "beta": "poimen",
@@ -11441,6 +16196,57 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "pastor"
+    ]
+  },
+  {
+    "lema": "ποίμνη",
+    "translit": "poímnē",
+    "beta": "poimne",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ποίμνη, -ης, ἡ",
+    "raiz": "ποιμήν (“pastor”)",
+    "lsj": "Rebanho (de ovelhas).",
+    "abbott": "Rebanho. O conjunto das ovelhas sob um só pastor. “Haverá um só rebanho (ποίμνη) e um só pastor” (Jo 10.16) — a unidade do povo de Deus, judeus e gentios, sob Cristo; “ferirei o pastor, e as ovelhas do rebanho (ποίμνης) serão dispersas” (Mt 26.31); os pastores “guardando o seu rebanho (ποίμνην)” à noite (Lc 2.8); quem apascenta “um rebanho (ποίμνην)” e não come do leite dele? (1Co 9.7). Distinto de ποίμνιον (a grei, no diminutivo). Cf. ποιμήν, ποίμνιον, πρόβατον.",
+    "nt": "Jo 10.16. Cf. Mt 26.31; Lc 2.8; 1Co 9.7.",
+    "cognatos": [
+      "ποιμήν",
+      "ποίμνιον",
+      "ποιμαίνω"
+    ],
+    "verTambem": [
+      "ποιμήν",
+      "ποίμνιον",
+      "πρόβατον",
+      "θύρα"
+    ],
+    "pt": [
+      "rebanho"
+    ]
+  },
+  {
+    "lema": "ποίμνιον",
+    "translit": "poímnion",
+    "beta": "poimnion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ποίμνιον, -ου, τό",
+    "raiz": "ποιμήν (“pastor”), via ποίμνη (“rebanho”)",
+    "lsj": "Rebanho (pequeno); grei.",
+    "abbott": "Rebanho, grei. A comunidade dos crentes confiada aos pastores. “Apascentai o rebanho (ποίμνιον) de Deus que está entre vós... não como dominadores... mas servindo de modelo à grei (ποιμνίου)” (1Pe 5.2,3); “não temais, ó pequeno rebanho (ποίμνιον)” (Lc 12.32); aos presbíteros de Éfeso: “olhai por vós e por todo o rebanho (ποιμνίῳ)”, pois surgirão “lobos cruéis... que não pouparão o rebanho (ποιμνίου)” (At 20.28,29). Cf. ποιμήν, ποίμνη, ποιμαίνω.",
+    "nt": "1Pe 5.2,3. Cf. Lc 12.32; At 20.28,29.",
+    "cognatos": [
+      "ποιμήν",
+      "ποίμνη",
+      "ποιμαίνω"
+    ],
+    "verTambem": [
+      "ἀρχιποίμην",
+      "ποιμήν",
+      "πρεσβύτερος",
+      "ἐπίσκοπος"
+    ],
+    "pt": [
+      "rebanho",
+      "grei"
     ]
   },
   {
@@ -11576,6 +16382,78 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ποτήριον",
+    "translit": "potḗrion",
+    "beta": "poterion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ποτήριον, -ου, τό",
+    "raiz": "πίνω (“beber”), via πότος",
+    "lsj": "Taça, copo, cálice.",
+    "abbott": "Cálice, taça. O copo — em especial o da ceia e o do destino. “O cálice (ποτήριον) da bênção que abençoamos não é a comunhão do sangue de Cristo?” (1Co 10.16,21); “este cálice (ποτήριον) é a nova aliança no meu sangue; fazei isto... todas as vezes que beberdes” (1Co 11.25,26,27,28; Lc 22.20). Também o “cálice” do sofrimento: “pode beber o cálice (ποτήριον) que eu hei de beber?” (Mt 20.22; 26.39,42); o “cálice” da ira de Deus (Ap 14.10; 16.19). Cf. πίνω, ποτίζω.",
+    "nt": "1Co 10.16,21; 11.25,26,27,28. Frequente: Mt 20.22,23; 26.27,39,42; Mc 9.41; 10.38,39; 14.23,36; Lc 11.39; 22.17,20; Jo 18.11; Ap 14.10; 16.19; 17.4; 18.6.",
+    "cognatos": [
+      "πίνω",
+      "ποτίζω",
+      "πόμα"
+    ],
+    "verTambem": [
+      "ἄρτος",
+      "δεῖπνον",
+      "αἷμα",
+      "διαθήκη"
+    ],
+    "pt": [
+      "cálice",
+      "taça"
+    ]
+  },
+  {
+    "lema": "πραιτώριον",
+    "translit": "praitṓrion",
+    "beta": "praitorion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "πραιτώριον, -ου, τό",
+    "raiz": "do latim praetorium (“quartel-general, residência do pretor”)",
+    "lsj": "Pretório: residência ou quartel do governador; sede do tribunal; guarda pretoriana.",
+    "abbott": "Pretório. A residência oficial e tribunal do governador romano. “Levaram Jesus... ao pretório (πραιτώριον)... os judeus não entraram no pretório (πραιτώριον) para não se contaminarem... Pilatos tornou a entrar no pretório (πραιτώριον)” (Jo 18.28,33; 19.9); os soldados o levaram “ao pretório (πραιτώριον)” (Mc 15.16; Mt 27.27). As cadeias de Paulo “se tornaram manifestas em toda a guarda pretoriana (πραιτωρίῳ)” (Fp 1.13); guardado “no pretório (πραιτωρίῳ) de Herodes” (At 23.35). Empréstimo latino. Cf. ἡγεμών.",
+    "nt": "Jo 18.28,33; 19.9. Cf. Mt 27.27; Mc 15.16; At 23.35; Fp 1.13.",
+    "cognatos": [],
+    "verTambem": [
+      "ὑπηρέτης",
+      "στρατιώτης",
+      "ἡγεμών",
+      "σταυρόω"
+    ],
+    "pt": [
+      "pretório"
+    ]
+  },
+  {
+    "lema": "πράσσω",
+    "translit": "prássō",
+    "beta": "prasso",
+    "classe": "verbo",
+    "morf": "πράσσω",
+    "raiz": "raiz grega de “fazer, realizar, executar”",
+    "lsj": "Fazer, executar, levar a cabo; praticar (repetidamente); cobrar; passar(-se).",
+    "abbott": "Praticar, fazer. Executar — muitas vezes com a nuance de prática habitual, sobretudo do mal. “Os que tais coisas praticam (πράσσοντες) são dignos de morte” (Rm 1.32; 2.1,2,3); “se praticas (πράσσῃς) a lei... mas se és transgressor” (Rm 2.25); “o mal que não quero, esse pratico (πράσσω)” (Rm 7.15,19); “cada um receberá segundo o que tiver feito (ἔπραξεν)” (2Co 5.10). “Nada exijais (πράσσετε) além do que vos está ordenado” (Lc 3.13); “mortificais as obras (πράξεις) do corpo” (Rm 8.13, subst. πρᾶξις). Distinto de ποιέω (fazer pontual). Cf. πρᾶξις, πράκτωρ.",
+    "nt": "Rm 1.32; 2.1,2,3,25; 7.15,19; 9.11; 13.4. Frequente: Lc 3.13; 19.23; 22.23; 23.15,41; Jo 3.20; 5.29; At 3.17; 5.35; 16.28; 17.7; 19.19,36; 25.11,25; 26.9,20,26,31; 1Co 5.2; 9.17; 2Co 5.10; 12.21; Gl 5.21; Ef 6.21; Fp 4.9; 1Ts 4.11.",
+    "cognatos": [
+      "πρᾶξις",
+      "πράκτωρ"
+    ],
+    "verTambem": [
+      "ποιέω",
+      "ἔργον",
+      "κατεργάζομαι",
+      "νόμος"
+    ],
+    "pt": [
+      "praticar",
+      "fazer"
+    ]
+  },
+  {
     "lema": "πραΰτης",
     "translit": "praΰtēs",
     "beta": "prautes",
@@ -11673,6 +16551,29 @@ window.LEXICON_DATA = [
     "pt": [
       "homem idoso",
       "ancião"
+    ]
+  },
+  {
+    "lema": "πρόβατον",
+    "translit": "próbaton",
+    "beta": "probaton",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "πρόβατον, -ου, τό",
+    "raiz": "προβαίνω (“avançar”): o gado que vai à frente",
+    "lsj": "Ovelha; (pl.) rebanho de ovelhas.",
+    "abbott": "Ovelha. O animal do rebanho — imagem do povo de Deus sob o seu Pastor. Central no discurso do bom Pastor: “as ovelhas (πρόβατα) ouvem a sua voz... e as ovelhas (πρόβατα) o seguem” (Jo 10.2-16,26,27); “eu dou a minha vida pelas ovelhas (προβάτων)”; “tenho outras ovelhas (πρόβατα)... um só rebanho”. “As ovelhas (πρόβατα) perdidas da casa de Israel” (Mt 10.6; 15.24); “como ovelhas (πρόβατα) no meio de lobos” (Mt 10.16); a separação “das ovelhas (πρόβατα) e dos cabritos” (Mt 25.32,33); “éreis como ovelhas (πρόβατα) desgarradas” (1Pe 2.25). Cf. ποιμήν, ποίμνη, ἀρνίον.",
+    "nt": "Jo 2.14,15; 10.1-16,26,27; 21.16,17. Frequente: Mt 7.15; 9.36; 10.6,16; 12.11,12; 15.24; 18.12; 25.32,33; 26.31; Mc 6.34; 14.27; Lc 15.4,6; At 8.32; Rm 8.36; Hb 13.20; 1Pe 2.25; Ap 18.13.",
+    "cognatos": [
+      "προβαίνω"
+    ],
+    "verTambem": [
+      "ποιμήν",
+      "ποίμνη",
+      "θύρα",
+      "ἀρνίον"
+    ],
+    "pt": [
+      "ovelha"
     ]
   },
   {
@@ -11966,6 +16867,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "προσευχή",
+    "translit": "proseuchḗ",
+    "beta": "proseuche",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "προσευχή, -ῆς, ἡ",
+    "raiz": "προσεύχομαι (“orar”), de πρός + εὔχομαι",
+    "lsj": "Oração (dirigida a Deus); (também) lugar de oração.",
+    "abbott": "Oração. A súplica e o trato com Deus. “Perseverai na oração (προσευχῇ)” (Rm 12.12); “esforçai-vos comigo nas vossas orações (προσευχαῖς)” (Rm 15.30); “fazendo menção de vós nas minhas orações (προσευχῶν)” (Rm 1.10; Ef 1.16; Fm 4,22). “A minha casa será chamada casa de oração (προσευχῆς)” (Mt 21.13; Mc 11.17); os apóstolos perseveram “na oração (προσευχῇ) e no ministério da palavra” (At 6.4); “orai em toda ocasião... com toda oração (προσευχῆς) e súplica” (Ef 6.18; Fp 4.6; Cl 4.2; 1Tm 2.1; 5.5). Cf. προσεύχομαι, εὐχή, δέησις.",
+    "nt": "Rm 1.10; 12.12; 15.30. Frequente: Mt 17.21; 21.13,22; Mc 9.29; 11.17; Lc 6.12; 19.46; 22.45; At 1.14; 2.42; 3.1; 6.4; 10.4,31; 12.5; 16.13,16; 1Co 7.5; Ef 1.16; 6.18; Fp 4.6; Cl 4.2,12; 1Ts 1.2; 1Tm 2.1; 5.5; Fm 4,22; 1Pe 3.7; 4.7; Ap 5.8; 8.3,4.",
+    "cognatos": [
+      "προσεύχομαι",
+      "εὐχή",
+      "εὔχομαι"
+    ],
+    "verTambem": [
+      "προσεύχομαι",
+      "δέησις",
+      "ἔντευξις",
+      "εὐχαριστία"
+    ],
+    "pt": [
+      "oração"
+    ]
+  },
+  {
     "lema": "προσηλόω",
     "translit": "prosēlóō",
     "beta": "proseloo",
@@ -12065,6 +16991,54 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "προσκυνέω",
+    "translit": "proskynéō",
+    "beta": "proskyneo",
+    "classe": "verbo",
+    "morf": "προσκυνέω",
+    "raiz": "πρός (“diante de”) + κυνέω (“beijar”): beijar a mão / prostrar-se",
+    "lsj": "Prostrar-se em reverência; render homenagem; adorar.",
+    "abbott": "Adorar, prostrar-se. O gesto de reverência profunda — diante de Deus, de Cristo, ou (indevidamente) de outros. Núcleo em João 4: “os verdadeiros adoradores adorarão (προσκυνήσουσιν) o Pai em espírito e em verdade... importa que os que o adoram (προσκυνοῦντας) o adorem (προσκυνεῖν) em espírito e verdade” (Jo 4.20-24). Os magos vieram “adorá-lo (προσκυνῆσαι)” (Mt 2.2,11); “ao Senhor teu Deus adorarás (προσκυνήσεις)” (Mt 4.10; Lc 4.8); o anjo recusa: “adora (προσκύνησον) a Deus” (Ap 19.10; 22.9). A adoração devida só a Deus. Cf. προσκυνητής, σέβομαι, λατρεύω.",
+    "nt": "Jo 4.20,21,22,23,24; 9.38; 12.20. Muito frequente: Mt 2.2,8,11; 4.9,10; 8.2; 14.33; 28.9,17; Mc 5.6; 15.19; Lc 4.7,8; 24.52; At 7.43; 8.27; 10.25; 24.11; 1Co 14.25; Hb 1.6; 11.21; Ap 4.10; 5.14; 7.11; 9.20; 11.16; 13.4,8,12,15; 14.7,9,11; 15.4; 16.2; 19.4,10,20; 20.4; 22.8,9.",
+    "cognatos": [
+      "προσκυνητής",
+      "κυνέω"
+    ],
+    "verTambem": [
+      "προσκυνητής",
+      "λατρεύω",
+      "σέβομαι",
+      "πνεῦμα"
+    ],
+    "pt": [
+      "adorar",
+      "prostrar-se"
+    ]
+  },
+  {
+    "lema": "προσκυνητής",
+    "translit": "proskynētḗs",
+    "beta": "proskynetes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "προσκυνητής, -οῦ, ὁ",
+    "raiz": "προσκυνέω (“adorar, prostrar-se”)",
+    "lsj": "Termo do grego cristão: adorador.",
+    "abbott": "Adorador. Hapax do NT (Jo 4.23): “vem a hora, e agora é, em que os verdadeiros adoradores (προσκυνηταί) adorarão o Pai em espírito e em verdade; porque o Pai procura a tais que assim o adorem”. O termo define a identidade do crente: não o que cumpre ritos num lugar (Jerusalém ou Gerizim), mas o que adora em espírito e verdade, em qualquer lugar. Cf. προσκυνέω.",
+    "nt": "1 ocorrência (hapax): Jo 4.23.",
+    "cognatos": [
+      "προσκυνέω"
+    ],
+    "verTambem": [
+      "προσκυνέω",
+      "πνεῦμα",
+      "ἀλήθεια",
+      "λατρεύω"
+    ],
+    "pt": [
+      "adorador"
+    ]
+  },
+  {
     "lema": "προσλαμβάνω",
     "translit": "proslambánō",
     "beta": "proslambano",
@@ -12087,6 +17061,31 @@ window.LEXICON_DATA = [
       "acolher",
       "receber",
       "tomar consigo"
+    ]
+  },
+  {
+    "lema": "προσοφείλω",
+    "translit": "prosopheílō",
+    "beta": "prosopheilo",
+    "classe": "verbo",
+    "morf": "προσοφείλω",
+    "raiz": "πρός (“além”) + ὀφείλω (“dever”)",
+    "lsj": "Dever além; estar em dívida adicional.",
+    "abbott": "Dever ainda mais. Hapax do NT (Fm 19): Paulo, assumindo a dívida de Onésimo, lembra a Filemom “que tu mesmo a mim te deves ainda (προσοφείλεις)” — isto é, deve-lhe a própria vida (a conversão). O πρός acrescenta à dívida: além do que se calcula, há um débito maior e pessoal. Delicada pressão pastoral, em tom afetuoso. Cf. ὀφείλω, ὀφειλή.",
+    "nt": "1 ocorrência (hapax): Fm 19.",
+    "cognatos": [
+      "ὀφείλω",
+      "ὀφειλή",
+      "ὀφείλημα"
+    ],
+    "verTambem": [
+      "ὀφείλω",
+      "ἐλλογέω",
+      "ἀποτίνω",
+      "χάρις"
+    ],
+    "pt": [
+      "dever ainda mais"
     ]
   },
   {
@@ -12239,6 +17238,56 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "προφητεία",
+    "translit": "prophēteía",
+    "beta": "propheteia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "προφητεία, -ας, ἡ",
+    "raiz": "προφήτης (“profeta”)",
+    "lsj": "Profecia; dom de profetizar; mensagem profética.",
+    "abbott": "Profecia. O dom e a mensagem inspirada por Deus. Entre os dons: “a profecia (προφητεία)” (1Co 12.10; Rm 12.6); “se tivesse o dom de profecia (προφητείαν)... e não tivesse amor, nada seria” (1Co 13.2); “as profecias (προφητεῖαι) desaparecerão” (13.8); “não desprezeis as profecias (προφητείας)” (1Ts 5.20). Nenhuma profecia “proveio do querer humano”, mas de homens movidos pelo Espírito (2Pe 1.20,21); o “espírito da profecia (προφητείας)” é o testemunho de Jesus (Ap 19.10). Cf. προφητεύω, προφήτης.",
+    "nt": "1Co 12.10; 13.2,8; 14.6,22. Cf. Mt 13.14; Rm 12.6; 1Ts 5.20; 1Tm 1.18; 4.14; 2Pe 1.20,21; Ap 1.3; 11.6; 19.10; 22.7,10,18,19.",
+    "cognatos": [
+      "προφήτης",
+      "προφητεύω",
+      "προφητικός"
+    ],
+    "verTambem": [
+      "προφητεύω",
+      "γλῶσσα",
+      "χάρισμα",
+      "ἀποκάλυψις"
+    ],
+    "pt": [
+      "profecia"
+    ]
+  },
+  {
+    "lema": "προφητεύω",
+    "translit": "prophēteúō",
+    "beta": "propheteuo",
+    "classe": "verbo",
+    "morf": "προφητεύω",
+    "raiz": "προφήτης (“profeta”), de πρό + φημί",
+    "lsj": "Profetizar; falar por inspiração divina; predizer; proclamar a mensagem de Deus.",
+    "abbott": "Profetizar. Falar sob inspiração de Deus — não só prever, mas proclamar a sua mensagem para edificação. “Quem profetiza (προφητεύων) fala aos homens para edificação, exortação e consolação” (1Co 14.3,4); “desejo antes que profetizeis (προφητεύητε)” do que falar línguas (14.1,5,39); “profetizamos (προφητεύομεν) em parte” (13.9). “Os vossos filhos e filhas profetizarão (προφητεύσουσιν)” (At 2.17,18, citando Joel); Caifás “profetizou (ἐπροφήτευσεν)” sem o saber (Jo 11.51). Cf. προφήτης, προφητεία.",
+    "nt": "1Co 11.4,5; 13.9; 14.1,3,4,5,24,31,39. Frequente: Mt 7.22; 11.13; 15.7; 26.68; Mc 7.6; 14.65; Lc 1.67; Jo 11.51; At 2.17,18; 19.6; 21.9; 1Pe 1.10; Jd 14; Ap 10.11; 11.3.",
+    "cognatos": [
+      "προφήτης",
+      "προφητεία",
+      "προφητικός"
+    ],
+    "verTambem": [
+      "προφητεία",
+      "γλῶσσα",
+      "οἰκοδομέω",
+      "ἀποκάλυψις"
+    ],
+    "pt": [
+      "profetizar"
+    ]
+  },
+  {
     "lema": "πρωτεύω",
     "translit": "prōteúō",
     "beta": "proteuo",
@@ -12284,6 +17333,55 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "primogênito"
+    ]
+  },
+  {
+    "lema": "πτοέω",
+    "translit": "ptoéō",
+    "beta": "ptoeo",
+    "classe": "verbo (passiva)",
+    "morf": "πτοέω (pass. πτοέομαι)",
+    "raiz": "raiz grega de “assustar, aterrar”",
+    "lsj": "Aterrar, amedrontar; (passiva) assustar-se, ficar aterrorizado.",
+    "abbott": "Atemorizar-se, espantar-se. Ser tomado de pavor. As mulheres que fazem o bem são filhas de Sara “se não vos perturbar nenhum medo (μὴ φοβούμεναι μηδεμίαν πτόησιν)” — isto é, sem se deixarem aterrorizar (1Pe 3.6, subst. πτόησις). O verbo: “quando ouvirdes de guerras e revoltas, não vos assusteis (μὴ πτοηθῆτε)” (Lc 21.9); os discípulos “assustados (πτοηθέντες)” pensaram ver um espírito (Lc 24.37). A serenidade da fé que não cede ao pânico. Cf. πτόησις.",
+    "nt": "Lc 21.9; 24.37. Cf. 1Pe 3.6 (πτόησις).",
+    "cognatos": [
+      "πτόησις"
+    ],
+    "verTambem": [
+      "φόβος",
+      "ἀγαθοποιέω",
+      "ταράσσω",
+      "δειλία"
+    ],
+    "pt": [
+      "atemorizar-se",
+      "espantar-se"
+    ]
+  },
+  {
+    "lema": "πτωχός",
+    "translit": "ptōchós",
+    "beta": "ptochos",
+    "classe": "adjetivo/substantivo (2-1-2)",
+    "morf": "πτωχός, -ή, -όν",
+    "raiz": "πτώσσω (“encolher-se, mendigar”)",
+    "lsj": "Pobre, mendigo, indigente; (fig.) destituído.",
+    "abbott": "Pobre, mendigo. O destituído de bens — objeto do cuidado de Deus. “Não escolheu Deus os pobres (πτωχούς) deste mundo para os fazer ricos na fé?” (Tg 2.2,3,5,6); “bem-aventurados os pobres (πτωχοί) em espírito” (Mt 5.3); “evangelizar aos pobres (πτωχοῖς)” (Lc 4.18; 7.22); a viúva pobre (Lc 21.3); lembrar “dos pobres (πτωχῶν)” (Gl 2.10). Figurado: a igreja de Laodiceia, “pobre (πτωχός)” sem o saber (Ap 3.17); Cristo “se fez pobre (ἐπτώχευσεν)” por nós (2Co 8.9). Cf. πτωχεία, πένης.",
+    "nt": "Tg 2.2,3,5,6. Frequente: Mt 5.3; 11.5; 19.21; 26.9,11; Mc 10.21; 12.42,43; 14.5,7; Lc 4.18; 6.20; 7.22; 14.13,21; 16.20,22; 18.22; 19.8; 21.3; Jo 12.5,6,8; 13.29; Rm 15.26; 2Co 6.10; Gl 2.10; 4.9; Ap 3.17; 13.16.",
+    "cognatos": [
+      "πτωχεία",
+      "πτωχεύω"
+    ],
+    "verTambem": [
+      "πλούσιος",
+      "προσωπολημψία",
+      "ἔλεος",
+      "ταπεινός"
+    ],
+    "pt": [
+      "pobre",
+      "mendigo"
     ]
   },
   {
@@ -12336,6 +17434,29 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ῥαββί",
+    "translit": "rhabbí",
+    "beta": "rhabbi",
+    "classe": "substantivo, masc. (indeclinável)",
+    "morf": "ῥαββί",
+    "raiz": "do hebraico/aramaico רַבִּי (“meu mestre, meu grande”), de רַב (“grande”)",
+    "lsj": "Rabi, meu mestre (título de respeito ao mestre da Lei).",
+    "abbott": "Rabi, Mestre. Tratamento honroso dado ao mestre — frequente em João, que o traduz. “Rabi (ῥαββί) (que, traduzido, quer dizer Mestre), onde moras?” (Jo 1.38,49; 3.2,26; 6.25); Maria Madalena: “Raboni (ῥαββουνί), que quer dizer Mestre” (Jo 20.16; Mc 10.51). Jesus adverte contra a busca do título “Rabi (ῥαββί)” e da preeminência (Mt 23.7,8). Os discípulos e o povo assim chamavam Jesus, reconhecendo-lhe a autoridade de ensino. Cf. διδάσκαλος, ῥαββουνί.",
+    "nt": "Jo 1.38,49; 3.2,26; 4.31; 6.25; 9.2; 11.8. Cf. Mt 23.7,8; 26.25,49; Mc 9.5; 11.21; 14.45.",
+    "cognatos": [
+      "ῥαββουνί"
+    ],
+    "verTambem": [
+      "διδάσκαλος",
+      "κύριος",
+      "μαθητής"
+    ],
+    "pt": [
+      "rabi",
+      "mestre"
+    ]
+  },
+  {
     "lema": "ῥαντίζω",
     "translit": "rhantízō",
     "beta": "rhantizo",
@@ -12381,6 +17502,32 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "aspersão"
+    ]
+  },
+  {
+    "lema": "ῥῆμα",
+    "translit": "rhêma",
+    "beta": "rhema",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "ῥῆμα, -ατος, τό",
+    "raiz": "ῥέω/εἴρω (“dizer, falar”)",
+    "lsj": "O que é dito; palavra, dito, declaração; assunto, coisa.",
+    "abbott": "Palavra, dito. A palavra concreta proferida — e, por extensão, a coisa de que se fala. “As palavras (ῥήματα) que eu vos disse são espírito e são vida” (Jo 6.63,68, “palavras de vida eterna”); “quem é de Deus ouve as palavras (ῥήματα) de Deus” (Jo 8.47; 12.48; 17.8). “Não só de pão viverá o homem, mas de toda palavra (ῥήματι)” de Deus (Mt 4.4); “a fé vem pela pregação, e a pregação pela palavra (ῥήματος) de Cristo” (Rm 10.17); “a espada do Espírito, que é a palavra (ῥῆμα) de Deus” (Ef 6.17). Próximo de λόγος, mas com ênfase no dito específico. Cf. λόγος, λαλέω.",
+    "nt": "Jo 3.34; 5.47; 6.63,68; 8.20,47; 10.21; 12.47,48; 14.10; 15.7; 17.8. Frequente: Mt 4.4; 12.36; 18.16; 26.75; 27.14; Lc 1.37,38; 2.15,19,29,50,51; 5.5; 24.8,11; At 5.20; 10.22,37,44; 11.14,16; 13.42; Rm 10.8,17,18; 2Co 12.4; 13.1; Ef 5.26; 6.17; Hb 1.3; 6.5; 11.3; 12.19; 1Pe 1.25; 2Pe 3.2; Jd 17.",
+    "cognatos": [
+      "εἴρω",
+      "ῥέω",
+      "ῥήτωρ"
+    ],
+    "verTambem": [
+      "λόγος",
+      "λαλέω",
+      "ζωή",
+      "πνεῦμα"
+    ],
+    "pt": [
+      "palavra",
+      "dito"
     ]
   },
   {
@@ -12475,6 +17622,54 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "σάββατον",
+    "translit": "sábbaton",
+    "beta": "sabbaton",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "σάββατον, -ου, τό",
+    "raiz": "do hebraico שַׁבָּת (shabbāt, “cessar, descansar”)",
+    "lsj": "Sábado, o sétimo dia de repouso; (pl.) semana.",
+    "abbott": "Sábado; semana. O dia de repouso judaico — e, no plural idiomático, a “semana”. As curas de Jesus “no sábado (σαββάτῳ)” geram conflito: “não guarda o sábado (σάββατον)” (Jo 5.9,10,16,18; 7.22,23; 9.14,16); “o sábado (σάββατον) foi feito por causa do homem, e não o homem por causa do sábado; o Filho do Homem é Senhor até do sábado (σαββάτου)” (Mc 2.27,28). No plural, “o primeiro dia da semana (σαββάτων)”, a ressurreição (Mt 28.1; Jo 20.1,19); jejuar “duas vezes por semana (σαββάτου)” (Lc 18.12). Cf. σαββατισμός, προσάββατον.",
+    "nt": "Jo 5.9,10,16,18; 7.22,23; 9.14,16; 19.31; 20.1,19. Muito frequente nos Evangelhos e Atos.",
+    "cognatos": [
+      "σαββατισμός",
+      "προσάββατον"
+    ],
+    "verTambem": [
+      "σαββατισμός",
+      "κατάπαυσις",
+      "ἑορτή",
+      "ἀνάπαυσις"
+    ],
+    "pt": [
+      "sábado"
+    ]
+  },
+  {
+    "lema": "σάλπιγξ",
+    "translit": "sálpinx",
+    "beta": "salpigx",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "σάλπιγξ, -ιγγος, ἡ",
+    "raiz": "raiz grega de “trombeta”",
+    "lsj": "Trombeta, clarim; o som da trombeta.",
+    "abbott": "Trombeta. O instrumento que convoca e sinaliza — na guerra, no culto, nas grandes intervenções de Deus. O Senhor descerá “com a trombeta (σάλπιγγι) de Deus” (1Ts 4.16); ressuscitaremos “à última trombeta (σάλπιγγι)” (1Co 15.52); a teofania do Sinai, com “som de trombeta (σάλπιγγος)” (Hb 12.19). Frequente no Apocalipse, anunciando os juízos (Ap 8–9). Cf. σαλπίζω (tocar a trombeta).",
+    "nt": "1Ts 4.16. Cf. Mt 24.31; 1Co 14.8; 15.52; Hb 12.19; Ap 1.10; 4.1; 8.2,6,13; 9.14.",
+    "cognatos": [
+      "σαλπίζω",
+      "σαλπιστής"
+    ],
+    "verTambem": [
+      "κέλευσμα",
+      "ἀρχάγγελος",
+      "παρουσία",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "trombeta"
+    ]
+  },
+  {
     "lema": "σαπρός",
     "translit": "saprós",
     "beta": "sapros",
@@ -12520,6 +17715,30 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "carne"
+    ]
+  },
+  {
+    "lema": "σβέννυμι",
+    "translit": "sbénnymi",
+    "beta": "sbennymi",
+    "classe": "verbo",
+    "morf": "σβέννυμι",
+    "raiz": "raiz grega de “apagar, extinguir”",
+    "lsj": "Apagar, extinguir (fogo, luz); (fig.) sufocar, reprimir.",
+    "abbott": "Apagar, extinguir. Sufocar a chama — literal e figuradamente. “Não apagueis (σβέννυτε) o Espírito” (1Ts 5.19) — não sufocar a sua ação, em especial os dons; o escudo da fé apaga “todos os dardos inflamados do maligno” (Ef 6.16); as virgens néscias dizem: “as nossas lâmpadas se apagam (σβέννυνται)” (Mt 25.8); o servo do Senhor não “apagará (σβέσει)” a torcida que fumega (Mt 12.20). A chama do Espírito que não se deve abafar. Cf. ἄσβεστος (inextinguível).",
+    "nt": "1Ts 5.19. Cf. Mt 12.20; 25.8; Mc 9.44ss (var.); Ef 6.16; Hb 11.34.",
+    "cognatos": [
+      "ἄσβεστος"
+    ],
+    "verTambem": [
+      "πνεῦμα",
+      "χάρισμα",
+      "προφητεία",
+      "πῦρ"
+    ],
+    "pt": [
+      "apagar",
+      "extinguir"
     ]
   },
   {
@@ -12571,6 +17790,31 @@ window.LEXICON_DATA = [
     "pt": [
       "dignidade",
       "respeitabilidade"
+    ]
+  },
+  {
+    "lema": "σημεῖον",
+    "translit": "sēmeîon",
+    "beta": "semeion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "σημεῖον, -ου, τό",
+    "raiz": "σῆμα (“sinal, marca”)",
+    "lsj": "Sinal, marca distintiva; presságio; milagre que aponta para algo.",
+    "abbott": "Sinal. Marca que distingue ou que aponta para uma realidade maior. A saudação de próprio punho é “o sinal (σημεῖον) em cada carta” (2Ts 3.17); a vinda do iníquo será “com todo poder, e sinais (σημείοις) e prodígios (τέρασιν) da mentira” (2Ts 2.9); os judeus “pedem sinal (σημεῖον)” (1Co 1.22); em João, os milagres de Jesus são “sinais (σημεῖα)” que revelam a sua glória (Jo 2.11; 20.30,31). O milagre não como espetáculo, mas como indicador. Cf. σημαίνω, τέρας.",
+    "nt": "2Ts 2.9; 3.17. Muito frequente: Mt 12.38,39; 24.3,24,30; Mc 16.17,20; Lc 2.12,34; Jo 2.11; 4.54; 20.30; At 2.22; Rm 4.11; 1Co 1.22; 14.22; Ap 12.1,3; 13.13,14.",
+    "cognatos": [
+      "σῆμα",
+      "σημαίνω",
+      "σύσσημον"
+    ],
+    "verTambem": [
+      "τέρας",
+      "δύναμις",
+      "πλάνη",
+      "ἄνομος"
+    ],
+    "pt": [
+      "sinal"
     ]
   },
   {
@@ -12649,6 +17893,58 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "σκῆνος",
+    "translit": "skênos",
+    "beta": "skenos",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "σκῆνος, -ους, τό",
+    "raiz": "σκηνή (“tenda”)",
+    "lsj": "Tenda; (fig.) o corpo como habitação temporária da alma.",
+    "abbott": "Tenda, morada terrestre. O corpo mortal visto como tenda provisória. “Se a nossa casa terrestre, esta tenda (σκήνους), se desfizer, temos de Deus um edifício... eterno, nos céus”; “nós, que estamos nesta tenda (σκήνει), gememos carregados” (2Co 5.1,4). A imagem do corpo frágil e temporário, em contraste com a habitação celeste e permanente. Cf. σκηνή, σκήνωμα (2Pe 1.13,14), σκηνόω.",
+    "nt": "2Co 5.1,4.",
+    "cognatos": [
+      "σκηνή",
+      "σκήνωμα",
+      "σκηνόω"
+    ],
+    "verTambem": [
+      "σκηνή",
+      "σῶμα",
+      "οἰκητήριον",
+      "ἀφθαρσία"
+    ],
+    "pt": [
+      "tenda",
+      "morada terrestre"
+    ]
+  },
+  {
+    "lema": "σκηνόω",
+    "translit": "skēnóō",
+    "beta": "skenoo",
+    "classe": "verbo",
+    "morf": "σκηνόω",
+    "raiz": "σκηνή (“tenda, tabernáculo”)",
+    "lsj": "Armar tenda, acampar; habitar, residir (como em tenda).",
+    "abbott": "Habitar, tabernacular. Armar tenda e morar — ecoando o tabernáculo onde Deus habitava no meio de Israel. “O Verbo se fez carne e habitou (ἐσκήνωσεν) entre nós” (Jo 1.14) — literalmente “armou a sua tenda”, a glória de Deus agora morando na carne de Cristo. No Apocalipse, “aquele que está assentado no trono os abrigará na sua tenda (σκηνώσει)” (Ap 7.15); “o tabernáculo de Deus está com os homens, e habitará (σκηνώσει) com eles” (Ap 21.3). A presença de Deus que vem morar com o seu povo. Cf. σκηνή, σκῆνος, ἐπισκηνόω.",
+    "nt": "Jo 1.14. Cf. Ap 7.15; 12.12; 13.6; 21.3.",
+    "cognatos": [
+      "σκηνή",
+      "σκῆνος",
+      "ἐπισκηνόω"
+    ],
+    "verTambem": [
+      "σκηνή",
+      "δόξα",
+      "μονογενής",
+      "λόγος"
+    ],
+    "pt": [
+      "habitar",
+      "tabernacular"
+    ]
+  },
+  {
     "lema": "σκιά",
     "translit": "skiá",
     "beta": "skia",
@@ -12722,6 +18018,28 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "σκόλοψ",
+    "translit": "skólops",
+    "beta": "skolops",
+    "classe": "substantivo, masc. (3ª decl.)",
+    "morf": "σκόλοψ, -οπος, ὁ",
+    "raiz": "raiz grega de “estaca, espinho”",
+    "lsj": "Estaca pontiaguda; espinho, farpa cravada.",
+    "abbott": "Espinho, estaca. A farpa que se finca na carne e atormenta. Hapax do NT (2Co 12.7): “foi-me dado um espinho (σκόλοψ) na carne, um mensageiro de Satanás para me esbofetear, a fim de que não me exalte” — a aflição persistente que mantém o apóstolo humilde e dependente da graça que “basta”. A palavra pode designar tanto um espinho quanto uma estaca; a natureza exata do tormento de Paulo permanece incerta. Cf. κολαφίζω, ἀσθένεια.",
+    "nt": "1 ocorrência (hapax): 2Co 12.7.",
+    "cognatos": [],
+    "verTambem": [
+      "κολαφίζω",
+      "ἀσθένεια",
+      "χάρις",
+      "ταπεινόω"
+    ],
+    "pt": [
+      "espinho",
+      "estaca"
+    ]
+  },
+  {
     "lema": "σκοπός",
     "translit": "skopós",
     "beta": "skopos",
@@ -12745,6 +18063,31 @@ window.LEXICON_DATA = [
     "pt": [
       "alvo",
       "meta"
+    ]
+  },
+  {
+    "lema": "σκοτία",
+    "translit": "skotía",
+    "beta": "skotia",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "σκοτία, -ας, ἡ",
+    "raiz": "σκότος (“escuridão”)",
+    "lsj": "Escuridão, treva; (fig.) ignorância, mal, separação de Deus.",
+    "abbott": "Trevas. A escuridão moral e espiritual, oposta à luz de Deus. “Deus é luz, e nele não há treva (σκοτία) nenhuma” (1Jo 1.5); quem diz estar na luz e odeia o irmão “está na treva (σκοτίᾳ) até agora” (2.9,11); “a treva (σκοτία) vai passando, e já brilha a verdadeira luz” (2.8). Em João: “a luz resplandece nas trevas (σκοτίᾳ)” (Jo 1.5); “quem me segue não andará em trevas (σκοτίᾳ)” (Jo 8.12; 12.35,46). Cf. σκότος, σκοτίζω, φῶς (antônimo).",
+    "nt": "1Jo 1.5; 2.8,9,11. Cf. Mt 10.27; Lc 12.3; Jo 1.5; 6.17; 8.12; 12.35,46; 20.1.",
+    "cognatos": [
+      "σκότος",
+      "σκοτίζω",
+      "σκοτόω"
+    ],
+    "verTambem": [
+      "φῶς",
+      "ζόφος",
+      "ἀλήθεια",
+      "μισέω"
+    ],
+    "pt": [
+      "trevas"
     ]
   },
   {
@@ -12792,6 +18135,28 @@ window.LEXICON_DATA = [
     "pt": [
       "refugo",
       "esterco"
+    ]
+  },
+  {
+    "lema": "σουδάριον",
+    "translit": "soudárion",
+    "beta": "soudarion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "σουδάριον, -ου, τό",
+    "raiz": "do latim sudarium (“lenço de suor”)",
+    "lsj": "Lenço, pano (para o rosto ou o suor); sudário.",
+    "abbott": "Sudário, lenço. O pano para o rosto ou o suor. No túmulo, “o sudário (σουδάριον) que estivera sobre a sua cabeça, não posto com os lençóis, mas enrolado num lugar à parte” (Jo 20.7) — o detalhe da ordem que aponta para a ressurreição, não para um roubo. Lázaro saíra com “o rosto envolto num lenço (σουδαρίῳ)” (Jo 11.44). Também o lenço em que o servo guardou a moeda (Lc 19.20); lenços levados de Paulo curavam (At 19.12). Empréstimo latino. Cf. ὀθόνιον, σινδών.",
+    "nt": "Jo 11.44; 20.7. Cf. Lc 19.20; At 19.12.",
+    "cognatos": [],
+    "verTambem": [
+      "ὀθόνιον",
+      "κεῖμαι",
+      "μνημεῖον",
+      "ἀνάστασις"
+    ],
+    "pt": [
+      "sudário",
+      "lenço"
     ]
   },
   {
@@ -12916,6 +18281,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "σπιλάς",
+    "translit": "spilás",
+    "beta": "spilas",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "σπιλάς, -άδος, ἡ",
+    "raiz": "raiz grega de “rochedo, escolho”",
+    "lsj": "Rochedo batido pelas ondas; escolho submerso; (ou) mácula.",
+    "abbott": "Escolho, mácula. Hapax do NT (Jd 12): os falsos “são manchas/escolhos (σπιλάδες) nos vossos ágapes, banqueteando-se convosco sem temor”. Duplo sentido possível: “escolhos” (rochedos submersos que fazem naufragar) ou “manchas” (associando a σπίλος, mácula, como em 2Pe 2.13). Em qualquer caso, perigo oculto na própria comunhão da igreja. Cf. σπίλος, ἄσπιλος, σπιλόω.",
+    "nt": "1 ocorrência (hapax): Jd 12.",
+    "cognatos": [
+      "σπίλος",
+      "σπιλόω",
+      "ἄσπιλος"
+    ],
+    "verTambem": [
+      "ἄκαρπος",
+      "ἄσπιλος",
+      "ἀγάπη",
+      "ἀσεβής"
+    ],
+    "pt": [
+      "escolho",
+      "mácula"
+    ]
+  },
+  {
     "lema": "σπίλος",
     "translit": "spílos",
     "beta": "spilos",
@@ -12962,6 +18353,52 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "entranhas"
+    ]
+  },
+  {
+    "lema": "σπόγγος",
+    "translit": "spóngos",
+    "beta": "spoggos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "σπόγγος, -ου, ὁ",
+    "raiz": "raiz grega de “esponja”",
+    "lsj": "Esponja.",
+    "abbott": "Esponja. A esponja marinha usada para embeber líquido. Na cruz, ao dizer Jesus “tenho sede”, “embeberam de vinagre uma esponja (σπόγγον)... e lha chegaram à boca” (Jo 19.29); “correu um deles e, embebendo uma esponja (σπόγγον) em vinagre, pô-la numa cana, e dava-lhe de beber” (Mt 27.48; Mc 15.36). Cumprimento do Salmo 69.21. Termo só nestes relatos da paixão. Cf. ὄξος.",
+    "nt": "Jo 19.29. Cf. Mt 27.48; Mc 15.36.",
+    "cognatos": [],
+    "verTambem": [
+      "ὄξος",
+      "σταυρόω",
+      "διψάω",
+      "ὕσσωπος"
+    ],
+    "pt": [
+      "esponja"
+    ]
+  },
+  {
+    "lema": "σπορά",
+    "translit": "sporá",
+    "beta": "spora",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "σπορά, -ᾶς, ἡ",
+    "raiz": "σπείρω (“semear”)",
+    "lsj": "Semeadura; semente; descendência, geração.",
+    "abbott": "Semente. O princípio gerador da vida — aqui, da vida nova. Hapax do NT (1Pe 1.23): fostes “regenerados, não de semente (σπορᾶς) corruptível, mas incorruptível, pela palavra de Deus, viva e permanente”. A palavra de Deus como semente imperecível que gera o novo nascimento. Próximo de σπέρμα (semente) e σπόρος (a semente semeada, semeadura). Cf. σπείρω, σπέρμα, σπόρος.",
+    "nt": "1 ocorrência (hapax): 1Pe 1.23.",
+    "cognatos": [
+      "σπείρω",
+      "σπέρμα",
+      "σπόρος"
+    ],
+    "verTambem": [
+      "ἀναγεννάω",
+      "λόγος",
+      "ἄφθαρτος",
+      "σπέρμα"
+    ],
+    "pt": [
+      "semente"
     ]
   },
   {
@@ -13013,6 +18450,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "σταυρόω",
+    "translit": "stauróō",
+    "beta": "stauroo",
+    "classe": "verbo",
+    "morf": "σταυρόω",
+    "raiz": "σταυρός (“estaca, cruz”)",
+    "lsj": "Levantar uma estaca; cravar na cruz, crucificar.",
+    "abbott": "Crucificar. Pregar na cruz — a morte de Cristo. “Crucifica-o (σταύρωσον), crucifica-o (σταύρωσον)!... então o entregou para que fosse crucificado (σταυρωθῇ)” (Jo 19.6,15,16,18,20,23); “onde o crucificaram (ἐσταύρωσαν)”. “Será entregue para ser crucificado (σταυρωθῆναι)” (Mt 20.19; 26.2); “a vós outros prego a Cristo crucificado (ἐσταυρωμένον)” (1Co 1.23; 2.2; 2Co 13.4; Gl 3.1); “fui crucificado (συνεσταύρωμαι) com Cristo” (Gl 2.20); “crucificaram (ἐσταύρωσαν) a carne com as paixões” (Gl 5.24). O centro do evangelho. Cf. σταυρός, συσταυρόω, ἀνασταυρόω.",
+    "nt": "Jo 19.6,10,15,16,18,20,23,41. Frequente: Mt 20.19; 23.34; 26.2; 27.22,23,26,31,35,38; 28.5; Mc 15.13-27; 16.6; Lc 23.21,23,33; 24.7,20; At 2.36; 4.10; 1Co 1.13,23; 2.2,8; 2Co 13.4; Gl 3.1; 5.24; 6.14; Ap 11.8.",
+    "cognatos": [
+      "σταυρός",
+      "συσταυρόω",
+      "ἀνασταυρόω"
+    ],
+    "verTambem": [
+      "σταυρός",
+      "θάνατος",
+      "ὑψόω",
+      "πάσχω"
+    ],
+    "pt": [
+      "crucificar"
+    ]
+  },
+  {
     "lema": "στεῖρα",
     "translit": "steîra",
     "beta": "steira",
@@ -13058,6 +18520,32 @@ window.LEXICON_DATA = [
     "pt": [
       "gemer",
       "suspirar"
+    ]
+  },
+  {
+    "lema": "στηρίζω",
+    "translit": "stērízō",
+    "beta": "sterizo",
+    "classe": "verbo",
+    "morf": "στηρίζω",
+    "raiz": "raiz grega de “firmar, escorar”",
+    "lsj": "Firmar, fixar, escorar; tornar estável; fortalecer.",
+    "abbott": "Firmar, fortalecer. Tornar firme e estável. Timóteo foi enviado “para vos fortalecer (στηρίξαι) e vos confortar na fé” (1Ts 3.2); que o Senhor “confirme (στηρίξαι) os vossos corações” (1Ts 3.13; 2Ts 2.17; 3.3); Jesus disse a Pedro: “tu, uma vez convertido, confirma (στήρισον) os teus irmãos” (Lc 22.32); Cristo “firmou (ἐστήρισεν) o rosto” para subir a Jerusalém (Lc 9.51). O fortalecimento que dá estabilidade na fé. Cf. στηριγμός, ἐπιστηρίζω.",
+    "nt": "1Ts 3.2,13; 2Ts 2.17; 3.3. Cf. Lc 9.51; 16.26; 22.32; Rm 1.11; 16.25; Tg 5.8; 1Pe 5.10; 2Pe 1.12; Ap 3.2.",
+    "cognatos": [
+      "στηριγμός",
+      "ἐπιστηρίζω",
+      "ἀστήρικτος"
+    ],
+    "verTambem": [
+      "βεβαιόω",
+      "παρακαλέω",
+      "πίστις",
+      "ὑπομονή"
+    ],
+    "pt": [
+      "firmar",
+      "fortalecer"
     ]
   },
   {
@@ -13111,6 +18599,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "στοιχεῖον",
+    "translit": "stoicheîon",
+    "beta": "stoicheion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "στοιχεῖον, -ου, τό",
+    "raiz": "στοῖχος (“fila, série”), de στείχω",
+    "lsj": "Elemento; princípio fundamental; (pl.) os elementos do mundo; rudimentos.",
+    "abbott": "Elemento; rudimento. O componente básico — do cosmos ou do ensino. Cósmico: “os elementos (στοιχεῖα), ardendo, se dissolverão... os elementos (στοιχεῖα) se desfarão abrasados” (2Pe 3.10,12) — a dissolução do mundo no dia do Senhor. Rudimentos: estáveis sob “os rudimentos (στοιχεῖα) do mundo” (Gl 4.3,9; Cl 2.8,20); precisais que vos ensinem “os rudimentos (στοιχεῖα)” da palavra de Deus (Hb 5.12). Os princípios elementares — físicos ou doutrinários. Cf. στοιχέω.",
+    "nt": "2Pe 3.10,12. Cf. Gl 4.3,9; Cl 2.8,20; Hb 5.12.",
+    "cognatos": [
+      "στοιχέω",
+      "στοῖχος"
+    ],
+    "verTambem": [
+      "οὐρανός",
+      "παρουσία",
+      "κρίσις",
+      "λύω"
+    ],
+    "pt": [
+      "elemento"
+    ]
+  },
+  {
     "lema": "στοιχέω",
     "translit": "stoichéō",
     "beta": "stoicheo",
@@ -13133,6 +18645,32 @@ window.LEXICON_DATA = [
     "pt": [
       "andar em linha",
       "seguir a regra"
+    ]
+  },
+  {
+    "lema": "στρατιώτης",
+    "translit": "stratiṓtēs",
+    "beta": "stratiotes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "στρατιώτης, -ου, ὁ",
+    "raiz": "στρατιά (“exército”), de στρατός",
+    "lsj": "Soldado; militar.",
+    "abbott": "Soldado. O militar de profissão. Os “soldados (στρατιῶται)” na paixão: teceram a coroa de espinhos e o vestiram de púrpura (Jo 19.2); “os soldados (στρατιῶται), tendo crucificado a Jesus, tomaram as suas vestes” e lançaram sortes (Jo 19.23,24,32,34). “Um dos soldados (στρατιωτῶν)” traspassou-lhe o lado. O centurião e os que guardavam Jesus (Mt 8.9; 27.27; 28.12); Paulo entregue “a um soldado (στρατιώτῃ)” (At 28.16); “sofre comigo, como bom soldado (στρατιώτης) de Cristo” (2Tm 2.3). Cf. στρατιά, στρατεύομαι, στρατηγός.",
+    "nt": "Jo 19.2,23,24,32,34. Frequente: Mt 8.9; 27.27; 28.12; Mc 15.16; Lc 7.8; 23.36; At 10.7; 12.4,6,18; 21.32,35; 23.23,31; 27.31,32,42; 28.16; 2Tm 2.3.",
+    "cognatos": [
+      "στρατιά",
+      "στρατεύομαι",
+      "στρατηγός",
+      "συστρατιώτης"
+    ],
+    "verTambem": [
+      "ὑπηρέτης",
+      "σταυρόω",
+      "ἱμάτιον",
+      "πραιτώριον"
+    ],
+    "pt": [
+      "soldado"
     ]
   },
   {
@@ -13579,6 +19117,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "συναιχμάλωτος",
+    "translit": "synaichmálōtos",
+    "beta": "synaichmalotos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "συναιχμάλωτος, -ου, ὁ",
+    "raiz": "σύν (“com”) + αἰχμάλωτος (“cativo, prisioneiro de guerra”)",
+    "lsj": "Companheiro de cativeiro; co-prisioneiro.",
+    "abbott": "Companheiro de prisão. O que está preso junto com outrem — pela causa de Cristo. Epafras é saudado como “meu companheiro de prisão (συναιχμάλωτός) em Cristo Jesus” (Fm 23); Aristarco, “meu companheiro de prisão (συναιχμάλωτος)” (Cl 4.10); Andrônico e Júnias, “meus companheiros de prisão (συναιχμαλώτους)” (Rm 16.7). O termo evoca prisioneiros de guerra: presos juntos na milícia do evangelho. Cf. αἰχμάλωτος, αἰχμαλωτίζω.",
+    "nt": "Fm 23. Cf. Rm 16.7; Cl 4.10.",
+    "cognatos": [
+      "αἰχμάλωτος",
+      "αἰχμαλωτίζω",
+      "αἰχμαλωσία"
+    ],
+    "verTambem": [
+      "δέσμιος",
+      "συνεργός",
+      "ἀγαπητός",
+      "ἀδελφός"
+    ],
+    "pt": [
+      "companheiro de prisão"
+    ]
+  },
+  {
     "lema": "συναρμολογέω",
     "translit": "synarmologéō",
     "beta": "synarmologeo",
@@ -13999,6 +19562,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "σχίσμα",
+    "translit": "schísma",
+    "beta": "schisma",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "σχίσμα, -ατος, τό",
+    "raiz": "σχίζω (“rasgar, dividir”)",
+    "lsj": "Fenda, rasgão; divisão, cisão; dissensão.",
+    "abbott": "Divisão, cisma. O rasgão — literal num tecido, ou figurado na comunidade. Paulo roga que não haja “divisões (σχίσματα)” entre os coríntios, mas que estejam unidos no mesmo sentir (1Co 1.10; 11.18; 12.25); o pano novo faz “rasgão (σχίσμα)” maior na roupa velha (Mt 9.16; Mc 2.21); houve “dissensão (σχίσμα)” entre o povo por causa de Jesus (Jo 7.43; 9.16; 10.19). A ruptura da unidade — o oposto do corpo bem ajustado. Raiz da palavra “cisma”. Cf. σχίζω, αἵρεσις.",
+    "nt": "1Co 1.10; 11.18; 12.25. Cf. Mt 9.16; Mc 2.21; Jo 7.43; 9.16; 10.19.",
+    "cognatos": [
+      "σχίζω",
+      "σχισμή"
+    ],
+    "verTambem": [
+      "αἵρεσις",
+      "διχοστασία",
+      "ἔρις",
+      "ἑνότης"
+    ],
+    "pt": [
+      "divisão",
+      "cisma"
+    ]
+  },
+  {
     "lema": "σῴζω",
     "translit": "sṓzō",
     "beta": "sozo",
@@ -14330,6 +19918,32 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ταπεινόφρων",
+    "translit": "tapeinóphrōn",
+    "beta": "tapeinophron",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ταπεινόφρων, -ον",
+    "raiz": "ταπεινός (“humilde”) + φρήν (“mente”)",
+    "lsj": "De mente humilde; humilde de pensamento.",
+    "abbott": "Humilde de mente. O que tem disposição humilde. Hapax do NT (1Pe 3.8): “sede... amigos dos irmãos, misericordiosos, humildes (ταπεινόφρονες)”. A humildade não como circunstância, mas como modo de pensar e sentir — a mente que não se exalta. Da família de ταπεινοφροσύνη (humildade, Fp 2.3; Cl 3.12; 1Pe 5.5) e ταπεινός (humilde). Cf. ταπεινοφροσύνη, ταπεινός, ταπεινόω.",
+    "nt": "1 ocorrência (hapax): 1Pe 3.8.",
+    "cognatos": [
+      "ταπεινός",
+      "ταπεινοφροσύνη",
+      "ταπεινόω",
+      "φρήν"
+    ],
+    "verTambem": [
+      "ταπεινοφροσύνη",
+      "φιλάδελφος",
+      "εὔσπλαγχνος",
+      "πραΰτης"
+    ],
+    "pt": [
+      "humilde de mente"
+    ]
+  },
+  {
     "lema": "ταπεινόω",
     "translit": "tapeinóō",
     "beta": "tapeinoo",
@@ -14352,6 +19966,51 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "humilhar"
+    ]
+  },
+  {
+    "lema": "ταρταρόω",
+    "translit": "tartaróō",
+    "beta": "tartaroo",
+    "classe": "verbo",
+    "morf": "ταρταρόω",
+    "raiz": "Τάρταρος (“Tártaro”, o abismo subterrâneo)",
+    "lsj": "Lançar no Tártaro; precipitar no abismo de castigo.",
+    "abbott": "Lançar no abismo. Hapax do NT (2Pe 2.4): “Deus não perdoou aos anjos que pecaram, mas, havendo-os lançado no inferno (ταρταρώσας), os entregou às cadeias da escuridão (ζόφου)”. O Τάρταρος, na cosmologia grega, era o abismo mais profundo, lugar de castigo dos titãs; aqui designa a prisão dos anjos caídos até o juízo. Único uso bíblico do termo. Cf. ζόφος, ἄβυσσος, ἅδης.",
+    "nt": "1 ocorrência (hapax): 2Pe 2.4.",
+    "cognatos": [],
+    "verTambem": [
+      "ζόφος",
+      "ἄβυσσος",
+      "ἄγγελος",
+      "κρίσις"
+    ],
+    "pt": [
+      "lançar no abismo"
+    ]
+  },
+  {
+    "lema": "τεκνίον",
+    "translit": "tekníon",
+    "beta": "teknion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "τεκνίον, -ου, τό",
+    "raiz": "τέκνον (“filho, criança”), no diminutivo",
+    "lsj": "Filhinho; criancinha (diminutivo afetuoso).",
+    "abbott": "Filhinhos. Diminutivo carinhoso de τέκνον, próprio do tom pastoral de João ao dirigir-se aos seus leitores. “Filhinhos (τεκνία), estas coisas vos escrevo para que não pequeis” (1Jo 2.1,12,28; 3.7,18; 4.4; 5.21); Jesus aos discípulos: “Filhinhos (τεκνία), ainda por um pouco estou convosco” (Jo 13.33); “meus filhinhos (τεκνία), por quem de novo sinto as dores de parto” (Gl 4.19). A ternura do mestre para com a comunidade que gerou na fé. Cf. τέκνον, παιδίον.",
+    "nt": "1Jo 2.1,12,28; 3.7,18; 4.4; 5.21. Cf. Jo 13.33; Gl 4.19.",
+    "cognatos": [
+      "τέκνον",
+      "τίκτω"
+    ],
+    "verTambem": [
+      "τέκνον",
+      "ἀγαπητός",
+      "παιδίον",
+      "πατήρ"
+    ],
+    "pt": [
+      "filhinhos"
     ]
   },
   {
@@ -14487,6 +20146,82 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "τέρας",
+    "translit": "téras",
+    "beta": "teras",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "τέρας, -ατος, τό",
+    "raiz": "raiz grega de “prodígio, portento”",
+    "lsj": "Portento, prodígio, maravilha; sinal extraordinário.",
+    "abbott": "Prodígio, portento. O fato extraordinário que assombra — sempre, no NT, ao lado de σημεῖον (“sinais e prodígios”). A vinda do iníquo se dá “com todo poder, e sinais e prodígios (τέρασιν) da mentira” (2Ts 2.9); Deus confirmou o evangelho “com sinais e prodígios (τέρασιν)” (Hb 2.4; At 2.22,43; 4.30; 5.12); falsos cristos farão “sinais e prodígios (τέρατα)” para enganar (Mt 24.24; Mc 13.22). O prodígio que pode atestar a verdade — ou servir ao engano. Cf. σημεῖον.",
+    "nt": "2Ts 2.9. Cf. Mt 24.24; Mc 13.22; Jo 4.48; At 2.19,22,43; 4.30; 5.12; 6.8; 7.36; 14.3; 15.12; Rm 15.19; 2Co 12.12; Hb 2.4.",
+    "cognatos": [],
+    "verTambem": [
+      "σημεῖον",
+      "δύναμις",
+      "πλάνη",
+      "ἄνομος"
+    ],
+    "pt": [
+      "prodígio",
+      "portento"
+    ]
+  },
+  {
+    "lema": "τηρέω",
+    "translit": "tēréō",
+    "beta": "tereo",
+    "classe": "verbo",
+    "morf": "τηρέω",
+    "raiz": "τηρός (“guarda, vigia”)",
+    "lsj": "Vigiar, guardar; observar, cumprir; conservar, manter.",
+    "abbott": "Guardar, observar, conservar. Vigiar para cumprir e preservar. Tema joanino: “nisto sabemos que o conhecemos: se guardamos (τηρῶμεν) os seus mandamentos” (1Jo 2.3,4,5; 3.22,24; 5.2,3); “quem guarda (τηρῶν) a sua palavra” (2.5); Jesus: “se me amais, guardareis (τηρήσετε) os meus mandamentos” (Jo 14.15,21,23,24; 15.10). Também conservar/preservar: Deus “guarda (τηρήσῃ)” os seus do mal (Jo 17.11,12,15; 1Pe 1.4, herança “reservada/guardada”); “guardai-vos (τηρήσατε) no amor de Deus” (Jd 21). Cf. τήρησις, διατηρέω, συντηρέω.",
+    "nt": "1Jo 2.3,4,5; 3.22,24; 5.2,3,18. Muito frequente: Mt 19.17; 23.3; 27.36,54; 28.20; Jo 8.51,52,55; 14.15,21,23,24; 15.10,20; 17.6,11,12,15; At 15.5; 16.23; 1Co 7.37; 2Co 11.9; Ef 4.3; 1Ts 5.23; 1Tm 5.22; 6.14; Tg 1.27; 2.10; 1Pe 1.4; 2Pe 2.4,9,17; 3.7; Jd 1,6,13,21; Ap 1.3; 2.26; 3.3,8,10; 12.17; 14.12; 16.15; 22.7,9.",
+    "cognatos": [
+      "τήρησις",
+      "διατηρέω",
+      "συντηρέω",
+      "παρατηρέω"
+    ],
+    "verTambem": [
+      "ἐντολή",
+      "φυλάσσω",
+      "ἀγαπάω",
+      "λόγος"
+    ],
+    "pt": [
+      "guardar",
+      "observar",
+      "conservar"
+    ]
+  },
+  {
+    "lema": "τιμή",
+    "translit": "timḗ",
+    "beta": "time",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "τιμή, -ῆς, ἡ",
+    "raiz": "τίω (“honrar, estimar”)",
+    "lsj": "Honra, estima, dignidade; valor, preço; (pl.) honrarias.",
+    "abbott": "Honra; preço. O reconhecimento de valor — e o valor pago. (1) Honra: “preferindo-vos em honra (τιμῇ) uns aos outros” (Rm 12.10); “a quem honra (τιμήν), honra” (Rm 13.7); “glória, honra (τιμή) e paz a todo o que faz o bem” (Rm 2.7,10); buscar “glória, honra (τιμήν) e incorrupção” (Rm 2.7); vasos “para honra (τιμήν)” e para desonra (Rm 9.21). (2) Preço: “fostes comprados por bom preço (τιμῆς)” (1Co 6.20; 7.23; At 4.34; 5.2,3; 7.16). A Deus seja “honra (τιμή) e glória” (1Tm 1.17; 6.16; Ap 4.9,11; 5.12,13). Cf. τιμάω, τίμιος, ἔντιμος.",
+    "nt": "Rm 2.7,10; 9.21; 12.10; 13.7. Frequente: Jo 4.44; At 4.34; 5.2,3; 7.16; 19.19; 28.10; 1Co 6.20; 7.23; 12.23,24; Cl 2.23; 1Tm 1.17; 5.17; 6.1,16; 2Tm 2.20,21; Hb 2.7,9; 3.3; 5.4; 1Pe 1.7; 2.7; 3.7; 2Pe 1.17; Ap 4.9,11; 5.12,13; 7.12; 21.26.",
+    "cognatos": [
+      "τιμάω",
+      "τίμιος",
+      "ἔντιμος",
+      "πολύτιμος"
+    ],
+    "verTambem": [
+      "τιμάω",
+      "δόξα",
+      "φόβος",
+      "ἀτιμία"
+    ],
+    "pt": [
+      "honra"
+    ]
+  },
+  {
     "lema": "τολμάω",
     "translit": "tolmáō",
     "beta": "tolmao",
@@ -14508,6 +20243,29 @@ window.LEXICON_DATA = [
     "pt": [
       "ousar",
       "atrever-se"
+    ]
+  },
+  {
+    "lema": "τράπεζα",
+    "translit": "trápeza",
+    "beta": "trapeza",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "τράπεζα, -ης, ἡ",
+    "raiz": "τετρα- (“quatro”) + πέζα (“pé”): “a de quatro pés”",
+    "lsj": "Mesa; mesa de refeição; banca de cambista; banquete.",
+    "abbott": "Mesa. A mesa de refeição e, por extensão, a comunhão que ela representa. “Não podeis participar da mesa (τραπέζης) do Senhor e da mesa (τραπέζης) dos demônios” (1Co 10.21); os cães comem das migalhas “debaixo da mesa (τραπέζης)” (Mc 7.28); Jesus derrubou “as mesas (τραπέζας)” dos cambistas (Mt 21.12; Jo 2.15); “servir às mesas (τραπέζαις)”, em contraste com o ministério da palavra (At 6.2). A mesa como lugar de comunhão e pertença. Cf. τραπεζίτης (banqueiro).",
+    "nt": "1Co 10.21. Frequente: Mt 15.27; 21.12; Mc 7.28; 11.15; Lc 16.21; 19.23; 22.21,30; Jo 2.15; At 6.2; 16.34; Rm 11.9; Hb 9.2.",
+    "cognatos": [
+      "τραπεζίτης"
+    ],
+    "verTambem": [
+      "ποτήριον",
+      "δεῖπνον",
+      "κοινωνία",
+      "εἰδωλόθυτον"
+    ],
+    "pt": [
+      "mesa"
     ]
   },
   {
@@ -14535,6 +20293,28 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "τρώγω",
+    "translit": "trṓgō",
+    "beta": "trogo",
+    "classe": "verbo",
+    "morf": "τρώγω",
+    "raiz": "raiz grega de “roer, mastigar”",
+    "lsj": "Roer, mastigar; comer (alimentos sólidos).",
+    "abbott": "Comer, mastigar. Verbo concreto do mastigar — usado por João, no discurso do pão da vida, de modo enfático e realista. “Quem come (τρώγων) a minha carne e bebe o meu sangue tem a vida eterna... a minha carne é verdadeira comida” (Jo 6.54,56,57,58) — a comunhão real com Cristo, não meramente simbólica. “Quem come (τρώγων) o pão comigo levantou contra mim o calcanhar” (Jo 13.18, de Judas); nos dias de Noé, “comiam (τρώγοντες) e bebiam” sem perceber o juízo (Mt 24.38). Mais cru e vívido que ἐσθίω. Cf. ἐσθίω, βρῶσις.",
+    "nt": "Jo 6.54,56,57,58; 13.18. Cf. Mt 24.38.",
+    "cognatos": [],
+    "verTambem": [
+      "ἐσθίω",
+      "ἄρτος",
+      "σάρξ",
+      "αἷμα"
+    ],
+    "pt": [
+      "comer",
+      "mastigar"
+    ]
+  },
+  {
     "lema": "τύπος",
     "translit": "týpos",
     "beta": "tupos",
@@ -14558,6 +20338,29 @@ window.LEXICON_DATA = [
       "tipo",
       "figura",
       "modelo"
+    ]
+  },
+  {
+    "lema": "τυφλός",
+    "translit": "typhlós",
+    "beta": "typhlos",
+    "classe": "adjetivo/substantivo (2-1-2)",
+    "morf": "τυφλός, -ή, -όν",
+    "raiz": "raiz grega de “cego, embaçado”",
+    "lsj": "Cego; (fig.) que não enxerga, espiritualmente cego.",
+    "abbott": "Cego. A cegueira física e a espiritual. A cura do “cego (τυφλός) de nascença” (Jo 9.1,2,6-41), em que João contrasta a visão recebida com a cegueira dos que dizem ver: “para juízo vim... para que os que veem se tornem cegos (τυφλοί)”. “Os cegos (τυφλοί) veem” como sinal messiânico (Mt 11.5; Lc 7.21,22); os fariseus, “guias cegos (τυφλοί)”, cegos que guiam cegos (Mt 15.14; 23.16-26); Laodiceia, “cega (τυφλός)” sem o saber (Ap 3.17). Cf. τυφλόω, ἀναβλέπω.",
+    "nt": "Jo 5.3; 9.1,2,6,8,13,17-25,32,39,40,41; 10.21; 11.37. Frequente: Mt 9.27,28; 11.5; 12.22; 15.14,30,31; 20.30; 21.14; 23.16-26; Mc 8.22,23; 10.46,49,51; Lc 4.18; 6.39; 7.21,22; 14.13,21; 18.35; At 13.11; Rm 2.19; 2Pe 1.9; Ap 3.17.",
+    "cognatos": [
+      "τυφλόω"
+    ],
+    "verTambem": [
+      "ἀνοίγω",
+      "ἀναβλέπω",
+      "πηλός",
+      "σκοτία"
+    ],
+    "pt": [
+      "cego"
     ]
   },
   {
@@ -14607,6 +20410,54 @@ window.LEXICON_DATA = [
     "pt": [
       "ser são",
       "estar saudável"
+    ]
+  },
+  {
+    "lema": "ὑγιής",
+    "translit": "hygiḗs",
+    "beta": "hygies",
+    "classe": "adjetivo (2 term.)",
+    "morf": "ὑγιής, -ές",
+    "raiz": "raiz grega de “são, saudável”",
+    "lsj": "São, saudável; íntegro, curado; (fig.) sadio, correto.",
+    "abbott": "São, curado. O restabelecido à saúde — e, figuradamente, o sadio na doutrina. Ao paralítico: “queres ficar são (ὑγιής)?... ficou são (ὑγιής) aquele homem” (Jo 5.6,9,11,14,15; 7.23); “a tua mão foi restituída sã (ὑγιής)” (Mt 12.13); “a tua fé te salvou; vai em paz e fica sã (ὑγιής)” (Mc 5.34). Figurado: ter “linguagem sã (ὑγιῆ) e irrepreensível” (Tt 2.8). Liga-se a ὑγιαίνω (ser são; “sã doutrina”). Cf. ὑγιαίνω.",
+    "nt": "Jo 5.6,9,11,14,15; 7.23. Cf. Mt 12.13; 15.31; Mc 3.5; 5.34; Lc 6.10; At 4.10; Tt 2.8.",
+    "cognatos": [
+      "ὑγιαίνω"
+    ],
+    "verTambem": [
+      "ὑγιαίνω",
+      "κράβαττος",
+      "θεραπεύω",
+      "ἰάομαι"
+    ],
+    "pt": [
+      "são",
+      "curado"
+    ]
+  },
+  {
+    "lema": "ὑδρία",
+    "translit": "hydría",
+    "beta": "hydria",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ὑδρία, -ας, ἡ",
+    "raiz": "ὕδωρ (“água”)",
+    "lsj": "Talha, jarro grande (para água); cântaro.",
+    "abbott": "Talha, cântaro. O grande vaso de água. Nas bodas de Caná, “havia ali seis talhas (ὑδρίαι) de pedra... Enchei de água as talhas (ὑδρίας)” (Jo 2.6,7) — a água que Jesus transforma em vinho. A samaritana “deixou o seu cântaro (ὑδρίαν)” e correu à cidade (Jo 4.28), tão tomada pelo encontro com Cristo. Termo só joanino no NT. De ὕδωρ (água). Cf. πηγή, φρέαρ, ὕδωρ.",
+    "nt": "Jo 2.6,7; 4.28.",
+    "cognatos": [
+      "ὕδωρ"
+    ],
+    "verTambem": [
+      "ἀρχιτρίκλινος",
+      "πηγή",
+      "φρέαρ",
+      "σημεῖον"
+    ],
+    "pt": [
+      "talha",
+      "cântaro"
     ]
   },
   {
@@ -14703,6 +20554,55 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ὑπακούω",
+    "translit": "hypakoúō",
+    "beta": "hypakouo",
+    "classe": "verbo",
+    "morf": "ὑπακούω",
+    "raiz": "ὑπό (“sob”) + ἀκούω (“ouvir”): “ouvir submisso”",
+    "lsj": "Escutar e atender; obedecer; submeter-se; (de porteiro) atender à porta.",
+    "abbott": "Obedecer. Ouvir com submissão e atender. “Graças a Deus que, tendo sido servos do pecado, obedecestes (ὑπηκούσατε) de coração à forma de doutrina” (Rm 6.16,17); “nem todos obedeceram (ὑπήκουσαν) ao evangelho” (Rm 10.16); o exemplo de Cristo, “obediente (ὑπήκοος) até à morte” (Fp 2.8). “Os ventos e o mar lhe obedecem (ὑπακούουσιν)” (Mt 8.27; Mc 1.27; 4.41); os filhos devem “obedecer (ὑπακούετε)” aos pais (Ef 6.1; Cl 3.20,22); Sara “obedecia (ὑπήκουσεν)” a Abraão (1Pe 3.6). Cf. ὑπακοή, ὑπήκοος, ἀκούω.",
+    "nt": "Rm 6.12,16,17; 10.16. Cf. Mt 8.27; Mc 1.27; 4.41; Lc 8.25; 17.6; At 6.7; 12.13; 2Co 2.9; Ef 6.1,5; Fp 2.12; Cl 3.20,22; 2Ts 1.8; 3.14; Hb 5.9; 11.8; 1Pe 3.6.",
+    "cognatos": [
+      "ἀκούω",
+      "ὑπακοή",
+      "ὑπήκοος"
+    ],
+    "verTambem": [
+      "ὑπακοή",
+      "δουλεύω",
+      "πίστις",
+      "ὑποτάσσω"
+    ],
+    "pt": [
+      "obedecer"
+    ]
+  },
+  {
+    "lema": "ὑπεραυξάνω",
+    "translit": "hyperauxánō",
+    "beta": "hyperauxano",
+    "classe": "verbo",
+    "morf": "ὑπεραυξάνω",
+    "raiz": "ὑπέρ (“sobremaneira”) + αὐξάνω (“crescer”)",
+    "lsj": "Crescer sobremaneira; aumentar extraordinariamente.",
+    "abbott": "Crescer sobremaneira. Hapax do NT (2Ts 1.3): “a vossa fé cresce muitíssimo (ὑπεραυξάνει), e o amor de cada um de vós aumenta uns para com os outros”. O prefixo ὑπέρ (que Paulo aprecia) marca o crescimento que ultrapassa toda medida — a fé não apenas progride, mas transborda. Cf. αὐξάνω (crescer), e os muitos compostos paulinos com ὑπέρ.",
+    "nt": "1 ocorrência (hapax): 2Ts 1.3.",
+    "cognatos": [
+      "αὐξάνω",
+      "αὔξησις"
+    ],
+    "verTambem": [
+      "αὐξάνω",
+      "πλεονάζω",
+      "περισσεύω",
+      "πίστις"
+    ],
+    "pt": [
+      "crescer sobremaneira"
+    ]
+  },
+  {
     "lema": "ὑπερβάλλω",
     "translit": "hyperbállō",
     "beta": "hyperballo",
@@ -14726,6 +20626,30 @@ window.LEXICON_DATA = [
     "pt": [
       "exceder",
       "sobrepujar"
+    ]
+  },
+  {
+    "lema": "ὑπερβολή",
+    "translit": "hyperbolḗ",
+    "beta": "hyperbole",
+    "classe": "substantivo, fem. (1ª decl.)",
+    "morf": "ὑπερβολή, -ῆς, ἡ",
+    "raiz": "ὑπερβάλλω (“lançar além, exceder”), de ὑπέρ + βάλλω",
+    "lsj": "Excesso, superabundância; o que ultrapassa toda medida; superioridade.",
+    "abbott": "Excelência sobremaneira; medida extraordinária. O que excede toda proporção. “A excelência (ὑπερβολή) do poder seja de Deus, e não de nós” (2Co 4.7); a tribulação produz “um peso eterno de glória acima de toda medida (καθ’ ὑπερβολὴν εἰς ὑπερβολήν)” (4.17); “para que eu não me exaltasse pela excelência (ὑπερβολῇ) das revelações” (12.7); um caminho “sobremodo excelente (καθ’ ὑπερβολήν)”, o do amor (1Co 12.31). A locução καθ’ ὑπερβολήν = “em grau supremo”. Raiz de “hipérbole”. Cf. ὑπερβάλλω.",
+    "nt": "1Co 12.31; 2Co 1.8; 4.7,17; 12.7. Cf. Rm 7.13; Gl 1.13.",
+    "cognatos": [
+      "ὑπερβάλλω",
+      "βάλλω"
+    ],
+    "verTambem": [
+      "θησαυρός",
+      "δύναμις",
+      "δόξα",
+      "ἀσθένεια"
+    ],
+    "pt": [
+      "excelência sobremaneira"
     ]
   },
   {
@@ -14826,6 +20750,56 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "exaltar soberanamente"
+    ]
+  },
+  {
+    "lema": "ὑπηρέτης",
+    "translit": "hypērétēs",
+    "beta": "hyperetes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "ὑπηρέτης, -ου, ὁ",
+    "raiz": "ὑπό + ἐρέτης (“remador”): originalmente o remador subalterno",
+    "lsj": "Servidor, assistente; oficial subalterno; guarda; ministro.",
+    "abbott": "Servidor, oficial, guarda. O que serve sob ordens — guarda do templo, ajudante, ministro. Os “guardas (ὑπηρέται)” enviados a prender Jesus voltam dizendo: “nunca homem algum falou assim” (Jo 7.32,45,46; 18.3,12,18,22; 19.6); “se o meu reino fosse deste mundo, os meus servidores (ὑπηρέται) pelejariam” (Jo 18.36). João Marcos como “ajudante (ὑπηρέτην)” (At 13.5); Paulo nomeado “ministro (ὑπηρέτην) e testemunha” (At 26.16); considerados “ministros (ὑπηρέτας) de Cristo” (1Co 4.1). Cf. ὑπηρετέω, διάκονος, δοῦλος.",
+    "nt": "Jo 7.32,45,46; 18.3,12,18,22,36; 19.6. Frequente: Mt 5.25; 26.58; Mc 14.54,65; Lc 1.2; 4.20; At 5.22,26; 13.5; 26.16; 1Co 4.1.",
+    "cognatos": [
+      "ὑπηρετέω"
+    ],
+    "verTambem": [
+      "στρατιώτης",
+      "διάκονος",
+      "δοῦλος",
+      "πραιτώριον"
+    ],
+    "pt": [
+      "servidor",
+      "oficial",
+      "guarda"
+    ]
+  },
+  {
+    "lema": "ὑπογραμμός",
+    "translit": "hypogrammós",
+    "beta": "hypogrammos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ὑπογραμμός, -οῦ, ὁ",
+    "raiz": "ὑπογράφω (“escrever debaixo, traçar como modelo”)",
+    "lsj": "Termo do grego cristão: modelo de escrita a copiar; exemplo, padrão.",
+    "abbott": "Exemplo, modelo a seguir. Hapax do NT (1Pe 2.21): “Cristo padeceu por vós, deixando-vos exemplo (ὑπογραμμόν), para que sigais as suas pisadas”. O ὑπογραμμός era o modelo de caligrafia ou desenho que o aluno copiava por baixo, traço a traço. Cristo, no seu sofrimento paciente, é o modelo que o crente reproduz na própria vida. De ὑπογράφω (escrever debaixo). Cf. τύπος, μιμητής.",
+    "nt": "1 ocorrência (hapax): 1Pe 2.21.",
+    "cognatos": [
+      "ὑπογράφω",
+      "γράφω"
+    ],
+    "verTambem": [
+      "τύπος",
+      "μιμητής",
+      "πάσχω",
+      "ἴχνος"
+    ],
+    "pt": [
+      "exemplo",
+      "modelo a seguir"
     ]
   },
   {
@@ -14979,6 +20953,58 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ὑψόω",
+    "translit": "hypsóō",
+    "beta": "hypsoo",
+    "classe": "verbo",
+    "morf": "ὑψόω",
+    "raiz": "ὕψος (“altura”), de ὑψηλός (“alto”)",
+    "lsj": "Levantar, erguer ao alto; (fig.) exaltar, elevar em honra.",
+    "abbott": "Levantar; exaltar. Erguer ao alto — literal e figurado, com duplo sentido em João. “Como Moisés levantou (ὕψωσεν) a serpente no deserto, assim importa que o Filho do Homem seja levantado (ὑψωθῆναι)” (Jo 3.14; 8.28; 12.32,34) — o “levantar” na cruz que é também exaltação. “Todo o que se exalta (ὑψῶν) será humilhado, e o que se humilha será exaltado (ὑψωθήσεται)” (Lc 14.11; 18.14; Mt 23.12); Deus “exaltou (ὕψωσεν)” a Jesus (At 2.33; 5.31); Cafarnaum “elevada (ὑψωθεῖσα) ao céu” (Mt 11.23). Cf. ὕψος, ὑψηλός, ταπεινόω (antônimo).",
+    "nt": "Jo 3.14; 8.28; 12.32,34. Cf. Mt 11.23; 23.12; Lc 1.52; 10.15; 14.11; 18.14; At 2.33; 5.31; 13.17; 2Co 11.7; Tg 4.10; 1Pe 5.6.",
+    "cognatos": [
+      "ὕψος",
+      "ὑψηλός",
+      "ὕψιστος",
+      "ὑπερυψόω"
+    ],
+    "verTambem": [
+      "σταυρόω",
+      "δοξάζω",
+      "ταπεινόω",
+      "ὄφις"
+    ],
+    "pt": [
+      "levantar"
+    ]
+  },
+  {
+    "lema": "φαίνω",
+    "translit": "phaínō",
+    "beta": "phaino",
+    "classe": "verbo",
+    "morf": "φαίνω",
+    "raiz": "raiz grega de “brilhar, mostrar”",
+    "lsj": "Trazer à luz, mostrar; (intr./pass.) brilhar, resplandecer; aparecer, parecer.",
+    "abbott": "Brilhar; aparecer. Dar ou emitir luz; tornar-se visível. “A treva vai passando, e já a verdadeira luz brilha (φαίνει)” (1Jo 2.8); “a luz resplandece (φαίνει) nas trevas” (Jo 1.5); a lâmpada “que arde e ilumina (φαίνων)” (Jo 5.35); o sol e os astros que “alumiam (φαίνῃ)” (Ap 1.16; 8.12; 21.23). Também “aparecer/parecer”: a estrela que “aparecera (φαινομένου)” (Mt 2.7); “aparecereis (φαίνεσθε) justos aos homens”, mas por fora (Mt 23.27,28). Cf. φῶς, φανερόω, ἐπιφαίνω, φωτίζω.",
+    "nt": "1Jo 2.8. Frequente: Mt 1.20; 2.7,13,19; 6.5,16,18; 13.26; 23.27,28; 24.27,30; Mc 14.64; 16.9; Lc 9.8; 24.11; Jo 1.5; 5.35; Rm 7.13; 2Co 13.7; Fp 2.15; Tg 4.14; 2Pe 1.19; Ap 1.16; 8.12; 18.23; 21.23.",
+    "cognatos": [
+      "φῶς",
+      "φανερόω",
+      "ἐπιφαίνω",
+      "φωτίζω"
+    ],
+    "verTambem": [
+      "φῶς",
+      "σκοτία",
+      "ἀληθινός",
+      "φανερόω"
+    ],
+    "pt": [
+      "brilhar"
+    ]
+  },
+  {
     "lema": "φανερόω",
     "translit": "phaneróō",
     "beta": "phaneroo",
@@ -15103,6 +21129,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "φιλάδελφος",
+    "translit": "philádelphos",
+    "beta": "philadelphos",
+    "classe": "adjetivo (2 term.)",
+    "morf": "φιλάδελφος, -ον",
+    "raiz": "φίλος (“amigo”) + ἀδελφός (“irmão”)",
+    "lsj": "Que ama os irmãos; afeiçoado aos irmãos.",
+    "abbott": "Amante dos irmãos. O que tem afeto fraternal pelos irmãos na fé. Hapax do NT (1Pe 3.8): “sede todos de um mesmo sentimento... amando os irmãos (φιλάδελφοι), misericordiosos, humildes”. Da família de φιλαδελφία (amor fraternal, 1Pe 1.22; Rm 12.10; Hb 13.1). O afeto concreto que une a comunidade como família. Cf. φιλαδελφία, ἀδελφός, ἀδελφότης.",
+    "nt": "1 ocorrência (hapax): 1Pe 3.8.",
+    "cognatos": [
+      "φίλος",
+      "ἀδελφός",
+      "φιλαδελφία"
+    ],
+    "verTambem": [
+      "φιλαδελφία",
+      "ἀδελφότης",
+      "εὔσπλαγχνος",
+      "ταπεινόφρων"
+    ],
+    "pt": [
+      "amante dos irmãos"
+    ]
+  },
+  {
     "lema": "φιλαργυρία",
     "translit": "philargyría",
     "beta": "philargyria",
@@ -15204,6 +21255,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "φίλος",
+    "translit": "phílos",
+    "beta": "philos",
+    "classe": "substantivo/adjetivo (2-1-2)",
+    "morf": "φίλος, -η, -ον",
+    "raiz": "φιλέω (“amar com afeição”)",
+    "lsj": "Amigo, querido; caro; (subst.) amigo.",
+    "abbott": "Amigo. Aquele a quem se ama e que partilha intimidade. “Ninguém tem maior amor do que este: dar alguém a vida pelos seus amigos (φίλων); vós sois meus amigos (φίλοι)... já não vos chamo servos, mas amigos (φίλους)” (Jo 15.13,14,15) — a amizade que Cristo oferece aos seus, fundada na revelação e no sacrifício. João Batista, “o amigo (φίλος) do esposo” (Jo 3.29). Abraão, “amigo (φίλος) de Deus” (Tg 2.23); “amigo (φίλος) do mundo” como inimizade contra Deus (Tg 4.4). Cf. φιλέω, φιλία, φίλη.",
+    "nt": "Jo 3.29; 11.11; 15.13,14,15; 19.12. Frequente: Mt 11.19; Lc 7.6,34; 11.5,6,8; 12.4; 14.10,12; 15.6,9,29; 16.9; 21.16; 23.12; At 10.24; 19.31; 27.3; Tg 2.23; 4.4; 3Jo 14.",
+    "cognatos": [
+      "φιλέω",
+      "φιλία",
+      "φίλη"
+    ],
+    "verTambem": [
+      "φιλέω",
+      "ἀγάπη",
+      "δοῦλος",
+      "ψυχή"
+    ],
+    "pt": [
+      "amigo"
+    ]
+  },
+  {
     "lema": "φιλοσοφία",
     "translit": "philosophía",
     "beta": "philosophia",
@@ -15249,6 +21325,101 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "afetuoso com ternura familiar"
+    ]
+  },
+  {
+    "lema": "φιλοτιμέομαι",
+    "translit": "philotiméomai",
+    "beta": "philotimeomai",
+    "classe": "verbo (depoente)",
+    "morf": "φιλοτιμέομαι",
+    "raiz": "φίλος (“amigo”) + τιμή (“honra”): “amar a honra”",
+    "lsj": "Ter por honra; ambicionar; esforçar-se zelosamente por algo.",
+    "abbott": "Esforçar-se por; ter como ponto de honra. Empenhar-se ambiciosamente — aqui, em coisas humildes. “Procurai com diligência (φιλοτιμεῖσθαι) viver quietos, tratar dos vossos próprios negócios e trabalhar” (1Ts 4.11); “esforçando-me (φιλοτιμούμενον) por anunciar o evangelho onde Cristo não havia sido nomeado” (Rm 15.20); “empenhamo-nos (φιλοτιμούμεθα) por lhe ser agradáveis” (2Co 5.9). A santa ambição posta em alvos dignos. Cf. τιμή, φίλος.",
+    "nt": "1Ts 4.11. Cf. Rm 15.20; 2Co 5.9.",
+    "cognatos": [
+      "τιμή",
+      "φίλος"
+    ],
+    "verTambem": [
+      "ἡσυχία",
+      "ἐργάζομαι",
+      "σπουδάζω",
+      "ἄτακτος"
+    ],
+    "pt": [
+      "esforçar-se por"
+    ]
+  },
+  {
+    "lema": "φλόξ",
+    "translit": "phlóx",
+    "beta": "phlox",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "φλόξ, φλογός, ἡ",
+    "raiz": "φλέγω (“arder, queimar”)",
+    "lsj": "Chama, labareda.",
+    "abbott": "Chama, labareda. A língua de fogo. O Senhor Jesus se revelará do céu “em chama de fogo (φλογὶ πυρός), tomando vingança dos que não conhecem a Deus” (2Ts 1.8) — a teofania do juízo; Deus apareceu a Moisés “numa chama de fogo (φλογὶ πυρός)” na sarça (At 7.30); os olhos do Filho do Homem “como chama de fogo (φλὸξ πυρός)” (Ap 1.14; 2.18; 19.12); o rico atormentado “nesta chama (φλογί)” (Lc 16.24). O fogo como manifestação da presença e do juízo de Deus. Cf. φλέγω.",
+    "nt": "2Ts 1.8. Cf. Lc 16.24; At 7.30; Hb 1.7; Ap 1.14; 2.18; 19.12.",
+    "cognatos": [
+      "φλέγω"
+    ],
+    "verTambem": [
+      "πῦρ",
+      "ἐκδίκησις",
+      "ὄλεθρος",
+      "κρίσις"
+    ],
+    "pt": [
+      "chama",
+      "labareda"
+    ]
+  },
+  {
+    "lema": "φόβος",
+    "translit": "phóbos",
+    "beta": "phobos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "φόβος, -ου, ὁ",
+    "raiz": "φέβομαι (“fugir aterrorizado”)",
+    "lsj": "Medo, temor, pavor; (também) reverência, respeito.",
+    "abbott": "Temor, medo. O receio — terror diante do perigo, ou reverência. Negativo: “não recebestes o espírito de escravidão, para outra vez estardes em temor (φόβον)” (Rm 8.15); “fazer o mal, temas (φοβοῦ), porque a autoridade não traz a espada em vão” (Rm 13.3,4 contexto). Positivo (reverência): “dai a cada um... a quem temor (φόβον), temor; a quem honra, honra” (Rm 13.7); “aperfeiçoando a santidade no temor (φόβῳ) de Deus” (2Co 7.1); submeter-se “no temor (φόβῳ) de Cristo” (Ef 5.21); operar a salvação “com temor (φόβου) e tremor” (Fp 2.12). “No amor não há temor (φόβος); o perfeito amor lança fora o temor (φόβον)” (1Jo 4.18). Cf. φοβέομαι, φοβερός, ἔκφοβος.",
+    "nt": "Rm 8.15; 13.3,7. Frequente: Mt 14.26; 28.4,8; Lc 1.12,65; 2.9; 5.26; 7.16; 8.37; 21.26; Jo 7.13; 19.38; 20.19; At 2.43; 5.5,11; 9.31; 19.17; 1Co 2.3; 2Co 5.11; 7.1,5,11,15; Ef 5.21; 6.5; Fp 2.12; 1Tm 5.20; 1Pe 1.17; 2.18; 3.2,15; 1Jo 4.18; Jd 23; Ap 11.11; 18.10,15.",
+    "cognatos": [
+      "φοβέομαι",
+      "φοβερός",
+      "ἔκφοβος"
+    ],
+    "verTambem": [
+      "φοβέομαι",
+      "τρόμος",
+      "εὐλάβεια",
+      "ἀγάπη"
+    ],
+    "pt": [
+      "temor",
+      "medo"
+    ]
+  },
+  {
+    "lema": "φοῖνιξ",
+    "translit": "phoînix",
+    "beta": "phoinix",
+    "classe": "substantivo, masc. (3ª decl.)",
+    "morf": "φοῖνιξ, -ικος, ὁ",
+    "raiz": "raiz grega de “palmeira, tamareira”",
+    "lsj": "Palmeira, tamareira; ramo de palmeira.",
+    "abbott": "Palmeira. A árvore e seus ramos. Na entrada em Jerusalém, “ramos das palmeiras (φοινίκων)” (Jo 12.13). No Apocalipse, a grande multidão diante do trono “com palmas (φοίνικες) nas mãos”, símbolo de vitória e louvor (Ap 7.9). A palma evocava triunfo, festa e o reconhecimento do Rei. Cf. βαΐον.",
+    "nt": "Jo 12.13. Cf. Ap 7.9.",
+    "cognatos": [],
+    "verTambem": [
+      "βαΐον",
+      "βασιλεύς",
+      "νικάω",
+      "δόξα"
+    ],
+    "pt": [
+      "palmeira"
     ]
   },
   {
@@ -15298,6 +21469,28 @@ window.LEXICON_DATA = [
     "pt": [
       "cerca",
       "barreira"
+    ]
+  },
+  {
+    "lema": "φρέαρ",
+    "translit": "phréar",
+    "beta": "phrear",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "φρέαρ, -ατος, τό",
+    "raiz": "raiz grega de “poço, cisterna”",
+    "lsj": "Poço, cisterna; (fig.) abismo, fosso.",
+    "abbott": "Poço, cisterna. O poço cavado de onde se tira água (distinto de πηγή, a fonte natural). “O poço (φρέαρ) é fundo; donde, pois, tens a água viva?” (Jo 4.11,12) — a samaritana, junto ao poço de Jacó; “qual de vós, se lhe cair... o boi num poço (φρέαρ)” (Lc 14.5). No Apocalipse, “o poço (φρέαρ) do abismo”, donde sobe fumaça (Ap 9.1,2). Cf. πηγή, ἄβυσσος.",
+    "nt": "Jo 4.11,12. Cf. Lc 14.5; Ap 9.1,2.",
+    "cognatos": [],
+    "verTambem": [
+      "πηγή",
+      "ὕδωρ",
+      "ὑδρία",
+      "ἄβυσσος"
+    ],
+    "pt": [
+      "poço",
+      "cisterna"
     ]
   },
   {
@@ -15404,6 +21597,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "φυσιόω",
+    "translit": "physióō",
+    "beta": "physioo",
+    "classe": "verbo (passiva)",
+    "morf": "φυσιόω (pass. φυσιόομαι)",
+    "raiz": "φῦσα (“fole, sopro”), de φυσάω (“soprar”)",
+    "lsj": "Encher de ar, inflar; (fig., passiva) inchar-se de orgulho, ensoberbecer-se.",
+    "abbott": "Ensoberbecer-se, inchar. Encher-se de ar — o orgulho que infla sem substância. “O conhecimento incha (φυσιοῖ), mas o amor edifica” (1Co 8.1); os coríntios estavam “ensoberbecidos (πεφυσιωμένοι)” (4.18,19; 5.2); o amor “não se ensoberbece (οὐ φυσιοῦται)” (13.4); os “inchados” de mente carnal (Cl 2.18). A vaidade que se opõe à edificação (οἰκοδομέω) pelo amor. Cf. φυσίωσις (2Co 12.20).",
+    "nt": "1Co 4.6,18,19; 5.2; 8.1; 13.4. Cf. Cl 2.18.",
+    "cognatos": [
+      "φυσάω",
+      "φυσίωσις"
+    ],
+    "verTambem": [
+      "οἰκοδομέω",
+      "ἀγάπη",
+      "γνῶσις",
+      "ταπεινοφροσύνη"
+    ],
+    "pt": [
+      "ensoberbecer-se",
+      "inchar"
+    ]
+  },
+  {
     "lema": "φύσις",
     "translit": "phýsis",
     "beta": "physis",
@@ -15501,6 +21719,31 @@ window.LEXICON_DATA = [
     "pt": [
       "iluminar",
       "esclarecer"
+    ]
+  },
+  {
+    "lema": "χαλιναγωγέω",
+    "translit": "chalinagōgéō",
+    "beta": "chalinagogeo",
+    "classe": "verbo",
+    "morf": "χαλιναγωγέω",
+    "raiz": "χαλινός (“freio, cabresto”) + ἄγω (“conduzir”)",
+    "lsj": "Termo tardio: guiar com freio; refrear, dominar.",
+    "abbott": "Refrear, pôr freio. Dominar como se conduz um cavalo pelo freio. “Se alguém se julga religioso e não refreia (χαλιναγωγῶν) a sua língua, engana o seu coração” (Tg 1.26); quem não tropeça no falar “é capaz de refrear (χαλιναγωγῆσαι) também todo o corpo” (Tg 3.2). A imagem do χαλινός (freio) que Tiago desenvolve em 3.3: pequeno, mas governa todo o cavalo. O autodomínio, em especial da língua. Cf. χαλινός.",
+    "nt": "Tg 1.26; 3.2.",
+    "cognatos": [
+      "χαλινός",
+      "ἄγω"
+    ],
+    "verTambem": [
+      "γλῶσσα",
+      "θρῆσκος",
+      "ἐγκράτεια",
+      "σωφροσύνη"
+    ],
+    "pt": [
+      "refrear",
+      "pôr freio"
     ]
   },
   {
@@ -15747,6 +21990,55 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "χόρτος",
+    "translit": "chórtos",
+    "beta": "chortos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "χόρτος, -ου, ὁ",
+    "raiz": "raiz grega de “pasto, capim”",
+    "lsj": "Pasto, forragem; capim, erva; broto verde.",
+    "abbott": "Erva, capim. A vegetação rasteira — figura da transitoriedade. “Toda a carne é como a erva (χόρτος)... secou-se a erva (χόρτος), e caiu a sua flor” (1Pe 1.24); o rico passará “como a flor da erva (χόρτου)” (Tg 1.10,11). Literal: Jesus manda assentar a multidão “sobre a erva (χόρτον)” (Mt 14.19; Jo 6.10); “a erva (χόρτος) do campo, que hoje existe e amanhã é lançada no forno” (Mt 6.30; Lc 12.28); a semente que produz “a erva (χόρτον)” (Mc 4.28). Cf. χορτάζω.",
+    "nt": "Tg 1.10,11; 1Pe 1.24. Cf. Mt 6.30; 13.26; 14.19; Mc 4.28; 6.39; Lc 12.28; Jo 6.10; 1Co 3.12; Ap 8.7; 9.4.",
+    "cognatos": [
+      "χορτάζω"
+    ],
+    "verTambem": [
+      "ἄνθος",
+      "πλούσιος",
+      "ματαιότης",
+      "σάρξ"
+    ],
+    "pt": [
+      "erva",
+      "capim"
+    ]
+  },
+  {
+    "lema": "χρηστεύομαι",
+    "translit": "chrēsteúomai",
+    "beta": "chresteuomai",
+    "classe": "verbo (depoente)",
+    "morf": "χρηστεύομαι",
+    "raiz": "χρηστός (“bom, benigno”)",
+    "lsj": "Termo do grego cristão: ser bondoso, agir com benignidade.",
+    "abbott": "Ser benigno, agir com bondade. Hapax do NT (1Co 13.4): “o amor é paciente (μακροθυμεῖ), é benigno (χρηστεύεται)” — a primeira descrição do amor, em forma verbal: o amor que ativamente faz o bem e trata com bondade. Da família de χρηστός (bondoso) e χρηστότης (benignidade), fruto do Espírito. O amor não só suporta (paciência), mas age para o bem (benignidade).",
+    "nt": "1 ocorrência (hapax): 1Co 13.4.",
+    "cognatos": [
+      "χρηστός",
+      "χρηστότης"
+    ],
+    "verTambem": [
+      "ἀγάπη",
+      "χρηστότης",
+      "μακροθυμέω",
+      "φυσιόω"
+    ],
+    "pt": [
+      "ser benigno",
+      "agir com bondade"
+    ]
+  },
+  {
     "lema": "χρηστότης",
     "translit": "chrēstótēs",
     "beta": "chrestotes",
@@ -15768,6 +22060,30 @@ window.LEXICON_DATA = [
     "pt": [
       "bondade",
       "benignidade"
+    ]
+  },
+  {
+    "lema": "χρῖσμα",
+    "translit": "chrîsma",
+    "beta": "chrisma",
+    "classe": "substantivo, neut. (3ª decl.)",
+    "morf": "χρῖσμα, -ατος, τό",
+    "raiz": "χρίω (“ungir”)",
+    "lsj": "O que se aplica ao ungir; unguento, óleo de unção; unção.",
+    "abbott": "Unção. O dom recebido de Deus que ensina e capacita — provavelmente o Espírito. “Vós tendes a unção (χρῖσμα) do Santo e sabeis tudo... a unção (χρῖσμα) que dele recebestes permanece em vós, e não necessitais de que alguém vos ensine... ela vos ensina tudo” (1Jo 2.20,27). Em contraste com os falsos mestres e o anticristo: o crente tem em si a unção que o instrui na verdade. Da raiz de χρίω (ungir), donde também Χριστός (o Ungido). Cf. χρίω, Χριστός.",
+    "nt": "1Jo 2.20,27.",
+    "cognatos": [
+      "χρίω",
+      "Χριστός"
+    ],
+    "verTambem": [
+      "πνεῦμα",
+      "ἀντίχριστος",
+      "ἀλήθεια",
+      "διδάσκω"
+    ],
+    "pt": [
+      "unção"
     ]
   },
   {
@@ -15843,6 +22159,31 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ψευδαπόστολος",
+    "translit": "pseudapóstolos",
+    "beta": "pseudapostolos",
+    "classe": "substantivo, masc. (2ª decl.)",
+    "morf": "ψευδαπόστολος, -ου, ὁ",
+    "raiz": "ψευδής (“falso”) + ἀπόστολος (“enviado, apóstolo”)",
+    "lsj": "Termo do grego cristão: falso apóstolo.",
+    "abbott": "Falso apóstolo. Hapax do NT (2Co 11.13): “tais falsos apóstolos (ψευδαπόστολοι) são obreiros fraudulentos, transfigurando-se em apóstolos de Cristo” — assim como Satanás se transfigura em anjo de luz (11.14). Os adversários que Paulo enfrenta em Corinto, que se arrogam autoridade apostólica para corromper a igreja. Forma-se com o prefixo ψευδο- (falso), comum no NT: ψευδοπροφήτης (falso profeta), ψευδόχριστος, ψευδομάρτυς, ψευδοδιδάσκαλος. Cf. ἀπόστολος, ψευδής.",
+    "nt": "1 ocorrência (hapax): 2Co 11.13.",
+    "cognatos": [
+      "ἀπόστολος",
+      "ψευδής",
+      "ψευδοπροφήτης"
+    ],
+    "verTambem": [
+      "ἀπόστολος",
+      "πλάνη",
+      "σατανᾶς",
+      "διάβολος"
+    ],
+    "pt": [
+      "falso apóstolo"
+    ]
+  },
+  {
     "lema": "ψεῦδος",
     "translit": "pseûdos",
     "beta": "pseudos",
@@ -15865,6 +22206,31 @@ window.LEXICON_DATA = [
     "pt": [
       "mentira",
       "falsidade"
+    ]
+  },
+  {
+    "lema": "ψεύστης",
+    "translit": "pseústēs",
+    "beta": "pseustes",
+    "classe": "substantivo, masc. (1ª decl.)",
+    "morf": "ψεύστης, -ου, ὁ",
+    "raiz": "ψεύδομαι (“mentir”)",
+    "lsj": "Mentiroso, embusteiro.",
+    "abbott": "Mentiroso. O que fala e vive a mentira — contraste agudo em João. “Se alguém diz: Eu amo a Deus, e odeia o seu irmão, é mentiroso (ψεύστης)” (1Jo 4.20); “quem nega que Jesus é o Cristo... é o mentiroso (ψεύστης)” (2.22); “quem diz: Eu o conheço, e não guarda os seus mandamentos, é mentiroso (ψεύστης)” (2.4); quem não crê em Deus “o tem feito mentiroso (ψεύστην)” (1Jo 1.10; 5.10). O diabo “é mentiroso (ψεύστης) e pai da mentira” (Jo 8.44,55). Cf. ψεύδομαι, ψεῦδος, ψευδής.",
+    "nt": "1Jo 1.10; 2.4,22; 4.20; 5.10. Cf. Jo 8.44,55; Rm 3.4; 1Tm 1.10; Tt 1.12.",
+    "cognatos": [
+      "ψεύδομαι",
+      "ψεῦδος",
+      "ψευδής"
+    ],
+    "verTambem": [
+      "ἀληθινός",
+      "ἀντίχριστος",
+      "ἀλήθεια",
+      "μισέω"
+    ],
+    "pt": [
+      "mentiroso"
     ]
   },
   {
@@ -15894,6 +22260,30 @@ window.LEXICON_DATA = [
     ]
   },
   {
+    "lema": "ψωμίον",
+    "translit": "psōmíon",
+    "beta": "psomion",
+    "classe": "substantivo, neut. (2ª decl.)",
+    "morf": "ψωμίον, -ου, τό",
+    "raiz": "ψωμός (“bocado”), de ψώμω (“alimentar em pedaços”)",
+    "lsj": "Pedacinho, bocado (de pão).",
+    "abbott": "Bocado, pedaço de pão. O pedaço molhado oferecido à mesa — sinal de Judas na ceia. “É aquele a quem eu der o bocado (ψωμίον) molhado. E, molhando o bocado (ψωμίον), deu-o a Judas... e, após o bocado (ψωμίον), entrou nele Satanás” (Jo 13.26,27,30). Em João, exclusivo desta cena: o gesto de intimidade à mesa que se torna o momento da traição. Diminutivo de ψωμός. Cf. ἄρτος, κλάσμα.",
+    "nt": "Jo 13.26,27,30.",
+    "cognatos": [
+      "ψωμίζω"
+    ],
+    "verTambem": [
+      "ἄρτος",
+      "δεῖπνον",
+      "παραδίδωμι",
+      "σατανᾶς"
+    ],
+    "pt": [
+      "bocado",
+      "pedaço de pão"
+    ]
+  },
+  {
     "lema": "ᾠδή",
     "translit": "ōidḗ",
     "beta": "ode",
@@ -15914,6 +22304,30 @@ window.LEXICON_DATA = [
     ],
     "pt": [
       "cântico"
+    ]
+  },
+  {
+    "lema": "ὠδίν",
+    "translit": "ōdín",
+    "beta": "odin",
+    "classe": "substantivo, fem. (3ª decl.)",
+    "morf": "ὠδίν, -ῖνος, ἡ",
+    "raiz": "raiz grega de “dor de parto”",
+    "lsj": "Dor de parto; (pl.) as dores do nascimento; angústia aguda e súbita.",
+    "abbott": "Dor de parto. A dor aguda, inevitável e que anuncia algo novo. O dia do Senhor vem como “as dores de parto (ὠδίν) à mulher grávida”, e não escaparão (1Ts 5.3); o início das aflições do fim são “princípios de dores (ὠδίνων)” (Mt 24.8; Mc 13.8); Deus libertou Jesus “das dores (ὠδῖνας) da morte” (At 2.24). Imagem de sofrimento súbito que, contudo, precede o nascimento. Cf. ὠδίνω (estar em dores de parto).",
+    "nt": "1Ts 5.3. Cf. Mt 24.8; Mc 13.8; At 2.24.",
+    "cognatos": [
+      "ὠδίνω",
+      "συνωδίνω"
+    ],
+    "verTambem": [
+      "ὠδίνω",
+      "αἰφνίδιος",
+      "ὄλεθρος",
+      "ἡμέρα"
+    ],
+    "pt": [
+      "dor de parto"
     ]
   },
   {
