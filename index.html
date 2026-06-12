@@ -563,7 +563,7 @@ function atualizarRefSummary(){
   var nome=LIVRO_NOME[refAlvo.livro]||refAlvo.livro;
   var n=filtrar().length;
   var COBERTURA_PLENA={Rm:1,'1Co':1,'2Co':1,Gl:1,Ef:1,Fp:1,Cl:1,Hb:1,'1Tm':1,'2Tm':1,Tt:1,Fm:1,'1Ts':1,'2Ts':1,Tg:1,'1Pe':1,'2Pe':1,'1Jo':1,'2Jo':1,'3Jo':1,Jd:1,Jo:1};
-  var TEXTO_PARCIAL={};
+  var TEXTO_PARCIAL={Mt:1};
   var nota = COBERTURA_PLENA[refAlvo.livro] ? ""
     : TEXTO_PARCIAL[refAlvo.livro] ? " <i>— o texto deste Evangelho está completo; a curadoria de verbetes próprios ainda está em andamento.</i>"
     : " <i>— este livro ainda não tem texto próprio; mostra-se aqui o que o léxico já cita.</i>";

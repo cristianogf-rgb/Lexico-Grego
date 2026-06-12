@@ -19,15 +19,16 @@ Quatro arquivos, nada mais:
 
 ```
 index.html        o aplicativo inteiro (abre direto no navegador)
-dados.js          a base de dados (905 verbetes curados em PT-BR)
-versiculos.js     texto bíblico de 22 livros (grego Nestle 1904 + português Almeida 1911)
+dados.js          a base de dados (1194 verbetes curados em PT-BR)
+versiculos.js     texto bíblico de 23 livros (grego Nestle 1904 + português Almeida 1911)
 ingestao_lsj.py   script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
 
-Cobertura atual do léxico, com **cobertura plena de vocabulário**: todas as 21 Epístolas,
-Hebreus e o **Evangelho de João** completo (as 13 cartas paulinas, Hebreus, as 7 cartas gerais
-e o Evangelho de João) — **905 verbetes**. O `versiculos.js` traz o texto integral desses 22 livros.
-Faltam, do NT, os sinóticos (Mateus, Marcos, Lucas), Atos e Apocalipse.
+Cobertura atual do léxico — **1194 verbetes**: todas as 21 Epístolas e Hebreus com cobertura
+plena de vocabulário, o **Evangelho de João** completo, e o **Evangelho de Mateus** (texto
+integral dos 28 capítulos, com 78 verbetes próprios do seu vocabulário distintivo e ampla
+cobertura pelo léxico comum). Romanos e 1–2 Pedro receberam expansão adicional. O `versiculos.js`
+traz o texto integral de 23 livros. Faltam, do NT, Marcos, Lucas, Atos e Apocalipse.
 
 Não há servidor, banco de dados, instalação nem dependências. O `index.html` é
 autocontido: basta **dar dois cliques** nele para abrir. Funciona offline, a partir
