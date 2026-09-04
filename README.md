@@ -19,16 +19,23 @@ Quatro arquivos, nada mais:
 
 ```
 index.html        o aplicativo inteiro (abre direto no navegador)
-dados.js          a base de dados (1194 verbetes curados em PT-BR)
-versiculos.js     texto bíblico de 23 livros (grego Nestle 1904 + português Almeida 1911)
+dados.js          a base de dados (2022 verbetes curados em PT-BR)
+versiculos.js     texto bíblico dos 27 livros do Novo Testamento (grego Nestle 1904 + português Almeida 1911)
 ingestao_lsj.py   script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
 
-Cobertura atual do léxico — **1194 verbetes**: todas as 21 Epístolas e Hebreus com cobertura
-plena de vocabulário, o **Evangelho de João** completo, e o **Evangelho de Mateus** (texto
-integral dos 28 capítulos, com 78 verbetes próprios do seu vocabulário distintivo e ampla
-cobertura pelo léxico comum). Romanos e 1–2 Pedro receberam expansão adicional. O `versiculos.js`
-traz o texto integral de 23 livros. Faltam, do NT, Marcos, Lucas, Atos e Apocalipse.
+Cobertura atual do léxico — **2022 verbetes** sobre o **Novo Testamento completo (27 livros)**:
+os quatro Evangelhos, Atos, todas as 21 Epístolas, Hebreus e o Apocalipse. Todo o texto grego e
+português dos 27 livros está disponível e navegável (`versiculos.js`), com destaque das palavras
+cobertas pelo léxico. As Epístolas, Hebreus e o Evangelho de João têm curadoria plena de vocabulário;
+As Epístolas passaram por uma expansão dedicada (+501 verbetes), cobrindo tanto o vocabulário teológico
+quanto as palavras gramaticais de altíssima frequência (conjunções, preposições, pronomes, partículas,
+advérbios e verbos nucleares como καί, γάρ, αὐτός, διά, εἰμί, πᾶς); por isso o destaque de palavras no
+texto grego agora alcança ~65% de todos os tokens do NT. Os Evangelhos sinóticos, Atos e o Apocalipse trazem o texto integral e verbetes próprios do seu
+vocabulário distintivo — de Lucas (o médico evangelista, as parábolas do bom samaritano e do filho
+pródigo), de Atos (o vocabulário jurídico, das cidades helenísticas e da viagem marítima de Paulo) e
+do Apocalipse (o Cordeiro, a Besta, o dragão, os selos, as trombetas, as taças e a Nova Jerusalém).
+A curadoria exaustiva dos sinóticos, de Atos e do Apocalipse segue como trabalho contínuo.
 
 Não há servidor, banco de dados, instalação nem dependências. O `index.html` é
 autocontido: basta **dar dois cliques** nele para abrir. Funciona offline, a partir
