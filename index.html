@@ -163,6 +163,13 @@
   .entry .translit{font-style:italic;color:var(--rubric);font-size:16px;margin-left:2px}
   .entry .classe{font-size:12.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.12em;margin:7px 0 9px}
   .entry .preview{font-size:15px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .sentinela{grid-column:1/-1;display:flex;justify-content:center;padding:22px 0 34px}
+  .sentinela button{font-family:inherit;cursor:pointer;background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:13px 30px;color:var(--ink-soft);font-size:13.5px;letter-spacing:.09em;
+    text-transform:uppercase;transition:.18s;display:flex;align-items:center;gap:11px}
+  .sentinela button:hover{border-color:var(--gold);color:var(--ink);transform:translateY(-2px);
+    box-shadow:0 10px 26px -14px var(--shadow)}
+  .sentinela button small{text-transform:none;letter-spacing:.02em;font-size:12px;color:var(--ink-faint)}
   .entry .tags{margin-top:11px;display:flex;gap:6px;flex-wrap:wrap}
   .entry .tags span{font-size:11px;background:var(--paper-2);border:1px solid var(--line-soft);
     color:var(--ink-faint);padding:2px 8px;border-radius:3px}
@@ -571,33 +578,99 @@ function atualizarRefSummary(){
   refSummaryEl.className="ref-summary on";
   refSummaryEl.innerHTML='<b>'+escapeHtml(refAlvo.rotulo)+'</b> &nbsp;·&nbsp; '+nome+' &nbsp;—&nbsp; '+n+' '+verbo+' neste trecho.'+nota;
 }
+/* Renderização paginada.
+   O filtro sobre os 3000 verbetes custa ~4 ms; despejar todos os cards no DOM
+   custa ~100 ms. Por isso filtramos tudo, mas só materializamos uma página de
+   cada vez — o resto entra por rolagem (IntersectionObserver). */
+var PAGINA=60;
+var _lista=[], _mostrados=0, _termoRealce="", _obs=null;
+
+function cartao(e,i,t){
+  var prev = (e.abbott||e.lsj||"").replace(/<[^>]+>/g,"");
+  var glos = (e.pt&&e.pt.length) ? '<div class="gloss">'+e.pt.slice(0,4).map(function(g){
+      var hit = t && tirarAcentos(g).indexOf(t)!==-1;
+      return '<span'+(hit?' class="hit"':'')+'>'+escapeHtml(g)+'</span>';
+    }).join("")+'</div>' : '';
+  return '<article class="entry" data-lema="'+escapeHtml(e.lema)+'" style="animation-delay:'+Math.min(i*18,300)+'ms">'+
+    '<div class="lemma">'+e.lema+' <span class="translit">'+e.translit+'</span></div>'+
+    '<div class="classe">'+escapeHtml(curtaClasse(e.classe))+'</div>'+
+    glos+
+    '<div class="preview">'+escapeHtml(prev)+'</div>'+
+    (e.cognatos&&e.cognatos.length?'<div class="tags">'+e.cognatos.slice(0,4).map(function(c){return '<span>'+c+'</span>';}).join("")+'</div>':'')+
+  '</article>';
+}
+
+function atualizarContador(){
+  var n=_lista.length, rot=n+(n===1?" verbete":" verbetes");
+  countEl.textContent = (_mostrados<n) ? (_mostrados+" de "+rot) : rot;
+}
+
+/* O botão é o caminho garantido (funciona sem JS de observação e por teclado).
+   O IntersectionObserver é só automação por cima: onde funciona, carrega sozinho
+   ao aproximar-se do fim; onde não funciona, o botão continua lá. */
+function htmlSentinela(){
+  var restam=_lista.length-_mostrados;
+  var lote=Math.min(PAGINA,restam);
+  return '<div class="sentinela" id="sentinela">'+
+    '<button type="button" id="maisBtn">Mostrar mais '+lote+
+    '<small>restam '+restam+'</small></button></div>';
+}
+function observarSentinela(){
+  var s=document.getElementById("sentinela"); if(!s) return;
+  if(typeof IntersectionObserver!=="function") return;
+  if(!_obs){
+    _obs=new IntersectionObserver(function(ents){
+      for(var i=0;i<ents.length;i++) if(ents[i].isIntersecting){ anexarPagina(); return; }
+    },{rootMargin:"600px 0px"});
+  }
+  _obs.observe(s);
+}
+
+function anexarPagina(){
+  var s=document.getElementById("sentinela");
+  if(!s || _mostrados>=_lista.length) return;
+  if(_obs) _obs.unobserve(s);
+  var fim=Math.min(_mostrados+PAGINA,_lista.length), html="";
+  for(var i=_mostrados;i<fim;i++) html+=cartao(_lista[i], i-_mostrados, _termoRealce);
+  s.insertAdjacentHTML("beforebegin",html);
+  _mostrados=fim;
+  if(_mostrados>=_lista.length){ s.remove(); }
+  else { s.outerHTML=htmlSentinela(); observarSentinela(); }
+  atualizarContador();
+}
+/* delegação: o botão é recriado a cada página */
+resultsEl.addEventListener("click",function(ev){
+  if(ev.target.closest("#maisBtn")){ ev.stopPropagation(); anexarPagina(); }
+});
+
 function render(){
   atualizarRefSummary();
   atualizarPainel();
-  var lista=filtrar();
-  countEl.textContent = lista.length + (lista.length===1?" verbete":" verbetes");
-  if(!lista.length){
+  _lista=filtrar();
+  _termoRealce = (!refAlvo) ? tirarAcentos(termo).trim() : "";
+  _mostrados=0;
+  if(_obs){ _obs.disconnect(); }
+  if(!_lista.length){
+    countEl.textContent="0 verbetes";
     var msg = refAlvo
       ? 'Nenhum verbete do léxico aparece em <b>'+escapeHtml(refAlvo.rotulo)+'</b>.<br>Tente o capítulo inteiro (p.ex. '+escapeHtml(refAlvo.livro+" "+refAlvo.cap)+') ou outro versículo.'
       : 'Nenhum verbete encontrado para &ldquo;'+escapeHtml(termo)+'&rdquo;.<br>Tente outra grafia, a transliteração ou um significado em português.';
     resultsEl.innerHTML='<div class="empty"><div class="big">∅</div>'+msg+'</div>';
     return;
   }
-  var t = (!refAlvo) ? tirarAcentos(termo).trim() : "";
-  resultsEl.innerHTML=lista.map(function(e,i){
-    var prev = (e.abbott||e.lsj||"").replace(/<[^>]+>/g,"");
-    var glos = (e.pt&&e.pt.length) ? '<div class="gloss">'+e.pt.slice(0,4).map(function(g){
-        var hit = t && tirarAcentos(g).indexOf(t)!==-1;
-        return '<span'+(hit?' class="hit"':'')+'>'+escapeHtml(g)+'</span>';
-      }).join("")+'</div>' : '';
-    return '<article class="entry" data-lema="'+escapeHtml(e.lema)+'" style="animation-delay:'+Math.min(i*22,420)+'ms">'+
-      '<div class="lemma">'+e.lema+' <span class="translit">'+e.translit+'</span></div>'+
-      '<div class="classe">'+escapeHtml(curtaClasse(e.classe))+'</div>'+
-      glos+
-      '<div class="preview">'+escapeHtml(prev)+'</div>'+
-      (e.cognatos&&e.cognatos.length?'<div class="tags">'+e.cognatos.slice(0,4).map(function(c){return '<span>'+c+'</span>';}).join("")+'</div>':'')+
-    '</article>';
-  }).join("");
+  var fim=Math.min(PAGINA,_lista.length), html="";
+  for(var i=0;i<fim;i++) html+=cartao(_lista[i],i,_termoRealce);
+  _mostrados=fim;
+  resultsEl.innerHTML = html + (_mostrados<_lista.length ? htmlSentinela() : '');
+  atualizarContador();
+  if(_mostrados<_lista.length) observarSentinela();
+}
+
+/* Digitação: o filtro roda uma vez por pausa, não uma vez por tecla. */
+var _tRender=null;
+function renderAdiado(ms){
+  clearTimeout(_tRender);
+  _tRender=setTimeout(render, ms==null?120:ms);
 }
 function curtaClasse(c){ return (c||"").split(",")[0]; }
 function escapeHtml(s){ return (s||"").replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
@@ -711,7 +784,7 @@ qEl.addEventListener("input",function(){
     refAlvo=null; refEl.value=""; refClear.style.display="none";
     filtroLetra=null; alphaEl.querySelectorAll("button").forEach(function(x){x.classList.remove("on")}); alphaEl.children[0].classList.add("on");
   }
-  render();
+  renderAdiado();
 });
 clearBtn.onclick=function(){ qEl.value="";termo="";clearBtn.style.display="none";qEl.focus();render(); };
 
@@ -724,7 +797,7 @@ refEl.addEventListener("input",function(){
     termo=""; qEl.value=""; clearBtn.style.display="none";
     filtroLetra=null; alphaEl.querySelectorAll("button").forEach(function(x){x.classList.remove("on")}); alphaEl.children[0].classList.add("on");
   }
-  render();
+  renderAdiado();
 });
 refClear.onclick=function(){ refEl.value="";refAlvo=null;refClear.style.display="none";refEl.focus();render(); };
 
