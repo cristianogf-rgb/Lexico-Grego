@@ -261,12 +261,14 @@
     <div class="search-box">
       <span class="ic">⌕</span>
       <input id="q" type="text" autocomplete="off" spellcheck="false"
+        enterkeyhint="search" autocapitalize="off" autocorrect="off"
         placeholder="Busque por significado em português (graça, redenção, mansidão), grego (ἀγάπη) ou transliteração (agape)…" />
       <button class="clear-btn" id="clearBtn" title="Limpar">×</button>
     </div>
     <div class="ref-box">
       <span class="ic">⌖</span>
       <input id="ref" type="text" autocomplete="off" spellcheck="false"
+        enterkeyhint="search" autocapitalize="off" autocorrect="off"
         placeholder="Por versículo — ex.: Rm 8.15 · Romanos 8 · Rm 8.15-17" />
       <button class="ref-clear" id="refClear" title="Limpar">×</button>
     </div>
@@ -800,6 +802,20 @@ refEl.addEventListener("input",function(){
   renderAdiado();
 });
 refClear.onclick=function(){ refEl.value="";refAlvo=null;refClear.style.display="none";refEl.focus();render(); };
+
+/* Enter recolhe o teclado no celular.
+   A busca é ao vivo, então Enter não "envia" nada: ele antecipa o debounce
+   pendente (para a lista já estar certa quando o teclado descer) e tira o
+   foco do campo — que é o que faz o teclado virtual recolher. */
+[qEl,refEl].forEach(function(el){
+  el.addEventListener("keydown",function(ev){
+    if(ev.key!=="Enter") return;
+    ev.preventDefault();
+    clearTimeout(_tRender);
+    render();
+    el.blur();
+  });
+});
 
 /* ===================== Tema ===================== */
 var themeBtn=document.getElementById("themeBtn");
