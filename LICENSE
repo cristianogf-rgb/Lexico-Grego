@@ -1,0 +1,83 @@
+Léxikon — licenciamento
+=======================
+
+Este repositório reúne materiais de três origens distintas, com regimes
+distintos. Leia a divisão antes de reutilizar.
+
+
+1. CÓDIGO — Licença MIT
+-----------------------
+
+Aplica-se a: index.html, ingestao_lsj.py e demais arquivos de código.
+
+Copyright (c) 2026 Cristiano Fonseca
+
+Pela presente, é concedida permissão, livre de encargos, a qualquer pessoa
+que obtenha uma cópia deste software e dos arquivos de documentação
+associados (o "Software"), para negociar o Software sem restrição,
+incluindo, sem limitação, os direitos de usar, copiar, modificar, mesclar,
+publicar, distribuir, sublicenciar e/ou vender cópias do Software, e
+permitir que as pessoas a quem o Software é fornecido o façam, sujeito às
+seguintes condições:
+
+O aviso de copyright acima e este aviso de permissão devem ser incluídos em
+todas as cópias ou partes substanciais do Software.
+
+O SOFTWARE É FORNECIDO "COMO ESTÁ", SEM GARANTIA DE QUALQUER TIPO, EXPRESSA
+OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO ÀS GARANTIAS DE
+COMERCIALIZAÇÃO, ADEQUAÇÃO A UM DETERMINADO FIM E NÃO VIOLAÇÃO. EM NENHUM
+CASO OS AUTORES OU TITULARES DO COPYRIGHT SERÃO RESPONSÁVEIS POR QUALQUER
+REIVINDICAÇÃO, DANOS OU OUTRA RESPONSABILIDADE, SEJA EM AÇÃO DE CONTRATO,
+DELITO OU DE OUTRA FORMA, DECORRENTE DE, FORA DE OU EM CONEXÃO COM O
+SOFTWARE OU O USO OU OUTRAS NEGOCIAÇÕES NO SOFTWARE.
+
+
+2. VERBETES EM PORTUGUÊS — CC BY 4.0
+------------------------------------
+
+Aplica-se a: os 3000 verbetes em português contidos em dados.js (campos
+"lsj", "abbott", "raiz", "nt", "pt", "classe", "morf" e correlatos), que são
+texto original de autoria de Cristiano Fonseca, redigido a partir da
+erudição lexicográfica de domínio público (LSJ e Abbott-Smith).
+
+Licenciados sob Creative Commons Atribuição 4.0 Internacional (CC BY 4.0).
+Você pode copiar, redistribuir, adaptar e usar comercialmente, inclusive em
+obra derivada, desde que dê o devido crédito.
+
+Texto integral da licença:
+https://creativecommons.org/licenses/by/4.0/legalcode.pt
+
+Atribuição sugerida:
+  Léxikon — Léxico do Grego Bíblico, de Cristiano Fonseca (CC BY 4.0).
+
+Estes verbetes NÃO reproduzem o BDAG (Bauer-Danker), protegido por direito
+autoral da University of Chicago Press, nem qualquer outra obra sob
+copyright.
+
+
+3. TEXTOS-FONTE — Domínio público
+---------------------------------
+
+Aplica-se a: o conteúdo de versiculos.js e à erudição de base dos verbetes.
+Não são de autoria deste projeto e não estão sob as licenças acima; já
+pertencem ao domínio público:
+
+- Novum Testamentum Graece, ed. Eberhard Nestle, 1904
+  (British & Foreign Bible Society) — texto grego.
+- Morfologia e lematização do Nestle 1904 — CC0, biblicalhumanities.org
+  (Ulrik Sandborg-Petersen).
+- Bíblia Sagrada, trad. João Ferreira de Almeida, edição de 1911 —
+  texto português.
+- A Greek-English Lexicon (Liddell-Scott-Jones) — Perseus Digital Library.
+- A Manual Greek Lexicon of the New Testament, G. Abbott-Smith, 1922.
+
+Ao citar em trabalho acadêmico, refira sempre a obra original (LSJ,
+Abbott-Smith), não esta ferramenta.
+
+
+4. O QUE NÃO ESTÁ AQUI
+----------------------
+
+A tradução Almeida Revista e Atualizada (ARA) é protegida por direito
+autoral da Sociedade Bíblica do Brasil e NÃO é redistribuída neste
+repositório.

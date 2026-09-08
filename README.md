@@ -19,23 +19,31 @@ Quatro arquivos, nada mais:
 
 ```
 index.html        o aplicativo inteiro (abre direto no navegador)
-dados.js          a base de dados (2022 verbetes curados em PT-BR)
+dados.js          a base de dados (3000 verbetes curados em PT-BR)
 versiculos.js     texto bíblico dos 27 livros do Novo Testamento (grego Nestle 1904 + português Almeida 1911)
 ingestao_lsj.py   script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
 
-Cobertura atual do léxico — **2022 verbetes** sobre o **Novo Testamento completo (27 livros)**:
+Cobertura atual do léxico — **3000 verbetes** sobre o **Novo Testamento completo (27 livros)**:
 os quatro Evangelhos, Atos, todas as 21 Epístolas, Hebreus e o Apocalipse. Todo o texto grego e
 português dos 27 livros está disponível e navegável (`versiculos.js`), com destaque das palavras
-cobertas pelo léxico. As Epístolas, Hebreus e o Evangelho de João têm curadoria plena de vocabulário;
-As Epístolas passaram por uma expansão dedicada (+501 verbetes), cobrindo tanto o vocabulário teológico
-quanto as palavras gramaticais de altíssima frequência (conjunções, preposições, pronomes, partículas,
-advérbios e verbos nucleares como καί, γάρ, αὐτός, διά, εἰμί, πᾶς); por isso o destaque de palavras no
-texto grego agora alcança ~65% de todos os tokens do NT. Os Evangelhos sinóticos, Atos e o Apocalipse trazem o texto integral e verbetes próprios do seu
-vocabulário distintivo — de Lucas (o médico evangelista, as parábolas do bom samaritano e do filho
-pródigo), de Atos (o vocabulário jurídico, das cidades helenísticas e da viagem marítima de Paulo) e
-do Apocalipse (o Cordeiro, a Besta, o dragão, os selos, as trombetas, as taças e a Nova Jerusalém).
-A curadoria exaustiva dos sinóticos, de Atos e do Apocalipse segue como trabalho contínuo.
+cobertas pelo léxico.
+
+A expansão de 1913 para 3000 verbetes foi dirigida por frequência real, não por gosto: a lematização
+CC0 do Nestle 1904 foi cruzada com a base para produzir a lista exata do que faltava, e o trabalho
+desceu dos lemas mais frequentes até o piso de 3 ocorrências. Isso fechou três lacunas que a curadoria
+por assunto deixara abertas: as palavras gramaticais de altíssima frequência (conjunções, preposições,
+pronomes, partículas, correlativos), a onomástica (topônimos, gentílicos, genealogias, autoridades
+romanas) e o vocabulário técnico de Atos — náutico, jurídico e administrativo. Resultado: **97,75% de
+todos os tokens do texto grego do NT** são hoje palavras destacadas e clicáveis, contra ~65% antes.
+
+Cada verbete acrescentado foi validado por máquina contra o texto: as referências existem, e as formas
+gregas citadas estão atestadas nos versículos indicados. Os Evangelhos sinóticos, Atos e o Apocalipse
+mantêm ainda os verbetes próprios do seu vocabulário distintivo — de Lucas (o médico evangelista, as
+parábolas do bom samaritano e do filho pródigo), de Atos (as cidades helenísticas e a viagem marítima
+de Paulo) e do Apocalipse (o Cordeiro, a Besta, o dragão, os selos, as trombetas, as taças e a Nova
+Jerusalém). O que resta fora do léxico são lemas de 1 a 2 ocorrências — sobretudo nomes de genealogias
+e hápax do Apocalipse.
 
 Não há servidor, banco de dados, instalação nem dependências. O `index.html` é
 autocontido: basta **dar dois cliques** nele para abrir. Funciona offline, a partir
@@ -78,25 +86,26 @@ o valor pelo texto correspondente da ARA. O grego e os destaques continuam funci
 
 ## Decisão de integridade acadêmica
 
-O núcleo destes 60 verbetes foi **redigido e traduzido por mim em português**, a
+Todos os 3000 verbetes foram **redigidos e traduzidos por mim em português**, a
 partir da erudição lexicográfica de domínio público (LSJ e Abbott-Smith). **Não é
 cópia do BDAG** (Bauer-Danker, que é protegido por direito autoral da University of
 Chicago) nem de qualquer obra sob copyright. Por isso este material pode ser
 consultado, copiado, hospedado e redistribuído livremente.
 
-O recorte é o vocabulário central do grego bíblico, com **densidade deliberada em
+O recorte cobre o vocabulário do NT por frequência, com **densidade deliberada em
 Romanos 8** — υἱοθεσία, κατάκριμα, φρόνημα, προορίζω, προγινώσκω, πρόθεσις,
 συγκληρονόμος, ἀπολύτρωσις, στενάζω, ἐντυγχάνω — além dos termos-chave do NT
 (θεός, λόγος, ἀγάπη, πίστις, χάρις, δικαιοσύνη, σάρξ, πνεῦμα, νόμος, σῴζω…).
 
-São 60 verbetes **precisos e verificados**, não um corpus inflado. A expansão ao
-corpus completo é trabalho incremental e honesto — descrito abaixo.
+São verbetes **precisos e verificados**, não um corpus inflado: cada citação grega
+foi conferida por máquina contra o texto do Nestle 1904, e cada referência bíblica
+existe. A expansão ao corpus completo do LSJ é trabalho incremental — descrito abaixo.
 
 ---
 
 ## Expandir ao corpus completo (LSJ + Abbott-Smith)
 
-Os 60 verbetes são a semente. Para carregar os léxicos inteiros (~116 mil verbetes
+Os 3000 verbetes cobrem o NT. Para carregar os léxicos inteiros (~116 mil verbetes
 do LSJ), use `ingestao_lsj.py`. O processamento **não cabe neste navegador** — o
 XML do LSJ passa de 1 GB —, então rode numa máquina com espaço:
 
@@ -145,9 +154,18 @@ Não há chave de API, build nem servidor para manter.
 - **Abbott-Smith** — *A Manual Greek Lexicon of the NT* (1922), domínio público.
 - **Texto grego do NT** (`versiculos.js`) — *Novum Testamentum Graece*, ed. Eberhard Nestle,
   1904 (British & Foreign Bible Society), domínio público; morfologia e lematização CC0
-  (biblicalhumanities.org, Ulrik Sandborg-Petersen).
+  (biblicalhumanities.org, Ulrik Sandborg-Petersen). A mesma lematização CC0 foi usada para
+  medir a cobertura do léxico, priorizar os verbetes por frequência e alinhar cada token do
+  texto grego ao seu verbete — é dela que vêm os destaques clicáveis.
 - **Texto português** (`versiculos.js`) — João Ferreira de Almeida, edição de 1911, domínio público.
 
 As obras-fonte são de domínio público. Ao citar em trabalho acadêmico, refira
-sempre a **obra original** (LSJ, Abbott-Smith), não esta ferramenta. O código e o
-núcleo de verbetes em PT-BR podem ser usados e adaptados livremente.
+sempre a **obra original** (LSJ, Abbott-Smith), não esta ferramenta.
+
+Licenciamento deste repositório (detalhes em [`LICENSE`](LICENSE)):
+
+- **Código** (`index.html`, `ingestao_lsj.py`) — **MIT**.
+- **Os 3000 verbetes em português** (`dados.js`) — **CC BY 4.0**: use, adapte e
+  redistribua, inclusive comercialmente, dando crédito.
+- **Textos bíblicos** (`versiculos.js`) — já em **domínio público**; não são de
+  autoria deste projeto.

@@ -1,0 +1,6 @@
+# Normaliza finais de linha no repositório (LF), preservando o checkout nativo.
+* text=auto eol=lf
+
+# Marca os arquivos de dados como gerados, para não poluírem o diff do GitHub
+dados.js      linguist-generated=true
+versiculos.js linguist-generated=true
