@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Léxikon · Leitura</title>
+<meta name="description" content="Protótipo: o texto bíblico em português corrido, versículo a versículo, com as palavras tocáveis abrindo o verbete do léxico.">
+<script>
+/* Tema antes da primeira pintura — o protótipo nasce com a mesma regra que o
+   app: escolha guardada, senão a preferência do sistema. */
+(function(){
+  var t=null; try{ t=localStorage.getItem("lexikon-tema"); }catch(e){}
+  if(t!=="light"&&t!=="dark") t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecdc; --paper-2:#efe5d0; --ink:#241c14; --ink-soft:#4a3d2e; --ink-faint:#6f6049;
+    --rubric:#8c2f23; --rubric-deep:#6e231a; --gold:#9a7b32; --line:#d8c8a8; --line-soft:#e3d6bb;
+    --card:#fbf5e7; --shadow:rgba(60,42,20,.16); --sel:#e9d9b3;
+    --toque:rgba(154,123,50,.55);          /* sublinhado de palavra tocável */
+  }
+  html[data-theme="dark"]{
+    --paper:#1a1611; --paper-2:#221d16; --ink:#ece2cf; --ink-soft:#cdbfa6; --ink-faint:#b09e80;
+    --rubric:#cf6c54; --rubric-deep:#b85740; --gold:#cbab6e; --line:#3a3025; --line-soft:#2e2620;
+    --card:#241e17; --shadow:rgba(0,0,0,.4); --sel:#3a2f1f;
+    --toque:rgba(203,171,110,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-tap-highlight-color:transparent}
+  ::selection{background:var(--sel);color:var(--ink)}
+  button,select,a{touch-action:manipulation;font-family:inherit}
+  :focus-visible{outline:2px solid var(--rubric);outline-offset:2px;border-radius:2px}
+  body{background:var(--paper);color:var(--ink);font-family:'EB Garamond',Georgia,serif;
+    min-height:100dvh;-webkit-font-smoothing:antialiased}
+
+  /* ---------- Barra: o mínimo para trocar de passagem ----------
+     Tudo que não é o texto tem de caber numa linha. Sem chips, sem trilho
+     alfabético, sem segundo campo de busca: aqui a tarefa é ler. */
+  .barra{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:8px;
+    padding:8px max(12px,env(safe-area-inset-left)) 8px max(12px,env(safe-area-inset-right));
+    background:var(--paper);border-bottom:1px solid var(--line);
+    box-shadow:0 8px 14px -14px var(--shadow)}
+  .barra select{appearance:none;background:transparent;border:1px solid var(--line);color:var(--ink);
+    border-radius:4px;height:40px;padding:0 26px 0 10px;font-size:15px;cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ink-faint) 50%),linear-gradient(135deg,var(--ink-faint) 50%,transparent 50%);
+    background-position:calc(100% - 14px) 17px,calc(100% - 9px) 17px;background-size:5px 5px;background-repeat:no-repeat}
+  .barra select#livro{flex:1;min-width:0}
+  .barra .passo{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+    border-radius:4px;cursor:pointer;font-size:17px;display:grid;place-items:center}
+  .barra .passo[disabled]{opacity:.35;cursor:default}
+  .barra .passo:active:not([disabled]){background:var(--paper-2)}
+  .barra .tema{width:40px;height:40px;border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+    border-radius:50%;cursor:pointer;font-size:16px;display:grid;place-items:center}
+
+  /* ---------- O texto é a interface ---------- */
+  main{max-width:38em;margin:0 auto;padding:22px 18px 40vh;
+    padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+  .titulo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(26px,6vw,34px);
+    line-height:1.15;margin-bottom:2px}
+  .fonte{font-size:13px;color:var(--ink-faint);font-style:italic;margin-bottom:20px}
+
+  .corrido{font-size:19px;line-height:1.85;color:var(--ink);text-align:left}
+  html[data-theme="dark"] .corrido{line-height:1.9}
+
+  /* O número do versículo é a dobradiça: abre o grego daquele versículo.
+     Fica em rubrica esmaecida para marcar estrutura sem disputar a leitura. */
+  /* Cor: era rubrica a 75% de opacidade e media 3,69:1 a 12,9px — reprovava.
+     Passa a --ink-faint (5,19:1 no claro, 6,9 no escuro), o que de quebra
+     devolve a rubrica ao seu papel de acento, usado só no estado aberto.
+     Alvo: o número tinha 11x22px. O ::after estende a área de toque para
+     ~27x34 sem mexer no ritmo da linha — 34px é o limite que cabe dentro da
+     entrelinha, então não rouba o toque das linhas de cima e de baixo. */
+  .vn{position:relative;font-family:'Cormorant Garamond',serif;font-size:.68em;font-weight:600;
+    color:var(--ink-faint);vertical-align:.42em;margin:0 .22em 0 .1em;padding:.35em .25em;
+    border:none;background:none;cursor:pointer;line-height:1}
+  /* Número de um dígito tem 11px de largura; um inset simétrico deixaria o
+     alvo em 21px, abaixo do mínimo de 24. Daí a largura mínima explícita. */
+  .vn::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:max(100%,30px);height:34px;border-radius:4px}
+  .vn:first-child{margin-left:0}
+  .vn[aria-expanded="true"]{color:var(--rubric);background:var(--sel);border-radius:3px}
+
+  /* Palavra que resolve num verbete. Sublinhado pontilhado: diz "tem mais
+     aqui" sem transformar o parágrafo num campo de links azuis. */
+  .pal{border:none;background:none;padding:0;font:inherit;color:inherit;cursor:pointer;
+    border-bottom:1px dotted var(--toque)}
+  .pal:active{background:var(--sel);border-radius:2px}
+  .pal.ativa{background:var(--sel);border-radius:2px;border-bottom-color:transparent}
+
+  /* Grego do versículo: 100% alinhado, porque vem da lematização do Nestle.
+     É a rede de segurança dos 40% que o português não resolve. */
+  .grego{display:block;margin:.5em 0 .9em;padding:12px 14px;background:var(--paper-2);
+    border-left:3px solid var(--gold);border-radius:0 4px 4px 0;
+    font-family:'Gentium Book Plus',serif;font-size:17px;line-height:1.9;color:var(--ink)}
+  .grego .gref{display:block;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
+  .grego .tk{border:none;background:none;padding:0 1px;font:inherit;color:inherit;cursor:pointer;
+    border-bottom:1px solid var(--toque)}
+  .grego .tk.sem{border-bottom:none;cursor:default;color:var(--ink-faint)}
+  .grego .tk:active{background:var(--sel);border-radius:2px}
+
+  /* ---------- Gaveta do verbete ----------
+     Sobe de baixo e ocupa a metade de baixo da tela: é onde o polegar chega
+     com o aparelho numa mão só. O texto continua visível em cima. */
+  .fundo{position:fixed;inset:0;background:rgba(20,14,6,.45);z-index:40;opacity:0;pointer-events:none;
+    transition:opacity .18s ease}
+  .fundo.on{opacity:1;pointer-events:auto}
+  .gaveta{position:fixed;left:0;right:0;bottom:0;z-index:41;background:var(--card);
+    border-top:2px solid var(--rubric);border-radius:12px 12px 0 0;
+    box-shadow:0 -14px 40px -16px var(--shadow);max-height:72dvh;display:flex;flex-direction:column;
+    transform:translateY(102%);transition:transform .22s ease-out;
+    padding-bottom:env(safe-area-inset-bottom)}
+  .gaveta.on{transform:none}
+  .g-topo{padding:14px 18px 10px;border-bottom:1px solid var(--line-soft);position:relative;flex:0 0 auto}
+  .g-fechar{position:absolute;top:8px;right:8px;width:40px;height:40px;border:none;background:none;
+    color:var(--ink-faint);font-size:24px;cursor:pointer;border-radius:50%;line-height:1}
+  .g-fechar:active{background:var(--paper-2)}
+  .g-lema{font-family:'Gentium Book Plus',serif;font-size:32px;line-height:1.15;padding-right:44px}
+  .g-translit{font-style:italic;color:var(--rubric);font-size:16px;margin-top:1px}
+  .g-classe{font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.11em;margin-top:7px}
+  .g-corpo{padding:14px 18px 20px;overflow-y:auto;overscroll-behavior:contain;flex:1 1 auto}
+  .g-glosas{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .g-glosas span{font-size:16px;color:var(--rubric);background:var(--paper-2);
+    border:1px solid var(--line-soft);border-radius:4px;padding:3px 11px}
+  .g-prosa{font-size:16px;line-height:1.62;color:var(--ink-soft)}
+  .g-prosa .gk{font-family:'Gentium Book Plus',serif;color:var(--ink)}
+  .g-rot{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rubric);
+    margin:16px 0 6px;font-weight:600}
+  .g-acoes{display:flex;gap:8px;padding:0 18px 16px;flex:0 0 auto}
+  .g-acoes a,.g-acoes button{flex:1;text-align:center;text-decoration:none;font-size:14.5px;
+    border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
+    padding:11px 10px;border-radius:5px;cursor:pointer;min-height:44px;display:grid;place-items:center}
+  .g-acoes a:active,.g-acoes button:active{background:var(--paper-2)}
+
+  /* Quantas palavras daquele versículo o português não resolveu. Dado, não
+     enfeite: diz onde a heurística falhou e oferece o grego, que não falha. */
+  .aviso{font-size:12.5px;color:var(--ink-faint);font-style:italic;margin-top:14px;
+    padding-top:10px;border-top:1px dashed var(--line)}
+
+  .nota{max-width:38em;margin:0 auto;padding:18px;font-size:13px;line-height:1.6;
+    color:var(--ink-faint);border-top:1px solid var(--line)}
+  .nota b{color:var(--ink-soft)}
+
+  @media (hover:hover) and (pointer:fine){
+    .pal:hover{background:var(--sel);border-radius:2px}
+    .grego .tk:not(.sem):hover{background:var(--sel);border-radius:2px}
+    .vn:hover{opacity:1}
+    .barra .passo:hover:not([disabled]),.barra .tema:hover{border-color:var(--rubric);color:var(--rubric)}
+    .g-acoes a:hover,.g-acoes button:hover{border-color:var(--rubric);color:var(--rubric)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <select id="livro" aria-label="Livro"></select>
+  <select id="cap" aria-label="Capítulo"></select>
+  <button class="passo" id="ant" aria-label="Capítulo anterior">‹</button>
+  <button class="passo" id="prox" aria-label="Próximo capítulo">›</button>
+  <button class="tema" id="tema" aria-label="Alternar tema" aria-pressed="false">☾</button>
+</header>
+
+<main>
+  <h1 class="titulo" id="titulo"></h1>
+  <p class="fonte" id="fonte"></p>
+  <div class="corrido" id="corrido"></div>
+</main>
+
+<p class="nota" id="nota"></p>
+
+<div class="fundo" id="fundo"></div>
+<aside class="gaveta" id="gaveta" role="dialog" aria-modal="true" aria-labelledby="gLema" tabindex="-1">
+  <div class="g-topo">
+    <button class="g-fechar" id="gFechar" aria-label="Fechar">×</button>
+    <div class="g-lema" id="gLema"></div>
+    <div class="g-translit" id="gTranslit"></div>
+    <div class="g-classe" id="gClasse"></div>
+  </div>
+  <div class="g-corpo" id="gCorpo"></div>
+  <div class="g-acoes">
+    <a id="gLexico" href="../index.html">Abrir no léxico</a>
+    <button id="gCopiar" type="button">Copiar</button>
+  </div>
+</aside>
+
+<!-- Mesmos dados do app: núcleo neutro + pacote de língua. -->
+<script src="../nucleo/livros.js"></script>
+<script src="../nucleo/lexico.js"></script>
+<script src="../nucleo/versos.js"></script>
+<script>
+/* O protótipo nasce em pt-BR-atual porque a grafia de 1911 derruba o
+   casamento de palavras: medido, 57,3% contra 60,0%. A escolha fica numa
+   chave própria para não brigar com a do app. */
+(function(){
+  var guardado=null; try{ guardado=localStorage.getItem("lexikon-leitura-idioma"); }catch(e){}
+  var daUrl=(location.search.match(/[?&]lang=([\w-]+)/)||[])[1];
+  var escolhido=daUrl||guardado||"pt-BR-atual";
+  window.LEITURA_IDIOMA=escolhido;
+  var TODOS=["meta.js","ui.js","livros.js","lexico.js","versos.js"];
+  function escreve(cod,arqs){ for(var i=0;i<arqs.length;i++)
+    document.write('<script src="../linguas/'+cod+"/"+arqs[i]+'"><\/script>'); }
+  if(escolhido==="pt-BR-atual"){ escreve("pt-BR",TODOS); escreve("pt-BR-atual",["meta.js","versos.js"]); }
+  else escreve(escolhido,TODOS);
+})();
+</script>
+<script src="../montar.js"></script>
+<script>
+"use strict";
+var VERSOS = window.LEXICON_VERSOS || {};
+var DADOS  = window.LEXICON_DATA || [];
+var LIVROS = window.LEXIKON_LIVROS || {};
+var CANON  = window.LEXIKON_CANON || [];
+var META   = window.LEXIKON_PACK_META || {};
+var porLema = {}; DADOS.forEach(function(e){ porLema[e.lema]=e; });
+
+/* ===================== Casamento português → lema =====================
+   Não existe alinhamento palavra a palavra nos dados: o português é uma
+   string por versículo e o grego é token a token com lema. O que existe é
+   a lista de lemas DAQUELE versículo e as glosas de cada verbete — então a
+   busca acontece num conjunto de algumas dezenas de candidatos, não nos
+   5.410 verbetes. Medido no NT inteiro: resolve 60,0% das palavras de
+   conteúdo, com 3,1% de ambiguidade. Os 40% restantes não ficam tocáveis,
+   e para eles existe o grego do versículo, que é alinhado de verdade. */
+function dobra(s){
+  return s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()
+    .replace(/ph/g,"f").replace(/th/g,"t").replace(/ch/g,"c").replace(/y/g,"i")
+    .replace(/sc/g,"c").replace(/([bcdfglmnprstz])\1/g,"$1").replace(/[^a-z0-9]/g,"");
+}
+var VAZIAS = {};
+("de do da dos das e a o os as em um uma que se por para com no na nos nas ao aos lhe lhes seu sua seus "+
+ "suas meu minha teu tua nosso nossa vos nos me te ele ela eles elas isto isso aquilo mas porque pois como "+
+ "quando onde ja nao sim ha foi era sao ser ter tem tinha disse entao ainda ate todo toda todos todas este "+
+ "esta estes estas esse essa aquele aquela qual quais cujo cuja mais menos sobre entre sem sob apos antes "+
+ "depois tambem so mesmo mesma tudo nada quem seja fosse ou nem").split(" ")
+  .forEach(function(w){ VAZIAS[dobra(w)]=1; });
+
+function lcp(a,b){ var i=0; while(i<a.length&&i<b.length&&a[i]===b[i]) i++; return i; }
+
+function candidatosDo(ref){
+  var o=VERSOS[ref]; if(!o||!o.g) return [];
+  var cand=[], vistos={};
+  for(var i=0;i<o.g.length;i++){
+    var t=o.g[i]; if(!Array.isArray(t)) continue;
+    var lema=t[1]; if(vistos[lema]) continue; vistos[lema]=1;
+    var e=porLema[lema]; if(!e||!e.pt||!e.pt.length) continue;
+    for(var j=0;j<e.pt.length;j++){
+      var partes=e.pt[j].split(/[^A-Za-zÀ-ÿ0-9]+/);
+      for(var k=0;k<partes.length;k++){
+        var d=dobra(partes[k]); if(d.length>2) cand.push({w:d,lema:lema});
+      }
+    }
+  }
+  return cand;
+}
+function casar(palavra,cand){
+  var p=dobra(palavra);
+  if(p.length<3||VAZIAS[p]) return null;
+  var exatos={},n=0,i;
+  for(i=0;i<cand.length;i++) if(cand[i].w===p && !exatos[cand[i].lema]){ exatos[cand[i].lema]=1; n++; }
+  if(n) return Object.keys(exatos);
+  if(p.length<5) return null;                 /* curta sem exato: não arrisca */
+  var lim = p.length<=6 ? 4 : 5, pref={}; n=0;
+  for(i=0;i<cand.length;i++){
+    var c=cand[i];
+    if(c.w.length>=4 && lcp(c.w,p)>=lim && !pref[c.lema]){ pref[c.lema]=1; n++; }
+  }
+  return n ? Object.keys(pref) : null;
+}
+
+/* ===================== Capítulos disponíveis ===================== */
+var CAPS = {};
+Object.keys(VERSOS).forEach(function(r){
+  var p=r.split("|"); if(!CAPS[p[0]]) CAPS[p[0]]={};
+  CAPS[p[0]][+p[1]] = Math.max(CAPS[p[0]][+p[1]]||0, +p[2]);
+});
+function capitulosDe(livro){
+  return Object.keys(CAPS[livro]||{}).map(Number).sort(function(a,b){return a-b;});
+}
+
+/* ===================== Estado e navegação ===================== */
+var livroEl=document.getElementById("livro"), capEl=document.getElementById("cap");
+var antEl=document.getElementById("ant"), proxEl=document.getElementById("prox");
+var corridoEl=document.getElementById("corrido"), tituloEl=document.getElementById("titulo");
+var fonteEl=document.getElementById("fonte"), notaEl=document.getElementById("nota");
+
+var livroAtual="ROM", capAtual=8;
+(function(hash){
+  var m=(hash||"").replace(/^#/,"").split(".");
+  if(m.length===2 && CAPS[m[0]] && CAPS[m[0]][+m[1]]){ livroAtual=m[0]; capAtual=+m[1]; }
+})(location.hash);
+
+livroEl.innerHTML = CANON.filter(function(l){ return CAPS[l]; }).map(function(l){
+  return '<option value="'+l+'">'+((LIVROS[l]&&LIVROS[l].nome)||l)+'</option>';
+}).join("");
+
+function preencherCaps(){
+  capEl.innerHTML = capitulosDe(livroAtual).map(function(c){
+    return '<option value="'+c+'">'+c+'</option>';
+  }).join("");
+  capEl.value = String(capAtual);
+}
+function irPara(livro,cap){
+  livroAtual=livro; capAtual=cap;
+  livroEl.value=livro; preencherCaps();
+  history.replaceState(null,"",location.pathname+location.search+"#"+livro+"."+cap);
+  render(); window.scrollTo(0,0);
+}
+livroEl.onchange=function(){ var c=capitulosDe(this.value); irPara(this.value, c[0]||1); };
+capEl.onchange=function(){ irPara(livroAtual, +this.value); };
+
+function vizinho(passo){
+  var caps=capitulosDe(livroAtual), i=caps.indexOf(capAtual);
+  if(i+passo>=0 && i+passo<caps.length) return {l:livroAtual,c:caps[i+passo]};
+  var livros=CANON.filter(function(l){ return CAPS[l]; }), j=livros.indexOf(livroAtual);
+  if(j+passo<0 || j+passo>=livros.length) return null;
+  var nl=livros[j+passo], ncaps=capitulosDe(nl);
+  return {l:nl, c: passo>0 ? ncaps[0] : ncaps[ncaps.length-1]};
+}
+antEl.onclick=function(){ var v=vizinho(-1); if(v) irPara(v.l,v.c); };
+proxEl.onclick=function(){ var v=vizinho(1);  if(v) irPara(v.l,v.c); };
+
+/* ===================== Render do capítulo ===================== */
+function esc(s){ return (s||"").replace(/[&<>"]/g,function(m){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]; }); }
+
+var _semCasar = {};   /* ref -> nº de palavras de conteúdo não resolvidas */
+
+function montarVersiculo(ref,n){
+  var o=VERSOS[ref]; if(!o||!o.p) return "";
+  var cand=candidatosDo(ref);
+  var html='<button class="vn" data-ref="'+ref+'" aria-expanded="false" '+
+           'aria-label="Versículo '+n+' — mostrar o grego">'+n+'</button>';
+  var pedacos=o.p.split(/([A-Za-zÀ-ÿ0-9À-ɏ']+)/);
+  var naoCasou=0;
+  for(var i=0;i<pedacos.length;i++){
+    var bruto=pedacos[i];
+    if(i%2===0){ html+=esc(bruto); continue; }      /* pontuação e espaços */
+    var lemas=cand.length ? casar(bruto,cand) : null;
+    if(lemas && lemas.length){
+      html+='<button class="pal" data-lemas="'+esc(lemas.join("|"))+'" data-ref="'+ref+'">'+esc(bruto)+'</button>';
+    } else {
+      var d=dobra(bruto);
+      if(d.length>2 && !VAZIAS[d]) naoCasou++;
+      html+=esc(bruto);
+    }
+  }
+  _semCasar[ref]=naoCasou;
+  return html+'<span class="greg-slot" id="g-'+ref.replace(/\|/g,"_")+'"></span> ';
+}
+
+function render(){
+  var nome=(LIVROS[livroAtual]&&LIVROS[livroAtual].nome)||livroAtual;
+  tituloEl.textContent = nome+" "+capAtual;
+  /* `sigla` é o que distingue os dois pacotes de português: `nome` é
+     "Almeida Revista e Corrigida" nos dois, e aqui o leitor precisa saber
+     qual texto está diante dele. */
+  var bib=(META.biblia&&META.biblia.sigla)||(META.biblia&&META.biblia.nome)||"";
+  fonteEl.textContent = bib ? bib+" · grego: Nestle 1904" : "grego: Nestle 1904";
+
+  var ultimo=CAPS[livroAtual][capAtual], html="", n;
+  _semCasar={};
+  for(n=1;n<=ultimo;n++){
+    var ref=livroAtual+"|"+capAtual+"|"+n;
+    if(VERSOS[ref]) html+=montarVersiculo(ref,n);
+  }
+  corridoEl.innerHTML=html;
+
+  var caps=capitulosDe(livroAtual);
+  antEl.disabled = !vizinho(-1);
+  proxEl.disabled = !vizinho(1);
+  capEl.value=String(capAtual);
+
+  var tocaveis=corridoEl.querySelectorAll(".pal").length;
+  var faltam=0; for(var k in _semCasar) faltam+=_semCasar[k];
+  notaEl.innerHTML = "<b>"+tocaveis+"</b> palavras deste capítulo abrem verbete direto do português; "+
+    "<b>"+faltam+"</b> não casaram e ficam sem sublinhado. "+
+    "Não há alinhamento palavra a palavra nos dados — o casamento é inferido pelas glosas dos lemas "+
+    "do próprio versículo. Para as que faltam, toque no <b>número do versículo</b>: o grego é alinhado "+
+    "de verdade e abre qualquer palavra.";
+}
+
+/* ===================== Grego por versículo ===================== */
+corridoEl.addEventListener("click",function(ev){
+  var vn=ev.target.closest(".vn");
+  if(vn){ alternarGrego(vn); return; }
+  var pal=ev.target.closest(".pal");
+  if(pal){ abrirPalavra(pal); return; }
+  var tk=ev.target.closest(".tk");
+  if(tk && tk.dataset.lema){ abrirLema(tk.dataset.lema, tk); return; }
+});
+
+function alternarGrego(botao){
+  var ref=botao.dataset.ref;
+  var slot=document.getElementById("g-"+ref.replace(/\|/g,"_"));
+  if(!slot) return;
+  var n=ref.split("|")[2];
+  if(slot.firstChild){
+    slot.innerHTML=""; botao.setAttribute("aria-expanded","false");
+    botao.setAttribute("aria-label","Versículo "+n+" — mostrar o grego");
+    return;
+  }
+  var o=VERSOS[ref]; if(!o||!o.g){ return; }
+  var p=ref.split("|");
+  var abrev=(LIVROS[p[0]]&&LIVROS[p[0]].abrev)||p[0];
+  var toks=o.g.map(function(t){
+    if(Array.isArray(t)){
+      var existe=porLema[t[1]];
+      return existe
+        ? '<button class="tk" data-lema="'+esc(t[1])+'">'+esc(t[0])+'</button>'
+        : '<span class="tk sem">'+esc(t[0])+'</span>';
+    }
+    return '<span class="tk sem">'+esc(t)+'</span>';
+  }).join(" ");
+  slot.innerHTML='<span class="grego"><span class="gref">'+esc(abrev+" "+p[1]+"."+p[2])+
+    ' · Nestle 1904</span>'+toks+'</span>';
+  botao.setAttribute("aria-expanded","true");
+  botao.setAttribute("aria-label","Versículo "+n+" — ocultar o grego");
+}
+
+/* ===================== Gaveta do verbete ===================== */
+var gaveta=document.getElementById("gaveta"), fundo=document.getElementById("fundo");
+var gLema=document.getElementById("gLema"), gTranslit=document.getElementById("gTranslit");
+var gClasse=document.getElementById("gClasse"), gCorpo=document.getElementById("gCorpo");
+var gLexico=document.getElementById("gLexico"), gCopiar=document.getElementById("gCopiar");
+var _focoAnterior=null, _ativa=null, _lemaAtual=null;
+
+function realce(t){
+  return esc(t).replace(/([Ͱ-Ͽἀ-῿Ά-ώ]+)/g,'<span class="gk">$1</span>');
+}
+function abrirPalavra(botao){
+  var lemas=(botao.dataset.lemas||"").split("|").filter(Boolean);
+  if(!lemas.length) return;
+  marcarAtiva(botao);
+  if(lemas.length===1){ abrirLema(lemas[0], botao); return; }
+  /* Ambiguidade (3% dos casos): mostra as opções em vez de escolher sozinho. */
+  _focoAnterior=botao;
+  gLema.textContent=botao.textContent;
+  gTranslit.textContent="";
+  gClasse.textContent="mais de um verbete deste versículo casa com esta palavra";
+  gCorpo.innerHTML='<div class="g-glosas">'+lemas.map(function(l){
+    var e=porLema[l];
+    return '<span><button class="tk" data-lema="'+esc(l)+'" style="font-size:18px">'+esc(l)+
+      '</button> '+(e?esc(e.translit):"")+'</span>';
+  }).join("")+'</div>';
+  gCorpo.querySelectorAll("[data-lema]").forEach(function(b){
+    b.onclick=function(){ abrirLema(this.dataset.lema, _focoAnterior); };
+  });
+  gLexico.href="../index.html";
+  mostrarGaveta();
+}
+function abrirLema(lema,origem){
+  var e=porLema[lema]; if(!e) return;
+  if(origem) _focoAnterior=origem;
+  _lemaAtual=e;
+  gLema.textContent=e.lema;
+  gTranslit.textContent=e.translit||"";
+  gClasse.textContent=(e.classe||"").split(",")[0];
+  var h="";
+  if(e.pt&&e.pt.length) h+='<div class="g-glosas">'+e.pt.map(function(g){
+    return '<span>'+esc(g)+'</span>'; }).join("")+'</div>';
+  if(e.abbott) h+='<div class="g-rot">Abbott-Smith</div><p class="g-prosa">'+realce(e.abbott)+'</p>';
+  else if(e.lsj) h+='<div class="g-rot">Liddell-Scott-Jones</div><p class="g-prosa">'+realce(e.lsj)+'</p>';
+  if(e.morf) h+='<div class="g-rot">Flexão</div><p class="g-prosa"><span class="gk">'+esc(e.morf)+'</span></p>';
+  gCorpo.innerHTML=h;
+  gCorpo.scrollTop=0;
+  gLexico.href="../index.html#"+encodeURIComponent(e.lema);
+  mostrarGaveta();
+}
+function mostrarGaveta(){
+  gaveta.classList.add("on"); fundo.classList.add("on");
+  gaveta.focus({preventScroll:true});
+}
+function fecharGaveta(){
+  if(!gaveta.classList.contains("on")) return;
+  gaveta.classList.remove("on"); fundo.classList.remove("on");
+  if(_ativa){ _ativa.classList.remove("ativa"); }
+  if(_focoAnterior && document.contains(_focoAnterior)) _focoAnterior.focus({preventScroll:true});
+  _focoAnterior=null; _lemaAtual=null;
+}
+function marcarAtiva(el){ if(_ativa) _ativa.classList.remove("ativa"); _ativa=el; el.classList.add("ativa"); }
+
+document.getElementById("gFechar").onclick=fecharGaveta;
+fundo.onclick=fecharGaveta;
+document.addEventListener("keydown",function(ev){ if(ev.key==="Escape") fecharGaveta(); });
+gaveta.addEventListener("keydown",function(ev){
+  if(ev.key!=="Tab") return;
+  var f=gaveta.querySelectorAll('a[href],button:not([disabled])');
+  if(!f.length) return;
+  var pri=f[0], ult=f[f.length-1];
+  if(ev.shiftKey && (document.activeElement===pri||document.activeElement===gaveta)){ ev.preventDefault(); ult.focus(); }
+  else if(!ev.shiftKey && document.activeElement===ult){ ev.preventDefault(); pri.focus(); }
+});
+gCopiar.onclick=function(){
+  if(!_lemaAtual) return;
+  var e=_lemaAtual, L=[e.lema+"  ("+e.translit+")"];
+  if(e.classe) L.push(e.classe);
+  if(e.pt&&e.pt.length) L.push(e.pt.join(", "));
+  if(e.abbott) L.push("", e.abbott);
+  var txt=L.join("\n");
+  if(navigator.clipboard) navigator.clipboard.writeText(txt).then(avisarCopiado, avisarCopiado);
+  else avisarCopiado();
+};
+function avisarCopiado(){
+  var antes=gCopiar.textContent;
+  gCopiar.textContent="Copiado";
+  setTimeout(function(){ gCopiar.textContent=antes; },1400);
+}
+
+/* ===================== Tema ===================== */
+var temaBtn=document.getElementById("tema");
+function escuro(){ return document.documentElement.getAttribute("data-theme")==="dark"; }
+function refletir(){ temaBtn.textContent=escuro()?"☀":"☾"; temaBtn.setAttribute("aria-pressed",escuro()?"true":"false"); }
+refletir();
+temaBtn.onclick=function(){
+  document.documentElement.setAttribute("data-theme", escuro()?"light":"dark");
+  try{ localStorage.setItem("lexikon-tema", escuro()?"dark":"light"); }catch(e){}
+  refletir();
+};
+
+/* O capítulo vive no hash, então o botão "voltar" do navegador e um link
+   colado numa aba já aberta têm de funcionar: sem este ouvinte, mudar o
+   hash não recarrega a página e nada acontece. */
+window.addEventListener("hashchange",function(){
+  var m=(location.hash||"").replace(/^#/,"").split(".");
+  if(m.length!==2) return;
+  var l=m[0], c=+m[1];
+  if(!CAPS[l]||!CAPS[l][c]) return;
+  if(l===livroAtual && c===capAtual) return;
+  livroAtual=l; capAtual=c;
+  livroEl.value=l; preencherCaps(); render(); window.scrollTo(0,0);
+});
+
+/* ===================== Início ===================== */
+livroEl.value=livroAtual; preencherCaps(); render();
+</script>
+</body>
+</html>
