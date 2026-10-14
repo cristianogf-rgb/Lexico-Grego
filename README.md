@@ -19,31 +19,32 @@ Quatro arquivos, nada mais:
 
 ```
 index.html        o aplicativo inteiro (abre direto no navegador)
-dados.js          a base de dados (3000 verbetes curados em PT-BR)
+dados.js          a base de dados (5410 verbetes curados em PT-BR)
 versiculos.js     texto bíblico dos 27 livros do Novo Testamento (grego Nestle 1904 + português Almeida 1911)
 ingestao_lsj.py   script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
 
-Cobertura atual do léxico — **3000 verbetes** sobre o **Novo Testamento completo (27 livros)**:
+Cobertura atual do léxico — **5410 verbetes** sobre o **Novo Testamento completo (27 livros)**:
 os quatro Evangelhos, Atos, todas as 21 Epístolas, Hebreus e o Apocalipse. Todo o texto grego e
 português dos 27 livros está disponível e navegável (`versiculos.js`), com destaque das palavras
 cobertas pelo léxico.
 
-A expansão de 1913 para 3000 verbetes foi dirigida por frequência real, não por gosto: a lematização
+A expansão de 1913 para 5410 verbetes foi dirigida por frequência real, não por gosto: a lematização
 CC0 do Nestle 1904 foi cruzada com a base para produzir a lista exata do que faltava, e o trabalho
-desceu dos lemas mais frequentes até o piso de 3 ocorrências. Isso fechou três lacunas que a curadoria
+desceu dos lemas mais frequentes até o último hápax. Isso fechou as três lacunas que a curadoria
 por assunto deixara abertas: as palavras gramaticais de altíssima frequência (conjunções, preposições,
 pronomes, partículas, correlativos), a onomástica (topônimos, gentílicos, genealogias, autoridades
-romanas) e o vocabulário técnico de Atos — náutico, jurídico e administrativo. Resultado: **97,75% de
-todos os tokens do texto grego do NT** são hoje palavras destacadas e clicáveis, contra ~65% antes.
+romanas) e o vocabulário técnico de Atos — náutico, jurídico e administrativo. Resultado: **100% dos
+137.779 tokens do texto grego do NT** são hoje palavras destacadas e clicáveis, contra ~65% antes.
+Nenhum toque numa palavra grega fica sem resposta.
 
 Cada verbete acrescentado foi validado por máquina contra o texto: as referências existem, e as formas
 gregas citadas estão atestadas nos versículos indicados. Os Evangelhos sinóticos, Atos e o Apocalipse
-mantêm ainda os verbetes próprios do seu vocabulário distintivo — de Lucas (o médico evangelista, as
+mantêm os verbetes próprios do seu vocabulário distintivo — de Lucas (o médico evangelista, as
 parábolas do bom samaritano e do filho pródigo), de Atos (as cidades helenísticas e a viagem marítima
 de Paulo) e do Apocalipse (o Cordeiro, a Besta, o dragão, os selos, as trombetas, as taças e a Nova
-Jerusalém). O que resta fora do léxico são lemas de 1 a 2 ocorrências — sobretudo nomes de genealogias
-e hápax do Apocalipse.
+Jerusalém). Os hápax entraram todos, inclusive os mais técnicos: as doze pedras dos fundamentos, os
+latinismos do comércio de Babilônia, os nomes hebraicos que o próprio livro traduz.
 
 Não há servidor, banco de dados, instalação nem dependências. O `index.html` é
 autocontido: basta **dar dois cliques** nele para abrir. Funciona offline, a partir
@@ -86,7 +87,7 @@ o valor pelo texto correspondente da ARA. O grego e os destaques continuam funci
 
 ## Decisão de integridade acadêmica
 
-Todos os 3000 verbetes foram **redigidos e traduzidos por mim em português**, a
+Todos os 5410 verbetes foram **redigidos e traduzidos por mim em português**, a
 partir da erudição lexicográfica de domínio público (LSJ e Abbott-Smith). **Não é
 cópia do BDAG** (Bauer-Danker, que é protegido por direito autoral da University of
 Chicago) nem de qualquer obra sob copyright. Por isso este material pode ser
@@ -105,7 +106,7 @@ existe. A expansão ao corpus completo do LSJ é trabalho incremental — descri
 
 ## Expandir ao corpus completo (LSJ + Abbott-Smith)
 
-Os 3000 verbetes cobrem o NT. Para carregar os léxicos inteiros (~116 mil verbetes
+Os 5410 verbetes cobrem o NT por inteiro. Para carregar os léxicos completos (~116 mil verbetes
 do LSJ), use `ingestao_lsj.py`. O processamento **não cabe neste navegador** — o
 XML do LSJ passa de 1 GB —, então rode numa máquina com espaço:
 
@@ -165,7 +166,7 @@ sempre a **obra original** (LSJ, Abbott-Smith), não esta ferramenta.
 Licenciamento deste repositório (detalhes em [`LICENSE`](LICENSE)):
 
 - **Código** (`index.html`, `ingestao_lsj.py`) — **MIT**.
-- **Os 3000 verbetes em português** (`dados.js`) — **CC BY 4.0**: use, adapte e
+- **Os 5410 verbetes em português** (`dados.js`) — **CC BY 4.0**: use, adapte e
   redistribua, inclusive comercialmente, dando crédito.
 - **Textos bíblicos** (`versiculos.js`) — já em **domínio público**; não são de
   autoria deste projeto.
