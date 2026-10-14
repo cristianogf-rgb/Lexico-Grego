@@ -12,9 +12,12 @@ window.LEXIKON_PACK_UI = {
   "cabecalho.idioma": "Idioma",
 
   /* búsqueda */
-  "busca.placeholder": "Busque por significado en español (gracia, redención, mansedumbre), griego (ἀγάπη) o transliteración (agape)…",
+  /* Placeholder es ejemplo de formato, no rótulo ni manual: el texto anterior
+     tenía 105 caracteres y en el móvil solo se veía el 28%. La explicación
+     completa vive en las pistas. */
+  "busca.placeholder": "ej.: amor · ἀγάπη · agape",
   "busca.limpar": "Limpiar",
-  "ref.placeholder": "Por versículo — ej.: Ro 8.15 · Romanos 8 · Ro 8.15-17",
+  "ref.placeholder": "ej.: Ro 8.15 · Romanos 8",
   "ref.formatoInvalido": "<span class=\"err\">Formato no reconocido.</span> Use <b style=\"font-size:14px\">Libro Cap.Versículo</b> — ej. Ro 8.15, Romanos 8, Ro 8.15-17.",
   "dica.versiculo": "<kbd>Versículo</kbd> revela las entradas que aparecen en el pasaje",
   "dica.busca": "Búsqueda por <kbd>griego</kbd>, <kbd>transliteración</kbd> o <kbd>significado</kbd>",
@@ -56,9 +59,11 @@ window.LEXIKON_PACK_UI = {
   "verbete.cognatos": "Familia de palabras (cognados)",
   "verbete.verTambem": "Véase también",
   "verbete.semVerbete": "Todavía no consta en el núcleo",
-  "verbete.copiar": "⧉ Copiar entrada",
-  "verbete.copiarLink": "🔗 Copiar enlace",
-  "verbete.compartilhar": "↗ Compartir",
+  "verbete.fechar": "Cerrar entrada",
+  /* Sin pictograma: 🔗 era un emoji usado como icono. */
+  "verbete.copiar": "Copiar entrada",
+  "verbete.copiarLink": "Copiar enlace",
+  "verbete.compartilhar": "Compartir",
 
   /* texto copiado */
   "copia.flexao": "Flexión: ",

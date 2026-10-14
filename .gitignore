@@ -28,3 +28,6 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Config local do Claude Code (launch.json aponta para um servidor no scratchpad)
+.claude/

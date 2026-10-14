@@ -2,7 +2,22 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f4ecdc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1611" media="(prefers-color-scheme: dark)">
+<!-- Tema resolvido ANTES da primeira pintura: sem isto a página pinta clara e
+     só depois vira escura, e esse clarão é exatamente o que incomoda em sala
+     de estudo. Ordem: escolha guardada > preferência do sistema. -->
+<script>
+(function(){
+  var t=null;
+  try{ t=localStorage.getItem("lexikon-tema"); }catch(e){}
+  if(t!=="light" && t!=="dark"){
+    t = (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  }
+  document.documentElement.setAttribute("data-theme", t);
+})();
+</script>
 <!-- Estes dois valores são o único texto em português que resta no index.html:
      servem de fallback para quem lê a página sem executar JavaScript (robôs de
      busca, pré-visualizações). O pacote de língua carregado sobrescreve ambos
@@ -18,7 +33,10 @@
     --paper-2:#efe5d0;
     --ink:#241c14;
     --ink-soft:#4a3d2e;
-    --ink-faint:#7a6a54;
+    /* --ink-faint carrega tagline, contador, dicas, rodapé e cognatos: é texto
+       pequeno, então tem de bater 4,5:1 sobre --paper E sobre --paper-2. O tom
+       anterior (#7a6a54) media 4,37 e 4,18 — reprovava nos dois. */
+    --ink-faint:#6f6049;
     --rubric:#8c2f23;       /* oxblood / rubricação */
     --rubric-deep:#6e231a;
     --gold:#9a7b32;
@@ -33,7 +51,9 @@
     --paper-2:#221d16;
     --ink:#ece2cf;
     --ink-soft:#cdbfa6;
-    --ink-faint:#9b8a6f;
+    /* no escuro o tom anterior (#9b8a6f) media 2,86:1 — reprovava em tagline,
+       contador, dicas e rodapé de uma vez só. */
+    --ink-faint:#b09e80;
     --rubric:#cf6c54;
     --rubric-deep:#b85740;
     --gold:#cbab6e;
@@ -45,7 +65,13 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   ::selection{background:var(--sel);color:var(--ink)}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;
+    /* o flash cinza do toque é o "isto é um site" mais alto que existe;
+       o retorno de toque vem de :active, logo abaixo */
+    -webkit-tap-highlight-color:transparent}
+  button,select,a,input,.entry{touch-action:manipulation}
+  /* foco visível em tudo que recebe foco, inclusive os cards da lista */
+  :focus-visible{outline:2px solid var(--rubric);outline-offset:2px;border-radius:2px}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -63,7 +89,12 @@
 
   /* ---------- Cabeçalho ---------- */
   header.top{position:relative;z-index:3;border-bottom:1px solid var(--line);
-    padding:26px 22px 20px;text-align:center;background:linear-gradient(180deg,var(--paper-2),transparent);}
+    padding:10px 22px 20px;text-align:center;background:linear-gradient(180deg,var(--paper-2),transparent);
+    padding-left:max(22px,env(safe-area-inset-left));padding-right:max(22px,env(safe-area-inset-right));}
+  /* Os dois controles ficavam em position:absolute sobre o cabeçalho e
+     colidiam com o kicker em tela estreita (medido: sobrepunham o texto nos
+     dois). Em linha própria não há colisão em largura nenhuma. */
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:8px;min-height:44px;margin-bottom:2px}
   .kicker{font-family:'EB Garamond';letter-spacing:.42em;text-transform:uppercase;
     font-size:11px;color:var(--rubric);font-weight:600;margin-bottom:6px;}
   h1.brand{font-family:'Cormorant Garamond';font-weight:600;font-size:clamp(40px,8vw,68px);
@@ -72,31 +103,35 @@
   .tagline{font-style:italic;color:var(--ink-faint);font-size:15px;margin-top:4px}
   .tagline b{color:var(--ink-soft);font-style:normal;font-weight:600}
 
-  .theme-toggle{position:absolute;top:18px;right:18px;background:none;border:1px solid var(--line);
-    color:var(--ink-soft);border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:17px;
-    display:grid;place-items:center;transition:.25s;z-index:4}
-  .theme-toggle:hover{border-color:var(--rubric);color:var(--rubric);transform:rotate(-18deg)}
+  .theme-toggle{background:none;border:1px solid var(--line);
+    color:var(--ink-soft);border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:17px;
+    display:grid;place-items:center;transition:border-color .25s,color .25s,transform .25s}
+  .theme-toggle:active{transform:scale(.94)}
 
-  /* Seletor de idioma: mesma caixa do tema, à esquerda dele. Só aparece
-     quando há mais de um pacote instalado. */
-  .lang-pick{position:absolute;top:18px;right:66px;background:none;border:1px solid var(--line);
-    color:var(--ink-soft);border-radius:20px;height:40px;padding:0 12px;cursor:pointer;
-    font-family:inherit;font-size:13px;letter-spacing:.04em;transition:.25s;z-index:4}
-  .lang-pick:hover{border-color:var(--rubric);color:var(--rubric)}
-  .lang-pick:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
-  @media(max-width:520px){ .lang-pick{right:62px;padding:0 9px;font-size:12px} }
+  /* Seletor de idioma: ao lado do tema. Só aparece quando há mais de um
+     pacote instalado. */
+  .lang-pick{background:none;border:1px solid var(--line);
+    color:var(--ink-soft);border-radius:22px;height:44px;padding:0 12px;cursor:pointer;
+    font-family:inherit;font-size:13px;letter-spacing:.04em;transition:border-color .25s,color .25s}
 
   /* ---------- Layout ---------- */
   .wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:22px 18px 80px}
 
   /* ---------- Busca ---------- */
-  .search-shell{position:sticky;top:0;z-index:5;padding:16px 0 14px;background:linear-gradient(180deg,var(--paper) 72%,transparent)}
+  /* O fundo era um gradiente que terminava em transparente: o card que subia
+     por baixo ficava visível e cortado atrás dos campos. Fundo sólido até o
+     fim da caixa resolve, e a sombra marca a separação ao rolar. */
+  .search-shell{position:sticky;top:0;z-index:5;padding:16px 0 14px;background:var(--paper);
+    box-shadow:0 10px 16px -14px var(--shadow)}
   .search-box{position:relative;display:flex;align-items:center;border:1.5px solid var(--line);
     background:var(--card);border-radius:3px;box-shadow:0 4px 18px -8px var(--shadow);
     transition:border-color .25s,box-shadow .25s}
   .search-box:focus-within{border-color:var(--rubric);box-shadow:0 6px 26px -8px var(--shadow)}
   .search-box .ic{padding:0 14px;color:var(--ink-faint);font-size:20px}
-  #q{flex:1;border:none;background:none;outline:none;padding:16px 6px 16px 0;
+  /* min-width:0 é o que impede o campo de se recusar a encolher: sem ele o
+     botão × era empurrado para fora da tela e a página inteira ganhava
+     rolagem horizontal a 332px (scrollWidth 369 > viewport 332). */
+  #q{flex:1;min-width:0;border:none;background:none;outline:none;padding:16px 6px 16px 0;
     font-family:'Gentium Book Plus','EB Garamond',serif;font-size:21px;color:var(--ink)}
   #q::placeholder{color:var(--ink-faint);font-family:'EB Garamond';font-style:italic;font-size:18px}
   .clear-btn{border:none;background:none;color:var(--ink-faint);font-size:22px;cursor:pointer;padding:0 14px;display:none}
@@ -112,7 +147,7 @@
     transition:border-color .25s}
   .ref-box:focus-within{border-color:var(--gold)}
   .ref-box .ic{padding:0 14px;color:var(--gold);font-size:18px}
-  #ref{flex:1;border:none;background:none;outline:none;padding:13px 6px 13px 0;
+  #ref{flex:1;min-width:0;border:none;background:none;outline:none;padding:13px 6px 13px 0;
     font-family:'EB Garamond',serif;font-size:17px;color:var(--ink)}
   #ref::placeholder{color:var(--ink-faint);font-style:italic;font-size:15px}
   .ref-clear{border:none;background:none;color:var(--ink-faint);font-size:20px;cursor:pointer;padding:0 14px;display:none}
@@ -173,6 +208,8 @@
     opacity:0;border-radius:4px 0 0 4px;transition:.2s}
   .entry:hover::before{opacity:1}
   .entry .lemma{font-family:'Gentium Book Plus',serif;font-size:30px;color:var(--ink);line-height:1.1}
+  .entry .lemma-link{color:inherit;text-decoration:none}
+  .entry .lemma-link:focus-visible{outline:2px solid var(--rubric);outline-offset:3px;border-radius:2px}
   .entry .translit{font-style:italic;color:var(--rubric);font-size:16px;margin-left:2px}
   .entry .classe{font-size:12.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.12em;margin:7px 0 9px}
   .entry .preview{font-size:15px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -184,7 +221,7 @@
     box-shadow:0 10px 26px -14px var(--shadow)}
   .sentinela button small{text-transform:none;letter-spacing:.02em;font-size:12px;color:var(--ink-faint)}
   .entry .tags{margin-top:11px;display:flex;gap:6px;flex-wrap:wrap}
-  .entry .tags span{font-size:11px;background:var(--paper-2);border:1px solid var(--line-soft);
+  .entry .tags span{font-size:12px;background:var(--paper-2);border:1px solid var(--line-soft);
     color:var(--ink-faint);padding:2px 8px;border-radius:3px}
   .gloss{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
   .gloss span{font-family:'EB Garamond',serif;font-size:14px;color:var(--rubric);
@@ -256,14 +293,52 @@
     .sheet-head,.sheet-body,.sheet-actions{padding-left:20px;padding-right:20px}
     .search-hint{display:none}
   }
+
+  /* ---------- Toque: hover não pode grudar ----------
+     Num aparelho sem mouse o primeiro toque aplica :hover e ele fica lá até
+     o toque seguinte em outro lugar — o card permanece levantado, o chip
+     permanece vermelho. Aqui o estado de hover é devolvido ao valor base e o
+     retorno ao dedo passa a vir de :active, que solta sozinho. */
+  @media (hover:none){
+    .clear-btn:hover,.ref-clear:hover{color:var(--ink-faint)}
+    .theme-toggle:hover,.lang-pick:hover{border-color:var(--line);color:var(--ink-soft)}
+    .chip:not(.on):hover{border-color:var(--line);color:var(--ink-soft)}
+    .alpha button:not(.on):hover{background:none;color:var(--ink-soft)}
+    .entry:hover{transform:none;box-shadow:none;border-color:var(--line)}
+    .entry:hover::before{opacity:0}
+    .sentinela button:hover{border-color:var(--line);color:var(--ink-soft);transform:none;box-shadow:none}
+    .close-x:hover{color:var(--ink-faint);transform:none}
+    .xref a:hover{border-color:var(--line);color:var(--ink);background:var(--card)}
+    .xref a:hover small{color:var(--ink-faint)}
+    .act:not(.primary):hover{border-color:var(--line);color:var(--ink-soft)}
+    .act.primary:hover{background:var(--rubric)}
+    .verse .grc mark.vg[data-goto]:hover{background:rgba(154,123,50,.18);color:var(--rubric-deep);
+      box-shadow:inset 0 -2px 0 rgba(140,47,35,.35)}
+  }
+  .entry:active,.chip:active,.act:active,.xref a:active,.sentinela button:active{transform:scale(.985)}
+  .alpha button:active{background:var(--paper-2)}
+
+  /* ---------- Movimento reduzido ----------
+     Cada render da lista anima 60 cards com `rise`, em cascata. Para quem
+     pediu menos movimento ao sistema isso é exatamente o que não se faz. */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{
+      animation-duration:.01ms !important;animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;scroll-behavior:auto !important}
+    .entry,.sheet,.overlay.open,.ref-summary.on,.verse{animation:none !important}
+    .entry:hover{transform:none}
+  }
 </style>
 </head>
 <body>
 <div class="grain"></div>
 
 <header class="top">
-  <select class="lang-pick" id="langPick" data-t-title="cabecalho.idioma" hidden></select>
-  <button class="theme-toggle" id="themeBtn" data-t-title="cabecalho.tema">☾</button>
+  <div class="topbar">
+    <select class="lang-pick" id="langPick" data-t-title="cabecalho.idioma" hidden></select>
+    <button class="theme-toggle" id="themeBtn" data-t-title="cabecalho.tema" aria-pressed="false">☾</button>
+  </div>
   <div class="kicker" data-t="cabecalho.kicker"></div>
   <h1 class="brand"><span class="gk">Λέξικον</span></h1>
   <p class="tagline" data-t="cabecalho.tagline"></p>
@@ -296,7 +371,9 @@
 
   <div class="controls">
     <div class="chips" id="chips"></div>
-    <div class="count" id="count"></div>
+    <!-- role=status faz a contagem ser anunciada quando a busca muda; sem
+         isso o leitor de tela não recebe aviso nenhum ao digitar. -->
+    <div class="count" id="count" role="status" aria-live="polite"></div>
   </div>
 
   <div class="alpha" id="alpha"></div>
@@ -315,7 +392,7 @@
 </footer>
 
 <div class="overlay" id="overlay">
-  <div class="sheet" id="sheet"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetLema" tabindex="-1"></div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -685,8 +762,12 @@ function cartao(e,i,t){
       var hit = t && tirarAcentos(g).indexOf(t)!==-1;
       return '<span'+(hit?' class="hit"':'')+'>'+escapeHtml(g)+'</span>';
     }).join("")+'</div>' : '';
+  /* O lema é um <a href="#lema"> de verdade, não um div clicável: é o que
+     torna a lista alcançável por teclado e por leitor de tela, e o que faz
+     Ctrl/clique-do-meio abrirem noutra aba. O deep-link por hash já existia;
+     aqui só se usa o elemento nativo que o aciona. */
   return '<article class="entry" data-lema="'+escapeHtml(e.lema)+'" style="animation-delay:'+Math.min(i*18,300)+'ms">'+
-    '<div class="lemma">'+e.lema+' <span class="translit">'+e.translit+'</span></div>'+
+    '<div class="lemma"><a class="lemma-link" href="#'+encodeURIComponent(e.lema)+'">'+e.lema+'</a> <span class="translit">'+e.translit+'</span></div>'+
     '<div class="classe">'+escapeHtml(curtaClasse(e.classe))+'</div>'+
     glos+
     '<div class="preview">'+escapeHtml(prev)+'</div>'+
@@ -771,6 +852,9 @@ function escapeHtml(s){ return (s||"").replace(/[&<>"]/g,function(m){return {'&'
 
 resultsEl.addEventListener("click",function(ev){
   var card=ev.target.closest(".entry"); if(!card)return;
+  /* deixa Ctrl/Cmd/meio abrirem noutra aba, como em qualquer link */
+  if(ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.button===1) return;
+  ev.preventDefault();
   abrir(card.dataset.lema);
 });
 
@@ -795,8 +879,8 @@ function abrir(lema){
   }
 
   sheet.innerHTML=
-    '<div class="sheet-head"><button class="close-x" id="closeX">×</button>'+
-      '<div class="lemma">'+e.lema+'</div>'+
+    '<div class="sheet-head"><button class="close-x" id="closeX" aria-label="'+escapeHtml(T("verbete.fechar"))+'">×</button>'+
+      '<div class="lemma" id="sheetLema">'+e.lema+'</div>'+
       '<div class="translit">'+e.translit+'</div>'+
       '<div class="meta">'+meta+'</div>'+
     '</div>'+
@@ -814,8 +898,13 @@ function abrir(lema){
       '<button class="act" id="copyLink">'+T("verbete.copiarLink")+'</button>'+
       '<button class="act" id="shareEntry">'+T("verbete.compartilhar")+'</button>'+
     '</div>';
+  /* Guarda quem abriu a ficha para devolver o foco ao fechar: sem isso o
+     teclado volta ao início da página a cada consulta. */
+  if(!overlay.classList.contains("open")) _focoAnterior = document.activeElement;
   overlay.classList.add("open");
   document.body.style.overflow="hidden";
+  sheet.scrollTop=0; overlay.scrollTop=0;
+  sheet.focus({preventScroll:true});
 
   document.getElementById("closeX").onclick=fechar;
   sheet.querySelectorAll("[data-goto]").forEach(function(a){
@@ -850,13 +939,31 @@ function textoVerbete(e){
   L.push(T("copia.assinatura")+location.href);
   return L.join("\n");
 }
+var _focoAnterior=null;
 function fechar(){
+  if(!overlay.classList.contains("open")) return;
   overlay.classList.remove("open");
   document.body.style.overflow="";
   if(location.hash) history.replaceState(null,"",location.pathname+location.search);
+  if(_focoAnterior && document.contains(_focoAnterior)) _focoAnterior.focus({preventScroll:true});
+  _focoAnterior=null;
 }
 overlay.addEventListener("click",function(ev){ if(ev.target===overlay) fechar(); });
 document.addEventListener("keydown",function(ev){ if(ev.key==="Escape") fechar(); });
+
+/* Laço de Tab dentro da ficha: enquanto ela está aberta o teclado não deve
+   escapar para a lista atrás, que continua no DOM. */
+overlay.addEventListener("keydown",function(ev){
+  if(ev.key!=="Tab" || !overlay.classList.contains("open")) return;
+  var foc=sheet.querySelectorAll('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])');
+  if(!foc.length) return;
+  var primeiro=foc[0], ultimo=foc[foc.length-1];
+  if(ev.shiftKey && (document.activeElement===primeiro || document.activeElement===sheet)){
+    ev.preventDefault(); ultimo.focus();
+  } else if(!ev.shiftKey && document.activeElement===ultimo){
+    ev.preventDefault(); primeiro.focus();
+  }
+});
 
 /* ===================== Copiar / Toast ===================== */
 var toast=document.getElementById("toast"),toastT;
@@ -909,14 +1016,28 @@ refClear.onclick=function(){ refEl.value="";refAlvo=null;refClear.style.display=
   });
 });
 
-/* ===================== Tema ===================== */
+/* ===================== Tema =====================
+   O tema já foi resolvido no <head>, antes da primeira pintura (escolha
+   guardada, senão a preferência do sistema). Aqui só se reflete o estado no
+   botão e se alterna. A alternância passa a gravar "light" explicitamente:
+   sem isso, quem escolhesse claro num sistema escuro voltava ao escuro na
+   recarga seguinte. */
 var themeBtn=document.getElementById("themeBtn");
-var temaSalvo = (function(){ try{return localStorage.getItem("lexikon-tema")}catch(e){return null} })();
-if(temaSalvo==="dark"){ document.documentElement.setAttribute("data-theme","dark"); themeBtn.textContent="☀"; }
+function escuroAgora(){ return document.documentElement.getAttribute("data-theme")==="dark"; }
+function refletirTema(){
+  var d=escuroAgora();
+  themeBtn.textContent = d ? "☀" : "☾";
+  themeBtn.setAttribute("aria-pressed", d ? "true" : "false");
+  document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.remove(); });
+  var m=document.createElement("meta");
+  m.name="theme-color"; m.content = d ? "#1a1611" : "#f4ecdc";
+  document.head.appendChild(m);
+}
+refletirTema();
 themeBtn.onclick=function(){
-  var dark=document.documentElement.getAttribute("data-theme")==="dark";
-  if(dark){ document.documentElement.removeAttribute("data-theme"); themeBtn.textContent="☾"; salvarTema("light"); }
-  else { document.documentElement.setAttribute("data-theme","dark"); themeBtn.textContent="☀"; salvarTema("dark"); }
+  document.documentElement.setAttribute("data-theme", escuroAgora() ? "light" : "dark");
+  salvarTema(escuroAgora() ? "dark" : "light");
+  refletirTema();
 };
 function salvarTema(v){ try{localStorage.setItem("lexikon-tema",v)}catch(e){} }
 

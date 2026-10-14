@@ -13,9 +13,12 @@ window.LEXIKON_PACK_UI = {
   "cabecalho.idioma": "Idioma",
 
   /* busca */
-  "busca.placeholder": "Busque por significado em português (graça, redenção, mansidão), grego (ἀγάπη) ou transliteração (agape)…",
+  /* Placeholder é exemplo de formato, não rótulo nem manual: o texto antigo
+     tinha 105 caracteres (950px de texto num campo de 270px), de modo que no
+     celular só 28% dele aparecia. A explicação inteira vive nas dicas. */
+  "busca.placeholder": "ex.: amor · ἀγάπη · agape",
   "busca.limpar": "Limpar",
-  "ref.placeholder": "Por versículo — ex.: Rm 8.15 · Romanos 8 · Rm 8.15-17",
+  "ref.placeholder": "ex.: Rm 8.15 · Romanos 8",
   "ref.formatoInvalido": "<span class=\"err\">Formato não reconhecido.</span> Use <b style=\"font-size:14px\">Livro Cap.Versículo</b> — p.ex. Rm 8.15, Romanos 8, Rm 8.15-17.",
   "dica.versiculo": "<kbd>Versículo</kbd> revela os verbetes que ocorrem no trecho",
   "dica.busca": "Busca por <kbd>grego</kbd>, <kbd>transliteração</kbd> ou <kbd>significado</kbd>",
@@ -57,9 +60,12 @@ window.LEXIKON_PACK_UI = {
   "verbete.cognatos": "Família de palavras (cognatos)",
   "verbete.verTambem": "Ver também",
   "verbete.semVerbete": "Ainda não consta no núcleo",
-  "verbete.copiar": "⧉ Copiar verbete",
-  "verbete.copiarLink": "🔗 Copiar link",
-  "verbete.compartilhar": "↗ Compartilhar",
+  "verbete.fechar": "Fechar verbete",
+  /* Sem pictograma: 🔗 era emoji usado como ícone, e os outros dois marcadores
+     só existiam para acompanhá-lo. Botão começa por verbo. */
+  "verbete.copiar": "Copiar verbete",
+  "verbete.copiarLink": "Copiar link",
+  "verbete.compartilhar": "Compartilhar",
 
   /* texto copiado */
   "copia.flexao": "Flexão: ",
