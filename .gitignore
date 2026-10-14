@@ -10,6 +10,9 @@ Desktop.ini
 *.swp
 *~
 
+# Forma plana derivada (ferramentas/juntar.js) — a fonte da verdade é nucleo/ + linguas/
+plano/
+
 # Artefatos da ingestão do LSJ (gerados localmente, grandes demais para o repo)
 *.xml
 *.xml.gz

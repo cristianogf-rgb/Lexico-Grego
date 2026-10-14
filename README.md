@@ -15,14 +15,37 @@ da mesma família e do mesmo campo semântico. Tema claro/escuro. Compartilháve
 
 ## O que é este pacote
 
-Quatro arquivos, nada mais:
+Sem servidor, sem build, sem dependências — e dividido em duas camadas, porque o
+grego não se traduz e a prosa sim:
 
 ```
-index.html        o aplicativo inteiro (abre direto no navegador)
-dados.js          a base de dados (5410 verbetes curados em PT-BR)
-versiculos.js     texto bíblico dos 27 livros do Novo Testamento (grego Nestle 1904 + português Almeida 1911)
-ingestao_lsj.py   script para expandir ao corpus completo do LSJ + Abbott-Smith
+index.html              o aplicativo inteiro (abre direto no navegador)
+montar.js               junta núcleo + pacote de língua no boot
+
+nucleo/                 NEUTRO DE LÍNGUA — não contém prosa em idioma nenhum
+  lexico.js             5410 lemas: grego, transliteração, beta, morfologia,
+                        referências (ID USFM) e grafo de cognatos        1,5 MB
+  versos.js             texto grego Nestle 1904 + token→lema, 7943 vers.  3,9 MB
+  livros.js             ordem canônica dos 27 livros, por ID USFM
+
+linguas/pt-BR/          PACOTE DE LÍNGUA — tudo que é português vive aqui
+  meta.js               identidade, edição bíblica e licenças do pacote
+  ui.js                 58 textos de interface
+  livros.js             abreviaturas, nomes e aliases de busca dos livros
+  lexico.js             prosa dos verbetes: classe, raiz, LSJ, Abbott, nt, pt  4,6 MB
+  versos.js             Almeida 1911, 7960 versículos                     1,0 MB
+
+ferramentas/
+  verificar.js          integridade de núcleo + pacote (rode antes de publicar)
+  juntar.js             gera a forma plana (dados.js + versiculos.js) derivada
+  separar.js            volta da forma plana para núcleo + pacote
+ingestao_lsj.py         script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
+
+O núcleo é a parte caríssima e pronta: 3,1 MB de grego verificado que **nunca**
+muda de idioma. O pacote é a parte que se traduz. Trocar as cinco tags
+`<script>` do pacote no `index.html` troca o idioma do aplicativo inteiro —
+interface, verbetes e texto bíblico.
 
 Cobertura atual do léxico — **5410 verbetes** sobre o **Novo Testamento completo (27 livros)**:
 os quatro Evangelhos, Atos, todas as 21 Epístolas, Hebreus e o Apocalipse. Todo o texto grego e
@@ -67,7 +90,7 @@ do disco (`file://`), e pode ser hospedado em qualquer lugar sem configuração.
 
 ## Como usar agora
 
-1. Coloque `index.html`, `dados.js` e `versiculos.js` na **mesma pasta**.
+1. Mantenha `index.html`, `montar.js`, `nucleo/` e `linguas/` na **mesma pasta**.
 2. Abra `index.html` no navegador (Chrome, Firefox, Safari, Edge).
 3. Busque por significado, grego, transliteração ou referência bíblica.
 4. Clique num verbete (ou numa palavra grega destacada) para ver Abbott-Smith, LSJ,
@@ -80,8 +103,50 @@ do disco (`file://`), e pode ser hospedado em qualquer lugar sem configuração.
 A versão exibida é a **Almeida de 1911**, em **domínio público**. A **ARA** (Almeida
 Revista e Atualizada) é protegida por direitos autorais da Sociedade Bíblica do Brasil
 e **não** pode ser redistribuída aqui. Se você tem licença para usá-la, pode substituir
-o texto: em `versiculos.js`, cada versículo tem o campo `p` (português) — basta trocar
-o valor pelo texto correspondente da ARA. O grego e os destaques continuam funcionando.
+o texto: em `linguas/pt-BR/versos.js`, cada chave (`"ROM|8|15"`) aponta direto para a
+string em português — basta trocar o valor pelo texto correspondente da ARA. O núcleo,
+o grego e os destaques não são tocados.
+
+---
+
+## Acrescentar um idioma
+
+Um pacote de língua é um diretório com cinco arquivos. Nada no núcleo muda, e o
+`index.html` não contém texto em idioma nenhum: tudo o que aparece na tela vem do
+pacote carregado.
+
+```bash
+node ferramentas/verificar.js pt-BR
+```
+
+O verificador é o contrato: ele recusa um pacote que não cubra todos os 5410 lemas,
+que deixe versículo com grego e sem vernáculo, que use alias ambíguo de livro ou que
+não traga alguma das chaves de interface que o `index.html` pede. Rode-o antes de
+publicar.
+
+O que um pacote novo precisa trazer:
+
+| arquivo | conteúdo | custo real |
+|---|---|---|
+| `meta.js` | código do idioma, edição bíblica usada, licenças | minutos |
+| `livros.js` | abreviatura, nome e aliases dos 27 livros | minutos |
+| `ui.js` | 58 textos de interface | horas |
+| `versos.js` | uma tradução bíblica em domínio público ou licença aberta | mecânico |
+| `lexico.js` | **a prosa dos 5410 verbetes** | ~3 milhões de caracteres |
+
+A última linha é a que decide: um idioma novo não é localização, é um livro. As
+glosas curtas (campo `pt`, 8.789 strings) são 2% do volume e dão a maior parte do
+valor de consulta; os ensaios de Abbott-Smith e LSJ, média de 554 caracteres por
+verbete, são os outros 98%.
+
+**Licenças não se misturam.** Cada pacote declara as suas em `meta.js`, e por isso
+um texto bíblico sob CC BY-SA pode conviver com esta prosa sob CC BY: são arquivos
+distintos, com atribuição distinta. Não mescle texto licenciado dentro do
+`lexico.js` de um pacote.
+
+**Domínio público é jurisdicional.** O campo `biblia.jurisdicaoDominioPublico` existe
+para registrar isso: há traduções livres num país e protegidas noutro, e o que vale
+é a lei do lugar onde o arquivo é servido.
 
 ---
 

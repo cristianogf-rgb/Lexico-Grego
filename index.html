@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Estes dois valores são o único texto em português que resta no index.html:
+     servem de fallback para quem lê a página sem executar JavaScript (robôs de
+     busca, pré-visualizações). O pacote de língua carregado sobrescreve ambos
+     no boot, em aplicarTextos(). -->
 <title>Léxikon — Léxico do Grego Bíblico</title>
 <meta name="description" content="Léxico do grego bíblico e clássico para consulta, busca e referência cruzada. Fontes de domínio público (LSJ e Abbott-Smith), em português do Brasil.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -249,10 +253,10 @@
 <div class="grain"></div>
 
 <header class="top">
-  <button class="theme-toggle" id="themeBtn" title="Alternar tema" aria-label="Alternar tema">☾</button>
-  <div class="kicker">Léxico do Grego do Novo Testamento</div>
+  <button class="theme-toggle" id="themeBtn" data-t-title="cabecalho.tema">☾</button>
+  <div class="kicker" data-t="cabecalho.kicker"></div>
   <h1 class="brand"><span class="gk">Λέξικον</span></h1>
-  <p class="tagline">Consulta, busca e referência cruzada · fontes de domínio público &nbsp;<b>LSJ</b>&nbsp;+&nbsp;<b>Abbott-Smith</b></p>
+  <p class="tagline" data-t="cabecalho.tagline"></p>
 </header>
 
 <div class="wrap">
@@ -262,21 +266,21 @@
       <span class="ic">⌕</span>
       <input id="q" type="text" autocomplete="off" spellcheck="false"
         enterkeyhint="search" autocapitalize="off" autocorrect="off"
-        placeholder="Busque por significado em português (graça, redenção, mansidão), grego (ἀγάπη) ou transliteração (agape)…" />
-      <button class="clear-btn" id="clearBtn" title="Limpar">×</button>
+        data-t-placeholder="busca.placeholder" />
+      <button class="clear-btn" id="clearBtn" data-t-title="busca.limpar">×</button>
     </div>
     <div class="ref-box">
       <span class="ic">⌖</span>
       <input id="ref" type="text" autocomplete="off" spellcheck="false"
         enterkeyhint="search" autocapitalize="off" autocorrect="off"
-        placeholder="Por versículo — ex.: Rm 8.15 · Romanos 8 · Rm 8.15-17" />
-      <button class="ref-clear" id="refClear" title="Limpar">×</button>
+        data-t-placeholder="ref.placeholder" />
+      <button class="ref-clear" id="refClear" data-t-title="busca.limpar">×</button>
     </div>
     <div class="search-hint">
-      <span><kbd>Versículo</kbd> revela os verbetes que ocorrem no trecho</span>
-      <span>Busca por <kbd>grego</kbd>, <kbd>transliteração</kbd> ou <kbd>significado</kbd></span>
-      <span>Acentos e diacríticos são ignorados</span>
-      <span><kbd>Esc</kbd> fecha o verbete</span>
+      <span data-t="dica.versiculo"></span>
+      <span data-t="dica.busca"></span>
+      <span data-t="dica.acentos"></span>
+      <span data-t="dica.esc"></span>
     </div>
   </div>
 
@@ -296,11 +300,8 @@
 </div>
 
 <footer>
-  <p><b>Léxikon</b> reúne dados lexicográficos de <span class="src">obras de domínio público</span> — o
-  <i>Liddell-Scott-Jones (LSJ)</i> e o <i>Manual Greek Lexicon of the New Testament</i> de G. Abbott-Smith — redigidos e
-  traduzidos para o português do Brasil.</p>
-  <p>Este núcleo é um conjunto curado e verificado, não o corpus integral. Para a cobertura completa, utilize o script de
-  ingestão que carrega os dados abertos da <b>Perseus Digital Library</b>. &nbsp;·&nbsp; Distribua livremente.</p>
+  <p data-t="rodape.fontes"></p>
+  <p data-t="rodape.cobertura"></p>
 </footer>
 
 <div class="overlay" id="overlay">
@@ -309,10 +310,45 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- Base de dados (núcleo embutido para funcionar offline e por arquivo local) -->
-<script src="versiculos.js"></script>
-<script src="dados.js"></script>
+<!-- NÚCLEO: neutro de língua. Grego, morfologia, referências, grafo. -->
+<script src="nucleo/livros.js"></script>
+<script src="nucleo/lexico.js"></script>
+<script src="nucleo/versos.js"></script>
+
+<!-- PACOTE DE LÍNGUA: trocar estas cinco linhas troca o idioma do aplicativo. -->
+<script src="linguas/pt-BR/meta.js"></script>
+<script src="linguas/pt-BR/ui.js"></script>
+<script src="linguas/pt-BR/livros.js"></script>
+<script src="linguas/pt-BR/lexico.js"></script>
+<script src="linguas/pt-BR/versos.js"></script>
+
+<!-- MONTADOR: junta os dois e expõe LEXICON_DATA / LEXICON_VERSOS. -->
+<script src="montar.js"></script>
 <script>
+/* ===================== Idioma (pacote carregado) =====================
+   O index.html não contém texto em língua nenhuma: tudo vem do pacote.
+   T( chave, substituicoes ) resolve a string e troca os {marcadores}. */
+var META = window.LEXIKON_PACK_META || {};
+var UI   = window.LEXIKON_PACK_UI   || {};
+var LIVROS = window.LEXIKON_LIVROS  || {};
+var CANON  = window.LEXIKON_CANON   || [];
+var _SUBS_FIXAS = {
+  biblia: (META.biblia && META.biblia.sigla) || "",
+  grego:  "Nestle 1904"
+};
+function T(chave, subs){
+  var v = UI[chave];
+  if(v === undefined) return chave;           // chave faltando aparece crua: erro visível, não silencioso
+  var todas = subs || {};
+  return v.replace(/\{(\w+)\}/g, function(_, k){
+    if(todas[k] !== undefined) return todas[k];
+    if(_SUBS_FIXAS[k] !== undefined) return _SUBS_FIXAS[k];
+    return "{"+k+"}";
+  });
+}
+function ABREV(usfm){ return (LIVROS[usfm] && LIVROS[usfm].abrev) || usfm; }
+function NOME_LIVRO(usfm){ return (LIVROS[usfm] && LIVROS[usfm].nome) || usfm; }
+
 /* ===================== Utilidades de normalização ===================== */
 function tirarAcentos(s){
   return (s||"").normalize("NFD").replace(/[\u0300-\u036f\u0345]/g,"").replace(/\u02BC|\u2019|'/g,"").toLowerCase();
@@ -346,49 +382,21 @@ DADOS.forEach(function(e){
 var mapaLema = {}; DADOS.forEach(function(e){ mapaLema[e.lema]=e; });
 
 /* ===================== Índice de referências bíblicas ===================== */
-var ABBRS=['1Co','2Co','1Ts','2Ts','1Tm','2Tm','1Pe','2Pe','1Jo','2Jo','3Jo',
-  'Mt','Mc','Lc','Jo','At','Rm','Gl','Ef','Fp','Cl','Tt','Fm','Hb','Tg','Jd','Ap'];
-var LIVRO_NOME={Rm:'Romanos',Mt:'Mateus',Mc:'Marcos',Lc:'Lucas',Jo:'João',At:'Atos',
-  '1Co':'1 Coríntios','2Co':'2 Coríntios',Gl:'Gálatas',Ef:'Efésios',Fp:'Filipenses',Cl:'Colossenses',
-  '1Ts':'1 Tessalonicenses','2Ts':'2 Tessalonicenses','1Tm':'1 Timóteo','2Tm':'2 Timóteo',Tt:'Tito',
-  Fm:'Filemom',Hb:'Hebreus',Tg:'Tiago','1Pe':'1 Pedro','2Pe':'2 Pedro','1Jo':'1 João','2Jo':'2 João',
-  '3Jo':'3 João',Jd:'Judas',Ap:'Apocalipse'};
-var _booksAlt=ABBRS.slice().sort(function(a,b){return b.length-a.length;})
-  .map(function(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|');
-function _expandSpec(spec){
-  var out=[]; spec.split(',').forEach(function(part){ part=part.trim();
-    var m=part.match(/^(\d+)\s*[\u2013-]\s*(\d+)$/);
-    if(m){ for(var v=+m[1];v<=+m[2];v++) out.push(v); }
-    else if(/^\d+$/.test(part)) out.push(+part);
-  }); return out;
-}
-function parseNT(nt){
-  var refs=[]; var re=new RegExp('('+_booksAlt+')'+
-    '|vv?\\.?\\s*(\\d+)\\s*[\\u2013-]\\s*(\\d+)'+
-    '|(\\d+)\\.(\\d+(?:\\s*[,\\u2013-]\\s*\\d+)*)'+
-    '|(\\d+)(?![.\\d])','g');
-  var m,livro=null,cap=null,lastBook=false;
-  function add(v){ var k=livro+'|'+cap+'|'+v; if(refs.indexOf(k)===-1) refs.push(k); }
-  while((m=re.exec(nt))){
-    if(m[1]){ livro=m[1]; lastBook=true; continue; }
-    if(m[2]!==undefined){ if(livro&&cap){ for(var v=+m[2];v<=+m[3];v++) add(v);} lastBook=false; continue; }
-    if(m[4]!==undefined){ cap=+m[4]; if(livro) _expandSpec(m[5]).forEach(add); lastBook=false; continue; }
-    if(m[6]!==undefined){ if(lastBook) cap=+m[6]; lastBook=false; continue; }
-  }
-  return refs;
-}
-DADOS.forEach(function(e){ e._refs=parseNT(e.nt||''); });
+/* As referências de cada verbete já vêm resolvidas no núcleo (campo refs,
+   chaveado por ID USFM). Não há mais parser de prosa aqui: era o único ponto
+   em que a busca por versículo dependia de abreviaturas em português. */
+DADOS.forEach(function(e){ e._refs=e.refs||[]; });
 
+/* Aliases de busca por livro: cada pacote declara os seus, em livros.js.
+   A abreviatura também entra como alias, normalizada. */
 var ALIAS={};
 (function(){
-  var pares={Rm:['rm','rom','ro','romanos'],Mt:['mt','mateus'],Mc:['mc','marcos'],Lc:['lc','lucas'],
-    Jo:['jo','joao'],At:['at','atos'],'1Co':['1co','1corintios'],'2Co':['2co','2corintios'],
-    Gl:['gl','galatas'],Ef:['ef','efesios'],Fp:['fp','filipenses'],Cl:['cl','colossenses'],
-    '1Ts':['1ts','1tessalonicenses'],'2Ts':['2ts','2tessalonicenses'],'1Tm':['1tm','1timoteo'],
-    '2Tm':['2tm','2timoteo'],Tt:['tt','tito'],Fm:['fm','filemom','filemon'],Hb:['hb','hebreus'],
-    Tg:['tg','tiago'],'1Pe':['1pe','1pedro'],'2Pe':['2pe','2pedro'],'1Jo':['1jo','1joao'],
-    '2Jo':['2jo'],'3Jo':['3jo'],Jd:['jd','judas'],Ap:['ap','apocalipse']};
-  Object.keys(pares).forEach(function(k){ pares[k].forEach(function(a){ ALIAS[a]=k; }); });
+  Object.keys(LIVROS).forEach(function(usfm){
+    var L=LIVROS[usfm];
+    (L.alias||[]).forEach(function(a){ ALIAS[a]=usfm; });
+    if(L.abrev) ALIAS[_norm(L.abrev).replace(/\s/g,'')]=usfm;
+    ALIAS[usfm.toLowerCase()]=usfm;
+  });
 })();
 function _norm(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
 function parseConsultaRef(raw){
@@ -399,20 +407,20 @@ function parseConsultaRef(raw){
   var chave=((mb[1]||'').replace(/\s/g,''))+mb[2];
   var livro=ALIAS[chave]; if(!livro) return null;
   var resto=(mb[3]||'').trim();
-  var UNICO_CAP={Fm:1,'2Jo':1,'3Jo':1,Jd:1};
+  var UNICO_CAP={PHM:1,'2JN':1,'3JN':1,JUD:1};
   if(UNICO_CAP[livro]){
-    if(!resto) return {livro:livro,cap:1,vers:null,rotulo:LIVRO_NOME[livro]||livro};
+    if(!resto) return {livro:livro,cap:1,vers:null,rotulo:NOME_LIVRO(livro)};
     if(!/[.:]/.test(resto)) resto='1.'+resto;  // "Fm 11" -> versículo 11 do cap. único
   }
   if(!resto) return null;
   var mc=resto.match(/^(\d+)(?:\s*[.: ]\s*(\d+)(?:\s*[-\u2013]\s*(\d+))?((?:\s*,\s*\d+)*))?$/);
   if(!mc) return null;
   var cap=+mc[1];
-  if(mc[2]===undefined){ return {livro:livro,cap:cap,vers:null,rotulo:livro+' '+cap}; }
+  if(mc[2]===undefined){ return {livro:livro,cap:cap,vers:null,rotulo:ABREV(livro)+' '+cap}; }
   var versArr=[+mc[2]];
   if(mc[3]!==undefined){ for(var v=+mc[2]+1;v<=+mc[3];v++) versArr.push(v); }
   if(mc[4]){ mc[4].split(',').forEach(function(x){ x=x.trim(); if(/^\d+$/.test(x)) versArr.push(+x); }); }
-  var rot=livro+' '+cap+'.'+mc[2]+(mc[3]?'-'+mc[3]:'')+(mc[4]?mc[4].replace(/\s/g,''):'');
+  var rot=ABREV(livro)+' '+cap+'.'+mc[2]+(mc[3]?'-'+mc[3]:'')+(mc[4]?mc[4].replace(/\s/g,''):'');
   return {livro:livro,cap:cap,vers:versArr,rotulo:rot};
 }
 var refAlvo=null;
@@ -420,14 +428,35 @@ var refAlvo=null;
 var filtroClasse=null, filtroLetra=null, termo="";
 
 var CLASSES=[
-  {id:"verbo",rot:"Verbos"},
-  {id:"substantivo",rot:"Substantivos"},
-  {id:"adjetivo",rot:"Adjetivos"}
+  {id:"verbo",rot:T("filtro.verbos")},
+  {id:"substantivo",rot:T("filtro.substantivos")},
+  {id:"adjetivo",rot:T("filtro.adjetivos")}
 ];
+
+/* ===================== Aplicar textos do pacote ao DOM =====================
+   Os nós marcados com data-t / data-t-title / data-t-placeholder no HTML
+   recebem aqui o texto do pacote de língua carregado. */
+(function aplicarTextos(){
+  document.documentElement.lang = META.htmlLang || "pt-BR";
+  if(META.direcao) document.documentElement.dir = META.direcao;
+  document.title = T("pagina.titulo");
+  var d=document.querySelector('meta[name="description"]');
+  if(d) d.setAttribute("content", T("pagina.descricao"));
+  document.querySelectorAll("[data-t]").forEach(function(el){
+    el.innerHTML = T(el.getAttribute("data-t"));
+  });
+  document.querySelectorAll("[data-t-title]").forEach(function(el){
+    var v=T(el.getAttribute("data-t-title"));
+    el.setAttribute("title", v); el.setAttribute("aria-label", v);
+  });
+  document.querySelectorAll("[data-t-placeholder]").forEach(function(el){
+    el.setAttribute("placeholder", T(el.getAttribute("data-t-placeholder")));
+  });
+})();
 
 /* ===================== Render: chips e alfabeto ===================== */
 var chipsEl=document.getElementById("chips");
-chipsEl.innerHTML='<button class="chip on" data-c="">Todos</button>'+
+chipsEl.innerHTML='<button class="chip on" data-c="">'+T("filtro.todos")+'</button>'+
   CLASSES.map(function(c){return '<button class="chip" data-c="'+c.id+'">'+c.rot+'</button>';}).join("");
 chipsEl.addEventListener("click",function(ev){
   var b=ev.target.closest(".chip"); if(!b)return;
@@ -528,7 +557,7 @@ var versePanelEl=document.getElementById("versePanel");
 function montarPainel(refs){
   return refs.map(function(r){
     var o=VERSOS[r]; if(!o) return "";
-    var p=r.split("|"), rot=p[0]+" "+p[1]+"."+p[2];
+    var p=r.split("|"), rot=ABREV(p[0])+" "+p[1]+"."+p[2];
     var grego="";
     if(o.g){
       grego=o.g.map(function(tok){
@@ -552,10 +581,10 @@ function atualizarPainel(){
   if(!refs.length){ versePanelEl.innerHTML=""; return; }
   var MAX=16;
   if(refs.length>MAX){
-    versePanelEl.innerHTML='<div class="verse-note">Trecho extenso ('+refs.length+' versículos). Refine para um versículo ou uma faixa menor — p.ex. <b>'+escapeHtml(refAlvo.livro+" "+refAlvo.cap+".1-6")+'</b> — para ver o grego e o português.</div>';
+    versePanelEl.innerHTML='<div class="verse-note">'+T("versos.trechoExtenso",{n:refs.length,exemplo:escapeHtml(ABREV(refAlvo.livro)+" "+refAlvo.cap+".1-6")})+'</div>';
     return;
   }
-  versePanelEl.innerHTML='<div class="verse-legend">Grego: <b>Nestle 1904</b> · Português: <b>Almeida 1911</b> — domínio público. As palavras destacadas têm verbete; toque para abrir.</div>'+montarPainel(refs);
+  versePanelEl.innerHTML='<div class="verse-legend">'+T("versos.legenda")+'</div>'+montarPainel(refs);
 }
 versePanelEl.addEventListener("click",function(ev){
   var m=ev.target.closest("mark[data-goto]"); if(!m)return;
@@ -566,19 +595,15 @@ function atualizarRefSummary(){
   if(!raw){ refSummaryEl.className="ref-summary"; refSummaryEl.innerHTML=""; return; }
   if(!refAlvo){
     refSummaryEl.className="ref-summary on";
-    refSummaryEl.innerHTML='<span class="err">Formato não reconhecido.</span> Use <b style="font-size:14px">Livro Cap.Versículo</b> — p.ex. Rm 8.15, Romanos 8, Rm 8.15-17.';
+    refSummaryEl.innerHTML=T("ref.formatoInvalido");
     return;
   }
-  var nome=LIVRO_NOME[refAlvo.livro]||refAlvo.livro;
+  var nome=NOME_LIVRO(refAlvo.livro);
   var n=filtrar().length;
-  var COBERTURA_PLENA={Rm:1,'1Co':1,'2Co':1,Gl:1,Ef:1,Fp:1,Cl:1,Hb:1,'1Tm':1,'2Tm':1,Tt:1,Fm:1,'1Ts':1,'2Ts':1,Tg:1,'1Pe':1,'2Pe':1,'1Jo':1,'2Jo':1,'3Jo':1,Jd:1,Jo:1};
-  var TEXTO_PARCIAL={Mt:1,Mc:1,Lc:1,At:1,Ap:1};
-  var nota = COBERTURA_PLENA[refAlvo.livro] ? ""
-    : TEXTO_PARCIAL[refAlvo.livro] ? " <i>— o texto deste livro está completo; a curadoria de verbetes próprios ainda está em andamento.</i>"
-    : " <i>— este livro ainda não tem texto próprio; mostra-se aqui o que o léxico já cita.</i>";
-  var verbo = n===1?"verbete ocorre":"verbetes ocorrem";
+  /* A cobertura é integral nos 27 livros: não há mais ressalva a exibir. */
+  var verbo = n===1?T("ref.ocorreUm"):T("ref.ocorreVarios");
   refSummaryEl.className="ref-summary on";
-  refSummaryEl.innerHTML='<b>'+escapeHtml(refAlvo.rotulo)+'</b> &nbsp;·&nbsp; '+nome+' &nbsp;—&nbsp; '+n+' '+verbo+' neste trecho.'+nota;
+  refSummaryEl.innerHTML='<b>'+escapeHtml(refAlvo.rotulo)+'</b> &nbsp;·&nbsp; '+nome+' &nbsp;—&nbsp; '+n+' '+verbo+' '+T("ref.sufixo");
 }
 /* Renderização paginada.
    O filtro sobre os 3000 verbetes custa ~4 ms; despejar todos os cards no DOM
@@ -603,8 +628,8 @@ function cartao(e,i,t){
 }
 
 function atualizarContador(){
-  var n=_lista.length, rot=n+(n===1?" verbete":" verbetes");
-  countEl.textContent = (_mostrados<n) ? (_mostrados+" de "+rot) : rot;
+  var n=_lista.length, rot=n+" "+(n===1?T("contagem.um"):T("contagem.varios"));
+  countEl.textContent = (_mostrados<n) ? T("contagem.parcial",{mostrados:_mostrados,total:rot}) : rot;
 }
 
 /* O botão é o caminho garantido (funciona sem JS de observação e por teclado).
@@ -614,8 +639,8 @@ function htmlSentinela(){
   var restam=_lista.length-_mostrados;
   var lote=Math.min(PAGINA,restam);
   return '<div class="sentinela" id="sentinela">'+
-    '<button type="button" id="maisBtn">Mostrar mais '+lote+
-    '<small>restam '+restam+'</small></button></div>';
+    '<button type="button" id="maisBtn">'+T("lista.mais",{lote:lote})+
+    '<small>'+T("lista.restam",{restam:restam})+'</small></button></div>';
 }
 function observarSentinela(){
   var s=document.getElementById("sentinela"); if(!s) return;
@@ -653,10 +678,10 @@ function render(){
   _mostrados=0;
   if(_obs){ _obs.disconnect(); }
   if(!_lista.length){
-    countEl.textContent="0 verbetes";
+    countEl.textContent=T("contagem.zero");
     var msg = refAlvo
-      ? 'Nenhum verbete do léxico aparece em <b>'+escapeHtml(refAlvo.rotulo)+'</b>.<br>Tente o capítulo inteiro (p.ex. '+escapeHtml(refAlvo.livro+" "+refAlvo.cap)+') ou outro versículo.'
-      : 'Nenhum verbete encontrado para &ldquo;'+escapeHtml(termo)+'&rdquo;.<br>Tente outra grafia, a transliteração ou um significado em português.';
+      ? T("vazio.ref",{ref:escapeHtml(refAlvo.rotulo),exemplo:escapeHtml(ABREV(refAlvo.livro)+" "+refAlvo.cap)})
+      : T("vazio.busca",{termo:escapeHtml(termo)});
     resultsEl.innerHTML='<div class="empty"><div class="big">∅</div>'+msg+'</div>';
     return;
   }
@@ -688,15 +713,15 @@ function abrir(lema){
   var e=mapaLema[lema]; if(!e)return;
   location.hash = encodeURIComponent(lema);
   var meta="";
-  if(e.morf) meta+='<span><b>Flexão</b><span class="morf">'+e.morf+'</span></span>';
-  if(e.raiz && e.raiz!=="—") meta+='<span><b>Raiz</b><span class="morf">'+e.raiz+'</span></span>';
-  if(e.nt) meta+='<span><b>NT</b>'+escapeHtml(e.nt.split(".")[0])+'</span>';
+  if(e.morf) meta+='<span><b>'+T("verbete.flexao")+'</b><span class="morf">'+e.morf+'</span></span>';
+  if(e.raiz && e.raiz!=="—") meta+='<span><b>'+T("verbete.raiz")+'</b><span class="morf">'+e.raiz+'</span></span>';
+  if(e.nt) meta+='<span><b>'+T("verbete.nt")+'</b>'+escapeHtml(e.nt.split(".")[0])+'</span>';
 
   function secXref(titulo,lista,rotulo){
     if(!lista||!lista.length) return "";
     var html=lista.map(function(c){
       var alvo=mapaLema[c];
-      return '<a data-goto="'+escapeHtml(c)+'"'+(alvo?'':' style="opacity:.5;cursor:default" title="Ainda não consta no núcleo"')+'>'+
+      return '<a data-goto="'+escapeHtml(c)+'"'+(alvo?'':' style="opacity:.5;cursor:default" title="'+T("verbete.semVerbete")+'"')+'>'+
         c+(alvo?' <small>'+alvo.translit+'</small>':'')+'</a>';
     }).join("");
     return '<div class="sec"><h3>'+titulo+'</h3><div class="xref">'+html+'</div></div>';
@@ -709,18 +734,18 @@ function abrir(lema){
       '<div class="meta">'+meta+'</div>'+
     '</div>'+
     '<div class="sheet-body">'+
-      ((e.pt&&e.pt.length)?'<div class="sec"><h3>Significado em português</h3><div class="gloss big">'+e.pt.map(function(g){return '<span>'+escapeHtml(g)+'</span>';}).join("")+'</div></div>':'')+
-      '<div class="sec"><h3>Classe gramatical</h3><p>'+escapeHtml(e.classe)+'</p></div>'+
-      (e.abbott?'<div class="sec"><h3>Abbott-Smith <span class="source-tag">— foco no Novo Testamento</span></h3><p>'+realce(e.abbott)+'</p></div>':'')+
-      (e.lsj?'<div class="sec"><h3>Liddell-Scott-Jones <span class="source-tag">— uso clássico e geral</span></h3><p>'+realce(e.lsj)+'</p></div>':'')+
-      (e.nt?'<div class="sec"><h3>Ocorrências no NT</h3><p>'+realce(e.nt)+'</p></div>':'')+
-      secXref("Família de palavras (cognatos)",e.cognatos)+
-      secXref("Ver também",e.verTambem)+
+      ((e.pt&&e.pt.length)?'<div class="sec"><h3>'+T("verbete.significado")+'</h3><div class="gloss big">'+e.pt.map(function(g){return '<span>'+escapeHtml(g)+'</span>';}).join("")+'</div></div>':'')+
+      '<div class="sec"><h3>'+T("verbete.classe")+'</h3><p>'+escapeHtml(e.classe)+'</p></div>'+
+      (e.abbott?'<div class="sec"><h3>Abbott-Smith <span class="source-tag">'+T("verbete.fonteAbbott")+'</span></h3><p>'+realce(e.abbott)+'</p></div>':'')+
+      (e.lsj?'<div class="sec"><h3>Liddell-Scott-Jones <span class="source-tag">'+T("verbete.fonteLsj")+'</span></h3><p>'+realce(e.lsj)+'</p></div>':'')+
+      (e.nt?'<div class="sec"><h3>'+T("verbete.ocorrencias")+'</h3><p>'+realce(e.nt)+'</p></div>':'')+
+      secXref(T("verbete.cognatos"),e.cognatos)+
+      secXref(T("verbete.verTambem"),e.verTambem)+
     '</div>'+
     '<div class="sheet-actions">'+
-      '<button class="act primary" id="copyEntry">⧉ Copiar verbete</button>'+
-      '<button class="act" id="copyLink">🔗 Copiar link</button>'+
-      '<button class="act" id="shareEntry">↗ Compartilhar</button>'+
+      '<button class="act primary" id="copyEntry">'+T("verbete.copiar")+'</button>'+
+      '<button class="act" id="copyLink">'+T("verbete.copiarLink")+'</button>'+
+      '<button class="act" id="shareEntry">'+T("verbete.compartilhar")+'</button>'+
     '</div>';
   overlay.classList.add("open");
   document.body.style.overflow="hidden";
@@ -729,11 +754,11 @@ function abrir(lema){
   sheet.querySelectorAll("[data-goto]").forEach(function(a){
     a.onclick=function(){ var alvo=this.dataset.goto; if(mapaLema[alvo]) abrir(alvo); };
   });
-  document.getElementById("copyEntry").onclick=function(){ copiar(textoVerbete(e),"Verbete copiado"); };
-  document.getElementById("copyLink").onclick=function(){ copiar(location.href,"Link copiado"); };
+  document.getElementById("copyEntry").onclick=function(){ copiar(textoVerbete(e),T("toast.verbeteCopiado")); };
+  document.getElementById("copyLink").onclick=function(){ copiar(location.href,T("toast.linkCopiado")); };
   document.getElementById("shareEntry").onclick=function(){
     if(navigator.share){ navigator.share({title:"Léxikon · "+e.lema, text:textoVerbete(e), url:location.href}).catch(function(){}); }
-    else copiar(location.href,"Link copiado");
+    else copiar(location.href,T("toast.linkCopiado"));
   };
 }
 // realça grego dentro do texto
@@ -745,17 +770,17 @@ function textoVerbete(e){
   var L=[];
   L.push(e.lema+"  ("+e.translit+")");
   if(e.classe)L.push(e.classe);
-  if(e.morf)L.push("Flexão: "+e.morf);
-  if(e.raiz&&e.raiz!=="—")L.push("Raiz: "+e.raiz);
-  if(e.pt&&e.pt.length)L.push("Português: "+e.pt.join(", "));
+  if(e.morf)L.push(T("copia.flexao")+e.morf);
+  if(e.raiz&&e.raiz!=="—")L.push(T("copia.raiz")+e.raiz);
+  if(e.pt&&e.pt.length)L.push(T("copia.portugues")+e.pt.join(", "));
   L.push("");
-  if(e.abbott)L.push("ABBOTT-SMITH (NT): "+e.abbott);
-  if(e.lsj)L.push("LSJ (clássico): "+e.lsj);
-  if(e.nt)L.push("NT: "+e.nt);
-  if(e.cognatos&&e.cognatos.length)L.push("Cognatos: "+e.cognatos.join(", "));
-  if(e.verTambem&&e.verTambem.length)L.push("Ver também: "+e.verTambem.join(", "));
+  if(e.abbott)L.push(T("copia.abbott")+e.abbott);
+  if(e.lsj)L.push(T("copia.lsj")+e.lsj);
+  if(e.nt)L.push(T("copia.nt")+e.nt);
+  if(e.cognatos&&e.cognatos.length)L.push(T("copia.cognatos")+e.cognatos.join(", "));
+  if(e.verTambem&&e.verTambem.length)L.push(T("copia.verTambem")+e.verTambem.join(", "));
   L.push("");
-  L.push("— Léxikon · "+location.href);
+  L.push(T("copia.assinatura")+location.href);
   return L.join("\n");
 }
 function fechar(){
@@ -771,7 +796,7 @@ var toast=document.getElementById("toast"),toastT;
 function copiar(txt,msg){
   navigator.clipboard.writeText(txt).then(function(){mostrarToast(msg);}).catch(function(){
     var ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();
-    try{document.execCommand("copy");mostrarToast(msg);}catch(e){mostrarToast("Não foi possível copiar");}
+    try{document.execCommand("copy");mostrarToast(msg);}catch(e){mostrarToast(T("toast.erroCopia"));}
     document.body.removeChild(ta);
   });
 }
