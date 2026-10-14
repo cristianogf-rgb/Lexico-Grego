@@ -77,6 +77,15 @@
     display:grid;place-items:center;transition:.25s;z-index:4}
   .theme-toggle:hover{border-color:var(--rubric);color:var(--rubric);transform:rotate(-18deg)}
 
+  /* Seletor de idioma: mesma caixa do tema, à esquerda dele. Só aparece
+     quando há mais de um pacote instalado. */
+  .lang-pick{position:absolute;top:18px;right:66px;background:none;border:1px solid var(--line);
+    color:var(--ink-soft);border-radius:20px;height:40px;padding:0 12px;cursor:pointer;
+    font-family:inherit;font-size:13px;letter-spacing:.04em;transition:.25s;z-index:4}
+  .lang-pick:hover{border-color:var(--rubric);color:var(--rubric)}
+  .lang-pick:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
+  @media(max-width:520px){ .lang-pick{right:62px;padding:0 9px;font-size:12px} }
+
   /* ---------- Layout ---------- */
   .wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:22px 18px 80px}
 
@@ -253,6 +262,7 @@
 <div class="grain"></div>
 
 <header class="top">
+  <select class="lang-pick" id="langPick" data-t-title="cabecalho.idioma" hidden></select>
   <button class="theme-toggle" id="themeBtn" data-t-title="cabecalho.tema">☾</button>
   <div class="kicker" data-t="cabecalho.kicker"></div>
   <h1 class="brand"><span class="gk">Λέξικον</span></h1>
@@ -315,12 +325,42 @@
 <script src="nucleo/lexico.js"></script>
 <script src="nucleo/versos.js"></script>
 
-<!-- PACOTE DE LÍNGUA: trocar estas cinco linhas troca o idioma do aplicativo. -->
-<script src="linguas/pt-BR/meta.js"></script>
-<script src="linguas/pt-BR/ui.js"></script>
-<script src="linguas/pt-BR/livros.js"></script>
-<script src="linguas/pt-BR/lexico.js"></script>
-<script src="linguas/pt-BR/versos.js"></script>
+<!-- PACOTE DE LÍNGUA: os cinco arquivos de linguas/<codigo>/.
+     Acrescentar um idioma é soltar o diretório e nomeá-lo em IDIOMAS.
+     A escolha vem de ?lang= na URL, depois do que ficou guardado no navegador,
+     depois do idioma do próprio navegador, e por fim do padrão.
+     document.write é deliberado: mantém o carregamento síncrono e na ordem,
+     que é o que faz o aplicativo abrir por file:// sem servidor nem build. -->
+<script>
+window.LEXIKON_IDIOMAS = [
+  { codigo: "pt-BR", nome: "Português", prefixos: ["pt"] },
+  { codigo: "es",    nome: "Español",   prefixos: ["es"] }
+];
+(function () {
+  var disponiveis = window.LEXIKON_IDIOMAS.map(function (i) { return i.codigo; });
+  function valido(c) { return c && disponiveis.indexOf(c) !== -1 ? c : null; }
+  function porPrefixo(tag) {
+    if (!tag) return null;
+    var p = String(tag).toLowerCase().split("-")[0];
+    for (var i = 0; i < window.LEXIKON_IDIOMAS.length; i++) {
+      if (window.LEXIKON_IDIOMAS[i].prefixos.indexOf(p) !== -1) return window.LEXIKON_IDIOMAS[i].codigo;
+    }
+    return null;
+  }
+  var daUrl = (location.search.match(/[?&]lang=([\w-]+)/) || [])[1];
+  var guardado = null;
+  try { guardado = localStorage.getItem("lexikon-idioma"); } catch (e) {}
+  var escolhido = valido(daUrl) || valido(guardado) ||
+    porPrefixo(navigator.language) || "pt-BR";
+  window.LEXIKON_IDIOMA = escolhido;
+  try { localStorage.setItem("lexikon-idioma", escolhido); } catch (e) {}
+  var base = "linguas/" + escolhido + "/";
+  var arquivos = ["meta.js", "ui.js", "livros.js", "lexico.js", "versos.js"];
+  for (var i = 0; i < arquivos.length; i++) {
+    document.write('<script src="' + base + arquivos[i] + '"><\/script>');
+  }
+})();
+</script>
 
 <!-- MONTADOR: junta os dois e expõe LEXICON_DATA / LEXICON_VERSOS. -->
 <script src="montar.js"></script>
@@ -452,6 +492,23 @@ var CLASSES=[
   document.querySelectorAll("[data-t-placeholder]").forEach(function(el){
     el.setAttribute("placeholder", T(el.getAttribute("data-t-placeholder")));
   });
+
+  /* Seletor de idioma. Cada pacote nomeia a si mesmo na própria língua, por
+     isso as opções não passam por T(): "Español" é Español em qualquer tela. */
+  var idiomas = window.LEXIKON_IDIOMAS || [];
+  var sel = document.getElementById("langPick");
+  if(sel && idiomas.length > 1){
+    sel.innerHTML = idiomas.map(function(i){
+      return '<option value="'+i.codigo+'"'+(i.codigo===window.LEXIKON_IDIOMA?' selected':'')+'>'+i.nome+'</option>';
+    }).join("");
+    sel.hidden = false;
+    sel.onchange = function(){
+      try{ localStorage.setItem("lexikon-idioma", sel.value); }catch(e){}
+      /* recarrega preservando o verbete aberto (a âncora é o lema grego, que
+         é o mesmo em todos os pacotes) */
+      location.replace(location.pathname + "?lang=" + encodeURIComponent(sel.value) + location.hash);
+    };
+  }
 })();
 
 /* ===================== Render: chips e alfabeto ===================== */

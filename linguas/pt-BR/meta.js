@@ -17,7 +17,12 @@ window.LEXIKON_PACK_META = {
     sigla: "Almeida 1911",
     ano: 1911,
     licenca: "Domínio público",
-    jurisdicaoDominioPublico: "global"
+    jurisdicaoDominioPublico: "global",
+    /* A Almeida 1911 segue a versificação do Textus Receptus. Onde o Nestle
+       1904 divide um versículo que o TR não divide, fica grego sem português:
+       o final curto de Marcos, 3Jo 1.15 (que o TR junta ao 14) e Ap 12.18 (que
+       o TR põe como início de 13.1). São três, e são fato de versificação. */
+    versiculosSemVernaculo: ["MRK|16|99", "3JN|1|15", "REV|12|18"]
   },
 
   // prosa dos verbetes deste pacote

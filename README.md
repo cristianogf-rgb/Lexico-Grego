@@ -29,23 +29,33 @@ nucleo/                 NEUTRO DE LÍNGUA — não contém prosa em idioma nenhu
   livros.js             ordem canônica dos 27 livros, por ID USFM
 
 linguas/pt-BR/          PACOTE DE LÍNGUA — tudo que é português vive aqui
-  meta.js               identidade, edição bíblica e licenças do pacote
-  ui.js                 58 textos de interface
+  meta.js               identidade, edição bíblica, licenças e cobertura
+  ui.js                 59 textos de interface
   livros.js             abreviaturas, nomes e aliases de busca dos livros
   lexico.js             prosa dos verbetes: classe, raiz, LSJ, Abbott, nt, pt  4,6 MB
   versos.js             Almeida 1911, 7960 versículos                     1,0 MB
 
+linguas/es/             PACOTE DE LÍNGUA espanhol — cobertura parcial declarada
+  meta.js  ui.js  livros.js
+  lexico.js             glosas, classe e ocorrências; sem os ensaios        0,8 MB
+  versos.js             Reina-Valera 1909, 7960 versículos                 1,0 MB
+
 ferramentas/
   verificar.js          integridade de núcleo + pacote (rode antes de publicar)
+  ocorrencias.js        gera o campo nt de um pacote a partir da lematização
   juntar.js             gera a forma plana (dados.js + versiculos.js) derivada
   separar.js            volta da forma plana para núcleo + pacote
 ingestao_lsj.py         script para expandir ao corpus completo do LSJ + Abbott-Smith
 ```
 
 O núcleo é a parte caríssima e pronta: 3,1 MB de grego verificado que **nunca**
-muda de idioma. O pacote é a parte que se traduz. Trocar as cinco tags
-`<script>` do pacote no `index.html` troca o idioma do aplicativo inteiro —
+muda de idioma. O pacote é a parte que se traduz, e troca o aplicativo inteiro:
 interface, verbetes e texto bíblico.
+
+O idioma sai do seletor no alto da página, de `?lang=es` na URL, do que ficou
+guardado no navegador ou do idioma do próprio navegador, nessa ordem. Como a
+âncora do link é o lema grego, trocar de idioma com um verbete aberto mantém o
+mesmo verbete.
 
 Cobertura atual do léxico — **5410 verbetes** sobre o **Novo Testamento completo (27 livros)**:
 os quatro Evangelhos, Atos, todas as 21 Epístolas, Hebreus e o Apocalipse. Todo o texto grego e
@@ -124,20 +134,33 @@ que deixe versículo com grego e sem vernáculo, que use alias ambíguo de livro
 não traga alguma das chaves de interface que o `index.html` pede. Rode-o antes de
 publicar.
 
+O pacote **es** é o exemplo de um pacote honestamente parcial: traz as 6.611
+glosas, as 450 classes gramaticais, as ocorrências e a Reina-Valera 1909, e
+declara em `meta.cobertura` que os ensaios de Abbott-Smith e LSJ ainda não
+foram escritos. O verificador lê essa declaração: campo declarado presente e
+ausente é erro; campo declarado ausente é aviso contado. No aplicativo, as duas
+seções simplesmente não aparecem.
+
 O que um pacote novo precisa trazer:
 
 | arquivo | conteúdo | custo real |
 |---|---|---|
 | `meta.js` | código do idioma, edição bíblica usada, licenças | minutos |
 | `livros.js` | abreviatura, nome e aliases dos 27 livros | minutos |
-| `ui.js` | 58 textos de interface | horas |
+| `ui.js` | 59 textos de interface | horas |
 | `versos.js` | uma tradução bíblica em domínio público ou licença aberta | mecânico |
-| `lexico.js` | **a prosa dos 5410 verbetes** | ~3 milhões de caracteres |
+| `lexico.js` | glosas e classe | ~78 mil caracteres |
+| `lexico.js` | **os ensaios de Abbott-Smith e LSJ** | ~2,8 milhões de caracteres |
 
 A última linha é a que decide: um idioma novo não é localização, é um livro. As
-glosas curtas (campo `pt`, 8.789 strings) são 2% do volume e dão a maior parte do
-valor de consulta; os ensaios de Abbott-Smith e LSJ, média de 554 caracteres por
-verbete, são os outros 98%.
+glosas curtas são 3% do volume e dão a maior parte do valor de consulta; os
+ensaios, média de 554 caracteres por verbete, são os outros 97%. E o campo das
+ocorrências não se traduz: `ferramentas/ocorrencias.js` o gera da lematização do
+Nestle 1904, com contagem exata — λόγος aparece 331 vezes, não "≈330".
+
+**Os ensaios não se traduzem por máquina.** Um erro exegético que você não
+escreveria sai assinado por você, num idioma em que você não revisa. Escrevem-se
+a partir de LSJ e Abbott-Smith, como se fez em português.
 
 **Licenças não se misturam.** Cada pacote declara as suas em `meta.js`, e por isso
 um texto bíblico sob CC BY-SA pode conviver com esta prosa sob CC BY: são arquivos
@@ -231,7 +254,7 @@ sempre a **obra original** (LSJ, Abbott-Smith), não esta ferramenta.
 Licenciamento deste repositório (detalhes em [`LICENSE`](LICENSE)):
 
 - **Código** (`index.html`, `ingestao_lsj.py`) — **MIT**.
-- **Os 5410 verbetes em português** (`dados.js`) — **CC BY 4.0**: use, adapte e
+- **Os verbetes** (`linguas/<codigo>/lexico.js`) — **CC BY 4.0**: use, adapte e
   redistribua, inclusive comercialmente, dando crédito.
-- **Textos bíblicos** (`versiculos.js`) — já em **domínio público**; não são de
+- **Textos bíblicos** (`linguas/<codigo>/versos.js`) — Almeida 1911 e Reina-Valera 1909, ambas em **domínio público**; não são de
   autoria deste projeto.

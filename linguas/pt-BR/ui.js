@@ -10,6 +10,7 @@ window.LEXIKON_PACK_UI = {
   "cabecalho.kicker": "Léxico do Grego do Novo Testamento",
   "cabecalho.tagline": "Consulta, busca e referência cruzada · fontes de domínio público &nbsp;<b>LSJ</b>&nbsp;+&nbsp;<b>Abbott-Smith</b>",
   "cabecalho.tema": "Alternar tema",
+  "cabecalho.idioma": "Idioma",
 
   /* busca */
   "busca.placeholder": "Busque por significado em português (graça, redenção, mansidão), grego (ἀγάπη) ou transliteração (agape)…",

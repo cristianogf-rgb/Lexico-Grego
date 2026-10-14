@@ -52,18 +52,49 @@ const sobrando = Object.keys(PL).filter((l) => !lemasN.has(l));
 if (semProsa.length) E(semProsa.length + " lema(s) do núcleo sem prosa no pacote: " + semProsa.slice(0, 5).join(", "));
 if (sobrando.length) E(sobrando.length + " lema(s) no pacote sem entrada no núcleo: " + sobrando.slice(0, 5).join(", "));
 
-/* 2. campos obrigatórios */
+/* 2. campos obrigatórios, conforme a cobertura que o pacote declara.
+   Um pacote pode ser honestamente parcial: declara em meta.cobertura o que
+   traz e o que ainda não traz. Campo declarado presente e ausente é erro;
+   campo declarado ausente é aviso, com a contagem à vista. */
+const COB = globalThis.LEXIKON_PACK_META.cobertura ||
+  { glosas: true, classe: true, ocorrencias: true, raiz: true, ensaios: true };
+const CAMPO_POR_COBERTURA = {
+  classe: "classe", raiz: "raiz", nt: "ocorrencias", pt: "glosas",
+  lsj: "ensaios", abbott: "ensaios"
+};
 const CAMPOS_N = ["lema", "translit", "beta", "morf", "refs", "cognatos", "verTambem"];
 const CAMPOS_P = ["classe", "raiz", "lsj", "abbott", "nt", "pt"];
-let faltaN = 0, faltaP = 0, ptVazio = 0;
+
+let faltaN = 0;
 for (const e of N) for (const c of CAMPOS_N) if (e[c] === undefined) faltaN++;
-for (const l in PL) {
-  for (const c of CAMPOS_P) if (PL[l][c] === undefined) faltaP++;
-  if (!PL[l].pt || !PL[l].pt.length) ptVazio++;
-}
 if (faltaN) E("campos ausentes no núcleo: " + faltaN);
-if (faltaP) E("campos ausentes no pacote: " + faltaP);
-if (ptVazio) E("verbetes sem glosa (pt): " + ptVazio);
+
+const ausente = {};   // campo -> quantos verbetes o têm vazio
+let faltaP = 0;
+for (const l in PL) {
+  for (const c of CAMPOS_P) {
+    if (PL[l][c] === undefined) { faltaP++; continue; }
+    const vazio = Array.isArray(PL[l][c]) ? !PL[l][c].length : !String(PL[l][c]).trim();
+    if (vazio) ausente[c] = (ausente[c] || 0) + 1;
+  }
+}
+if (faltaP) E("campos ausentes no pacote (chave inexistente): " + faltaP);
+
+for (const c of CAMPOS_P) {
+  const n = ausente[c] || 0;
+  if (!n) continue;
+  const declarado = COB[CAMPO_POR_COBERTURA[c]];
+  const msg = n + " verbete(s) com `" + c + "` vazio";
+  if (declarado) E(msg + " — meta.cobertura declara este campo presente");
+  else A(msg + " — declarado ausente em meta.cobertura, não é erro");
+}
+for (const chave in COB) {
+  if (!COB[chave]) continue;
+  const campos = Object.keys(CAMPO_POR_COBERTURA).filter((c) => CAMPO_POR_COBERTURA[c] === chave);
+  if (campos.length && campos.every((c) => (ausente[c] || 0) === Object.keys(PL).length)) {
+    E("meta.cobertura declara `" + chave + "` presente, mas nenhum verbete o traz");
+  }
+}
 
 /* 3. livros: canon, núcleo e pacote de acordo */
 const canonSet = new Set(CANON);
@@ -86,6 +117,24 @@ const faltamNoPack = Object.keys(NV).filter((k) => PV[k] === undefined);
 if (faltamNoPack.length) E(faltamNoPack.length + " versículo(s) com grego e sem vernáculo: " + faltamNoPack.slice(0, 5).join(", "));
 const semGrego = Object.keys(PV).filter((k) => !NV[k]);
 if (semGrego.length) A(semGrego.length + " versículo(s) do pacote sem grego (ausentes do texto crítico): " + semGrego.slice(0, 3).join(", ") + "…");
+
+/* 5b. versículos sem vernáculo: divergência de versificação entre a edição
+   bíblica do pacote e o Nestle 1904. Tem de bater com o que meta.js declara. */
+const semVernaculo = Object.keys(PV).filter((k) => !String(PV[k]).trim());
+const declarados = ((globalThis.LEXIKON_PACK_META.biblia || {}).versiculosSemVernaculo) || [];
+const naoDeclarados = semVernaculo.filter((k) => !declarados.includes(k));
+const declaradosAToa = declarados.filter((k) => !semVernaculo.includes(k));
+if (naoDeclarados.length) {
+  E(naoDeclarados.length + " versículo(s) sem texto vernáculo e não declarados em " +
+    "meta.biblia.versiculosSemVernaculo: " + naoDeclarados.slice(0, 5).join(", "));
+}
+if (declaradosAToa.length) {
+  E("meta.biblia.versiculosSemVernaculo lista versículo(s) que têm texto: " + declaradosAToa.join(", "));
+}
+if (semVernaculo.length && !naoDeclarados.length) {
+  A(semVernaculo.length + " versículo(s) sem texto vernáculo, todos declarados (versificação): " +
+    semVernaculo.join(", "));
+}
 
 /* 6. referências de cada verbete existem no corpus */
 let refMorta = 0;
