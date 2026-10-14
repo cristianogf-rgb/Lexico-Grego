@@ -332,9 +332,15 @@
      document.write é deliberado: mantém o carregamento síncrono e na ordem,
      que é o que faz o aplicativo abrir por file:// sem servidor nem build. -->
 <script>
+/* `herda` + `proprios`: o pacote carrega primeiro os cinco arquivos do pacote
+   herdado e depois só os seus, que sobrescrevem. Serve para variantes que
+   mudam uma camada só — pt-BR-atual troca o texto bíblico e reaproveita os
+   4,6 MB de prosa do léxico em vez de duplicá-los. */
 window.LEXIKON_IDIOMAS = [
-  { codigo: "pt-BR", nome: "Português", prefixos: ["pt"] },
-  { codigo: "es",    nome: "Español",   prefixos: ["es"] }
+  { codigo: "pt-BR", nome: "Português (1911)", prefixos: ["pt"] },
+  { codigo: "pt-BR-atual", nome: "Português (grafia atual)", prefixos: [],
+    herda: "pt-BR", proprios: ["meta.js", "versos.js"] },
+  { codigo: "es", nome: "Español", prefixos: ["es"] }
 ];
 (function () {
   var disponiveis = window.LEXIKON_IDIOMAS.map(function (i) { return i.codigo; });
@@ -354,11 +360,15 @@ window.LEXIKON_IDIOMAS = [
     porPrefixo(navigator.language) || "pt-BR";
   window.LEXIKON_IDIOMA = escolhido;
   try { localStorage.setItem("lexikon-idioma", escolhido); } catch (e) {}
-  var base = "linguas/" + escolhido + "/";
-  var arquivos = ["meta.js", "ui.js", "livros.js", "lexico.js", "versos.js"];
-  for (var i = 0; i < arquivos.length; i++) {
-    document.write('<script src="' + base + arquivos[i] + '"><\/script>');
+  var TODOS = ["meta.js", "ui.js", "livros.js", "lexico.js", "versos.js"];
+  function escreve(codigo, arquivos) {
+    for (var i = 0; i < arquivos.length; i++) {
+      document.write('<script src="linguas/' + codigo + "/" + arquivos[i] + '"><\/script>');
+    }
   }
+  var def = window.LEXIKON_IDIOMAS.filter(function (i) { return i.codigo === escolhido; })[0] || {};
+  if (def.herda) escreve(def.herda, TODOS);
+  escreve(escolhido, def.proprios || TODOS);
 })();
 </script>
 

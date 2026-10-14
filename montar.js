@@ -18,10 +18,24 @@
   var packLexico = raiz.LEXIKON_PACK_LEXICO;
   var packVersos = raiz.LEXIKON_PACK_VERSOS;
   var packLivros = raiz.LEXIKON_PACK_LIVROS;
+  var meta = raiz.LEXIKON_PACK_META || {};
+
+  /* Herança: um pacote que muda só uma camada declara `herda` no meta.js e
+     traz apenas os arquivos próprios. O index.html carrega primeiro os do
+     pacote herdado e depois os do herdeiro, que sobrescreve o que trouxe.
+     É o caso de pt-BR-atual: mesma prosa, mesma interface, outro texto
+     bíblico — e 4,6 MB que não se duplicam. */
+  if (meta.herda) {
+    raiz.LEXIKON_HERANCA = { de: meta.herda, para: meta.codigo };
+  }
 
   if (!nucleo || !packLexico) {
     throw new Error("Léxikon: núcleo ou pacote de língua não carregado. " +
       "Verifique a ordem das tags <script> no index.html.");
+  }
+  if (!packVersos || !packLivros) {
+    throw new Error("Léxikon: o pacote \"" + (meta.codigo || "?") + "\" não trouxe " +
+      "versos.js ou livros.js, e não declarou `herda` para recebê-los de outro.");
   }
 
   /* ----- verbetes: núcleo + prosa ----- */

@@ -23,11 +23,20 @@ global.window = globalThis;
 require(path.join(RAIZ, "nucleo/livros.js"));
 require(path.join(RAIZ, "nucleo/lexico.js"));
 require(path.join(RAIZ, "nucleo/versos.js"));
+/* Pacote com herança: carrega o herdado por inteiro e depois só os arquivos
+   próprios, que sobrescrevem. O verificador confere o resultado montado, que é
+   o que o aplicativo vê. */
+const TODOS = ["meta.js", "ui.js", "livros.js", "lexico.js", "versos.js"];
 require(path.join(DIR, "meta.js"));
-require(path.join(DIR, "ui.js"));
-require(path.join(DIR, "livros.js"));
-require(path.join(DIR, "lexico.js"));
-require(path.join(DIR, "versos.js"));
+const HERDA = globalThis.LEXIKON_PACK_META.herda;
+if (HERDA) {
+  const PAI = path.join(RAIZ, "linguas", HERDA);
+  if (!fs.existsSync(PAI)) { console.error("pacote herdado inexistente: " + HERDA); process.exit(1); }
+  for (const f of TODOS) require(path.join(PAI, f));
+  for (const f of TODOS) if (fs.existsSync(path.join(DIR, f))) require(path.join(DIR, f));
+} else {
+  for (const f of TODOS.slice(1)) require(path.join(DIR, f));
+}
 require(path.join(RAIZ, "montar.js"));
 
 const N = globalThis.LEXIKON_NUCLEO;
@@ -175,7 +184,11 @@ for (const c of ["codigo", "nome", "htmlLang", "biblia", "lexico"]) {
 }
 
 /* ----- relatório ----- */
-const mb = (p) => (fs.statSync(path.join(RAIZ, p)).size / 1048576).toFixed(2) + " MB";
+/* um pacote com herança não tem todos os arquivos: os que faltam vêm do pai */
+const mb = (p) => {
+  const abs = path.join(RAIZ, p);
+  return fs.existsSync(abs) ? (fs.statSync(abs).size / 1048576).toFixed(2) + " MB" : "herdado";
+};
 console.log("Léxikon · verificação do pacote " + LINGUA);
 console.log("  verbetes ............ " + D.length);
 console.log("  versículos .......... " + Object.keys(V).length);

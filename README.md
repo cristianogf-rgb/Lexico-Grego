@@ -35,6 +35,10 @@ linguas/pt-BR/          PACOTE DE LÍNGUA — tudo que é português vive aqui
   lexico.js             prosa dos verbetes: classe, raiz, LSJ, Abbott, nt, pt  4,6 MB
   versos.js             Almeida 1911, 7960 versículos                     1,0 MB
 
+linguas/pt-BR-atual/    Almeida 1911 com a grafia de hoje — HERDA de pt-BR
+  meta.js               declara herda:"pt-BR"; traz só o texto bíblico
+  versos.js             mesmo texto, grafia atualizada                     1,0 MB
+
 linguas/es/             PACOTE DE LÍNGUA espanhol — cobertura parcial declarada
   meta.js  ui.js  livros.js
   lexico.js             glosas, classe e ocorrências; sem os ensaios        0,8 MB
@@ -43,6 +47,8 @@ linguas/es/             PACOTE DE LÍNGUA espanhol — cobertura parcial declara
 ferramentas/
   verificar.js          integridade de núcleo + pacote (rode antes de publicar)
   ocorrencias.js        gera o campo nt de um pacote a partir da lematização
+  grafia-1911.js        atualiza a ortografia da Almeida 1911
+  grafia-1911.dados.js  as 1.122 decisões da atualização, uma por linha
   juntar.js             gera a forma plana (dados.js + versiculos.js) derivada
   separar.js            volta da forma plana para núcleo + pacote
 ingestao_lsj.py         script para expandir ao corpus completo do LSJ + Abbott-Smith
@@ -116,6 +122,57 @@ e **não** pode ser redistribuída aqui. Se você tem licença para usá-la, pod
 o texto: em `linguas/pt-BR/versos.js`, cada chave (`"ROM|8|15"`) aponta direto para a
 string em português — basta trocar o valor pelo texto correspondente da ARA. O núcleo,
 o grego e os destaques não são tocados.
+
+---
+
+## A Almeida 1911 com grafia de hoje
+
+O texto de 1911 não é português arcaico: é português moderno escrito na
+ortografia anterior à reforma de 1943. Das 163.353 palavras do Novo Testamento,
+**82% já estão exatamente como o Brasil escreve hoje**. O que soa antigo é quase
+tudo grafia — `Christo`, `Espirito Sancto`, `peccado`, `elle`, `pae`,
+`d'elle`, `baptismo`, `tambem`.
+
+O pacote `pt-BR-atual` troca essa camada e **só essa**: 19,79% das palavras
+mudam de grafia, nenhuma frase muda de forma. A morfologia fica intacta — *vós
+recebestes* continua *vós recebestes*, e não virou *vocês receberam*. Não é
+tradução nova nem revisão de sentido; é a mesma Almeida de 1911, escrita como
+se escreve agora.
+
+```bash
+node ferramentas/grafia-1911.js              # relatório e amostra
+node ferramentas/grafia-1911.js --escrever   # gera linguas/pt-BR-atual/versos.js
+```
+
+**O método, e por que ele é conservador.** Só se toca no que carrega marca de
+grafia antiga; o que não tem marca fica como está, porque `começando` e
+`mostrou` já são português de hoje e o silêncio de um dicionário pequeno não é
+prova de nada. As regras automáticas valem apenas para sequências que o
+português moderno **não admite em posição nenhuma** — `ph`, `th`, `ll`, `nn`,
+`cc`, `mm`, `ff`, `pp`, `mn`, `y`, `chr` — onde não existe falso positivo
+possível. `pt`, `ct`, `ch`, `sc` e `cç` ficaram fora das regras, porque
+*apto*, *pacto*, *chegou*, *buscar* e *ficção* são modernos: esses vão por lista
+explícita, palavra a palavra. As 1.122 decisões estão em
+`ferramentas/grafia-1911.dados.js`, uma por linha, para serem conferidas sem
+ler código.
+
+Duas armadilhas que a construção revelou e que a lista registra:
+
+- Uma primeira versão das regras trocou **`apta` por `ata`** em Hb 4.12, e
+  apagou o `h` de `filho`, `chegou` e `manhã`. Daí a restrição às sequências
+  impossíveis e a exclusão de `c`, `l` e `n` da regra de consoante + `h`.
+- O acento de **`tornára`** marca o mais-que-perfeito: a correção é tirar o
+  acento (`tornara`), nunca deslocá-lo para o fim (`tornará`), o que faria do
+  passado um futuro. Os cinco casos estão explícitos na tabela.
+
+A conversão preserva a estrutura: 7.960 versículos, pontuação intacta, e as
+únicas mudanças de contagem de palavras são as 132 contrações que legitimamente
+viraram duas (`d'Israel` → `de Israel`).
+
+**Herança de pacote.** `pt-BR-atual` declara `herda: "pt-BR"` no `meta.js` e
+traz um arquivo só. Os 4,6 MB de prosa do léxico, os textos de interface e os
+nomes dos livros vêm do pacote pai e não se duplicam. O `index.html` carrega
+primeiro o pacote herdado e depois o herdeiro, que sobrescreve o que trouxe.
 
 ---
 
@@ -256,5 +313,6 @@ Licenciamento deste repositório (detalhes em [`LICENSE`](LICENSE)):
 - **Código** (`index.html`, `ingestao_lsj.py`) — **MIT**.
 - **Os verbetes** (`linguas/<codigo>/lexico.js`) — **CC BY 4.0**: use, adapte e
   redistribua, inclusive comercialmente, dando crédito.
-- **Textos bíblicos** (`linguas/<codigo>/versos.js`) — Almeida 1911 e Reina-Valera 1909, ambas em **domínio público**; não são de
+- **Textos bíblicos** (`linguas/<codigo>/versos.js`) — Almeida 1911 (e a sua
+  atualização ortográfica) e Reina-Valera 1909, em **domínio público**; não são de
   autoria deste projeto.
