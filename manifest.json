@@ -1,0 +1,33 @@
+{
+  "name": "Léxikon — Léxico do Grego do Novo Testamento",
+  "short_name": "Léxikon",
+  "description": "Léxico do grego bíblico para consulta, busca e referência cruzada. Fontes de domínio público (LSJ e Abbott-Smith), em português do Brasil.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1a1611",
+  "theme_color": "#f4ecdc",
+  "categories": ["books", "education", "reference"],
+  "icons": [
+    {
+      "src": "icones/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icones/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icones/icone-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
