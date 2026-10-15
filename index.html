@@ -329,6 +329,40 @@
     .entry,.sheet,.overlay.open,.ref-summary.on,.verse{animation:none !important}
     .entry:hover{transform:none}
   }
+
+  /* ================= Variante "púlpito" (?variant=pulpito) =================
+     O padrão não muda: estas regras só valem com data-variante no <html>.
+     Medido no padrão, a 347x646: 588px de controles e o primeiro verbete em
+     658px — nenhum resultado na primeira tela. Aqui o cabeçalho encolhe, os
+     dois campos viram um, e chips e alfabeto descem para uma gaveta fechada. */
+  html[data-variante="pulpito"] header.top{padding:6px 16px 10px}
+  html[data-variante="pulpito"] .kicker{display:none}
+  html[data-variante="pulpito"] h1.brand{font-size:clamp(26px,6vw,34px)}
+  html[data-variante="pulpito"] .tagline{display:none}
+  html[data-variante="pulpito"] .topbar{min-height:40px;margin-bottom:0}
+  html[data-variante="pulpito"] .ref-box,
+  html[data-variante="pulpito"] .search-hint{display:none}
+  html[data-variante="pulpito"] .search-shell{padding:10px 0 8px}
+  html[data-variante="pulpito"] .wrap{padding-top:0}
+  html[data-variante="pulpito"] #q{padding:13px 6px 13px 0;font-size:19px}
+
+  /* A contagem sai da linha dos chips e vira legenda da busca: é o retorno
+     imediato de quem digitou, e não pode ir para dentro da gaveta. */
+  html[data-variante="pulpito"] .controls{margin:6px 0 4px;gap:10px;flex-wrap:nowrap}
+  html[data-variante="pulpito"] .count{font-style:normal;flex:1;min-width:0}
+  .filtros-btn{display:none}
+  html[data-variante="pulpito"] .filtros-btn{display:flex;align-items:center;gap:7px;
+    font-family:inherit;font-size:13px;letter-spacing:.02em;color:var(--ink-soft);
+    background:transparent;border:1px solid var(--line);border-radius:20px;
+    padding:0 13px;min-height:36px;cursor:pointer;white-space:nowrap}
+  .filtros-btn .seta{font-size:10px;color:var(--ink-faint);transition:transform .18s ease}
+  .filtros-btn[aria-expanded="true"]{border-color:var(--rubric);color:var(--rubric)}
+  .filtros-btn[aria-expanded="true"] .seta{transform:rotate(180deg)}
+  html[data-variante="pulpito"] .gaveta-filtros[hidden]{display:none}
+  html[data-variante="pulpito"] .gaveta-filtros{border:1px solid var(--line);border-radius:6px;
+    padding:12px 12px 4px;margin:0 0 12px;background:var(--paper-2)}
+  html[data-variante="pulpito"] .gaveta-filtros .alpha{margin:10px 0 0;padding-bottom:4px;border-bottom:none}
+  html[data-variante="pulpito"] #results{margin-top:4px}
 </style>
 </head>
 <body>
@@ -475,6 +509,13 @@ function T(chave, subs){
 }
 function ABREV(usfm){ return (LIVROS[usfm] && LIVROS[usfm].abrev) || usfm; }
 function NOME_LIVRO(usfm){ return (LIVROS[usfm] && LIVROS[usfm].nome) || usfm; }
+
+/* ===================== Variante de interface =====================
+   ?variant=pulpito liga a primeira tela compacta. Sem o parâmetro nada
+   muda — o padrão continua sendo exatamente o que já estava no ar. */
+var VARIANTE = (location.search.match(/[?&]variant=([\w-]+)/) || [])[1] || "";
+if(VARIANTE) document.documentElement.setAttribute("data-variante", VARIANTE);
+var PULPITO = VARIANTE === "pulpito";
 
 /* ===================== Utilidades de normalização ===================== */
 function tirarAcentos(s){
@@ -735,7 +776,10 @@ versePanelEl.addEventListener("click",function(ev){
   var alvo=m.dataset.goto; if(mapaLema[alvo]) abrir(alvo);
 });
 function atualizarRefSummary(){
-  var raw=(document.getElementById("ref").value||"").trim();
+  /* Na variante de campo único a consulta de referência vem do mesmo campo
+     da busca; no padrão, do campo próprio. */
+  var raw=((PULPITO ? document.getElementById("q").value : document.getElementById("ref").value)||"").trim();
+  if(PULPITO && !refAlvo){ refSummaryEl.className="ref-summary"; refSummaryEl.innerHTML=""; return; }
   if(!raw){ refSummaryEl.className="ref-summary"; refSummaryEl.innerHTML=""; return; }
   if(!refAlvo){
     refSummaryEl.className="ref-summary on";
@@ -980,14 +1024,29 @@ function mostrarToast(m){ toast.textContent=m;toast.classList.add("show");clearT
 /* ===================== Busca ao vivo ===================== */
 var qEl=document.getElementById("q"),clearBtn=document.getElementById("clearBtn");
 qEl.addEventListener("input",function(){
-  termo=this.value; clearBtn.style.display=termo?"block":"none";
-  if(termo){
-    refAlvo=null; refEl.value=""; refClear.style.display="none";
+  var valor=this.value;
+  clearBtn.style.display=valor?"block":"none";
+  if(PULPITO){
+    /* Um campo só. A referência é tentada primeiro porque é o formato
+       estrito — "Rm 8.15" nunca seria uma glosa, mas "fé" nunca seria uma
+       referência. Não casando como referência, o texto vai para a busca. */
+    var ref=parseConsultaRef(valor);
+    if(ref){ refAlvo=ref; termo=""; }
+    else { refAlvo=null; termo=valor; }
+  } else {
+    termo=valor;
+    if(termo){ refAlvo=null; refEl.value=""; refClear.style.display="none"; }
+  }
+  if(valor){
     filtroLetra=null; alphaEl.querySelectorAll("button").forEach(function(x){x.classList.remove("on")}); alphaEl.children[0].classList.add("on");
   }
   renderAdiado();
 });
-clearBtn.onclick=function(){ qEl.value="";termo="";clearBtn.style.display="none";qEl.focus();render(); };
+clearBtn.onclick=function(){
+  qEl.value="";termo="";clearBtn.style.display="none";
+  if(PULPITO) refAlvo=null;
+  qEl.focus();render();
+};
 
 /* ===================== Busca por referência (versículo) ===================== */
 var refEl=document.getElementById("ref"),refClear=document.getElementById("refClear");
@@ -1043,6 +1102,54 @@ function salvarTema(v){ try{localStorage.setItem("lexikon-tema",v)}catch(e){} }
 
 /* ===================== Deep-link inicial ===================== */
 function abrirDoHash(){ var h=decodeURIComponent((location.hash||"").replace(/^#/,"")); if(h&&mapaLema[h]) abrir(h); }
+
+/* ===================== Variante "púlpito": montagem ===================== */
+if(PULPITO){
+  (function(){
+    /* chips e alfabeto saem da primeira tela e vão para uma gaveta fechada.
+       Os nós são os mesmos — só mudam de lugar —, então os ouvintes de
+       clique já registrados continuam valendo. */
+    var controls=document.querySelector(".controls");
+    var gaveta=document.createElement("div");
+    gaveta.className="gaveta-filtros";
+    gaveta.id="gavetaFiltros";
+    gaveta.hidden=true;
+    alphaEl.parentNode.insertBefore(gaveta, alphaEl);
+    gaveta.appendChild(chipsEl);
+    gaveta.appendChild(alphaEl);
+
+    var botao=document.createElement("button");
+    botao.type="button";
+    botao.className="filtros-btn";
+    botao.id="filtrosBtn";
+    botao.setAttribute("aria-expanded","false");
+    botao.setAttribute("aria-controls","gavetaFiltros");
+    botao.innerHTML=T("filtro.todos")+' <span class="seta" aria-hidden="true">▾</span>';
+    controls.appendChild(botao);
+
+    function rotulo(){
+      var chipAtivo=chipsEl.querySelector(".chip.on");
+      var letra=filtroLetra ? " · "+filtroLetra : "";
+      botao.innerHTML=(chipAtivo?chipAtivo.textContent:T("filtro.todos"))+letra+
+        ' <span class="seta" aria-hidden="true">▾</span>';
+    }
+    botao.addEventListener("click",function(){
+      var aberta=botao.getAttribute("aria-expanded")==="true";
+      botao.setAttribute("aria-expanded", aberta?"false":"true");
+      gaveta.hidden=aberta;
+    });
+    /* O rótulo do botão diz o que está filtrado mesmo com a gaveta fechada:
+       filtro escondido que não se anuncia é filtro que se esquece ligado. */
+    chipsEl.addEventListener("click",rotulo);
+    alphaEl.addEventListener("click",rotulo);
+    rotulo();
+
+    /* Um campo só precisa anunciar que aceita referência também — mas
+       concatenar os dois placeholders devolve o problema que eles tinham:
+       texto que não cabe no campo. Um exemplo de cada forma, e só. */
+    qEl.setAttribute("placeholder", T("busca.placeholderUnico"));
+  })();
+}
 
 /* ===================== Início ===================== */
 render();

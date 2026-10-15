@@ -19,6 +19,7 @@ window.LEXIKON_PACK_UI = {
   "busca.placeholder": "ex.: amor · ἀγάπη · agape",
   "busca.limpar": "Limpar",
   "ref.placeholder": "ex.: Rm 8.15 · Romanos 8",
+  "busca.placeholderUnico": "ex.: amor · ἀγάπη · Rm 8.15",
   "ref.formatoInvalido": "<span class=\"err\">Formato não reconhecido.</span> Use <b style=\"font-size:14px\">Livro Cap.Versículo</b> — p.ex. Rm 8.15, Romanos 8, Rm 8.15-17.",
   "dica.versiculo": "<kbd>Versículo</kbd> revela os verbetes que ocorrem no trecho",
   "dica.busca": "Busca por <kbd>grego</kbd>, <kbd>transliteração</kbd> ou <kbd>significado</kbd>",

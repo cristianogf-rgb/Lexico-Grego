@@ -18,6 +18,7 @@ window.LEXIKON_PACK_UI = {
   "busca.placeholder": "ej.: amor · ἀγάπη · agape",
   "busca.limpar": "Limpiar",
   "ref.placeholder": "ej.: Ro 8.15 · Romanos 8",
+  "busca.placeholderUnico": "ej.: amor · ἀγάπη · Ro 8.15",
   "ref.formatoInvalido": "<span class=\"err\">Formato no reconocido.</span> Use <b style=\"font-size:14px\">Libro Cap.Versículo</b> — ej. Ro 8.15, Romanos 8, Ro 8.15-17.",
   "dica.versiculo": "<kbd>Versículo</kbd> revela las entradas que aparecen en el pasaje",
   "dica.busca": "Búsqueda por <kbd>griego</kbd>, <kbd>transliteración</kbd> o <kbd>significado</kbd>",
