@@ -363,15 +363,82 @@
     padding:12px 12px 4px;margin:0 0 12px;background:var(--paper-2)}
   html[data-variante="pulpito"] .gaveta-filtros .alpha{margin:10px 0 0;padding-bottom:4px;border-bottom:none}
   html[data-variante="pulpito"] #results{margin-top:4px}
+
+  /* ---------- Favoritos ---------- */
+  /* A estrela mora no canto do cartão. O alvo tem 44px, mas o desenho tem 22:
+     o que cresce é a área clicável, não o peso visual — a estrela não disputa
+     atenção com o lema, que é o que se veio ler. */
+  .fav-btn{position:absolute;top:6px;right:6px;width:44px;height:44px;border:none;
+    background:none;cursor:pointer;color:var(--ink-faint);font-size:21px;line-height:1;
+    display:grid;place-items:center;border-radius:50%;transition:color .2s,transform .2s;z-index:2}
+  .fav-btn.on{color:var(--rubric)}
+  .fav-btn:active{transform:scale(.88)}
+  .fav-btn:focus-visible{outline:2px solid var(--rubric);outline-offset:-4px}
+  /* Sem isso o lema longo passa por baixo da estrela. */
+  .entry .lemma{padding-right:40px}
+
+  .fav-sheet{position:absolute;top:14px;right:58px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink-soft);font-family:'EB Garamond';font-size:13.5px;
+    border-radius:20px;min-height:34px;padding:0 14px;cursor:pointer;display:flex;align-items:center;
+    gap:2px;transition:.2s;white-space:nowrap}
+  .fav-sheet.on{border-color:var(--rubric);color:var(--rubric)}
+  .fav-sheet:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
+
+  .chip-fav{display:inline-flex;align-items:center;gap:5px}
+  .chip-fav .estrela{font-size:12px;line-height:1}
+  .chip-fav.vazio{opacity:.55}
+  .chip-n{font-size:11.5px;opacity:.8;font-variant-numeric:tabular-nums}
+
+  /* ---------- Ajustes ---------- */
+  .sheet-cfg{max-width:460px}
+  .sheet-cfg .sheet-head{padding-bottom:18px}
+  .cfg-titulo{font-family:'Cormorant Garamond';font-weight:600;font-size:30px;color:var(--ink);line-height:1.1}
+  .cfg-nota{font-size:14px;color:var(--ink-faint);margin-top:8px;font-style:italic}
+  /* Controle segmentado: as opções ficam todas visíveis. Um <select> escondia
+     que "Sistema" existia, e esconder opção é esconder funcionalidade. */
+  .seg{display:flex;gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .seg button{flex:1;min-width:0;font-family:'EB Garamond';font-size:14.5px;
+    background:transparent;border:none;border-right:1px solid var(--line);color:var(--ink-soft);
+    min-height:44px;padding:0 10px;cursor:pointer;transition:.2s;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .seg button:last-child{border-right:none}
+  .seg button.on{background:var(--rubric);color:#fff}
+  html[data-theme="dark"] .seg button.on{color:#1a1611}
+  .seg button:focus-visible{outline:2px solid var(--rubric);outline-offset:-3px}
+  #limparFavs{margin-top:12px}
+  #limparFavs[disabled]{opacity:.45;cursor:default}
+
+  /* ---------- Concordância ---------- */
+  /* Legenda, não segundo título: em caixa-alta com entreletra ela competia com
+     o h3 logo acima e a seção abria com dois cabeçalhos empilhados. */
+  .conc-resumo{font-size:14px;color:var(--ink-faint);margin-top:12px;font-style:italic}
+  .conc-vazia{font-size:15px;color:var(--ink-faint);font-style:italic;margin-top:8px}
+  .conc{list-style:none;margin:10px 0 0;padding:0;border-top:1px solid var(--line-soft)}
+  .conc li{border-bottom:1px solid var(--line-soft)}
+  .conc-li{display:grid;gap:3px;width:100%;text-align:left;background:none;border:none;
+    padding:11px 2px;cursor:pointer;font-family:inherit;color:inherit;min-height:44px}
+  .conc-li:active{background:var(--paper-2)}
+  .conc-li:focus-visible{outline:2px solid var(--rubric);outline-offset:-2px}
+  .conc-ref{font-family:'EB Garamond';font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--rubric);font-weight:600}
+  /* A forma grega é a que ocorre naquele versículo. O destaque vai aqui, e não
+     no vernáculo, porque o alinhamento token-a-lema é exato e o alinhamento
+     palavra a palavra com o português não existe nos dados. */
+  .conc-gk{font-family:'Gentium Book Plus',serif;font-size:18px;color:var(--ink)}
+  .conc-txt{font-size:15px;color:var(--ink-soft);line-height:1.5}
+  .conc-mais{margin-top:14px}
 </style>
 </head>
 <body>
 <div class="grain"></div>
 
 <header class="top">
+  <!-- Um alvo no lugar de dois: idioma e tema moram agora em Ajustes. Ler o
+       léxico não exige nenhum dos dois, e tirá-los da primeira tela devolve
+       espaço ao que se veio buscar. -->
   <div class="topbar">
-    <select class="lang-pick" id="langPick" data-t-title="cabecalho.idioma" hidden></select>
-    <button class="theme-toggle" id="themeBtn" data-t-title="cabecalho.tema" aria-pressed="false">☾</button>
+    <button class="theme-toggle" id="cfgBtn" data-t-title="cfg.titulo"
+      aria-haspopup="dialog" aria-expanded="false">⚙</button>
   </div>
   <div class="kicker" data-t="cabecalho.kicker"></div>
   <h1 class="brand"><span class="gk">Λέξικον</span></h1>
@@ -425,6 +492,35 @@
   <p data-t="rodape.cobertura"></p>
 </footer>
 
+<!-- Ajustes: overlay próprio, não o do verbete. O fechar() do verbete limpa a
+     âncora da URL; se os dois dividissem o mesmo nó, sair dos ajustes apagaria
+     o link do verbete aberto atrás. -->
+<div class="overlay" id="overlayCfg">
+  <div class="sheet sheet-cfg" id="sheetCfg" role="dialog" aria-modal="true"
+    aria-labelledby="cfgTitulo" tabindex="-1">
+    <div class="sheet-head">
+      <button class="close-x" id="cfgFechar" data-t-title="cfg.fechar">×</button>
+      <div class="cfg-titulo" id="cfgTitulo" data-t="cfg.titulo"></div>
+    </div>
+    <div class="sheet-body">
+      <div class="sec">
+        <h3 data-t="cfg.tema"></h3>
+        <div class="seg" id="segTema" role="radiogroup" data-t-title="cfg.tema"></div>
+      </div>
+      <div class="sec" id="secIdioma" hidden>
+        <h3 data-t="cfg.idioma"></h3>
+        <div class="seg" id="segIdioma" role="radiogroup" data-t-title="cfg.idioma"></div>
+        <p class="cfg-nota" id="cfgBiblia"></p>
+      </div>
+      <div class="sec">
+        <h3 data-t="cfg.favoritos"></h3>
+        <p class="cfg-nota" id="cfgFavs"></p>
+        <button class="act" id="limparFavs" data-t="cfg.limparFavoritos"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="overlay" id="overlay">
   <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetLema" tabindex="-1"></div>
 </div>
@@ -447,12 +543,24 @@
    herdado e depois só os seus, que sobrescrevem. Serve para variantes que
    mudam uma camada só — pt-BR-atual troca o texto bíblico e reaproveita os
    4,6 MB de prosa do léxico em vez de duplicá-los. */
+/* `oculto`: o pacote existe, carrega e responde por ?lang=, mas não aparece no
+   seletor. É o caso do pt-BR: ele é o PAI — traz lexico.js, ui.js e livros.js,
+   que o pt-BR-atual herda —, de modo que não pode ser removido sem levar junto
+   a prosa inteira do léxico. O que se removeu foi a escolha: o leitor recebe a
+   grafia de hoje, e a de 1911 fica como procedência, alcançável por URL. */
 window.LEXIKON_IDIOMAS = [
-  { codigo: "pt-BR", nome: "Português (1911)", prefixos: ["pt"] },
-  { codigo: "pt-BR-atual", nome: "Português (grafia atual)", prefixos: [],
+  { codigo: "pt-BR", nome: "Português (1911)", prefixos: [], oculto: true },
+  { codigo: "pt-BR-atual", nome: "Português", prefixos: ["pt"],
     herda: "pt-BR", proprios: ["meta.js", "versos.js"] },
   { codigo: "es", nome: "Español", prefixos: ["es"] }
 ];
+/* Migração: quem visitou antes desta mudança tem "pt-BR" gravado e ficaria
+   preso no 1911 para sempre. Reescreve uma vez, em silêncio. */
+try {
+  if (localStorage.getItem("lexikon-idioma") === "pt-BR") {
+    localStorage.setItem("lexikon-idioma", "pt-BR-atual");
+  }
+} catch (e) {}
 (function () {
   var disponiveis = window.LEXIKON_IDIOMAS.map(function (i) { return i.codigo; });
   function valido(c) { return c && disponiveis.indexOf(c) !== -1 ? c : null; }
@@ -468,7 +576,7 @@ window.LEXIKON_IDIOMAS = [
   var guardado = null;
   try { guardado = localStorage.getItem("lexikon-idioma"); } catch (e) {}
   var escolhido = valido(daUrl) || valido(guardado) ||
-    porPrefixo(navigator.language) || "pt-BR";
+    porPrefixo(navigator.language) || "pt-BR-atual";
   window.LEXIKON_IDIOMA = escolhido;
   try { localStorage.setItem("lexikon-idioma", escolhido); } catch (e) {}
   var TODOS = ["meta.js", "ui.js", "livros.js", "lexico.js", "versos.js"];
@@ -593,7 +701,93 @@ function parseConsultaRef(raw){
 }
 var refAlvo=null;
 
-var filtroClasse=null, filtroLetra=null, termo="";
+var filtroClasse=null, filtroLetra=null, termo="", filtroFav=false;
+
+/* ===================== Favoritos =====================
+   Um conjunto de lemas gregos no armazenamento local. O lema é a chave certa:
+   é igual em todos os pacotes de língua, de modo que a lista atravessa a troca
+   de idioma sem nenhuma conversão. Toda leitura é defensiva — navegador em
+   janela privada, ou com dados do site bloqueados, devolve erro em vez de
+   valor, e a lista simplesmente nasce vazia em vez de derrubar a página. */
+var FAVS=(function(){
+  var s={};
+  try{
+    var cru=localStorage.getItem("lexikon-favoritos");
+    if(cru) JSON.parse(cru).forEach(function(l){ s[l]=1; });
+  }catch(e){}
+  return s;
+})();
+function favTotal(){ return Object.keys(FAVS).length; }
+function ehFav(lema){ return FAVS[lema]===1; }
+function gravarFavs(){
+  try{ localStorage.setItem("lexikon-favoritos", JSON.stringify(Object.keys(FAVS))); }catch(e){}
+}
+function alternarFav(lema){
+  if(FAVS[lema]) delete FAVS[lema]; else FAVS[lema]=1;
+  gravarFavs();
+  return ehFav(lema);
+}
+
+/* ===================== Concordância =====================
+   O campo `nt` do verbete é prosa redigida a partir de `refs`, e `refs` é
+   amostra: teto de 100 referências, mediana 2, e nada para as palavras muito
+   frequentes (καί tem 5.126 ocorrências e zero refs). Serve de ilustração,
+   não de concordância.
+
+   A lista completa não precisa ser armazenada: ela já está implícita na
+   lematização do Nestle 1904, que o núcleo traz inteira — 137.779 tokens,
+   100% cobertos, nenhum lema fora do léxico. Invertendo esse índice sai a
+   ocorrência exata de cada lema.
+
+   Construir custa uma passada por 137.779 tokens, e por isso é preguiçoso:
+   a primeira pintura da lista sai em 5 ms e não vai pagar essa conta. O
+   índice nasce na primeira vez que alguém abre uma concordância. */
+var _CONC=null;
+function concordancia(lema){
+  if(!_CONC){
+    _CONC={};
+    for(var ref in VERSOS){
+      var o=VERSOS[ref]; if(!o||!o.g) continue;
+      for(var i=0;i<o.g.length;i++){
+        var t=o.g[i]; if(!Array.isArray(t)) continue;
+        var a=_CONC[t[1]];
+        if(!a){ a=_CONC[t[1]]=[]; }
+        /* Um lema repetido no mesmo versículo conta uma vez: a lista é de
+           lugares onde ler, não de tokens. Os tokens vêm em ordem, então
+           basta olhar o último. */
+        if(a[a.length-1]!==ref) a.push(ref);
+      }
+    }
+    /* Ordem canônica, não a de iteração do objeto. */
+    var pos={}; CANON.forEach(function(l,i){ pos[l]=i; });
+    for(var k in _CONC) _CONC[k].sort(function(x,y){
+      var a=x.split("|"), b=y.split("|");
+      return (pos[a[0]]-pos[b[0]]) || (+a[1]-+b[1]) || (+a[2]-+b[2]);
+    });
+  }
+  return _CONC[lema]||[];
+}
+/* As formas gregas daquele lema dentro de um versículo — ἀγάπην, ἀγάπης.
+   Esse alinhamento é token a lema e é exato; é por isso que o destaque vai
+   no grego e não no vernáculo, que não tem alinhamento palavra a palavra. */
+/* A pontuação do Nestle 1904 vem colada ao token. Conferido no corpus inteiro,
+   o que aparece é: vírgula (9.440), ponto (5.712), ponto-alto U+0387 (2.355),
+   ponto-de-interrogação grego U+037E (969), travessão (30), parênteses e
+   colchetes (11). O apóstrofo U+2019 aparece 1.223 vezes e NÃO entra na lista:
+   ali ele é elisão — δι’, ἀλλ’, ἐπ’ —, faz parte da forma escrita, e cortá-lo
+   mostraria uma palavra que não está no texto. */
+var PONT_FIM = /[,.:;!?;··)\]—”»]+$/;
+var PONT_INI = /^[(\[—“«]+/;
+function formasNoVerso(ref,lema){
+  var o=VERSOS[ref], vistas=[], saida=[];
+  if(!o||!o.g) return saida;
+  o.g.forEach(function(t){
+    if(!Array.isArray(t) || t[1]!==lema) return;
+    var f=t[0].replace(PONT_INI,"").replace(PONT_FIM,"");
+    if(f && vistas.indexOf(f)===-1){ vistas.push(f); saida.push(f); }
+  });
+  return saida;
+}
 
 var CLASSES=[
   {id:"verbo",rot:T("filtro.verbos")},
@@ -621,33 +815,63 @@ var CLASSES=[
     el.setAttribute("placeholder", T(el.getAttribute("data-t-placeholder")));
   });
 
-  /* Seletor de idioma. Cada pacote nomeia a si mesmo na própria língua, por
-     isso as opções não passam por T(): "Español" é Español em qualquer tela. */
-  var idiomas = window.LEXIKON_IDIOMAS || [];
-  var sel = document.getElementById("langPick");
-  if(sel && idiomas.length > 1){
-    sel.innerHTML = idiomas.map(function(i){
-      return '<option value="'+i.codigo+'"'+(i.codigo===window.LEXIKON_IDIOMA?' selected':'')+'>'+i.nome+'</option>';
+  /* Idioma, dentro de Ajustes. Cada pacote nomeia a si mesmo na própria
+     língua, por isso os rótulos não passam por T(): "Español" é Español em
+     qualquer tela. Pacotes `oculto` não entram — existem, carregam por
+     ?lang=, mas não se oferecem. */
+  var idiomas = (window.LEXIKON_IDIOMAS || []).filter(function(i){ return !i.oculto; });
+  var segIdioma = document.getElementById("segIdioma");
+  if(segIdioma && idiomas.length > 1){
+    document.getElementById("secIdioma").hidden = false;
+    segIdioma.innerHTML = idiomas.map(function(i){
+      var on = i.codigo === window.LEXIKON_IDIOMA;
+      return '<button role="radio" aria-checked="'+on+'"'+(on?' class="on"':'')+
+        ' data-lang="'+i.codigo+'">'+i.nome+'</button>';
     }).join("");
-    sel.hidden = false;
-    sel.onchange = function(){
-      try{ localStorage.setItem("lexikon-idioma", sel.value); }catch(e){}
+    segIdioma.addEventListener("click", function(ev){
+      var b = ev.target.closest("[data-lang]"); if(!b) return;
+      if(b.dataset.lang === window.LEXIKON_IDIOMA) return;
+      try{ localStorage.setItem("lexikon-idioma", b.dataset.lang); }catch(e){}
       /* recarrega preservando o verbete aberto (a âncora é o lema grego, que
          é o mesmo em todos os pacotes) */
-      location.replace(location.pathname + "?lang=" + encodeURIComponent(sel.value) + location.hash);
-    };
+      location.replace(location.pathname + "?lang=" + encodeURIComponent(b.dataset.lang) + location.hash);
+    });
+    /* Qual texto bíblico esta escolha traz — é a consequência real de trocar
+       de pacote, e estava invisível no seletor antigo. */
+    var bib = document.getElementById("cfgBiblia");
+    if(bib && META.biblia) bib.textContent = META.biblia.nome + " · " + META.biblia.sigla;
   }
 })();
 
 /* ===================== Render: chips e alfabeto ===================== */
 var chipsEl=document.getElementById("chips");
+/* Favoritos entra como chip, não como aba. A faixa já existe e já é o lugar
+   onde se recorta a lista; uma barra de abas no rodapé custaria 56px fixos de
+   cromo numa tela de onde acabamos de tirar 400. */
 chipsEl.innerHTML='<button class="chip on" data-c="">'+T("filtro.todos")+'</button>'+
+  '<button class="chip chip-fav" data-fav="1" aria-pressed="false">'+
+    '<span class="estrela">★</span>'+T("filtro.favoritos")+'<span class="chip-n" id="chipFavN"></span></button>'+
   CLASSES.map(function(c){return '<button class="chip" data-c="'+c.id+'">'+c.rot+'</button>';}).join("");
 chipsEl.addEventListener("click",function(ev){
   var b=ev.target.closest(".chip"); if(!b)return;
-  chipsEl.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on")});
+  if(b.dataset.fav){
+    /* O chip de favoritos cruza com o de classe em vez de substituí-lo:
+       "meus favoritos que são verbos" é uma pergunta legítima. */
+    filtroFav=!filtroFav;
+    b.classList.toggle("on",filtroFav);
+    b.setAttribute("aria-pressed",filtroFav?"true":"false");
+    render(); return;
+  }
+  chipsEl.querySelectorAll(".chip:not(.chip-fav)").forEach(function(x){x.classList.remove("on")});
   b.classList.add("on"); filtroClasse=b.dataset.c||null; render();
 });
+function atualizarChipFav(){
+  var n=favTotal(), el=document.getElementById("chipFavN");
+  if(el) el.textContent = n ? n : "";
+  var chip=chipsEl.querySelector(".chip-fav");
+  if(chip) chip.classList.toggle("vazio", n===0);
+}
+atualizarChipFav();
 
 var ALFA="αβγδεζηθικλμνξοπρστυφχψω".split("");
 var alphaEl=document.getElementById("alpha");
@@ -810,7 +1034,11 @@ function cartao(e,i,t){
      torna a lista alcançável por teclado e por leitor de tela, e o que faz
      Ctrl/clique-do-meio abrirem noutra aba. O deep-link por hash já existia;
      aqui só se usa o elemento nativo que o aciona. */
+  var fav=ehFav(e.lema);
   return '<article class="entry" data-lema="'+escapeHtml(e.lema)+'" style="animation-delay:'+Math.min(i*18,300)+'ms">'+
+    '<button class="fav-btn'+(fav?' on':'')+'" data-fav-lema="'+escapeHtml(e.lema)+'"'+
+      ' aria-pressed="'+fav+'" title="'+escapeHtml(T(fav?"fav.remover":"fav.adicionar"))+'"'+
+      ' aria-label="'+escapeHtml(T(fav?"fav.remover":"fav.adicionar"))+'">'+(fav?"★":"☆")+'</button>'+
     '<div class="lemma"><a class="lemma-link" href="#'+encodeURIComponent(e.lema)+'">'+e.lema+'</a> <span class="translit">'+e.translit+'</span></div>'+
     '<div class="classe">'+escapeHtml(curtaClasse(e.classe))+'</div>'+
     glos+
@@ -866,12 +1094,17 @@ function render(){
   atualizarRefSummary();
   atualizarPainel();
   _lista=filtrar();
+  /* Recorte por favoritos depois de filtrar(): preserva o ranqueamento da
+     busca, que ordena por qualidade do acerto. */
+  if(filtroFav) _lista=_lista.filter(function(e){ return ehFav(e.lema); });
   _termoRealce = (!refAlvo) ? tirarAcentos(termo).trim() : "";
   _mostrados=0;
   if(_obs){ _obs.disconnect(); }
   if(!_lista.length){
     countEl.textContent=T("contagem.zero");
-    var msg = refAlvo
+    var msg = filtroFav
+      ? T(favTotal() ? "vazio.favoritosFiltro" : "vazio.favoritos")
+      : refAlvo
       ? T("vazio.ref",{ref:escapeHtml(refAlvo.rotulo),exemplo:escapeHtml(ABREV(refAlvo.livro)+" "+refAlvo.cap)})
       : T("vazio.busca",{termo:escapeHtml(termo)});
     resultsEl.innerHTML='<div class="empty"><div class="big">∅</div>'+msg+'</div>';
@@ -895,12 +1128,94 @@ function curtaClasse(c){ return (c||"").split(",")[0]; }
 function escapeHtml(s){ return (s||"").replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
 
 resultsEl.addEventListener("click",function(ev){
+  /* A estrela fica dentro do cartão, e o cartão inteiro abre o verbete:
+     sem esta saída antecipada, favoritar abriria a ficha por cima. */
+  var estrela=ev.target.closest("[data-fav-lema]");
+  if(estrela){
+    ev.preventDefault(); ev.stopPropagation();
+    var agora=alternarFav(estrela.dataset.favLema);
+    estrela.classList.toggle("on",agora);
+    estrela.textContent = agora ? "★" : "☆";
+    estrela.setAttribute("aria-pressed", agora?"true":"false");
+    var rot=T(agora?"fav.remover":"fav.adicionar");
+    estrela.setAttribute("title",rot); estrela.setAttribute("aria-label",rot);
+    atualizarChipFav();
+    /* Se a lista é a dos favoritos, tirar um favorito tem de tirá-lo da
+       lista — senão o cartão fica ali, fora do filtro que o selecionou. */
+    if(filtroFav && !agora) render();
+    return;
+  }
   var card=ev.target.closest(".entry"); if(!card)return;
   /* deixa Ctrl/Cmd/meio abrirem noutra aba, como em qualquer link */
   if(ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.button===1) return;
   ev.preventDefault();
   abrir(card.dataset.lema);
 });
+
+/* ===================== Seção "Ocorrências no NT" =====================
+   A seção já existia e mostrava o campo `nt`: a contagem exata e duas ou três
+   referências escolhidas. Isso fica — é prosa redigida, e carrega o juízo
+   editorial que uma lista não carrega ("ὁ θεὸς ἀγάπη ἐστίν"). O que se
+   acrescenta embaixo é a lista completa, que não estava em lugar nenhum.
+
+   Cada linha é um versículo: a referência, as formas gregas daquele lema ali
+   e o texto vernáculo. O destaque vai na forma grega porque o alinhamento
+   token-a-lema é exato; o vernáculo não tem alinhamento palavra a palavra e
+   por isso entra inteiro, sem grifo que eu não possa provar. */
+function pintarFavSheet(btn,on){
+  if(!btn) return;
+  var rot=T(on?"fav.remover":"fav.adicionar");
+  btn.textContent=(on?"★ ":"☆ ")+T(on?"fav.salvo":"fav.salvar");
+  btn.classList.toggle("on",!!on);
+  btn.setAttribute("aria-pressed",on?"true":"false");
+  btn.setAttribute("title",rot); btn.setAttribute("aria-label",rot);
+}
+
+var CONC_PAGINA=25;
+function secConcordancia(e){
+  var html='<div class="sec sec-conc"><h3>'+T("verbete.ocorrencias")+'</h3>';
+  if(e.nt) html+='<p>'+realce(e.nt)+'</p>';
+  var refs=concordancia(e.lema);
+  if(!refs.length){
+    html+='<p class="conc-vazia">'+T("conc.nenhuma")+'</p>';
+    return html+'</div>';
+  }
+  html+='<p class="conc-resumo">'+T("conc.resumo",{
+    versiculos: refs.length,
+    rotulo: T(refs.length===1?"conc.versiculo":"conc.versiculos")
+  })+'</p>';
+  html+='<ol class="conc" id="concLista" data-lema="'+escapeHtml(e.lema)+'"></ol>';
+  if(refs.length>CONC_PAGINA){
+    html+='<button class="act conc-mais" id="concMais"></button>';
+  }
+  return html+'</div>';
+}
+function linhaConc(ref,lema){
+  var o=VERSOS[ref]||{}, formas=formasNoVerso(ref,lema);
+  var partes=ref.split("|");
+  var rot=ABREV(partes[0])+" "+partes[1]+"."+partes[2];
+  return '<li><button class="conc-li" data-ref="'+escapeHtml(ref)+'">'+
+    '<span class="conc-ref">'+escapeHtml(rot)+'</span>'+
+    (formas.length?'<span class="conc-gk">'+formas.map(escapeHtml).join(" · ")+'</span>':'')+
+    (o.p?'<span class="conc-txt">'+escapeHtml(o.p)+'</span>':'')+
+  '</button></li>';
+}
+/* Preenche e pagina a lista da ficha aberta. Fica fora de abrir() porque o
+   botão "mostrar mais" chama de novo sem reconstruir a ficha inteira. */
+function pintarConc(lema){
+  var ol=document.getElementById("concLista"); if(!ol) return;
+  var refs=concordancia(lema);
+  var ja=ol.children.length;
+  var fim=Math.min(ja+CONC_PAGINA, refs.length), html="";
+  for(var i=ja;i<fim;i++) html+=linhaConc(refs[i],lema);
+  ol.insertAdjacentHTML("beforeend", html);
+  var btn=document.getElementById("concMais");
+  if(btn){
+    var restam=refs.length-fim;
+    if(restam<=0) btn.remove();
+    else btn.textContent=T("conc.mais",{n:Math.min(CONC_PAGINA,restam),restam:restam});
+  }
+}
 
 /* ===================== Modal de verbete ===================== */
 var overlay=document.getElementById("overlay"), sheet=document.getElementById("sheet");
@@ -924,6 +1239,7 @@ function abrir(lema){
 
   sheet.innerHTML=
     '<div class="sheet-head"><button class="close-x" id="closeX" aria-label="'+escapeHtml(T("verbete.fechar"))+'">×</button>'+
+      '<button class="fav-sheet" id="favSheet"></button>'+
       '<div class="lemma" id="sheetLema">'+e.lema+'</div>'+
       '<div class="translit">'+e.translit+'</div>'+
       '<div class="meta">'+meta+'</div>'+
@@ -933,7 +1249,7 @@ function abrir(lema){
       '<div class="sec"><h3>'+T("verbete.classe")+'</h3><p>'+escapeHtml(e.classe)+'</p></div>'+
       (e.abbott?'<div class="sec"><h3>Abbott-Smith <span class="source-tag">'+T("verbete.fonteAbbott")+'</span></h3><p>'+realce(e.abbott)+'</p></div>':'')+
       (e.lsj?'<div class="sec"><h3>Liddell-Scott-Jones <span class="source-tag">'+T("verbete.fonteLsj")+'</span></h3><p>'+realce(e.lsj)+'</p></div>':'')+
-      (e.nt?'<div class="sec"><h3>'+T("verbete.ocorrencias")+'</h3><p>'+realce(e.nt)+'</p></div>':'')+
+      secConcordancia(e)+
       secXref(T("verbete.cognatos"),e.cognatos)+
       secXref(T("verbete.verTambem"),e.verTambem)+
     '</div>'+
@@ -954,6 +1270,26 @@ function abrir(lema){
   sheet.querySelectorAll("[data-goto]").forEach(function(a){
     a.onclick=function(){ var alvo=this.dataset.goto; if(mapaLema[alvo]) abrir(alvo); };
   });
+
+  /* Estrela da ficha e da lista são o mesmo estado; o cartão atrás precisa
+     refletir o que mudou aqui, sem esperar um novo render. */
+  var favBtn=document.getElementById("favSheet");
+  pintarFavSheet(favBtn, ehFav(e.lema));
+  if(favBtn) favBtn.onclick=function(){
+    var agora=alternarFav(e.lema);
+    pintarFavSheet(favBtn,agora);
+    atualizarChipFav();
+    var naLista=resultsEl.querySelector('[data-fav-lema="'+(window.CSS&&CSS.escape?CSS.escape(e.lema):e.lema)+'"]');
+    if(naLista){
+      naLista.classList.toggle("on",agora);
+      naLista.textContent=agora?"★":"☆";
+      naLista.setAttribute("aria-pressed",agora?"true":"false");
+    }
+  };
+
+  pintarConc(e.lema);
+  var cMais=document.getElementById("concMais");
+  if(cMais) cMais.onclick=function(){ pintarConc(e.lema); };
   document.getElementById("copyEntry").onclick=function(){ copiar(textoVerbete(e),T("toast.verbeteCopiado")); };
   document.getElementById("copyLink").onclick=function(){ copiar(location.href,T("toast.linkCopiado")); };
   document.getElementById("shareEntry").onclick=function(){
@@ -984,6 +1320,21 @@ function textoVerbete(e){
   return L.join("\n");
 }
 var _focoAnterior=null;
+/* Tocar uma ocorrência leva ao versículo: fecha a ficha e joga a referência no
+   campo de versículo, que já sabe mostrar grego e vernáculo lado a lado com as
+   palavras do léxico clicáveis. É o modo leitura entrando pela palavra em vez
+   de pelo capítulo. Registrado uma vez só, no nó que não é recriado — dentro
+   de abrir() empilharia um ouvinte por verbete consultado. */
+sheet.addEventListener("click", function(ev){
+  var li=ev.target.closest(".conc-li"); if(!li) return;
+  var p=li.dataset.ref.split("|");
+  fechar();
+  refEl.value = ABREV(p[0])+" "+p[1]+"."+p[2];
+  refClear.style.display="";
+  refEl.dispatchEvent(new Event("input",{bubbles:true}));
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
 function fechar(){
   if(!overlay.classList.contains("open")) return;
   overlay.classList.remove("open");
@@ -993,7 +1344,75 @@ function fechar(){
   _focoAnterior=null;
 }
 overlay.addEventListener("click",function(ev){ if(ev.target===overlay) fechar(); });
-document.addEventListener("keydown",function(ev){ if(ev.key==="Escape") fechar(); });
+
+/* ===================== Ajustes =====================
+   Overlay próprio: fechar() do verbete limpa a âncora da URL, e os ajustes
+   não têm nada que ver com qual verbete está aberto. */
+var overlayCfg=document.getElementById("overlayCfg");
+var sheetCfg=document.getElementById("sheetCfg");
+var cfgBtn=document.getElementById("cfgBtn");
+var _focoAntesCfg=null;
+function cfgAberto(){ return overlayCfg.classList.contains("open"); }
+function abrirCfg(){
+  _focoAntesCfg=document.activeElement;
+  atualizarResumoFavs();
+  overlayCfg.classList.add("open");
+  document.body.style.overflow="hidden";
+  cfgBtn.setAttribute("aria-expanded","true");
+  sheetCfg.focus({preventScroll:true});
+}
+function fecharCfg(){
+  if(!cfgAberto()) return;
+  overlayCfg.classList.remove("open");
+  /* Só devolve a rolagem se o verbete também não estiver aberto. */
+  if(!overlay.classList.contains("open")) document.body.style.overflow="";
+  cfgBtn.setAttribute("aria-expanded","false");
+  if(_focoAntesCfg && document.contains(_focoAntesCfg)) _focoAntesCfg.focus({preventScroll:true});
+  _focoAntesCfg=null;
+}
+cfgBtn.onclick=abrirCfg;
+document.getElementById("cfgFechar").onclick=fecharCfg;
+overlayCfg.addEventListener("click",function(ev){ if(ev.target===overlayCfg) fecharCfg(); });
+overlayCfg.addEventListener("keydown",function(ev){
+  if(ev.key!=="Tab") return;
+  var foc=sheetCfg.querySelectorAll('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])');
+  if(!foc.length) return;
+  var primeiro=foc[0], ultimo=foc[foc.length-1];
+  if(ev.shiftKey && (document.activeElement===primeiro || document.activeElement===sheetCfg)){
+    ev.preventDefault(); ultimo.focus();
+  } else if(!ev.shiftKey && document.activeElement===ultimo){
+    ev.preventDefault(); primeiro.focus();
+  }
+});
+function atualizarResumoFavs(){
+  var n=favTotal();
+  var p=document.getElementById("cfgFavs");
+  if(p) p.textContent = n
+    ? T("cfg.favoritosContagem",{n:n,rotulo:T(n===1?"contagem.um":"contagem.varios")})
+    : T("cfg.favoritosVazio");
+  var b=document.getElementById("limparFavs");
+  if(b) b.disabled = !n;
+}
+document.getElementById("limparFavs").onclick=function(){
+  if(!favTotal()) return;
+  /* Apagar a lista inteira é a única ação destrutiva da interface, e não tem
+     desfazer: confirma antes. */
+  if(!confirm(T("cfg.limparConfirma",{n:favTotal()}))) return;
+  Object.keys(FAVS).forEach(function(l){ delete FAVS[l]; });
+  gravarFavs(); atualizarChipFav(); atualizarResumoFavs();
+  if(filtroFav) render(); else {
+    resultsEl.querySelectorAll("[data-fav-lema]").forEach(function(b){
+      b.classList.remove("on"); b.textContent="☆"; b.setAttribute("aria-pressed","false");
+    });
+  }
+  mostrarToast(T("toast.favoritosLimpos"));
+};
+
+/* Esc fecha o painel de cima primeiro. */
+document.addEventListener("keydown",function(ev){
+  if(ev.key!=="Escape") return;
+  if(cfgAberto()) fecharCfg(); else fechar();
+});
 
 /* Laço de Tab dentro da ficha: enquanto ela está aberta o teclado não deve
    escapar para a lista atrás, que continua no DOM. */
@@ -1077,28 +1496,59 @@ refClear.onclick=function(){ refEl.value="";refAlvo=null;refClear.style.display=
 
 /* ===================== Tema =====================
    O tema já foi resolvido no <head>, antes da primeira pintura (escolha
-   guardada, senão a preferência do sistema). Aqui só se reflete o estado no
-   botão e se alterna. A alternância passa a gravar "light" explicitamente:
-   sem isso, quem escolhesse claro num sistema escuro voltava ao escuro na
-   recarga seguinte. */
-var themeBtn=document.getElementById("themeBtn");
+   guardada, senão a preferência do sistema). Aqui só se reflete o estado nos
+   controles de Ajustes e se aplica a escolha. */
+/* Três estados, não dois. O bootstrap no <head> sempre respeitou o sistema
+   quando nada estava gravado; o botão de alternar escondia isso, porque a
+   primeira troca gravava uma preferência fixa que nunca mais soltava. Em
+   Ajustes "Sistema" é uma escolha, e apaga o que estava gravado. */
 function escuroAgora(){ return document.documentElement.getAttribute("data-theme")==="dark"; }
+function temaDoSistema(){
+  return (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+}
+function temaGravado(){
+  var v=null; try{ v=localStorage.getItem("lexikon-tema"); }catch(e){}
+  return (v==="light"||v==="dark") ? v : "sistema";
+}
+function aplicarTema(escolha){
+  var efetivo = escolha==="sistema" ? temaDoSistema() : escolha;
+  document.documentElement.setAttribute("data-theme", efetivo);
+  try{
+    if(escolha==="sistema") localStorage.removeItem("lexikon-tema");
+    else localStorage.setItem("lexikon-tema", escolha);
+  }catch(e){}
+  refletirTema();
+}
 function refletirTema(){
-  var d=escuroAgora();
-  themeBtn.textContent = d ? "☀" : "☾";
-  themeBtn.setAttribute("aria-pressed", d ? "true" : "false");
+  var d=escuroAgora(), atual=temaGravado();
   document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.remove(); });
   var m=document.createElement("meta");
   m.name="theme-color"; m.content = d ? "#1a1611" : "#f4ecdc";
   document.head.appendChild(m);
+  var seg=document.getElementById("segTema"); if(!seg) return;
+  seg.querySelectorAll("[data-tema]").forEach(function(b){
+    var on = b.dataset.tema===atual;
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-checked", on ? "true" : "false");
+  });
 }
-refletirTema();
-themeBtn.onclick=function(){
-  document.documentElement.setAttribute("data-theme", escuroAgora() ? "light" : "dark");
-  salvarTema(escuroAgora() ? "dark" : "light");
+(function montarTema(){
+  var seg=document.getElementById("segTema"); if(!seg) return;
+  seg.innerHTML=["light","dark","sistema"].map(function(v){
+    return '<button role="radio" aria-checked="false" data-tema="'+v+'">'+T("cfg.tema."+v)+'</button>';
+  }).join("");
+  seg.addEventListener("click",function(ev){
+    var b=ev.target.closest("[data-tema]"); if(!b) return;
+    aplicarTema(b.dataset.tema);
+  });
+  /* Com "Sistema" escolhido, seguir o aparelho quando ele virar. */
+  if(window.matchMedia){
+    var mq=matchMedia("(prefers-color-scheme: dark)");
+    var ouvir=function(){ if(temaGravado()==="sistema") aplicarTema("sistema"); };
+    if(mq.addEventListener) mq.addEventListener("change",ouvir); else if(mq.addListener) mq.addListener(ouvir);
+  }
   refletirTema();
-};
-function salvarTema(v){ try{localStorage.setItem("lexikon-tema",v)}catch(e){} }
+})();
 
 /* ===================== Deep-link inicial ===================== */
 function abrirDoHash(){ var h=decodeURIComponent((location.hash||"").replace(/^#/,"")); if(h&&mapaLema[h]) abrir(h); }

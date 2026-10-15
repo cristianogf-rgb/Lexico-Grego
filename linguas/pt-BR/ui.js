@@ -26,8 +26,37 @@ window.LEXIKON_PACK_UI = {
   "dica.acentos": "Acentos e diacríticos são ignorados",
   "dica.esc": "<kbd>Esc</kbd> fecha o verbete",
 
+  /* ajustes */
+  "cfg.titulo": "Ajustes",
+  "cfg.fechar": "Fechar ajustes",
+  "cfg.tema": "Tema",
+  "cfg.tema.light": "Claro",
+  "cfg.tema.dark": "Escuro",
+  "cfg.tema.sistema": "Sistema",
+  "cfg.idioma": "Idioma",
+  "cfg.favoritos": "Favoritos",
+  "cfg.favoritosContagem": "{n} {rotulo} na sua lista.",
+  "cfg.favoritosVazio": "Nenhum verbete salvo ainda. Toque na estrela de qualquer verbete para guardá-lo aqui.",
+  "cfg.limparFavoritos": "Apagar todos os favoritos",
+  "cfg.limparConfirma": "Apagar os {n} favoritos? Não há como desfazer.",
+
+  /* favoritos */
+  "fav.adicionar": "Salvar nos favoritos",
+  "fav.remover": "Remover dos favoritos",
+  "fav.salvar": "Salvar",
+  "fav.salvo": "Salvo",
+  "toast.favoritosLimpos": "Favoritos apagados",
+
+  /* concordância — a lista completa de ocorrências do verbete no NT */
+  "conc.resumo": "Todas as ocorrências · {versiculos} {rotulo}",
+  "conc.versiculo": "versículo",
+  "conc.versiculos": "versículos",
+  "conc.mais": "Mostrar mais {n} · restam {restam}",
+  "conc.nenhuma": "Este lema não ocorre no texto do Nestle 1904.",
+
   /* filtros e contagem */
   "filtro.todos": "Todos",
+  "filtro.favoritos": "Favoritos",
   "filtro.verbos": "Verbos",
   "filtro.substantivos": "Substantivos",
   "filtro.adjetivos": "Adjetivos",
@@ -41,6 +70,8 @@ window.LEXIKON_PACK_UI = {
   /* estados vazios */
   "vazio.ref": "Nenhum verbete do léxico aparece em <b>{ref}</b>.<br>Tente o capítulo inteiro (p.ex. {exemplo}) ou outro versículo.",
   "vazio.busca": "Nenhum verbete encontrado para &ldquo;{termo}&rdquo;.<br>Tente outra grafia, a transliteração ou um significado em português.",
+  "vazio.favoritos": "Você ainda não salvou nenhum verbete.<br>Toque na estrela de qualquer verbete e ele aparece aqui.",
+  "vazio.favoritosFiltro": "Nenhum favorito corresponde a este filtro.<br>Desmarque a classe ou a letra para ver a lista inteira.",
 
   /* painel de versículos */
   "versos.legenda": "Grego: <b>{grego}</b> · Português: <b>{biblia}</b> — domínio público. As palavras destacadas têm verbete; toque para abrir.",

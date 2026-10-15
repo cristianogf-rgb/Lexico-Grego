@@ -26,7 +26,36 @@ window.LEXIKON_PACK_UI = {
   "dica.esc": "<kbd>Esc</kbd> cierra la entrada",
 
   /* filtros y conteo */
+  /* ajustes */
+  "cfg.titulo": "Ajustes",
+  "cfg.fechar": "Cerrar ajustes",
+  "cfg.tema": "Tema",
+  "cfg.tema.light": "Claro",
+  "cfg.tema.dark": "Oscuro",
+  "cfg.tema.sistema": "Sistema",
+  "cfg.idioma": "Idioma",
+  "cfg.favoritos": "Favoritos",
+  "cfg.favoritosContagem": "{n} {rotulo} en su lista.",
+  "cfg.favoritosVazio": "Aún no hay entradas guardadas. Toque la estrella de cualquier entrada para guardarla aquí.",
+  "cfg.limparFavoritos": "Borrar todos los favoritos",
+  "cfg.limparConfirma": "¿Borrar los {n} favoritos? No se puede deshacer.",
+
+  /* favoritos */
+  "fav.adicionar": "Guardar en favoritos",
+  "fav.remover": "Quitar de favoritos",
+  "fav.salvar": "Guardar",
+  "fav.salvo": "Guardado",
+  "toast.favoritosLimpos": "Favoritos borrados",
+
+  /* concordancia — la lista completa de apariciones de la entrada en el NT */
+  "conc.resumo": "Todas las apariciones · {versiculos} {rotulo}",
+  "conc.versiculo": "versículo",
+  "conc.versiculos": "versículos",
+  "conc.mais": "Mostrar {n} más · quedan {restam}",
+  "conc.nenhuma": "Este lema no aparece en el texto de Nestle 1904.",
+
   "filtro.todos": "Todos",
+  "filtro.favoritos": "Favoritos",
   "filtro.verbos": "Verbos",
   "filtro.substantivos": "Sustantivos",
   "filtro.adjetivos": "Adjetivos",
@@ -40,6 +69,8 @@ window.LEXIKON_PACK_UI = {
   /* estados vacíos */
   "vazio.ref": "Ninguna entrada del léxico aparece en <b>{ref}</b>.<br>Pruebe el capítulo entero (p. ej. {exemplo}) u otro versículo.",
   "vazio.busca": "No se encontró ninguna entrada para &ldquo;{termo}&rdquo;.<br>Pruebe otra grafía, la transliteración o un significado en español.",
+  "vazio.favoritos": "Todavía no ha guardado ninguna entrada.<br>Toque la estrella de cualquier entrada y aparecerá aquí.",
+  "vazio.favoritosFiltro": "Ningún favorito corresponde a este filtro.<br>Desmarque la clase o la letra para ver la lista completa.",
 
   /* panel de versículos */
   "versos.legenda": "Griego: <b>{grego}</b> · Español: <b>{biblia}</b> — dominio público. Las palabras resaltadas tienen entrada; toque para abrir.",
