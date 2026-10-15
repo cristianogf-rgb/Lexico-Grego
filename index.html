@@ -609,7 +609,15 @@ try {
     }
   }
   var def = window.LEXIKON_IDIOMAS.filter(function (i) { return i.codigo === escolhido; })[0] || {};
-  if (def.herda) escreve(def.herda, TODOS);
+  if (def.herda) {
+    /* Do pai vem só o que o herdeiro NÃO traz. Carregar o versos.js de 1911
+       para sobrescrevê-lo três linhas depois custava 337 KB comprimidos a
+       cada primeira visita — 10% do download, baixado para ser descartado.
+       Conferido antes de cortar: o meta.js do herdeiro é completo, não
+       estende o do pai. */
+    var proprios = def.proprios || [];
+    escreve(def.herda, TODOS.filter(function (a) { return proprios.indexOf(a) === -1; }));
+  }
   escreve(escolhido, def.proprios || TODOS);
 })();
 </script>
