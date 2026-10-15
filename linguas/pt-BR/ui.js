@@ -26,6 +26,23 @@ window.LEXIKON_PACK_UI = {
   "dica.acentos": "Acentos e diacríticos são ignorados",
   "dica.esc": "<kbd>Esc</kbd> fecha o verbete",
 
+  /* instalação na tela inicial */
+  "instalar.titulo": "Instalar na tela inicial",
+  "instalar.convite": "Funciona sem internet.",
+  "instalar.botao": "Instalar",
+  "instalar.dispensar": "Agora não",
+  "instalar.fechar": "Fechar",
+  "instalar.nota": "Deixa o Léxikon como aplicativo neste aparelho, funcionando sem internet.",
+  /* No iPhone o botão não instala: a Apple não dá essa API a site nenhum.
+     Ele abre as instruções. O texto não promete o que não acontece. */
+  "instalar.notaIos": "No iPhone a instalação é feita pelo Safari, em dois toques. O botão mostra o caminho.",
+  "instalar.jaInstalado": "Já está instalado neste aparelho.",
+  "instalar.ios.titulo": "Instalar no iPhone",
+  "instalar.ios.p1": "Toque no botão de <b>compartilhar</b>, na barra de baixo do Safari.",
+  "instalar.ios.p2": "Role a lista para baixo e escolha <b>Adicionar à Tela de Início</b>.",
+  "instalar.ios.p3": "Confirme. O Léxikon passa a abrir como aplicativo, sem internet.",
+  "instalar.ios.safari": "Não achou a opção? O link provavelmente abriu dentro de outro aplicativo, e só o Safari tem esse item. Toque em <b>Abrir no Safari</b> e repita.",
+
   /* ajustes */
   "cfg.titulo": "Ajustes",
   "cfg.fechar": "Fechar ajustes",

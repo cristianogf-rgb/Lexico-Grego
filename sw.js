@@ -21,7 +21,7 @@
    instalou, para sempre, e não há aviso nenhum de que isso aconteceu.
    Trocar VERSAO faz o activate apagar os caches antigos e tudo ser rebaixado.
    É a única coisa neste repositório que, esquecida, falha em silêncio. */
-const VERSAO = "lexikon-v1";
+const VERSAO = "lexikon-v2";
 const CASCA = [
   "./",
   "./index.html",

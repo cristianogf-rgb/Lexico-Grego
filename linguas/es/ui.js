@@ -26,6 +26,21 @@ window.LEXIKON_PACK_UI = {
   "dica.esc": "<kbd>Esc</kbd> cierra la entrada",
 
   /* filtros y conteo */
+  /* instalación en la pantalla de inicio */
+  "instalar.titulo": "Instalar en la pantalla de inicio",
+  "instalar.convite": "Funciona sin internet.",
+  "instalar.botao": "Instalar",
+  "instalar.dispensar": "Ahora no",
+  "instalar.fechar": "Cerrar",
+  "instalar.nota": "Deja el Léxikon como aplicación en este dispositivo, funcionando sin internet.",
+  "instalar.notaIos": "En el iPhone la instalación se hace desde Safari, en dos toques. El botón muestra el camino.",
+  "instalar.jaInstalado": "Ya está instalado en este dispositivo.",
+  "instalar.ios.titulo": "Instalar en el iPhone",
+  "instalar.ios.p1": "Toque el botón de <b>compartir</b>, en la barra inferior de Safari.",
+  "instalar.ios.p2": "Baje por la lista y elija <b>Añadir a pantalla de inicio</b>.",
+  "instalar.ios.p3": "Confirme. El Léxikon pasa a abrirse como aplicación, sin internet.",
+  "instalar.ios.safari": "¿No encuentra la opción? El enlace probablemente se abrió dentro de otra aplicación, y solo Safari tiene ese elemento. Toque <b>Abrir en Safari</b> y repita.",
+
   /* ajustes */
   "cfg.titulo": "Ajustes",
   "cfg.fechar": "Cerrar ajustes",

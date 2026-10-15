@@ -334,7 +334,7 @@
     *,*::before,*::after{
       animation-duration:.01ms !important;animation-iteration-count:1 !important;
       transition-duration:.01ms !important;scroll-behavior:auto !important}
-    .entry,.sheet,.overlay.open,.ref-summary.on,.verse{animation:none !important}
+    .entry,.sheet,.overlay.open,.ref-summary.on,.verse,.barra-inst{animation:none !important}
     .entry:hover{transform:none}
   }
 
@@ -450,6 +450,42 @@
   .conc-gk{font-family:'Gentium Book Plus',serif;font-size:18px;color:var(--ink)}
   .conc-txt{font-size:15px;color:var(--ink-soft);line-height:1.5}
   .conc-mais{margin-top:14px}
+
+  /* ---------- Convite a instalar ---------- */
+  /* Fixa no rodapé, acima da área segura do iPhone. Não empurra o conteúdo:
+     a lista continua com a mesma altura e a mesma primeira tela. */
+  .barra-inst{position:fixed;left:0;right:0;bottom:0;z-index:40;
+    display:flex;align-items:center;gap:12px;
+    padding:12px 14px calc(12px + env(safe-area-inset-bottom,0px));
+    background:var(--card);border-top:1px solid var(--gold);
+    box-shadow:0 -10px 30px -18px var(--shadow);
+    animation:sobe .35s ease both}
+  @keyframes sobe{from{transform:translateY(100%)}to{transform:none}}
+  .barra-inst[hidden]{display:none}
+  /* A barra é fixa e flutua sobre a página; sem reservar o espaço dela, o
+     último cartão ficaria embaixo. O rodapé do .wrap já dava 80px e a barra
+     ocupa 71 — nove pixels de folga é margem de sorte, não de projeto. */
+  html.com-barra-inst .wrap{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+  .barra-inst-txt{flex:1;min-width:0;display:grid;gap:1px}
+  .barra-inst-txt b{font-family:'EB Garamond';font-size:15px;color:var(--ink);font-weight:600}
+  .barra-inst-txt span{font-size:13px;color:var(--ink-faint);font-style:italic;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .barra-inst .act{flex:0 0 auto;min-height:40px}
+  .inst-x{flex:0 0 auto;width:40px;height:40px;border:none;background:none;
+    color:var(--ink-faint);font-size:22px;line-height:1;cursor:pointer;
+    border-radius:50%;display:grid;place-items:center}
+  .inst-x:focus-visible,.barra-inst .act:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
+
+  /* Passos do iPhone: numerados pelo <ol>, com o pictograma do gesto ao lado. */
+  .passos{list-style:none;counter-reset:p;margin:4px 0 0;padding:0}
+  .passos li{counter-increment:p;display:grid;grid-template-columns:auto auto 1fr;
+    gap:12px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line-soft);
+    font-size:16px;color:var(--ink-soft);line-height:1.5}
+  .passos li::before{content:counter(p);font-family:'Cormorant Garamond';font-weight:600;
+    font-size:15px;color:var(--rubric);min-width:1.1em}
+  .passos li:last-child{border-bottom:none}
+  .passo-ic{font-size:17px;color:var(--ink-faint)}
+  .passos b{color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
@@ -540,8 +576,50 @@
         <p class="cfg-nota" id="cfgFavs"></p>
         <button class="act" id="limparFavs" data-t="cfg.limparFavoritos"></button>
       </div>
+      <!-- Quem dispensou a barra ainda encontra a instalação aqui. -->
+      <div class="sec" id="secInstalar" hidden>
+        <h3 data-t="instalar.titulo"></h3>
+        <p class="cfg-nota" id="cfgInstalarNota"></p>
+        <button class="act" id="cfgInstalar" data-t="instalar.botao"></button>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- Convite a instalar. Nasce escondido e só aparece quando o navegador diz
+     que dá (Android) ou quando é um iPhone fora da tela inicial. Some para
+     sempre ao ser dispensado ou instalado: é convite, não cobrança. -->
+<div class="barra-inst" id="barraInst" hidden>
+  <div class="barra-inst-txt">
+    <b data-t="instalar.titulo"></b>
+    <span data-t="instalar.convite"></span>
+  </div>
+  <button class="act primary" id="instAgora" data-t="instalar.botao"></button>
+  <button class="inst-x" id="instNao" data-t-title="instalar.dispensar">×</button>
+</div>
+
+<!-- iPhone: a Apple não expõe nenhuma API de instalação, então aqui só se
+     ensina o caminho. É a diferença honesta entre os dois sistemas. -->
+<div class="overlay" id="overlayInst">
+  <div class="sheet sheet-cfg" id="sheetInst" role="dialog" aria-modal="true"
+    aria-labelledby="instTitulo" tabindex="-1">
+    <div class="sheet-head">
+      <button class="close-x" id="instFechar" data-t-title="instalar.fechar">×</button>
+      <div class="cfg-titulo" id="instTitulo" data-t="instalar.ios.titulo"></div>
+    </div>
+    <div class="sheet-body">
+      <ol class="passos">
+        <li><span class="passo-ic" aria-hidden="true">&#x2191;</span><span data-t="instalar.ios.p1"></span></li>
+        <li><span class="passo-ic" aria-hidden="true">&#x2630;</span><span data-t="instalar.ios.p2"></span></li>
+        <li><span class="passo-ic" aria-hidden="true">&#x2713;</span><span data-t="instalar.ios.p3"></span></li>
+      </ol>
+      <p class="cfg-nota" data-t="instalar.ios.safari"></p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetLema" tabindex="-1"></div>
 </div>
 
 <div class="overlay" id="overlay">
@@ -1448,6 +1526,7 @@ function cfgAberto(){ return overlayCfg.classList.contains("open"); }
 function abrirCfg(){
   _focoAntesCfg=document.activeElement;
   atualizarResumoFavs();
+  if(window._atualizarInstalar) window._atualizarInstalar();
   overlayCfg.classList.add("open");
   document.body.style.overflow="hidden";
   cfgBtn.setAttribute("aria-expanded","true");
@@ -1503,8 +1582,26 @@ document.getElementById("limparFavs").onclick=function(){
 /* Esc fecha o painel de cima primeiro. */
 document.addEventListener("keydown",function(ev){
   if(ev.key!=="Escape") return;
-  if(cfgAberto()) fecharCfg(); else fechar();
+  if(window._instalarAberto && window._instalarAberto()) window._fecharInstalar();
+  else if(cfgAberto()) fecharCfg();
+  else fechar();
 });
+
+/* Laço de Tab no painel de instruções, como nos outros dois. */
+(function(){
+  var ov=document.getElementById("overlayInst"), sh=document.getElementById("sheetInst");
+  ov.addEventListener("keydown",function(ev){
+    if(ev.key!=="Tab") return;
+    var foc=sh.querySelectorAll('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])');
+    if(!foc.length) return;
+    var primeiro=foc[0], ultimo=foc[foc.length-1];
+    if(ev.shiftKey && (document.activeElement===primeiro || document.activeElement===sh)){
+      ev.preventDefault(); ultimo.focus();
+    } else if(!ev.shiftKey && document.activeElement===ultimo){
+      ev.preventDefault(); primeiro.focus();
+    }
+  });
+})();
 
 /* Laço de Tab dentro da ficha: enquanto ela está aberta o teclado não deve
    escapar para a lista atrás, que continua no DOM. */
@@ -1707,6 +1804,126 @@ if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
     navigator.serviceWorker.register("sw.js").catch(function(){});
   });
 }
+
+/* ===================== Convite a instalar =====================
+   Os dois sistemas não são simétricos, e a interface não finge que são.
+
+   Android/Chrome dispara `beforeinstallprompt`. Guardando o evento, o botão
+   abre o instalador nativo de verdade.
+
+   iOS não dispara nada: a Apple nunca implementou essa API, e nenhum site
+   consegue abrir o instalador por conta própria. Ali o botão só pode ensinar
+   o gesto. Chamá-lo de "Instalar" nos dois casos é honesto — é o que a
+   pessoa quer fazer —, mas o que acontece ao tocar é diferente, e a folha de
+   instruções diz isso sem rodeio. */
+(function(){
+  var barra=document.getElementById("barraInst");
+  var btnAgora=document.getElementById("instAgora");
+  var btnNao=document.getElementById("instNao");
+  var secCfg=document.getElementById("secInstalar");
+  var btnCfg=document.getElementById("cfgInstalar");
+  var notaCfg=document.getElementById("cfgInstalarNota");
+  var evento=null;
+
+  function jaInstalado(){
+    return (window.matchMedia && matchMedia("(display-mode: standalone)").matches) ||
+           navigator.standalone === true;
+  }
+  /* iPadOS 13+ se apresenta como Macintosh; o toque é o que o denuncia. */
+  function ehIOS(){
+    var ua=navigator.userAgent;
+    return /iPad|iPhone|iPod/.test(ua) ||
+           (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  }
+  function dispensado(){
+    try{ return localStorage.getItem("lexikon-instalar-nao")==="1"; }catch(e){ return false; }
+  }
+  function dispensar(){
+    try{ localStorage.setItem("lexikon-instalar-nao","1"); }catch(e){}
+    esconderBarra();
+  }
+  function esconderBarra(){
+    barra.hidden=true;
+    document.documentElement.classList.remove("com-barra-inst");
+  }
+
+  /* Painel de instruções do iPhone — fecha por ×, por clique fora e por Esc. */
+  var ovInst=document.getElementById("overlayInst");
+  var shInst=document.getElementById("sheetInst");
+  var focoAntesInst=null;
+  function instAberto(){ return ovInst.classList.contains("open"); }
+  function abrirInst(){
+    focoAntesInst=document.activeElement;
+    ovInst.classList.add("open");
+    document.body.style.overflow="hidden";
+    shInst.focus({preventScroll:true});
+  }
+  function fecharInst(){
+    if(!instAberto()) return;
+    ovInst.classList.remove("open");
+    if(!overlay.classList.contains("open") && !cfgAberto()) document.body.style.overflow="";
+    if(focoAntesInst && document.contains(focoAntesInst)) focoAntesInst.focus({preventScroll:true});
+    focoAntesInst=null;
+  }
+  document.getElementById("instFechar").onclick=fecharInst;
+  ovInst.addEventListener("click",function(ev){ if(ev.target===ovInst) fecharInst(); });
+  window._fecharInstalar=fecharInst;
+  window._instalarAberto=instAberto;
+
+  function instalar(){
+    if(evento){
+      /* Android: o diálogo real. O evento só serve uma vez. */
+      evento.prompt();
+      evento.userChoice.then(function(r){
+        if(r && r.outcome==="accepted"){ esconderBarra(); }
+        evento=null;
+        atualizarCfg();
+      }).catch(function(){});
+    } else if(ehIOS()){
+      abrirInst();
+    }
+  }
+  btnAgora.onclick=instalar;
+  btnCfg.onclick=function(){ if(typeof fecharCfg==="function") fecharCfg(); instalar(); };
+  btnNao.onclick=dispensar;
+
+  function podeOferecer(){ return !jaInstalado() && (evento !== null || ehIOS()); }
+  function mostrarBarra(){
+    if(!podeOferecer() || dispensado()) return;
+    barra.hidden=false;
+    document.documentElement.classList.add("com-barra-inst");
+  }
+  function atualizarCfg(){
+    if(!secCfg) return;
+    if(jaInstalado()){
+      secCfg.hidden=false; btnCfg.hidden=true;
+      notaCfg.textContent=T("instalar.jaInstalado");
+    } else if(podeOferecer()){
+      secCfg.hidden=false; btnCfg.hidden=false;
+      notaCfg.textContent=T(ehIOS()?"instalar.notaIos":"instalar.nota");
+    } else {
+      secCfg.hidden=true;
+    }
+  }
+  window._atualizarInstalar=atualizarCfg;
+
+  window.addEventListener("beforeinstallprompt",function(ev){
+    ev.preventDefault();      /* sem isto o Chrome usa o próprio banner */
+    evento=ev;
+    mostrarBarra();
+    atualizarCfg();
+  });
+  window.addEventListener("appinstalled",function(){
+    evento=null; esconderBarra(); atualizarCfg();
+  });
+
+  /* O iPhone não avisa nada, então o convite entra depois que a lista já
+     pintou — nunca antes, para não disputar a primeira tela. */
+  if(ehIOS() && !jaInstalado() && !dispensado()){
+    setTimeout(mostrarBarra, 2500);
+  }
+  atualizarCfg();
+})();
 </script>
 </body>
 </html>
