@@ -11,6 +11,23 @@ teclado grego) ou pelo **significado em português** dentro das definições, tu
 ignorando acentos e diacríticos. Cada verbete cruza automaticamente para termos
 da mesma família e do mesmo campo semântico. Tema claro/escuro. Compartilhável por link.
 
+## Onde usar
+
+**<https://cristianogf-rgb.github.io/Lexico-Grego/>**
+
+Abre em qualquer navegador, sem conta e sem instalar nada. No celular pode ser
+instalado na tela inicial e passa a funcionar sem internet: no Android, pelo
+menu do Chrome → *Instalar aplicativo*; no iPhone, pelo Safari → botão de
+compartilhar → *Adicionar à Tela de Início*.
+
+A primeira visita baixa cerca de **3 MB** (o léxico inteiro mais o texto grego
+do Nestle 1904). Depois disso não baixa mais nada.
+
+> **Ao publicar dados novos, incremente `VERSAO` em `sw.js`.**
+> O cache do service worker é "cache primeiro": quem já instalou fica com os
+> verbetes do dia da instalação até que essa versão mude. É a única coisa
+> neste repositório que, esquecida, falha em silêncio.
+
 ---
 
 ## O que é este pacote

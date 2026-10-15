@@ -15,6 +15,12 @@
    mudam sozinhos. */
 "use strict";
 
+/* ATENÇÃO — ao publicar dados novos, incremente VERSAO.
+   O cache é "cache primeiro": uma vez guardado, lexico.js nunca mais é
+   buscado na rede. Quem já instalou fica com os verbetes do dia em que
+   instalou, para sempre, e não há aviso nenhum de que isso aconteceu.
+   Trocar VERSAO faz o activate apagar os caches antigos e tudo ser rebaixado.
+   É a única coisa neste repositório que, esquecida, falha em silêncio. */
 const VERSAO = "lexikon-v1";
 const CASCA = [
   "./",
