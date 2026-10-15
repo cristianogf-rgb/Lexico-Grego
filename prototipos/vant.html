@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Léxikon · gramática Vant</title>
+<meta name="description" content="Comparação: o mesmo léxico montado com Vue 3 + Vant, para medir o que a gramática de componentes dá e o que ela cobra.">
+<script>
+(function(){
+  var t=null; try{ t=localStorage.getItem("lexikon-tema"); }catch(e){}
+  if(t!=="light"&&t!=="dark") t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Gentium+Book+Plus:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+<!-- Vant vendorizado: nada de CDN em tempo de execução, para o app continuar
+     abrindo por file:// como o original. -->
+<link rel="stylesheet" href="vendor/vant.css">
+<style>
+  /* Tokens do Léxikon. O Vant é temático por variável CSS própria
+     (--van-*), então a prova aqui é exatamente esta: o quanto ele veste a
+     roupa deste app sem virar outra coisa. */
+  :root{
+    --paper:#f4ecdc; --paper-2:#efe5d0; --ink:#241c14; --ink-soft:#4a3d2e; --ink-faint:#6f6049;
+    --rubric:#8c2f23; --gold:#9a7b32; --line:#d8c8a8; --line-soft:#e3d6bb; --card:#fbf5e7;
+  }
+  html[data-theme="dark"]{
+    --paper:#1a1611; --paper-2:#221d16; --ink:#ece2cf; --ink-soft:#cdbfa6; --ink-faint:#b09e80;
+    --rubric:#cf6c54; --gold:#cbab6e; --line:#3a3025; --line-soft:#2e2620; --card:#241e17;
+  }
+  html,body{background:var(--paper);color:var(--ink);margin:0;
+    font-family:'EB Garamond',Georgia,serif;-webkit-tap-highlight-color:transparent}
+  #app{min-height:100dvh}
+
+  /* Reescrita dos tokens do próprio Vant para a paleta da casa. */
+  :root, html[data-theme="dark"]{
+    --van-background:var(--paper);
+    --van-background-2:var(--card);
+    --van-text-color:var(--ink);
+    --van-text-color-2:var(--ink-faint);
+    --van-text-color-3:var(--ink-faint);
+    --van-primary-color:var(--rubric);
+    --van-border-color:var(--line);
+    --van-active-color:var(--sel,#e9d9b3);
+    --van-cell-background:var(--card);
+    --van-cell-text-color:var(--ink);
+    --van-cell-border-color:var(--line-soft);
+    --van-search-background:var(--paper);
+    --van-search-content-background:var(--card);
+    --van-field-input-text-color:var(--ink);
+    --van-field-placeholder-text-color:var(--ink-faint);
+    --van-index-bar-index-font-size:12px;
+    --van-index-bar-index-line-height:18px;
+    --van-index-anchor-text-color:var(--rubric);
+    --van-index-anchor-background:var(--paper-2);
+    --van-collapse-item-content-background:var(--paper-2);
+    --van-floating-panel-background:var(--card);
+    --van-popup-background:var(--card);
+    --van-tag-default-color:var(--ink-faint);
+    --van-font-size-md:16px;
+  }
+
+  .marca{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:8px max(14px,env(safe-area-inset-left)) 4px max(14px,env(safe-area-inset-right));
+    background:var(--paper)}
+  .marca h1{font-family:'Gentium Book Plus',serif;font-weight:700;font-size:24px;margin:0;color:var(--ink)}
+  .marca button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+    background:transparent;color:var(--ink-soft);font-size:15px;cursor:pointer}
+
+  /* Conteúdo: o lema continua em Gentium porque é conteúdo, não cromo. */
+  .lema{font-family:'Gentium Book Plus',serif;font-size:24px;line-height:1.15;color:var(--ink)}
+  .translit{font-style:italic;color:var(--rubric);font-size:14px;margin-left:6px}
+  .classe{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin-top:3px}
+  .glosas{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap}
+  .ficha{padding:16px 16px 28px}
+  .ficha .lema{font-size:32px}
+  .ficha .prosa{margin-top:12px;font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+  .ficha .prosa .gk{font-family:'Gentium Book Plus',serif;color:var(--ink)}
+  .ficha .rot{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--rubric);
+    margin:16px 0 5px;font-weight:600}
+  .medida{padding:10px 16px;font-size:12px;color:var(--ink-faint);border-top:1px solid var(--line)}
+  .medida b{color:var(--ink-soft)}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <van-config-provider :theme="temaVant">
+
+    <div class="marca">
+      <h1>Λέξικον</h1>
+      <button @click="virarTema" :aria-label="'Alternar tema'">{{ escuro ? '☀' : '☾' }}</button>
+    </div>
+
+    <van-sticky>
+      <!-- Sem build, o template é lido do DOM pelo parser do navegador, e HTML
+           não aceita elemento customizado auto-fechado: `<van-search />` vira
+           uma tag de abertura que engole tudo o que vem depois. Daí o
+           fechamento explícito em todos eles. -->
+      <van-search v-model="termo" shape="round" :placeholder="placeholder"
+                  @update:model-value="buscar" clearable></van-search>
+    </van-sticky>
+
+    <van-collapse v-model="filtrosAbertos">
+      <van-collapse-item :title="rotuloFiltro" name="f">
+        <van-space wrap>
+          <van-tag v-for="c in classes" :key="c.id" size="large" round
+                   :type="filtroClasse===c.id ? 'primary' : 'default'"
+                   :plain="filtroClasse!==c.id"
+                   @click="trocarClasse(c.id)">{{ c.rot }}</van-tag>
+        </van-space>
+      </van-collapse-item>
+    </van-collapse>
+
+    <div class="medida">
+      <b>{{ total }}</b> verbetes · montagem da lista: <b>{{ ms }} ms</b> · componentes Vant na tela: <b>{{ nos }}</b>
+    </div>
+
+    <van-empty v-if="!grupos.length" :description="'Nada para «' + termo + '»'"></van-empty>
+
+    <van-index-bar v-else :index-list="letras" :sticky="true" highlight-color="var(--rubric)">
+      <template v-for="g in grupos" :key="g.letra">
+        <van-index-anchor :index="g.letra"></van-index-anchor>
+        <van-cell v-for="e in g.itens" :key="e.lema" clickable @click="abrir(e)">
+          <template #title>
+            <span class="lema">{{ e.lema }}</span><span class="translit">{{ e.translit }}</span>
+            <div class="classe">{{ (e.classe||'').split(',')[0] }}</div>
+            <div class="glosas" v-if="e.pt && e.pt.length">
+              <van-tag v-for="g2 in e.pt.slice(0,3)" :key="g2" plain type="primary">{{ g2 }}</van-tag>
+            </div>
+          </template>
+        </van-cell>
+      </template>
+    </van-index-bar>
+
+    <van-floating-panel v-if="sel" v-model:height="alturaFicha" :anchors="ancoras">
+      <div class="ficha">
+        <div><span class="lema">{{ sel.lema }}</span><span class="translit">{{ sel.translit }}</span></div>
+        <div class="classe">{{ sel.classe }}</div>
+        <div class="glosas" v-if="sel.pt && sel.pt.length" style="margin-top:12px">
+          <van-tag v-for="g3 in sel.pt" :key="g3" type="primary" size="medium">{{ g3 }}</van-tag>
+        </div>
+        <div class="rot" v-if="sel.abbott">Abbott-Smith</div>
+        <p class="prosa" v-if="sel.abbott" v-html="realce(sel.abbott)"></p>
+        <div class="rot" v-if="sel.morf">Flexão</div>
+        <p class="prosa" v-if="sel.morf"><span class="gk">{{ sel.morf }}</span></p>
+        <van-button block plain type="primary" style="margin-top:18px"
+                    :href="'../index.html#' + encodeURIComponent(sel.lema)">Abrir no léxico</van-button>
+      </div>
+    </van-floating-panel>
+
+  </van-config-provider>
+</div>
+
+<script src="vendor/vue.global.prod.js"></script>
+<script src="vendor/vant.min.js"></script>
+
+<script src="../nucleo/livros.js"></script>
+<script src="../nucleo/lexico.js"></script>
+<script src="../nucleo/versos.js"></script>
+<script>
+(function(){
+  var guardado=null; try{ guardado=localStorage.getItem("lexikon-idioma"); }catch(e){}
+  var daUrl=(location.search.match(/[?&]lang=([\w-]+)/)||[])[1];
+  var esc=daUrl||guardado||"pt-BR";
+  window.VANT_IDIOMA=esc;
+  var TODOS=["meta.js","ui.js","livros.js","lexico.js","versos.js"];
+  function escreve(c,a){ for(var i=0;i<a.length;i++) document.write('<script src="../linguas/'+c+"/"+a[i]+'"><\/script>'); }
+  if(esc==="pt-BR-atual"){ escreve("pt-BR",TODOS); escreve("pt-BR-atual",["meta.js","versos.js"]); }
+  else escreve(esc,TODOS);
+})();
+</script>
+<script src="../montar.js"></script>
+<script>
+"use strict";
+var UI = window.LEXIKON_PACK_UI || {};
+function T(k){ return UI[k]!==undefined ? UI[k] : k; }
+
+var DADOS = (window.LEXICON_DATA||[]).slice()
+  .sort(function(a,b){ return a.lema.localeCompare(b.lema,"el"); });
+
+function semAcento(s){ return (s||"").normalize("NFD").replace(/[̀-ͯͅ]/g,"").toLowerCase(); }
+DADOS.forEach(function(e){
+  e._k = [semAcento(e.lema), semAcento(e.translit), semAcento((e.pt||[]).join(" ")),
+          semAcento(e.abbott), semAcento(e.classe)].join(" ");
+  e._l = semAcento(e.lema)[0] || "?";
+});
+
+var ALFA = "αβγδεζηθικλμνξοπρστυφχψω".split("");
+
+var app = Vue.createApp({
+  data: function(){
+    return {
+      termo:"", filtroClasse:null, filtrosAbertos:[],
+      sel:null, alturaFicha:0, ancoras:[],
+      ms:0, nos:0, escuro: document.documentElement.getAttribute("data-theme")==="dark",
+      classes:[ {id:"verbo",rot:T("filtro.verbos")},
+                {id:"substantivo",rot:T("filtro.substantivos")},
+                {id:"adjetivo",rot:T("filtro.adjetivos")} ],
+      placeholder: T("busca.placeholder"),
+      _grupos:[], total:0
+    };
+  },
+  computed: {
+    temaVant: function(){ return this.escuro ? "dark" : "light"; },
+    letras: function(){ return this._grupos.map(function(g){ return g.letra; }); },
+    grupos: function(){ return this._grupos; },
+    rotuloFiltro: function(){
+      var c=this.classes.filter(function(x){ return x.id===this.filtroClasse; },this)[0];
+      return c ? c.rot : T("filtro.todos");
+    }
+  },
+  methods: {
+    realce: function(t){
+      return String(t||"").replace(/[&<>]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[m];})
+        .replace(/([Ͱ-Ͽἀ-῿]+)/g,'<span class="gk">$1</span>');
+    },
+    trocarClasse: function(id){ this.filtroClasse = (this.filtroClasse===id ? null : id); this.montar(); },
+    buscar: function(){ clearTimeout(this._t); this._t=setTimeout(this.montar.bind(this),140); },
+    abrir: function(e){
+      this.sel=e;
+      var h=Math.round(window.innerHeight*0.55);
+      this.ancoras=[h, Math.round(window.innerHeight*0.9)];
+      this.alturaFicha=h;
+    },
+    montar: function(){
+      var t0=performance.now();
+      var termo=semAcento(this.termo).trim(), classe=this.filtroClasse;
+      var mapa={}, ordem=[];
+      for(var i=0;i<DADOS.length;i++){
+        var e=DADOS[i];
+        if(classe && (e.classe||"").toLowerCase().indexOf(classe)===-1) continue;
+        if(termo && e._k.indexOf(termo)===-1) continue;
+        var l=e._l;
+        if(!mapa[l]){ mapa[l]={letra:l,itens:[]}; ordem.push(l); }
+        mapa[l].itens.push(e);
+      }
+      ordem.sort(function(a,b){ return ALFA.indexOf(a)-ALFA.indexOf(b); });
+      this._grupos = ordem.map(function(l){ return mapa[l]; });
+      this.total = this._grupos.reduce(function(s,g){ return s+g.itens.length; },0);
+      var self=this;
+      this.$nextTick(function(){
+        self.ms = Math.round(performance.now()-t0);
+        self.nos = document.querySelectorAll('[class*="van-"]').length;
+      });
+    },
+    virarTema: function(){
+      this.escuro=!this.escuro;
+      document.documentElement.setAttribute("data-theme", this.escuro?"dark":"light");
+      try{ localStorage.setItem("lexikon-tema", this.escuro?"dark":"light"); }catch(e){}
+    }
+  },
+  mounted: function(){ this.montar(); }
+});
+app.use(vant);
+app.mount("#app");
+</script>
+</body>
+</html>
