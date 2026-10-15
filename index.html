@@ -409,6 +409,21 @@
   #limparFavs[disabled]{opacity:.45;cursor:default}
 
   /* ---------- Concordância ---------- */
+  /* Trilho de livros: uma linha que rola na horizontal, sempre. Quebrar em
+     várias linhas custaria quatro delas em ὁ (27 livros) e empurraria a lista
+     para fora da tela exatamente onde o filtro mais importa. */
+  .conc-livros{display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;margin-top:12px;
+    padding-bottom:6px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;scroll-snap-type:x proximity}
+  .conc-livro{flex:0 0 auto;scroll-snap-align:start;font-family:'EB Garamond';font-size:13px;
+    border:1px solid var(--line);background:transparent;color:var(--ink-soft);
+    padding:0 11px;min-height:34px;border-radius:18px;cursor:pointer;transition:.2s;
+    display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .conc-livro.on{background:var(--rubric);border-color:var(--rubric);color:#fff}
+  html[data-theme="dark"] .conc-livro.on{color:#1a1611}
+  .conc-livro:focus-visible{outline:2px solid var(--rubric);outline-offset:2px}
+  .conc-n{font-size:11px;opacity:.75;font-variant-numeric:tabular-nums}
+
   /* Legenda, não segundo título: em caixa-alta com entreletra ela competia com
      o h3 logo acima e a seção abria com dois cabeçalhos empilhados. */
   .conc-resumo{font-size:14px;color:var(--ink-faint);margin-top:12px;font-style:italic}
@@ -1172,22 +1187,62 @@ function pintarFavSheet(btn,on){
 }
 
 var CONC_PAGINA=25;
+var _concLema="", _concLivro=null;
+
+/* Em que livros o lema ocorre, em ordem canônica, com a contagem de cada um.
+   É o recorte que o uso real pede: quem está pregando está dentro de um livro,
+   e ὁ em 6.965 versículos só vira pergunta respondível depois de "em Romanos". */
+function livrosDaConc(lema){
+  var refs=concordancia(lema), ordem=[], n={};
+  for(var i=0;i<refs.length;i++){
+    var l=refs[i].split("|")[0];
+    if(n[l]===undefined){ n[l]=0; ordem.push(l); }
+    n[l]++;
+  }
+  return ordem.map(function(l){ return {livro:l, n:n[l]}; });
+}
+function refsDaConc(lema){
+  var refs=concordancia(lema);
+  if(!_concLivro) return refs;
+  var pre=_concLivro+"|";
+  return refs.filter(function(r){ return r.indexOf(pre)===0; });
+}
+/* Trilho de um nível só: não importa se o lema está em 3 livros ou em 27, o
+   custo vertical é sempre uma linha. Uma faixa que quebra em quatro linhas
+   empurraria a lista para fora da tela justamente nas palavras em que ela é
+   mais necessária. */
+function trilhoLivros(lema){
+  var livros=livrosDaConc(lema);
+  if(livros.length<2) return "";
+  var total=concordancia(lema).length;
+  return '<div class="conc-livros" id="concLivros" role="tablist">'+
+    '<button role="tab" class="conc-livro'+(_concLivro?'':' on')+'" data-livro="">'+
+      T("filtro.todos")+'<span class="conc-n">'+total+'</span></button>'+
+    livros.map(function(x){
+      return '<button role="tab" class="conc-livro'+(_concLivro===x.livro?' on':'')+
+        '" data-livro="'+escapeHtml(x.livro)+'" title="'+escapeHtml(NOME_LIVRO(x.livro))+'">'+
+        escapeHtml(ABREV(x.livro))+'<span class="conc-n">'+x.n+'</span></button>';
+    }).join("")+
+  '</div>';
+}
+function resumoConc(lema){
+  var n=refsDaConc(lema).length;
+  var rotulo=T(n===1?"conc.versiculo":"conc.versiculos");
+  return _concLivro
+    ? T("conc.emLivro",{livro:NOME_LIVRO(_concLivro), versiculos:n, rotulo:rotulo})
+    : T("conc.resumo",{versiculos:n, rotulo:rotulo});
+}
 function secConcordancia(e){
   var html='<div class="sec sec-conc"><h3>'+T("verbete.ocorrencias")+'</h3>';
   if(e.nt) html+='<p>'+realce(e.nt)+'</p>';
-  var refs=concordancia(e.lema);
-  if(!refs.length){
+  if(!concordancia(e.lema).length){
     html+='<p class="conc-vazia">'+T("conc.nenhuma")+'</p>';
     return html+'</div>';
   }
-  html+='<p class="conc-resumo">'+T("conc.resumo",{
-    versiculos: refs.length,
-    rotulo: T(refs.length===1?"conc.versiculo":"conc.versiculos")
-  })+'</p>';
+  html+=trilhoLivros(e.lema);
+  html+='<p class="conc-resumo" id="concResumo"></p>';
   html+='<ol class="conc" id="concLista" data-lema="'+escapeHtml(e.lema)+'"></ol>';
-  if(refs.length>CONC_PAGINA){
-    html+='<button class="act conc-mais" id="concMais"></button>';
-  }
+  html+='<button class="act conc-mais" id="concMais" hidden></button>';
   return html+'</div>';
 }
 function linhaConc(ref,lema){
@@ -1201,19 +1256,23 @@ function linhaConc(ref,lema){
   '</button></li>';
 }
 /* Preenche e pagina a lista da ficha aberta. Fica fora de abrir() porque o
-   botão "mostrar mais" chama de novo sem reconstruir a ficha inteira. */
-function pintarConc(lema){
+   botão "mostrar mais" e a troca de livro chamam de novo sem reconstruir a
+   ficha inteira. `reinicia` zera a paginação — é o que a troca de livro faz. */
+function pintarConc(lema, reinicia){
   var ol=document.getElementById("concLista"); if(!ol) return;
-  var refs=concordancia(lema);
+  if(reinicia) ol.innerHTML="";
+  var refs=refsDaConc(lema);
   var ja=ol.children.length;
   var fim=Math.min(ja+CONC_PAGINA, refs.length), html="";
   for(var i=ja;i<fim;i++) html+=linhaConc(refs[i],lema);
   ol.insertAdjacentHTML("beforeend", html);
+  var res=document.getElementById("concResumo");
+  if(res) res.textContent=resumoConc(lema);
   var btn=document.getElementById("concMais");
   if(btn){
     var restam=refs.length-fim;
-    if(restam<=0) btn.remove();
-    else btn.textContent=T("conc.mais",{n:Math.min(CONC_PAGINA,restam),restam:restam});
+    btn.hidden = restam<=0;
+    if(restam>0) btn.textContent=T("conc.mais",{n:Math.min(CONC_PAGINA,restam),restam:restam});
   }
 }
 
@@ -1222,6 +1281,9 @@ var overlay=document.getElementById("overlay"), sheet=document.getElementById("s
 function abrir(lema){
   var e=mapaLema[lema]; if(!e)return;
   location.hash = encodeURIComponent(lema);
+  /* Zerado antes de montar a ficha: secConcordancia() lê este estado, e sem
+     isso o filtro de livro do verbete anterior vazaria para o próximo. */
+  _concLema=lema; _concLivro=null;
   var meta="";
   if(e.morf) meta+='<span><b>'+T("verbete.flexao")+'</b><span class="morf">'+e.morf+'</span></span>';
   if(e.raiz && e.raiz!=="—") meta+='<span><b>'+T("verbete.raiz")+'</b><span class="morf">'+e.raiz+'</span></span>';
@@ -1287,9 +1349,23 @@ function abrir(lema){
     }
   };
 
-  pintarConc(e.lema);
+  pintarConc(e.lema, true);
   var cMais=document.getElementById("concMais");
   if(cMais) cMais.onclick=function(){ pintarConc(e.lema); };
+  var trilho=document.getElementById("concLivros");
+  if(trilho) trilho.onclick=function(ev){
+    var b=ev.target.closest("[data-livro]"); if(!b) return;
+    _concLivro = b.dataset.livro || null;
+    trilho.querySelectorAll("[data-livro]").forEach(function(x){
+      x.classList.toggle("on", x===b);
+      x.setAttribute("aria-selected", x===b ? "true" : "false");
+    });
+    pintarConc(e.lema, true);
+    /* Trocar de livro recomeça a lista: devolve o olho ao topo dela, não ao
+       topo da ficha, que jogaria fora o contexto do verbete. */
+    var ol=document.getElementById("concLista");
+    if(ol) ol.scrollIntoView({block:"nearest"});
+  };
   document.getElementById("copyEntry").onclick=function(){ copiar(textoVerbete(e),T("toast.verbeteCopiado")); };
   document.getElementById("copyLink").onclick=function(){ copiar(location.href,T("toast.linkCopiado")); };
   document.getElementById("shareEntry").onclick=function(){

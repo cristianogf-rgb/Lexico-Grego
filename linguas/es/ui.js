@@ -51,6 +51,7 @@ window.LEXIKON_PACK_UI = {
   "conc.resumo": "Todas las apariciones · {versiculos} {rotulo}",
   "conc.versiculo": "versículo",
   "conc.versiculos": "versículos",
+  "conc.emLivro": "En {livro} · {versiculos} {rotulo}",
   "conc.mais": "Mostrar {n} más · quedan {restam}",
   "conc.nenhuma": "Este lema no aparece en el texto de Nestle 1904.",
 
